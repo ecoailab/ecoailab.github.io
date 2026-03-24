@@ -406,6 +406,17 @@
             transform: scale(1.03);
         }
         
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
         .gallery-placeholder {
             width: 100%;
             height: 100%;
@@ -708,42 +719,30 @@
         </div>
         <div class="gallery-grid">
             <div class="gallery-item">
-                <div class="gallery-placeholder">
-                    <span>🏆</span>
-                    <p>Google Sites Awards<br>수상 이미지</p>
-                </div>
+                <img src="https://images.unsplash.com/photo-1567427018141-0584cfcbf1b8?w=800&q=80" alt="수상 실적" loading="lazy">
                 <div class="gallery-overlay">
-                    <h4>수상 실적</h4>
+                    <h4>🏆 수상 실적</h4>
                     <p>국내외 학술대회 수상</p>
                 </div>
             </div>
             <div class="gallery-item">
-                <div class="gallery-placeholder">
-                    <span>📸</span>
-                    <p>Google Sites Memories<br>연구실 활동 사진</p>
-                </div>
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80" alt="연구실 활동" loading="lazy">
                 <div class="gallery-overlay">
-                    <h4>연구실 활동</h4>
+                    <h4>📸 연구실 활동</h4>
                     <p>세미나 및 워크샵</p>
                 </div>
             </div>
             <div class="gallery-item">
-                <div class="gallery-placeholder">
-                    <span>🔬</span>
-                    <p>연구 프로젝트<br>데모 이미지</p>
-                </div>
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80" alt="연구 프로젝트" loading="lazy">
                 <div class="gallery-overlay">
-                    <h4>프로젝트</h4>
+                    <h4>🔬 연구 프로젝트</h4>
                     <p>진행 중인 연구 과제</p>
                 </div>
             </div>
             <div class="gallery-item">
-                <div class="gallery-placeholder">
-                    <span>🤝</span>
-                    <p>산학협력<br>파트너십</p>
-                </div>
+                <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&q=80" alt="산학협력" loading="lazy">
                 <div class="gallery-overlay">
-                    <h4>산학협력</h4>
+                    <h4>🤝 산학협력</h4>
                     <p>기업 및 기관 협력</p>
                 </div>
             </div>
@@ -756,9 +755,8 @@
             <h2 class="section-title">👥 연구실 구성원</h2>
         </div>
         <div class="professor-showcase">
-            <div class="professor-image">
-                <span>👨‍🏫</span>
-                <p>교수님 사진<br>(Google Sites)</p>
+            <div class="professor-image" style="padding: 0; overflow: hidden;">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop" alt="이상금 교수" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
             <div class="professor-info">
                 <h3>이상금 (Sangkeum Lee), Ph.D.</h3>
