@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoAI Lab - 한밭대학교 컴퓨터공학과</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0c4a6e 0%, #0891b2 100%);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .hero h2 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+        
+        .hero p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero .badges {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            margin-top: 40px;
+        }
+        
+        .cta-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 10px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-btn.primary {
+            background: white;
+            color: #0891b2;
+        }
+        
+        .cta-btn.secondary {
+            border: 2px solid white;
+            color: white;
+        }
+        
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        /* Stats Section */
+        .stats {
+            background: #f0f9ff;
+            padding: 60px 20px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .stat-number {
+            font-size: 3em;
+            font-weight: 700;
+            color: #0891b2;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 1.1em;
+            color: #64748b;
+            margin-top: 10px;
+        }
+        
+        /* Research Areas */
+        .research {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            color: #0c4a6e;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2em;
+            color: #64748b;
+            margin-bottom: 50px;
+        }
+        
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .research-card {
+            background: linear-gradient(135deg, #ecfeff 0%, #cffafe 100%);
+            padding: 30px;
+            border-radius: 16px;
+            border-left: 4px solid #06b6d4;
+            transition: transform 0.3s ease;
+        }
+        
+        .research-card:nth-child(2) {
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+            border-left-color: #10b981;
+        }
+        
+        .research-card:nth-child(3) {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border-left-color: #3b82f6;
+        }
+        
+        .research-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .research-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #0e7490;
+        }
+        
+        .research-card:nth-child(2) h3 {
+            color: #047857;
+        }
+        
+        .research-card:nth-child(3) h3 {
+            color: #1d4ed8;
+        }
+        
+        .research-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .research-card li {
+            padding: 8px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .research-card li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #0891b2;
+            font-weight: bold;
+        }
+        
+        /* Core Technologies */
+        .tech {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 80px 20px;
+        }
+        
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 50px auto 0;
+        }
+        
+        .tech-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .tech-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .tech-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        
+        .tech-card h3 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            color: #0c4a6e;
+        }
+        
+        .tech-card p {
+            color: #64748b;
+            font-size: 0.95em;
+        }
+        
+        /* Members Section */
+        .members {
+            padding: 80px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .professor-card {
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            padding: 40px;
+            border-radius: 20px;
+            margin: 30px auto;
+            max-width: 500px;
+        }
+        
+        .professor-card h3 {
+            color: #0369a1;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        
+        .professor-card p {
+            color: #64748b;
+            margin: 5px 0;
+        }
+        
+        .students {
+            margin-top: 40px;
+        }
+        
+        .student-tags {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .student-tag {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+        
+        .student-tag:nth-child(2) {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+        }
+        
+        .student-tag:nth-child(3) {
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+        }
+        
+        /* Contact Section */
+        .contact {
+            background: #f8fafc;
+            padding: 80px 20px;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 50px auto 0;
+        }
+        
+        .contact-item {
+            text-align: center;
+            padding: 30px;
+        }
+        
+        .contact-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+        
+        .contact-item strong {
+            display: block;
+            color: #0c4a6e;
+            margin-bottom: 5px;
+        }
+        
+        .contact-item p {
+            color: #64748b;
+        }
+        
+        .welcome-banner {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            padding: 25px;
+            border-radius: 16px;
+            max-width: 600px;
+            margin: 40px auto 0;
+            text-align: center;
+        }
+        
+        .welcome-banner h4 {
+            color: #92400e;
+            margin: 0;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #06b6d4, #3b82f6);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #0891b2;
+            padding: 18px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        /* Footer */
+        footer {
+            background: #0f172a;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        footer p {
+            opacity: 0.8;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5em;
+            }
+            
+            .hero h2 {
+                font-size: 1.3em;
+            }
+            
+            .section-title {
+                font-size: 2em;
+            }
+            
+            .stat-number {
+                font-size: 2.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>EcoAI Lab</h1>
+        <h2>Eyes on the sky: Innovate for the future</h2>
+        <p>한밭대학교 EcoAI 연구실 - 환경에너지×인공지능의 융합을 통해 지속가능한 미래를 만들어갑니다</p>
+        <p class="badges">🚀 Quantum Computing · Reinforcement Learning · IoT/Security</p>
+        <div class="cta-buttons">
+            <a href="#research" class="cta-btn primary">연구 소개</a>
+            <a href="#contact" class="cta-btn secondary">연락처</a>
+        </div>
+    </section>
+    
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stat-item">
+            <span class="stat-number">20+</span>
+            <div class="stat-label">논문 게재</div>
+        </div>
+        <div class="stat-item">
+            <span class="stat-number">10+</span>
+            <div class="stat-label">진행 중인 프로젝트</div>
+        </div>
+        <div class="stat-item">
+            <span class="stat-number">30+</span>
+            <div class="stat-label">연구실 멤버</div>
+        </div>
+        <div class="stat-item">
+            <span class="stat-number">2018</span>
+            <div class="stat-label">설립 연도</div>
+        </div>
+    </section>
+    
+    <!-- Research Areas -->
+    <section class="research" id="research">
+        <h2 class="section-title">🎯 연구 분야</h2>
+        <p class="section-subtitle">Research Areas</p>
+        
+        <div class="research-grid">
+            <div class="research-card">
+                <h3>🌍 환경에너지 (Environmental Energy)</h3>
+                <ul>
+                    <li>스마트팩토리 에너지 최적화 시스템</li>
+                    <li>스마트홈 에너지 관리 및 효율화</li>
+                    <li>재생에너지 통합 및 예측 모델</li>
+                </ul>
+            </div>
+            
+            <div class="research-card">
+                <h3>🔒 IoT & 보안 (IoT & Security)</h3>
+                <ul>
+                    <li>IoT 센서 네트워크 및 데이터 수집</li>
+                    <li>AI 기반 사이버보안 시스템</li>
+                    <li>물리보안 및 에지 컴퓨팅</li>
+                </ul>
+            </div>
+            
+            <div class="research-card">
+                <h3>🤖 AI 기술 (AI Technologies)</h3>
+                <ul>
+                    <li>양자컴퓨팅 및 양자 머신러닝</li>
+                    <li>강화학습 기반 최적화</li>
+                    <li>멀티에이전트 시스템</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Core Technologies -->
+    <section class="tech">
+        <h2 class="section-title">✨ 핵심 기술</h2>
+        <p class="section-subtitle">Core Technologies</p>
+        
+        <div class="tech-grid">
+            <div class="tech-card">
+                <div class="tech-icon">⚛️</div>
+                <h3>Quantum AI</h3>
+                <p>양자컴퓨팅을 활용한 차세대 AI 알고리즘 연구</p>
+            </div>
+            
+            <div class="tech-card">
+                <div class="tech-icon">🔌</div>
+                <h3>Smart Grid</h3>
+                <p>지능형 전력망 최적화 및 에너지 효율화</p>
+            </div>
+            
+            <div class="tech-card">
+                <div class="tech-icon">🛡️</div>
+                <h3>Security</h3>
+                <p>AI 기반 사이버보안 및 위협 탐지</p>
+            </div>
+            
+            <div class="tech-card">
+                <div class="tech-icon">🤖</div>
+                <h3>Multi-Agent</h3>
+                <p>분산 AI 시스템 및 자율 에이전트</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Members Section -->
+    <section class="members">
+        <h2 class="section-title">👥 연구실 구성원</h2>
+        <p class="section-subtitle">Lab Members</p>
+        
+        <h3 style="margin-top: 40px; color: #0c4a6e;">교수 (Professor)</h3>
+        <div class="professor-card">
+            <h3>이상금 (Sangkeum Lee), Ph.D.</h3>
+            <p>한밭대학교 컴퓨터공학과 교수</p>
+            <p style="color: #94a3b8; font-size: 0.9em;">EcoAI Lab Director</p>
+        </div>
+        
+        <div class="students">
+            <h3 style="color: #0c4a6e;">학생 (Students)</h3>
+            <p>석사·박사과정 및 학부 연구생들과 함께 활발한 연구를 진행하고 있습니다.</p>
+            <div class="student-tags">
+                <span class="student-tag">석사과정</span>
+                <span class="student-tag">박사과정</span>
+                <span class="student-tag">학부연구생</span>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2 class="section-title">📞 연락처</h2>
+        <p class="section-subtitle">Contact Us</p>
+        
+        <div class="contact-grid">
+            <div class="contact-item">
+                <div class="contact-icon">📧</div>
+                <strong>Email</strong>
+                <p>sangkeum@hanbat.ac.kr</p>
+            </div>
+            
+            <div class="contact-item">
+                <div class="contact-icon">📞</div>
+                <strong>전화</strong>
+                <p>+82 42 821 1205</p>
+            </div>
+            
+            <div class="contact-item">
+                <div class="contact-icon">📍</div>
+                <strong>연구실</strong>
+                <p>N4-416, 한밭대학교</p>
+            </div>
+            
+            <div class="contact-item">
+                <div class="contact-icon">🏫</div>
+                <strong>주소</strong>
+                <p>대전광역시 유성구 동서대로 125</p>
+            </div>
+        </div>
+        
+        <div class="welcome-banner">
+            <h4>🤝 산학협력 및 인턴십 문의를 환영합니다!</h4>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>🚀 EcoAI Lab과 함께 미래를 만들어가세요</h2>
+        <p>환경과 AI 기술의 융합을 통해 지속가능한 미래를 만들어갑니다.</p>
+        <p>열정적인 학생들을 항상 환영합니다!</p>
+        <a href="mailto:sangkeum@hanbat.ac.kr" class="cta-button">연구실 문의하기</a>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <p><strong>EcoAI Lab</strong></p>
+        <p>한밭대학교 컴퓨터공학과 | N4-416</p>
+        <p style="margin-top: 10px; opacity: 0.6;">© 2024 EcoAI Lab. All rights reserved.</p>
+    </footer>
+</body>
+</html>
