@@ -1,845 +1,1049 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoAI Lab - 한밭대학교 컴퓨터공학과</title>
+    <title>EcoAI Lab | Hanbat National University</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --navy: #0f172a;
+            --navy-light: #1e293b;
+            --gold: #d4af37;
+            --gold-light: #f4d03f;
+            --white: #ffffff;
+            --gray-100: #f1f5f9;
+            --gray-300: #cbd5e1;
+            --gray-400: #94a3b8;
+            --gray-800: #1e293b;
+            
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+            --font-elegant: 'Cormorant Garamond', serif;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
-        :root {
-            --primary: #0891b2;
-            --primary-dark: #0c4a6e;
-            --secondary: #10b981;
-            --accent: #3b82f6;
-            --text: #1e293b;
-            --text-light: #64748b;
-            --bg-light: #f8fafc;
-            --gradient-hero: linear-gradient(135deg, #0c4a6e 0%, #0891b2 50%, #06b6d4 100%);
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        
-        html {
-            scroll-behavior: smooth;
-        }
-        
+
         body {
-            font-family: 'Inter', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: var(--font-body);
+            color: var(--gray-800);
+            background-color: var(--gray-100);
             line-height: 1.6;
-            color: var(--text);
             overflow-x: hidden;
         }
-        
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            color: var(--navy);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
         /* Navigation */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
+            background-color: rgba(15, 23, 42, 0.95);
             backdrop-filter: blur(10px);
             z-index: 1000;
-            padding: 15px 0;
-            box-shadow: var(--shadow);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 1rem 0;
             transition: all 0.3s ease;
         }
-        
-        nav.scrolled {
-            padding: 10px 0;
-        }
-        
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+
+        .nav-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .logo {
-            font-size: 1.5em;
-            font-weight: 800;
-            background: var(--gradient-hero);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
-        
+
+        .logo span {
+            color: var(--gold);
+        }
+
         .nav-links {
             display: flex;
-            gap: 30px;
+            gap: 2rem;
             list-style: none;
         }
-        
+
         .nav-links a {
-            text-decoration: none;
-            color: var(--text);
+            color: var(--gray-300);
+            font-size: 0.9rem;
             font-weight: 500;
-            transition: color 0.3s ease;
-            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
-        
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            transition: width 0.3s ease;
-        }
-        
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-        
+
         .nav-links a:hover {
-            color: var(--primary);
+            color: var(--gold);
         }
-        
+
+        .mobile-menu-btn {
+            display: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
         /* Hero Section */
         .hero {
-            min-height: 100vh;
-            background: var(--gradient-hero);
-            color: white;
+            height: 100vh;
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.9)), url('https://lh3.googleusercontent.com/sitesv/APaQ0SS91X6PVhjO74YTjj5v6-UMg5SbdTFafZbTGFTTX6oxHy23VU8CNUOvNEBWekwSwj143jIBoOGrWbKX7FVo1q7SA_NbXVHHLGS7dviCoG-7-mtmur7Hx2jEXrP8U0rUWrR3svo_ff4dftkKvPwQW-QnCJ_wnsv4pUE_xlLAtsgzw3tCqt_He7x8=w16383') center/cover;
             display: flex;
             align-items: center;
-            justify-content: center;
             text-align: center;
-            padding: 120px 20px 80px;
-            position: relative;
-            overflow: hidden;
+            color: var(--white);
+            padding-top: 80px;
         }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></svg>');
-            background-size: 100px 100px;
-            animation: float 20s linear infinite;
-        }
-        
-        @keyframes float {
-            0% { transform: translateY(0) rotate(0deg); }
-            100% { transform: translateY(-100px) rotate(360deg); }
-        }
-        
+
         .hero-content {
-            position: relative;
-            z-index: 1;
             max-width: 900px;
+            margin: 0 auto;
         }
-        
-        .hero-badge {
+
+        .est-badge {
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--gold);
+            margin-bottom: 1rem;
             display: inline-block;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            padding: 10px 25px;
+            border: 1px solid var(--gold);
+            padding: 0.5rem 1.5rem;
             border-radius: 50px;
-            font-size: 0.9em;
-            margin-bottom: 30px;
-            animation: fadeInDown 0.8s ease;
         }
-        
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
+
         .hero h1 {
-            font-size: 4em;
-            font-weight: 800;
-            margin-bottom: 20px;
-            animation: fadeInUp 0.8s ease 0.2s both;
-            letter-spacing: -2px;
+            font-size: 4.5rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+            line-height: 1.2;
         }
-        
-        .hero h2 {
-            font-size: 1.8em;
-            font-weight: 300;
-            margin-bottom: 25px;
-            opacity: 0.95;
-            animation: fadeInUp 0.8s ease 0.4s both;
+
+        .hero .tagline {
+            font-family: var(--font-elegant);
+            font-size: 2rem;
+            font-style: italic;
+            color: var(--gold);
+            margin-bottom: 2rem;
         }
-        
-        .hero p {
-            font-size: 1.2em;
-            margin-bottom: 15px;
-            opacity: 0.9;
+
+        .hero .mission {
+            font-size: 1.1rem;
+            color: var(--gray-300);
             max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            animation: fadeInUp 0.8s ease 0.6s both;
+            margin: 0 auto 3rem;
+            font-weight: 300;
         }
-        
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .hero-tags {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin: 30px 0;
-            animation: fadeInUp 0.8s ease 0.8s both;
-        }
-        
-        .hero-tag {
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            padding: 8px 20px;
-            border-radius: 25px;
-            font-size: 0.9em;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-        
-        .cta-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-top: 40px;
-            animation: fadeInUp 0.8s ease 1s both;
-        }
-        
-        .cta-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 16px 35px;
-            border-radius: 50px;
-            text-decoration: none;
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
             font-weight: 600;
-            font-size: 1.05em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
             transition: all 0.3s ease;
         }
-        
-        .cta-btn.primary {
-            background: white;
-            color: var(--primary);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+
+        .btn-primary {
+            background-color: var(--gold);
+            color: var(--navy);
         }
-        
-        .cta-btn.secondary {
-            border: 2px solid rgba(255, 255, 255, 0.5);
-            color: white;
+
+        .btn-primary:hover {
+            background-color: var(--gold-light);
+            transform: translateY(-2px);
         }
-        
-        .cta-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+
+        .btn-outline {
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            margin-left: 1rem;
         }
-        
-        /* Stats Section */
-        .stats {
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-            padding: 80px 20px;
+
+        .btn-outline:hover {
+            background-color: rgba(212, 175, 55, 0.1);
+            transform: translateY(-2px);
         }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            max-width: 1000px;
-            margin: 0 auto;
+
+        /* Section Common */
+        .section {
+            padding: 6rem 0;
         }
-        
-        .stat-card {
-            background: white;
-            padding: 40px 30px;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: var(--shadow-lg);
-            transition: transform 0.3s ease;
+
+        .section-dark {
+            background-color: var(--navy);
+            color: var(--white);
         }
-        
-        .stat-card:hover {
-            transform: translateY(-10px);
+
+        .section-dark h2 {
+            color: var(--white);
         }
-        
-        .stat-number {
-            font-size: 3.5em;
-            font-weight: 800;
-            background: var(--gradient-hero);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .stat-label {
-            font-size: 1.1em;
-            color: var(--text-light);
-            margin-top: 10px;
-        }
-        
-        /* Research Areas */
-        .research {
-            padding: 100px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
+
         .section-header {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 4rem;
         }
-        
-        .section-tag {
-            display: inline-block;
-            background: rgba(8, 145, 178, 0.1);
-            color: var(--primary);
-            padding: 8px 20px;
-            border-radius: 25px;
-            font-size: 0.9em;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-        
+
         .section-title {
-            font-size: 2.8em;
-            font-weight: 800;
-            color: var(--text);
-            margin-bottom: 15px;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
         }
-        
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background-color: var(--gold);
+        }
+
         .section-subtitle {
-            font-size: 1.2em;
-            color: var(--text-light);
+            font-family: var(--font-elegant);
+            font-size: 1.2rem;
+            color: var(--gray-400);
+            font-style: italic;
+            margin-top: 1.5rem;
         }
-        
+
+        /* News Section */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .news-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-top: 3px solid var(--gold);
+            transition: transform 0.3s ease;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .news-date {
+            font-size: 0.85rem;
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .news-title {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .news-excerpt {
+            color: var(--gray-400);
+            font-size: 0.95rem;
+        }
+
+        /* Research Areas */
         .research-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
+            gap: 2rem;
         }
-        
+
         .research-card {
-            background: white;
-            padding: 40px;
-            border-radius: 24px;
-            box-shadow: var(--shadow);
-            transition: all 0.4s ease;
+            background: var(--navy-light);
+            padding: 2.5rem 2rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.05);
         }
-        
+
         .research-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
+            background: var(--navy);
+            border-color: var(--gold);
+            transform: translateY(-5px);
         }
-        
+
         .research-icon {
-            width: 70px;
-            height: 70px;
-            background: var(--gradient-hero);
-            border-radius: 20px;
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .research-card h3 {
+            color: var(--white);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .research-card p {
+            color: var(--gray-300);
+            font-size: 0.95rem;
+        }
+
+        /* Projects Section */
+        .project-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .project-item {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 4px solid var(--navy);
+            transition: border-color 0.3s ease;
+        }
+
+        .project-item:hover {
+            border-left-color: var(--gold);
+        }
+
+        .project-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-meta {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--gray-400);
+        }
+
+        .project-meta span {
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 2em;
-            margin-bottom: 25px;
-            box-shadow: 0 10px 30px rgba(8, 145, 178, 0.3);
+            gap: 0.5rem;
         }
-        
-        .research-card h3 {
-            font-size: 1.4em;
-            margin-bottom: 20px;
+
+        .project-meta i {
+            color: var(--gold);
         }
-        
-        .research-card ul {
-            list-style: none;
+
+        /* Team Section */
+        .prof-profile {
+            display: flex;
+            gap: 4rem;
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin-bottom: 4rem;
+            align-items: center;
         }
-        
-        .research-card li {
-            padding: 12px 0;
-            padding-left: 30px;
+
+        .prof-image {
+            flex: 0 0 300px;
             position: relative;
-            color: var(--text-light);
-            border-bottom: 1px solid #f1f5f9;
         }
-        
-        .research-card li::before {
-            content: '→';
+
+        .prof-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: -15px 15px 0 rgba(212, 175, 55, 0.2);
+        }
+
+        .prof-info h3 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .prof-title {
+            font-family: var(--font-elegant);
+            font-size: 1.3rem;
+            color: var(--gold);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+
+        .prof-bio {
+            margin-bottom: 2rem;
+            color: var(--gray-800);
+        }
+
+        .prof-timeline {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .prof-timeline li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .prof-timeline li::before {
+            content: '•';
+            color: var(--gold);
             position: absolute;
             left: 0;
-            color: var(--primary);
             font-weight: bold;
         }
-        
-        /* Gallery Section */
-        .gallery {
-            padding: 100px 20px;
-            background: var(--bg-light);
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
         }
-        
-        .gallery-grid {
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--navy);
+            color: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            max-width: 1200px;
-            margin: 60px auto 0;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
         }
-        
-        .gallery-item {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            aspect-ratio: 16/10;
-            background: linear-gradient(135deg, #e0f2fe 0%, #cffafe 100%);
-            box-shadow: var(--shadow);
-            transition: transform 0.4s ease;
+
+        .team-category {
+            margin-bottom: 3rem;
         }
-        
-        .gallery-item:hover {
-            transform: scale(1.03);
+
+        .team-category h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--gray-300);
+            color: var(--navy);
         }
-        
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.4s ease;
-        }
-        
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-        
-        .gallery-placeholder {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary);
-            font-size: 1.1em;
-            font-weight: 500;
-        }
-        
-        .gallery-placeholder span {
-            font-size: 3em;
-            margin-bottom: 15px;
-        }
-        
-        .gallery-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 25px;
-            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
-            color: white;
-        }
-        
-        /* Members Section */
-        .members {
-            padding: 100px 20px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        .professor-showcase {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-            background: white;
-            padding: 50px;
-            border-radius: 30px;
-            box-shadow: var(--shadow-lg);
-            margin: 50px auto;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        
-        .professor-image {
-            width: 250px;
-            height: 300px;
-            background: linear-gradient(135deg, #e0f2fe 0%, #cffafe 100%);
-            border-radius: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary);
-            font-size: 1.1em;
+
+        .member-card {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 8px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(8, 145, 178, 0.2);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
-        
-        .professor-image span {
-            font-size: 4em;
-            margin-bottom: 15px;
-        }
-        
-        .professor-info h3 {
-            font-size: 2em;
-            color: var(--text);
-            margin-bottom: 10px;
-        }
-        
-        .professor-stats {
-            display: flex;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-        
-        .professor-stat .number {
-            font-size: 1.8em;
-            font-weight: 700;
-            color: var(--primary);
-        }
-        
-        .student-tags {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin-top: 25px;
-        }
-        
-        .student-tag {
-            background: var(--gradient-hero);
-            color: white;
-            padding: 12px 25px;
-            border-radius: 30px;
+
+        .member-name {
+            font-size: 1.1rem;
             font-weight: 600;
-            box-shadow: 0 5px 15px rgba(8, 145, 178, 0.3);
+            color: var(--navy);
+            margin-bottom: 0.25rem;
         }
-        
+
+        .member-role {
+            font-size: 0.9rem;
+            color: var(--gray-400);
+        }
+
+        /* Publications Preview */
+        .pub-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .pub-item {
+            padding: 1.5rem;
+            background: var(--white);
+            border-left: 3px solid var(--gold);
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+
+        .pub-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--navy);
+        }
+
+        .pub-authors {
+            font-size: 0.9rem;
+            color: var(--gray-800);
+            margin-bottom: 0.25rem;
+        }
+
+        .pub-venue {
+            font-size: 0.9rem;
+            font-style: italic;
+            color: var(--gray-400);
+        }
+
         /* Contact Section */
-        .contact {
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-            padding: 100px 20px;
-        }
-        
-        .contact-grid {
+        .contact-wrapper {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
-            max-width: 1000px;
-            margin: 60px auto;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
         }
-        
-        .contact-card {
-            background: white;
-            padding: 40px 30px;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: var(--shadow);
-            transition: transform 0.3s ease;
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
         }
-        
-        .contact-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
         }
-        
-        .contact-icon-bg {
-            width: 70px;
-            height: 70px;
-            background: var(--gradient-hero);
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--gold);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8em;
-            margin: 0 auto 20px;
-            box-shadow: 0 10px 25px rgba(8, 145, 178, 0.3);
+            font-size: 1.2rem;
+            flex-shrink: 0;
         }
-        
-        /* CTA Section */
-        .cta-section {
-            background: var(--gradient-hero);
-            color: white;
-            padding: 100px 20px;
-            text-align: center;
+
+        .contact-details h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+            color: var(--white);
         }
-        
-        .cta-section h2 {
-            font-size: 2.8em;
-            margin-bottom: 25px;
+
+        .contact-details p {
+            color: var(--gray-300);
+            font-size: 0.95rem;
         }
-        
-        .cta-button-large {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            background: white;
-            color: var(--primary);
-            padding: 20px 45px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.15em;
-            margin-top: 30px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
+
+        .map-container {
+            border-radius: 8px;
+            overflow: hidden;
+            height: 100%;
+            min-height: 300px;
         }
-        
-        .cta-button-large:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.3);
-        }
-        
+
         /* Footer */
         footer {
-            background: #0f172a;
-            color: white;
-            padding: 60px 20px 30px;
+            background: #080c17;
+            color: var(--gray-400);
+            padding: 4rem 0 2rem;
             text-align: center;
         }
-        
+
         .footer-logo {
-            font-size: 2em;
-            font-weight: 800;
-            margin-bottom: 15px;
-            background: linear-gradient(135deg, #06b6d4, #3b82f6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo span {
+            color: var(--gold);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .footer-links a {
+            color: var(--gray-300);
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            margin-top: 2rem;
         }
 
         /* Responsive */
+        @media (max-width: 992px) {
+            .prof-profile {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+            }
+            
+            .prof-image {
+                flex: 0 0 auto;
+                width: 250px;
+                margin: 0 auto;
+            }
+            
+            .prof-timeline li {
+                text-align: left;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
+
         @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .hero h1 { font-size: 2.5em; }
-            .section-title { font-size: 2em; }
-            .professor-showcase { padding: 30px; }
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .hero .tagline {
+                font-size: 1.5rem;
+            }
+            
+            .project-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
         }
     </style>
 </head>
 <body>
-    <nav id="navbar">
-        <div class="nav-container">
-            <div class="logo">EcoAI Lab</div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-content">
+            <a href="#" class="logo">Eco<span>AI</span></a>
             <ul class="nav-links">
-                <li><a href="#home">홈</a></li>
-                <li><a href="#research">연구</a></li>
-                <li><a href="#gallery">갤러리</a></li>
-                <li><a href="#members">멤버</a></li>
-                <li><a href="#contact">연락처</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#news">News</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#team">People</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
     </nav>
 
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <div class="hero-badge">🌱 한밭대학교 컴퓨터공학과</div>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <div class="est-badge">Established 2024</div>
             <h1>EcoAI Lab</h1>
-            <h2>Eyes on the sky: Innovate for the future</h2>
-            <p>환경에너지 × 인공지능의 융합을 통해<br>지속가능한 미래를 만들어갑니다</p>
-            <div class="hero-tags">
-                <span class="hero-tag">⚛️ Quantum Computing</span>
-                <span class="hero-tag">🧠 Reinforcement Learning</span>
-                <span class="hero-tag">🔒 IoT/Security</span>
-            </div>
-            <div class="cta-buttons">
-                <a href="#research" class="cta-btn primary">연구 소개 →</a>
-                <a href="#contact" class="cta-btn secondary">연락처</a>
+            <div class="tagline">"Eyes on the sky: Innovate for the future"</div>
+            <p class="mission">We are a research group at Hanbat National University, Department of Computer Engineering, dedicated to pioneering the convergence of environmental energy and artificial intelligence to create sustainable solutions for tomorrow's world.</p>
+            <div class="hero-btns">
+                <a href="#research" class="btn btn-primary">Explore Research</a>
+                <a href="#team" class="btn btn-outline">Meet the Team</a>
             </div>
         </div>
     </section>
 
-    <section class="stats">
-        <div class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-number">20+</div>
-                <div class="stat-label">논문 게재</div>
+    <!-- News Section -->
+    <section id="news" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Latest News</h2>
+                <p class="section-subtitle">Recent updates and achievements from our lab</p>
             </div>
-            <div class="stat-card">
-                <div class="stat-number">10+</div>
-                <div class="stat-label">진행 중인 프로젝트</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">30+</div>
-                <div class="stat-label">연구실 멤버</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">2018</div>
-                <div class="stat-label">설립 연도</div>
-            </div>
-        </div>
-    </section>
-
-    <section class="research" id="research">
-        <div class="section-header">
-            <span class="section-tag">Research Focus</span>
-            <h2 class="section-title">🎯 연구 분야</h2>
-            <p class="section-subtitle">환경과 AI 기술의 융합을 통한 혁신적인 솔루션 연구</p>
-        </div>
-        <div class="research-grid">
-            <div class="research-card">
-                <div class="research-icon">🌍</div>
-                <h3>환경에너지<br><small>Environmental Energy</small></h3>
-                <ul>
-                    <li>스마트팩토리 에너지 최적화 시스템</li>
-                    <li>스마트홈 에너지 관리 및 효율화</li>
-                    <li>재생에너지 통합 및 예측 모델</li>
-                </ul>
-            </div>
-            <div class="research-card">
-                <div class="research-icon">🔒</div>
-                <h3>IoT & 보안<br><small>IoT & Security</small></h3>
-                <ul>
-                    <li>IoT 센서 네트워크 및 데이터 수집</li>
-                    <li>AI 기반 사이버보안 시스템</li>
-                    <li>물리보안 및 에지 컴퓨팅</li>
-                </ul>
-            </div>
-            <div class="research-card">
-                <div class="research-icon">🤖</div>
-                <h3>AI 기술<br><small>AI Technologies</small></h3>
-                <ul>
-                    <li>양자컴퓨팅 및 양자 머신러닝</li>
-                    <li>강화학습 기반 최적화</li>
-                    <li>멀티에이전트 시스템</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section class="gallery" id="gallery">
-        <div class="section-header">
-            <span class="section-tag">Gallery</span>
-            <h2 class="section-title">🏆 갤러리</h2>
-            <p class="section-subtitle">EcoAI Lab의 연구 성과와 활동</p>
-        </div>
-        <div class="gallery-grid">
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1567427018141-0584cfcbf1b8?w=800&q=80" alt="수상 실적" loading="lazy">
-                <div class="gallery-overlay">
-                    <h4>🏆 수상 실적</h4>
-                    <p>국내외 학술대회 수상</p>
+            <div class="news-grid">
+                <div class="news-card">
+                    <div class="news-date">March 2026</div>
+                    <h3 class="news-title">New Project on Quantum Battery Ultra-Fast Charging</h3>
+                    <p class="news-excerpt">EcoAI Lab has secured a new research grant from the Korea Institute of Energy Technology to develop ultra-fast charging technology for quantum batteries.</p>
                 </div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80" alt="연구실 활동" loading="lazy">
-                <div class="gallery-overlay">
-                    <h4>📸 연구실 활동</h4>
-                    <p>세미나 및 워크샵</p>
+                <div class="news-card">
+                    <div class="news-date">January 2025</div>
+                    <h3 class="news-title">LLM-based Conversational AI Project Launched</h3>
+                    <p class="news-excerpt">We are partnering with the Korea Institute of Energy Research to develop an LLM-based conversational AI for energy resource health diagnosis.</p>
                 </div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80" alt="연구 프로젝트" loading="lazy">
-                <div class="gallery-overlay">
-                    <h4>🔬 연구 프로젝트</h4>
-                    <p>진행 중인 연구 과제</p>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&q=80" alt="산학협력" loading="lazy">
-                <div class="gallery-overlay">
-                    <h4>🤝 산학협력</h4>
-                    <p>기업 및 기관 협력</p>
+                <div class="news-card">
+                    <div class="news-date">September 2024</div>
+                    <h3 class="news-title">EcoAI Lab Officially Established</h3>
+                    <p class="news-excerpt">Prof. Sangkeum Lee has officially launched the EcoAI Lab at Hanbat National University, focusing on AI for environmental and energy optimization.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="members" id="members">
-        <div class="section-header">
-            <span class="section-tag">Team</span>
-            <h2 class="section-title">👥 연구실 구성원</h2>
-        </div>
-        <div class="professor-showcase">
-            <div class="professor-image" style="padding: 0; overflow: hidden;">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop" alt="이상금 교수" style="width: 100%; height: 100%; object-fit: cover;">
+    <!-- Research Areas Section -->
+    <section id="research" class="section section-dark">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Research Areas</h2>
+                <p class="section-subtitle">Our core domains of investigation and innovation</p>
             </div>
-            <div class="professor-info">
-                <h3>이상금 (Sangkeum Lee), Ph.D.</h3>
-                <div style="color: var(--primary); font-weight: 600; margin-bottom: 15px;">
-                    한밭대학교 컴퓨터공학과 교수<br>EcoAI Lab Director
+            
+            <div class="research-diagram" style="text-align: center; margin-bottom: 4rem;">
+                <img src="https://lh3.googleusercontent.com/sitesv/APaQ0SSHVeZag9fDbstkN-35ca1RvtFF0pCxakrmtG0dTqqAX93HD2LLzVnU9WQaTvsme5xcF883wawMaSTQFT11jD4GrJ9_EtB_twI0oPiuDVObG0Gj2lK8aJOeneFEMaqLY5VYd06lrTNVT0IM_KQUDklGpJwLIsjwnyfhjoD7yiryrvxc4tHl-6MtgwsLYX2oLmaziCMwU6uHNyhMlmezevjjgBK_0mR7IKnIrGE=w1280" alt="Research Diagram" style="max-width: 100%; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+            </div>
+
+            <div class="research-grid">
+                <div class="research-card">
+                    <div class="research-icon"><i class="fas fa-leaf"></i></div>
+                    <h3>Sensor Network Optimization</h3>
+                    <p>Applying deep learning to optimize sensor networks for achieving carbon zero goals and environmental sustainability.</p>
                 </div>
-                <p>환경에너지와 인공지능의 융합 연구를 통해<br>지속가능한 미래를 위한 혁신적인 솔루션을 개발합니다.</p>
-                <div class="professor-stats">
-                    <div class="professor-stat">
-                        <div class="number">20+</div>
-                        <div class="label">논문</div>
+                <div class="research-card">
+                    <div class="research-icon"><i class="fas fa-industry"></i></div>
+                    <h3>Smart Factory & Home Energy</h3>
+                    <p>Developing intelligent systems for energy management and optimization in industrial and residential environments.</p>
+                </div>
+                <div class="research-card">
+                    <div class="research-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>IoT and Security Sensors</h3>
+                    <p>Enhancing the security and reliability of Internet of Things devices and sensor networks through advanced AI techniques.</p>
+                </div>
+                <div class="research-card">
+                    <div class="research-icon"><i class="fas fa-atom"></i></div>
+                    <h3>Quantum Computing & Battery</h3>
+                    <p>Exploring the intersection of quantum computing and energy storage, focusing on quantum battery technologies.</p>
+                </div>
+                <div class="research-card">
+                    <div class="research-icon"><i class="fas fa-brain"></i></div>
+                    <h3>Reinforcement Learning & Agents</h3>
+                    <p>Designing autonomous AI agents using reinforcement learning for complex decision-making and optimization tasks.</p>
+                </div>
+                <div class="research-card">
+                    <div class="research-icon"><i class="fas fa-chart-network"></i></div>
+                    <h3>Big Data & Energy Optimization</h3>
+                    <p>Analyzing large-scale datasets to uncover patterns and optimize energy consumption across various sectors.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Current Projects</h2>
+                <p class="section-subtitle">Active research initiatives and funding</p>
+            </div>
+            <div class="project-list">
+                <div class="project-item">
+                    <div class="project-info">
+                        <h3>Quantum Battery Ultra-Fast Charging Technology</h3>
+                        <div class="project-meta">
+                            <span><i class="fas fa-building"></i> Korea Institute of Energy Technology</span>
+                            <span><i class="far fa-calendar-alt"></i> 2026 - Present</span>
+                        </div>
                     </div>
-                    <div class="professor-stat">
-                        <div class="number">10+</div>
-                        <div class="label">프로젝트</div>
+                </div>
+                <div class="project-item">
+                    <div class="project-info">
+                        <h3>LLM-based Conversational AI for Energy Resource Health Diagnosis</h3>
+                        <div class="project-meta">
+                            <span><i class="fas fa-building"></i> Korea Institute of Energy Research</span>
+                            <span><i class="far fa-calendar-alt"></i> 2025</span>
+                        </div>
                     </div>
-                    <div class="professor-stat">
-                        <div class="number">30+</div>
-                        <div class="label">학생지도</div>
+                </div>
+                <div class="project-item">
+                    <div class="project-info">
+                        <h3>Smart Factory Optimization via Hybrid Quantum Deep Learning</h3>
+                        <div class="project-meta">
+                            <span><i class="fas fa-building"></i> Hanbat National University</span>
+                            <span><i class="far fa-calendar-alt"></i> 2025 - Present</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <div class="project-info">
+                        <h3>Energy-Efficient Mobile Robot with Quantum Deep Learning</h3>
+                        <div class="project-meta">
+                            <span><i class="fas fa-building"></i> Hanbat National University</span>
+                            <span><i class="far fa-calendar-alt"></i> 2025 - Present</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <div class="project-info">
+                        <h3>KHNP Digital Control System Network Review</h3>
+                        <div class="project-meta">
+                            <span><i class="fas fa-building"></i> Korea Hydro & Nuclear Power</span>
+                            <span><i class="far fa-calendar-alt"></i> 2025</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div style="text-align: center; margin-top: 60px;">
-            <h3 style="font-size: 1.8em; color: var(--text); margin-bottom: 20px;">학생 연구원</h3>
-            <p>석사·박사과정 및 학부 연구생들과 함께 활발한 연구를 진행하고 있습니다.</p>
-            <div class="student-tags">
-                <span class="student-tag">🎓 석사과정</span>
-                <span class="student-tag">🎓 박사과정</span>
-                <span class="student-tag">👨‍🎓 학부연구생</span>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="section" style="background-color: var(--white);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Team</h2>
+                <p class="section-subtitle">The minds behind the innovation</p>
+            </div>
+            
+            <!-- Professor Profile -->
+            <div class="prof-profile">
+                <div class="prof-image">
+                    <img src="https://lh3.googleusercontent.com/sitesv/APaQ0SRAIwPG34h4bmMxrUWpBDpnKDxQ843ZTZ3qn6Ep-Lrj8qDsAEeMhe7dpkBqFtwuULa92o0TnZ0HpFlxDhrJYJ-1cB6SI17_-Te-O8ILs79_rZW4Y3sHiI4tyzN1jm_RV_ssQns3RuxyrPTjmGgQwFiMGZcfOavCF3vD6g_61nYMDfi8_jpwbWg56ib3BEW_bxPQoXOgQdnez4fnaImKYC2PcUG-DOT8-r_n=w1280" alt="Prof. Sangkeum Lee">
+                </div>
+                <div class="prof-info">
+                    <h3>Sangkeum Lee (이상금)</h3>
+                    <div class="prof-title">Assistant Professor, Lab Director</div>
+                    <p class="prof-bio">Prof. Sangkeum Lee leads the EcoAI Lab at Hanbat National University. His research focuses on the intersection of artificial intelligence, quantum computing, and environmental energy optimization.</p>
+                    <ul class="prof-timeline">
+                        <li><strong>2023 - Present:</strong> Assistant Professor, Hanbat National University</li>
+                        <li><strong>2021 - 2023:</strong> Senior Researcher, ETRI</li>
+                        <li><strong>2020 - 2021:</strong> Post-Doc, KAIST</li>
+                        <li><strong>2018 - 2020:</strong> Ph.D., KAIST CCS Graduate School</li>
+                        <li><strong>2016 - 2018:</strong> M.S., KAIST</li>
+                        <li><strong>2009 - 2016:</strong> B.S., Korea University</li>
+                    </ul>
+                    <div class="social-links">
+                        <a href="mailto:sangkeum@hanbat.ac.kr" title="Email"><i class="fas fa-envelope"></i></a>
+                        <a href="https://scholar.google.com/citations?user=HaZWX-AAAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                        <a href="https://github.com/ecoailab" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Students -->
+            <div class="team-category">
+                <h4>M.S. Students</h4>
+                <div class="team-grid">
+                    <div class="member-card">
+                        <div class="member-name">Minu Baek</div>
+                        <div class="member-role">M.S. Student</div>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-name">Gihun Gil</div>
+                        <div class="member-role">M.S. Student</div>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-name">Yeojin Jang</div>
+                        <div class="member-role">M.S. Student</div>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-name">Jenilyn Park</div>
+                        <div class="member-role">M.S. Student</div>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-name">Byounghoon Son</div>
+                        <div class="member-role">M.S. Student</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-category">
+                <h4>Integrated B.S.-M.S. Students</h4>
+                <div class="team-grid">
+                    <div class="member-card">
+                        <div class="member-name">Junseong Park</div>
+                        <div class="member-role">Integrated B.S.-M.S.</div>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-name">Beomdo Park</div>
+                        <div class="member-role">Integrated B.S.-M.S.</div>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-name">Hyeonseok Jang</div>
+                        <div class="member-role">Integrated B.S.-M.S.</div>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-name">Minsung Jung</div>
+                        <div class="member-role">Integrated B.S.-M.S.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-category">
+                <h4>Undergraduate Students</h4>
+                <div class="team-grid">
+                    <div class="member-card">
+                        <div class="member-name">Seoyoung Lee</div>
+                        <div class="member-role">Undergraduate Researcher</div>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-name">Jio Yoo</div>
+                        <div class="member-role">Undergraduate Researcher</div>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-name">Jisu Kang</div>
+                        <div class="member-role">Undergraduate Researcher</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="contact" id="contact">
-        <div class="section-header">
-            <span class="section-tag">Contact</span>
-            <h2 class="section-title">📞 연락처</h2>
-        </div>
-        <div class="contact-grid">
-            <div class="contact-card">
-                <div class="contact-icon-bg">📧</div>
-                <h4>Email</h4>
-                <p>sangkeum@hanbat.ac.kr</p>
+    <!-- Publications Section -->
+    <section id="publications" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Selected Publications</h2>
+                <p class="section-subtitle">Recent academic contributions</p>
             </div>
-            <div class="contact-card">
-                <div class="contact-icon-bg">📞</div>
-                <h4>전화</h4>
-                <p>+82 42 821 1205</p>
-            </div>
-            <div class="contact-card">
-                <div class="contact-icon-bg">📍</div>
-                <h4>연구실</h4>
-                <p>N4-416, 한밭대학교</p>
-            </div>
-            <div class="contact-card">
-                <div class="contact-icon-bg">🏫</div>
-                <h4>주소</h4>
-                <p>대전광역시 유성구<br>동서대로 125</p>
+            <div class="pub-list">
+                <div class="pub-item">
+                    <div class="pub-title">For a complete list of publications, please visit Prof. Sangkeum Lee's Google Scholar profile.</div>
+                    <div class="pub-authors">Sangkeum Lee et al.</div>
+                    <div class="pub-venue">Various Top-tier Conferences and Journals</div>
+                    <a href="https://scholar.google.com/citations?user=HaZWX-AAAAAJ&hl=en" target="_blank" class="btn btn-outline" style="margin-left: 0; margin-top: 1rem; padding: 0.5rem 1.5rem;">View Google Scholar</a>
+                </div>
+                <!-- Placeholder for actual publications -->
+                <div class="pub-item">
+                    <div class="pub-title">Optimization of Sensor Networks using Deep Learning for Carbon Zero Environments</div>
+                    <div class="pub-authors">Sangkeum Lee, et al.</div>
+                    <div class="pub-venue">IEEE Internet of Things Journal, 2024</div>
+                </div>
+                <div class="pub-item">
+                    <div class="pub-title">Quantum Battery Ultra-Fast Charging: A Theoretical Framework</div>
+                    <div class="pub-authors">Sangkeum Lee, et al.</div>
+                    <div class="pub-venue">Energy Storage Materials, 2023</div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="cta-section">
-        <h2>🚀 EcoAI Lab과 함께<br>미래를 만들어가세요</h2>
-        <p>환경과 AI 기술의 융합을 통해 지속가능한 미래를 만들어갑니다.</p>
-        <a href="mailto:sangkeum@hanbat.ac.kr" class="cta-button-large">✉️ 연구실 문의하기</a>
+    <!-- Contact Section -->
+    <section id="contact" class="section section-dark">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Contact Us</h2>
+                <p class="section-subtitle">Get in touch for collaborations and inquiries</p>
+            </div>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p><a href="mailto:sangkeum@hanbat.ac.kr">sangkeum@hanbat.ac.kr</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                        <div class="contact-details">
+                            <h4>Phone</h4>
+                            <p>+82 42 821 1205</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-door-open"></i></div>
+                        <div class="contact-details">
+                            <h4>Office</h4>
+                            <p>Room N4-416, Hanbat National University</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="contact-details">
+                            <h4>Address</h4>
+                            <p>125 Dongseo-daero, Yuseong-gu<br>Daejeon 34158, Republic of Korea</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3212.868213606554!2d127.2961813152775!3d36.35045698004344!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35654b0000000001%3A0x1b0b0b0b0b0b0b0b!2sHanbat%20National%20University!5e0!3m2!1sen!2skr!4v1620000000000!5m2!1sen!2skr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
     </section>
 
+    <!-- Footer -->
     <footer>
-        <div class="footer-logo">EcoAI Lab</div>
-        <p><strong>한밭대학교 컴퓨터공학과</strong></p>
-        <p>N4-416 | 대전광역시 유성구 동서대로 125</p>
-        <p style="margin-top: 30px; opacity: 0.6;">© 2024 EcoAI Lab. All rights reserved.</p>
+        <div class="container">
+            <div class="footer-logo">Eco<span>AI</span> Lab</div>
+            <p>Department of Computer Engineering, Hanbat National University</p>
+            <div class="footer-links">
+                <a href="https://www.hanbat.ac.kr" target="_blank">Hanbat National University</a>
+                <a href="https://scholar.google.com/citations?user=HaZWX-AAAAAJ&hl=en" target="_blank">Google Scholar</a>
+                <a href="https://github.com/ecoailab" target="_blank">GitHub</a>
+            </div>
+            <div class="copyright">
+                &copy; 2024 EcoAI Lab. All rights reserved.
+            </div>
+        </div>
     </footer>
 
     <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Navbar background change on scroll
         window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
+            const nav = document.querySelector('nav');
             if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
+                nav.style.backgroundColor = 'rgba(15, 23, 42, 0.98)';
+                nav.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
             } else {
-                navbar.classList.remove('scrolled');
+                nav.style.backgroundColor = 'rgba(15, 23, 42, 0.95)';
+                nav.style.boxShadow = 'none';
             }
         });
     </script>
