@@ -37,9 +37,9 @@ hugoblox:
     pack: "default"
     # Optional: Override theme pack colors
     colors:
-      primary: "teal"                       # Eco-friendly teal color
-      secondary: "emerald"
-      neutral: ""                       # Affects gray utilities (text-gray-*, bg-gray-*)
+      primary: "cyan"                       # Modern cyan for tech feel
+      secondary: "emerald"                  # Eco-friendly emerald
+      neutral: "slate"                      # Professional slate
     # Optional: Mode-specific color overrides
     colors_light: {}
     colors_dark: {}
