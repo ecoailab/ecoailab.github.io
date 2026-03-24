@@ -1,6 +1,6 @@
 # EcoAI Lab Website
 
-**EcoAI Lab** 공식 웹사이트 - 한밭대학교 전자공학과
+**EcoAI Lab** 공식 웹사이트 - 한밭대학교 컴퓨터공학과
 
 🔗 **Live Site**: https://ecoailab.github.io/  
 🔗 **GitHub**: https://github.com/ECOAIlab/ecoailab.github.io
@@ -138,7 +138,7 @@ hugo server -D
 ## 📧 연락처
 
 **EcoAI Lab**  
-한밭대학교 전자공학과  
+한밭대학교 컴퓨터공학과  
 📍 N4-416  
 📧 sangkeum@hanbat.ac.kr  
 📞 +82 42 821 1205
