@@ -14,7 +14,7 @@ status:
 superuser: true
 
 # Role/position
-role: Professor of Electronic Engineering
+role: Professor of Computer Engineering
 
 # Organizations/Affiliations
 organizations:
@@ -41,13 +41,13 @@ interests:
 # Education
 education:
   courses:
-    - course: Ph.D. in Electronic Engineering
+    - course: Ph.D. in Computer Engineering
       institution: University Name
       year: Year
-    - course: M.S. in Electronic Engineering
+    - course: M.S. in Computer Engineering
       institution: University Name
       year: Year
-    - course: B.S. in Electronic Engineering
+    - course: B.S. in Computer Engineering
       institution: University Name
       year: Year
 
@@ -74,7 +74,7 @@ user_groups:
   - Principal Investigator
 ---
 
-Sangkeum Lee is a Professor at the Department of Electronic Engineering, Hanbat National University, Korea. 
+Sangkeum Lee is a Professor at the Department of Computer Engineering, Hanbat National University, Korea. 
 He leads the EcoAI Lab, focusing on research at the intersection of environmental sustainability and artificial intelligence.
 
 **연구실**: N4-416  

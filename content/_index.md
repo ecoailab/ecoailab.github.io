@@ -89,7 +89,7 @@ sections:
       text: |
         ### 교수 (Professor)
         **이상금 (Sangkeum Lee)**  
-        한밭대학교 전자공학과
+        한밭대학교 컴퓨터공학과
         
         ### 학생들 (Students)
         - 석박사과정 및 학부 연구생들과 함께 연구를 진행하고 있습니다.
