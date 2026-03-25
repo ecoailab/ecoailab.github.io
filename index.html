@@ -26,14 +26,14 @@
     <meta property="og:url" content="https://ecoailab.github.io/">
     <meta property="og:title" content="EcoAI Lab | AI for Environmental Energy Research">
     <meta property="og:description" content="Researching the convergence of environmental energy and artificial intelligence at Hanbat National University.">
-    <meta property="og:image" content="https://lh3.googleusercontent.com/sitesv/APaQ0SS91X6PVhjO74YTjj5v6-UMg5SbdTFafZbTGFTTX6oxHy23VU8CNUOvNEBWekwSwj143jIBoOGrWbKX7FVo1q7SA_NbXVHHLGS7dviCoG-7-mtmur7Hx2jEXrP8U0rUWrR3svo_ff4dftkKvPwQW-QnCJ_wnsv4pUE_xlLAtsgzw3tCqt_He7x8=w16383">
+    <meta property="og:image" content="https://lh3.googleusercontent.com/sitesv/APaQ0SQ2UZwX_OMa7Pzr7uavcNktSuT0vUOrfR7lW-0GoI5ea3qDXq1zz2-DPGKXRqquGV8EtmngSOFXf1uUh6iQfN2_KYgCs6-yRe2SIvtYnnx6UizuxeI-gofcwkTPNvqqfz_N6KjyE3VUCzjzCtQSAyWOhZTq0T3Rqm3ufwobMVWb_2YVbuK1adOm=w16383">
     <meta property="og:site_name" content="EcoAI Lab">
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="EcoAI Lab | AI for Environmental Energy Research">
     <meta name="twitter:description" content="Researching the convergence of environmental energy and artificial intelligence at Hanbat National University.">
-    <meta name="twitter:image" content="https://lh3.googleusercontent.com/sitesv/APaQ0SS91X6PVhjO74YTjj5v6-UMg5SbdTFafZbTGFTTX6oxHy23VU8CNUOvNEBWekwSwj143jIBoOGrWbKX7FVo1q7SA_NbXVHHLGS7dviCoG-7-mtmur7Hx2jEXrP8U0rUWrR3svo_ff4dftkKvPwQW-QnCJ_wnsv4pUE_xlLAtsgzw3tCqt_He7x8=w16383">
+    <meta name="twitter:image" content="https://lh3.googleusercontent.com/sitesv/APaQ0SQ2UZwX_OMa7Pzr7uavcNktSuT0vUOrfR7lW-0GoI5ea3qDXq1zz2-DPGKXRqquGV8EtmngSOFXf1uUh6iQfN2_KYgCs6-yRe2SIvtYnnx6UizuxeI-gofcwkTPNvqqfz_N6KjyE3VUCzjzCtQSAyWOhZTq0T3Rqm3ufwobMVWb_2YVbuK1adOm=w16383">
     
     <!-- Academic Meta -->
     <meta name="citation_author" content="Sangkeum Lee">
@@ -103,26 +103,26 @@
     <style>
         :root {
             /* Light Mode (Default) */
-            --navy: #0f172a;
-            --navy-light: #1e293b;
-            --gold: #d4af37;
-            --gold-light: #f4d03f;
+            --primary: #2e7d32;       /* Eco green */
+            --primary-light: #4caf50;  /* Lighter green */
+            --primary-dark: #1b5e20;   /* Darker green */
+            --accent: #00897b;         /* Teal accent */
             --white: #ffffff;
-            --gray-100: #f1f5f9;
-            --gray-300: #cbd5e1;
-            --gray-400: #94a3b8;
-            --gray-800: #1e293b;
+            --gray-100: #f5f5f5;
+            --gray-300: #e0e0e0;
+            --gray-400: #9e9e9e;
+            --gray-800: #424242;
             
             /* Theme Variables */
             --bg-primary: #ffffff;
-            --bg-secondary: #f1f5f9;
-            --bg-dark: #0f172a;
-            --text-primary: #1e293b;
-            --text-secondary: #64748b;
+            --bg-secondary: #f5f5f5;
+            --bg-dark: #1b5e20;
+            --text-primary: #212121;
+            --text-secondary: #757575;
             --text-light: #ffffff;
-            --border-color: rgba(212, 175, 55, 0.2);
+            --border-color: rgba(46, 125, 50, 0.2);
             --card-bg: #ffffff;
-            --card-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            --card-shadow: 0 2px 8px rgba(0,0,0,0.08);
             
             --font-heading: 'Playfair Display', serif;
             --font-body: 'Inter', sans-serif;
@@ -131,18 +131,18 @@
         
         /* Dark Mode */
         [data-theme="dark"] {
-            --bg-primary: #0a0f1c;
-            --bg-secondary: #0f172a;
-            --bg-dark: #0a0f1c;
-            --text-primary: #e2e8f0;
-            --text-secondary: #94a3b8;
+            --bg-primary: #121212;
+            --bg-secondary: #1e1e1e;
+            --bg-dark: #121212;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
             --text-light: #ffffff;
-            --border-color: rgba(212, 175, 55, 0.3);
-            --card-bg: #1e293b;
+            --border-color: rgba(46, 125, 50, 0.3);
+            --card-bg: #1e1e1e;
             --card-shadow: 0 4px 20px rgba(0,0,0,0.3);
             
-            --gray-100: #1e293b;
-            --gray-800: #f1f5f9;
+            --gray-100: #1e1e1e;
+            --gray-800: #f5f5f5;
         }
 
         * {
@@ -163,8 +163,8 @@
         /* Dark Mode Toggle Button */
         .theme-toggle {
             background: none;
-            border: 2px solid var(--gold);
-            color: var(--gold);
+            border: 2px solid var(--primary);
+            color: var(--primary);
             padding: 8px 16px;
             border-radius: 50px;
             cursor: pointer;
@@ -176,13 +176,13 @@
         }
         
         .theme-toggle:hover {
-            background: var(--gold);
-            color: var(--navy);
+            background: var(--primary);
+            color: var(--white);
         }
         
         /* Focus visible for accessibility */
         :focus-visible {
-            outline: 3px solid var(--gold);
+            outline: 3px solid var(--primary);
             outline-offset: 3px;
         }
         
@@ -191,8 +191,8 @@
             position: absolute;
             top: -100%;
             left: 1rem;
-            background: var(--gold);
-            color: var(--navy);
+            background: var(--primary);
+            color: var(--white);
             padding: 0.5rem 1rem;
             z-index: 9999;
             border-radius: 0 0 0.5rem 0.5rem;
@@ -206,7 +206,7 @@
 
         h1, h2, h3, h4, h5, h6 {
             font-family: var(--font-heading);
-            color: var(--navy);
+            color: var(--primary-dark);
         }
 
         a {
@@ -226,10 +226,10 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background-color: rgba(15, 23, 42, 0.95);
+            background-color: var(--bg-primary);
             backdrop-filter: blur(10px);
             z-index: 1000;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            border-bottom: 1px solid var(--border-color);
             padding: 1rem 0;
             transition: all 0.3s ease;
         }
@@ -244,14 +244,14 @@
             font-family: var(--font-heading);
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--white);
+            color: var(--text-primary);
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }
 
         .logo span {
-            color: var(--gold);
+            color: var(--primary);
         }
 
         .nav-links {
@@ -261,7 +261,7 @@
         }
 
         .nav-links a {
-            color: var(--gray-300);
+            color: var(--text-secondary);
             font-size: 0.9rem;
             font-weight: 500;
             text-transform: uppercase;
@@ -269,12 +269,12 @@
         }
 
         .nav-links a:hover {
-            color: var(--gold);
+            color: var(--primary);
         }
 
         .mobile-menu-btn {
             display: none;
-            color: var(--white);
+            color: var(--text-primary);
             font-size: 1.5rem;
             cursor: pointer;
         }
@@ -289,7 +289,7 @@
         .search-toggle {
             background: none;
             border: none;
-            color: var(--gray-300);
+            color: var(--text-secondary);
             font-size: 1.1rem;
             cursor: pointer;
             padding: 0.5rem;
@@ -297,7 +297,7 @@
         }
         
         .search-toggle:hover {
-            color: var(--gold);
+            color: var(--primary);
         }
         
         /* Search Modal */
@@ -308,7 +308,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(15, 23, 42, 0.95);
+            background: var(--bg-primary);
             backdrop-filter: blur(10px);
             z-index: 2000;
             padding: 2rem;
@@ -353,7 +353,7 @@
         }
         
         .search-close:hover {
-            color: var(--gold);
+            color: var(--primary);
         }
         
         /* Pagefind Customization */
@@ -372,7 +372,7 @@
         }
         
         .pagefind-ui__result-title {
-            color: var(--gold) !important;
+            color: var(--primary) !important;
             font-weight: 600 !important;
         }
         
@@ -383,7 +383,7 @@
         /* Hero Section */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.9)), url('https://lh3.googleusercontent.com/sitesv/APaQ0SS91X6PVhjO74YTjj5v6-UMg5SbdTFafZbTGFTTX6oxHy23VU8CNUOvNEBWekwSwj143jIBoOGrWbKX7FVo1q7SA_NbXVHHLGS7dviCoG-7-mtmur7Hx2jEXrP8U0rUWrR3svo_ff4dftkKvPwQW-QnCJ_wnsv4pUE_xlLAtsgzw3tCqt_He7x8=w16383') center/cover;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('https://lh3.googleusercontent.com/sitesv/APaQ0SQ2UZwX_OMa7Pzr7uavcNktSuT0vUOrfR7lW-0GoI5ea3qDXq1zz2-DPGKXRqquGV8EtmngSOFXf1uUh6iQfN2_KYgCs6-yRe2SIvtYnnx6UizuxeI-gofcwkTPNvqqfz_N6KjyE3VUCzjzCtQSAyWOhZTq0T3Rqm3ufwobMVWb_2YVbuK1adOm=w16383') center/cover;
             display: flex;
             align-items: center;
             text-align: center;
@@ -401,10 +401,10 @@
             font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 3px;
-            color: var(--gold);
+            color: var(--primary);
             margin-bottom: 1rem;
             display: inline-block;
-            border: 1px solid var(--gold);
+            border: 1px solid var(--primary);
             padding: 0.5rem 1.5rem;
             border-radius: 50px;
         }
@@ -420,7 +420,7 @@
             font-family: var(--font-elegant);
             font-size: 2rem;
             font-style: italic;
-            color: var(--gold);
+            color: var(--primary);
             margin-bottom: 2rem;
         }
 
@@ -445,23 +445,23 @@
         }
 
         .btn-primary {
-            background-color: var(--gold);
-            color: var(--navy);
+            background-color: var(--primary);
+            color: var(--white);
         }
 
         .btn-primary:hover {
-            background-color: var(--gold-light);
+            background-color: var(--primary-light);
             transform: translateY(-2px);
         }
 
         .btn-outline {
-            border: 1px solid var(--gold);
-            color: var(--gold);
+            border: 1px solid var(--primary);
+            color: var(--primary);
             margin-left: 1rem;
         }
 
         .btn-outline:hover {
-            background-color: rgba(212, 175, 55, 0.1);
+            background-color: rgba(46, 125, 50, 0.1);
             transform: translateY(-2px);
         }
 
@@ -471,7 +471,7 @@
         }
 
         .section-dark {
-            background-color: var(--navy);
+            background-color: var(--primary-dark);
             color: var(--white);
         }
 
@@ -499,7 +499,7 @@
             transform: translateX(-50%);
             width: 60px;
             height: 2px;
-            background-color: var(--gold);
+            background-color: var(--primary);
         }
 
         .section-subtitle {
@@ -518,11 +518,11 @@
         }
 
         .news-card {
-            background: var(--white);
+            background: var(--card-bg);
             padding: 2rem;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            border-top: 3px solid var(--gold);
+            border-top: 3px solid var(--primary);
             transition: transform 0.3s ease;
         }
 
@@ -532,7 +532,7 @@
 
         .news-date {
             font-size: 0.85rem;
-            color: var(--gold);
+            color: var(--primary);
             font-weight: 600;
             margin-bottom: 0.5rem;
             text-transform: uppercase;
@@ -558,7 +558,7 @@
         }
 
         .research-card {
-            background: var(--navy-light);
+            background: var(--primary);
             padding: 2.5rem 2rem;
             border-radius: 8px;
             text-align: center;
@@ -567,14 +567,14 @@
         }
 
         .research-card:hover {
-            background: var(--navy);
-            border-color: var(--gold);
+            background: var(--primary-dark);
+            border-color: var(--primary);
             transform: translateY(-5px);
         }
 
         .research-icon {
             font-size: 2.5rem;
-            color: var(--gold);
+            color: var(--primary);
             margin-bottom: 1.5rem;
         }
 
@@ -597,19 +597,19 @@
         }
 
         .project-item {
-            background: var(--white);
+            background: var(--card-bg);
             padding: 2rem;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-left: 4px solid var(--navy);
+            border-left: 4px solid var(--primary-dark);
             transition: border-color 0.3s ease;
         }
 
         .project-item:hover {
-            border-left-color: var(--gold);
+            border-left-color: var(--primary);
         }
 
         .project-info h3 {
@@ -631,14 +631,14 @@
         }
 
         .project-meta i {
-            color: var(--gold);
+            color: var(--primary);
         }
 
         /* Team Section */
         .prof-profile {
             display: flex;
             gap: 4rem;
-            background: var(--white);
+            background: var(--card-bg);
             padding: 3rem;
             border-radius: 12px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
@@ -654,7 +654,7 @@
         .prof-image img {
             width: 100%;
             border-radius: 8px;
-            box-shadow: -15px 15px 0 rgba(212, 175, 55, 0.2);
+            box-shadow: -15px 15px 0 var(--border-color);
         }
 
         .prof-info h3 {
@@ -665,7 +665,7 @@
         .prof-title {
             font-family: var(--font-elegant);
             font-size: 1.3rem;
-            color: var(--gold);
+            color: var(--primary);
             font-style: italic;
             margin-bottom: 1.5rem;
         }
@@ -689,7 +689,7 @@
 
         .prof-timeline li::before {
             content: '•';
-            color: var(--gold);
+            color: var(--primary);
             position: absolute;
             left: 0;
             font-weight: bold;
@@ -707,13 +707,13 @@
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            background: var(--navy);
+            background: var(--primary-dark);
             color: var(--white);
             transition: all 0.3s ease;
         }
 
         .social-links a:hover {
-            background: var(--gold);
+            background: var(--primary);
             transform: translateY(-3px);
         }
 
@@ -732,11 +732,11 @@
             margin-bottom: 1.5rem;
             padding-bottom: 0.5rem;
             border-bottom: 1px solid var(--gray-300);
-            color: var(--navy);
+            color: var(--primary-dark);
         }
 
         .member-card {
-            background: var(--white);
+            background: var(--card-bg);
             padding: 1.5rem;
             border-radius: 8px;
             text-align: center;
@@ -746,7 +746,7 @@
         .member-name {
             font-size: 1.1rem;
             font-weight: 600;
-            color: var(--navy);
+            color: var(--primary-dark);
             margin-bottom: 0.25rem;
         }
 
@@ -777,14 +777,14 @@
         }
 
         .filter-btn:hover {
-            border-color: var(--gold);
-            color: var(--gold);
+            border-color: var(--primary);
+            color: var(--primary);
         }
 
         .filter-btn.active {
-            background: var(--gold);
-            color: var(--navy);
-            border-color: var(--gold);
+            background: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
         }
 
         .pub-search-container {
@@ -818,7 +818,7 @@
 
         .pub-search-box input:focus {
             outline: none;
-            border-color: var(--gold);
+            border-color: var(--primary);
         }
 
         .pub-grid {
@@ -876,8 +876,8 @@
         }
 
         .pub-badge.year {
-            background: var(--gold);
-            color: var(--navy);
+            background: var(--primary);
+            color: var(--white);
         }
 
         .pub-title {
@@ -897,7 +897,7 @@
         .pub-venue {
             font-size: 0.85rem;
             font-style: italic;
-            color: var(--gold);
+            color: var(--primary);
             margin-bottom: 0.75rem;
         }
 
@@ -929,7 +929,7 @@
         }
 
         .pub-link:hover {
-            color: var(--gold);
+            color: var(--primary);
         }
 
         .bibtex-popup {
@@ -963,8 +963,8 @@
         }
 
         .bibtex-popup button {
-            background: var(--gold);
-            color: var(--navy);
+            background: var(--primary);
+            color: var(--white);
             border: none;
             padding: 0.5rem 1rem;
             border-radius: 6px;
@@ -999,8 +999,8 @@
         .contact-icon {
             width: 50px;
             height: 50px;
-            background: rgba(212, 175, 55, 0.1);
-            color: var(--gold);
+            background: rgba(46, 125, 50, 0.1);
+            color: var(--primary);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -1076,8 +1076,8 @@
         .form-group select:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: var(--gold);
-            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
         }
         
         .form-group textarea {
@@ -1086,8 +1086,8 @@
         }
         
         .submit-btn {
-            background: var(--gold);
-            color: var(--navy);
+            background: var(--primary);
+            color: var(--white);
             border: none;
             padding: 0.875rem 2rem;
             border-radius: 8px;
@@ -1102,9 +1102,9 @@
         }
         
         .submit-btn:hover {
-            background: var(--gold-light);
+            background: var(--primary-light);
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+            box-shadow: 0 4px 12px var(--border-color);
         }
         
         .submit-btn:disabled {
@@ -1145,7 +1145,7 @@
 
         /* Footer */
         footer {
-            background: #080c17;
+            background: var(--bg-secondary);
             color: var(--gray-400);
             padding: 4rem 0 2rem;
             text-align: center;
@@ -1154,12 +1154,12 @@
         .footer-logo {
             font-family: var(--font-heading);
             font-size: 1.8rem;
-            color: var(--white);
+            color: var(--text-primary);
             margin-bottom: 1rem;
         }
 
         .footer-logo span {
-            color: var(--gold);
+            color: var(--primary);
         }
 
         .footer-links {
@@ -1170,16 +1170,16 @@
         }
 
         .footer-links a {
-            color: var(--gray-300);
+            color: var(--text-secondary);
         }
 
         .footer-links a:hover {
-            color: var(--gold);
+            color: var(--primary);
         }
 
         .copyright {
             font-size: 0.9rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            border-top: 1px solid var(--border-color);
             padding-top: 2rem;
             margin-top: 2rem;
         }
@@ -1347,7 +1347,7 @@
             </div>
             
             <div class="research-diagram" style="text-align: center; margin-bottom: 4rem;">
-                <img src="https://lh3.googleusercontent.com/sitesv/APaQ0SSHVeZag9fDbstkN-35ca1RvtFF0pCxakrmtG0dTqqAX93HD2LLzVnU9WQaTvsme5xcF883wawMaSTQFT11jD4GrJ9_EtB_twI0oPiuDVObG0Gj2lK8aJOeneFEMaqLY5VYd06lrTNVT0IM_KQUDklGpJwLIsjwnyfhjoD7yiryrvxc4tHl-6MtgwsLYX2oLmaziCMwU6uHNyhMlmezevjjgBK_0mR7IKnIrGE=w1280" alt="Research Diagram" style="max-width: 100%; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+                <img src="https://lh3.googleusercontent.com/sitesv/APaQ0SSmufc_fcSiQF03hDHosvfeBmu8g9YbpvKxiI2ZvJJrbuNnRfhUNvmw-d23T6x7bQcxMulmPpGrCEjK_Yu4rbSLmmQYi9sYgY3NuTuMxaauL8Z9YmeC-f--sJf1sPtuWuQfp3pJsxJO9PJw8BqFUw4kHUY941Gvyvormo9IwylwuRTLVDZAixIy-s-o3_W-YebCYDjTYVUdNHdhHwMqrPrtZZc9RZTK5YNC6TM=w1280" alt="Research Diagram" style="max-width: 100%; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
             </div>
 
             <div class="research-grid">
@@ -1443,7 +1443,7 @@
     </section>
 
     <!-- Team Section -->
-    <section id="team" class="section" style="background-color: var(--white);">
+    <section id="team" class="section" style="background-color: var(--bg-primary);">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Our Team</h2>
@@ -1453,7 +1453,7 @@
             <!-- Professor Profile -->
             <div class="prof-profile">
                 <div class="prof-image">
-                    <img src="https://lh3.googleusercontent.com/sitesv/APaQ0SRAIwPG34h4bmMxrUWpBDpnKDxQ843ZTZ3qn6Ep-Lrj8qDsAEeMhe7dpkBqFtwuULa92o0TnZ0HpFlxDhrJYJ-1cB6SI17_-Te-O8ILs79_rZW4Y3sHiI4tyzN1jm_RV_ssQns3RuxyrPTjmGgQwFiMGZcfOavCF3vD6g_61nYMDfi8_jpwbWg56ib3BEW_bxPQoXOgQdnez4fnaImKYC2PcUG-DOT8-r_n=w1280" alt="Prof. Sangkeum Lee">
+                    <img src="https://lh3.googleusercontent.com/sitesv/APaQ0SQDA6H7-KiJp40Yf7AqJ62Ddfwe0zhI58WATDVpbP6vDg5_Zujgsj7VUUiBbrjhFzkhbcq5UFJ7vjBzoMjqZ_6OOWRl6nBUmr4Fae-mZtKZm7j6-vdiTZXfnxHX4MG0EWgVT4IxKJk2WBvdC9bqyWiuevBr5Aj6hnk6WfC8yPHQnwH6972QGYTWARmy6af3uM1rjOa0dXpCQPWkAjBZ94mji5aUw5azlbAU=w1280" alt="Prof. Sangkeum Lee">
                 </div>
                 <div class="prof-info">
                     <h3>Sangkeum Lee (이상금)</h3>
@@ -1896,7 +1896,7 @@
             
             <p style="text-align: center; margin-top: 1.5rem; color: var(--text-secondary); font-size: 0.9rem;">
                 <i class="fas fa-info-circle"></i> 
-                Comments powered by <a href="https://giscus.app" target="_blank" style="color: var(--gold);">Giscus</a> via GitHub Discussions
+                Comments powered by <a href="https://giscus.app" target="_blank" style="color: var(--primary);">Giscus</a> via GitHub Discussions
             </p>
         </div>
     </section>
@@ -2044,7 +2044,7 @@
                 nav.style.backgroundColor = 'rgba(15, 23, 42, 0.98)';
                 nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.2)';
             } else {
-                nav.style.backgroundColor = 'rgba(15, 23, 42, 0.95)';
+                nav.style.backgroundColor = 'var(--bg-primary)';
                 nav.style.boxShadow = 'none';
             }
         });
@@ -2141,8 +2141,8 @@
                 bottom: 2rem;
                 left: 50%;
                 transform: translateX(-50%);
-                background: var(--gold);
-                color: var(--navy);
+                background: var(--primary);
+                color: var(--primary-dark);
                 padding: 0.75rem 1.5rem;
                 border-radius: 50px;
                 font-weight: 600;
