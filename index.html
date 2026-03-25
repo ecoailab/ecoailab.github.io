@@ -116,10 +116,10 @@
     <style>
         :root {
             /* Cloud/Sky Blue Theme */
-            --primary: #2196f3;           /* Sky blue */
-            --primary-light: #64b5f6;     /* Light sky blue */
-            --primary-dark: #1565c0;      /* Deep blue */
-            --accent: #00bcd4;            /* Cyan accent */
+            --primary: #1976d2;           /* Deeper blue */
+            --primary-light: #42a5f5;     /* Lighter accent */
+            --primary-dark: #0d47a1;      /* Darker for depth */
+            --accent: #00acc1;            /* Adjusted cyan */
             --white: #ffffff;
             --gray-100: #f5f5f5;
             --gray-300: #e0e0e0;
@@ -128,7 +128,7 @@
             
             /* Theme Variables */
             --bg-primary: #ffffff;
-            --bg-secondary: #f0f8ff;      /* Alice blue - cloud-like */
+            --bg-secondary: #e3f2fd;      /* Softer blue background */
             --bg-dark: #0d47a1;
             --text-primary: #212121;
             --text-secondary: #607d8b;
@@ -163,7 +163,7 @@
             background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(12px) saturate(180%);
             -webkit-backdrop-filter: blur(12px) saturate(180%);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.5);
             border-radius: 20px;
             box-shadow: 
                 0 8px 32px rgba(33, 150, 243, 0.1),
@@ -173,6 +173,7 @@
 
         .glass-card:hover {
             transform: translateY(-4px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
             box-shadow: 
                 0 20px 40px rgba(33, 150, 243, 0.15),
                 inset 0 0 0 1px rgba(255, 255, 255, 0.8);
@@ -180,10 +181,14 @@
 
         [data-theme="dark"] .glass-card {
             background: rgba(16, 42, 67, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             box-shadow: 
                 0 8px 32px rgba(0, 0, 0, 0.3),
                 inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+        }
+        
+        [data-theme="dark"] .glass-card:hover {
+            border: 1px solid rgba(255, 255, 255, 0.25);
         }
 
         /* Bento Grid Layout */
@@ -581,11 +586,31 @@
             text-align: center;
             color: var(--white);
             padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(ellipse at 20% 50%, rgba(25, 118, 210, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(0, 172, 193, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 80%, rgba(66, 165, 245, 0.15) 0%, transparent 50%);
+            animation: aurora-shift 20s ease-in-out infinite alternate;
+            pointer-events: none;
+            z-index: 0;
         }
 
         .hero-content {
             max-width: 900px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
 
         .est-badge {
@@ -703,23 +728,55 @@
         }
 
         /* News Section */
-        .news-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+        .news-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        .news-timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 20px;
+            height: 100%;
+            width: 2px;
+            background: var(--border-color);
+        }
+
+        .news-item {
+            position: relative;
+            padding-left: 3.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .news-item::before {
+            content: '';
+            position: absolute;
+            left: 14px;
+            top: 1.5rem;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: 3px solid var(--bg-primary);
+            box-shadow: 0 0 0 2px var(--primary-light);
+            z-index: 1;
         }
 
         .news-card {
             background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            border-top: 3px solid var(--primary);
-            transition: transform 0.3s ease;
+            padding: 1.5rem 2rem;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .news-card:hover {
-            transform: translateY(-5px);
+            transform: translateX(5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         }
 
         .news-date {
@@ -733,7 +790,7 @@
 
         .news-title {
             font-size: 1.2rem;
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
             line-height: 1.4;
         }
 
@@ -790,18 +847,35 @@
 
         .project-item {
             background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 8px;
+            padding: 1.5rem;
+            border-radius: 12px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             display: flex;
-            justify-content: space-between;
+            gap: 2rem;
             align-items: center;
             border-left: 4px solid var(--primary-dark);
-            transition: border-color 0.3s ease;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
 
         .project-item:hover {
             border-left-color: var(--primary);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .project-thumb {
+            width: 120px;
+            height: 120px;
+            border-radius: 8px;
+            object-fit: cover;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .project-info {
+            flex: 1;
         }
 
         .project-info h3 {
@@ -814,6 +888,7 @@
             gap: 1.5rem;
             font-size: 0.9rem;
             color: var(--gray-400);
+            flex-wrap: wrap;
         }
 
         .project-meta span {
@@ -824,6 +899,22 @@
 
         .project-meta i {
             color: var(--primary);
+        }
+
+        .project-desc {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-top: 0;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .project-item:hover .project-desc {
+            max-height: 100px;
+            opacity: 1;
+            margin-top: 0.75rem;
         }
 
         /* Team Section */
@@ -945,6 +1036,24 @@
         .member-role {
             font-size: 0.9rem;
             color: var(--gray-400);
+        }
+
+        .member-fact {
+            font-size: 0.85rem;
+            color: var(--primary);
+            margin-top: 0.75rem;
+            font-style: italic;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            max-height: 0;
+            overflow: hidden;
+        }
+
+        .member-card:hover .member-fact {
+            opacity: 1;
+            transform: translateY(0);
+            max-height: 50px;
         }
 
         /* Publications Section */
@@ -1213,10 +1322,24 @@
         }
 
         .map-container {
-            border-radius: 8px;
+            border-radius: 12px;
             overflow: hidden;
             height: 100%;
-            min-height: 300px;
+            min-height: 350px;
+            box-shadow: var(--card-shadow);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .map-container:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 350px;
         }
         
         /* Contact Form */
@@ -1987,36 +2110,48 @@
                 <h2 class="section-title">Latest News</h2>
                 <p class="section-subtitle">Recent updates and achievements from our lab</p>
             </div>
-            <div class="news-grid">
-                <div class="news-card glass-card" data-aos="fade-up" data-aos-delay="0">
-                    <div class="news-date">March 2026</div>
-                    <h3 class="news-title">2026 KICS Winter Conference Undergraduate Paper Award</h3>
-                    <p class="news-excerpt">Encouragement Prize awarded for "Self-Evolving Four-Layer Normalization Gate for Cost-Efficient Intelligent AICC"</p>
+            <div class="news-timeline">
+                <div class="news-item" data-aos="fade-up" data-aos-delay="0">
+                    <div class="news-card glass-card">
+                        <div class="news-date">March 2026</div>
+                        <h3 class="news-title">2026 KICS Winter Conference Undergraduate Paper Award</h3>
+                        <p class="news-excerpt">Encouragement Prize awarded for "Self-Evolving Four-Layer Normalization Gate for Cost-Efficient Intelligent AICC"</p>
+                    </div>
                 </div>
-                <div class="news-card glass-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="news-date">Feb 2026</div>
-                    <h3 class="news-title">AAAI 2026 Newsletter Feature</h3>
-                    <p class="news-excerpt">EcoAI Lab leads research on RL and quantum AI-based optimization featured in AAAI 2026 Newsletter</p>
+                <div class="news-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="news-card glass-card">
+                        <div class="news-date">Feb 2026</div>
+                        <h3 class="news-title">AAAI 2026 Newsletter Feature</h3>
+                        <p class="news-excerpt">EcoAI Lab leads research on RL and quantum AI-based optimization featured in AAAI 2026 Newsletter</p>
+                    </div>
                 </div>
-                <div class="news-card glass-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="news-date">2026</div>
-                    <h3 class="news-title">HBNU High-Impact Researcher Award</h3>
-                    <p class="news-excerpt">Prof. Sangkeum Lee received the High-Impact Researcher Award from Hanbat National University</p>
+                <div class="news-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="news-card glass-card">
+                        <div class="news-date">2026</div>
+                        <h3 class="news-title">HBNU High-Impact Researcher Award</h3>
+                        <p class="news-excerpt">Prof. Sangkeum Lee received the High-Impact Researcher Award from Hanbat National University</p>
+                    </div>
                 </div>
-                <div class="news-card glass-card" data-aos="fade-up" data-aos-delay="0">
-                    <div class="news-date">2026</div>
-                    <h3 class="news-title">Outstanding Professor Award</h3>
-                    <p class="news-excerpt">Hanbat Innovation Award - Research Category for excellence in research and innovation</p>
+                <div class="news-item" data-aos="fade-up" data-aos-delay="0">
+                    <div class="news-card glass-card">
+                        <div class="news-date">2026</div>
+                        <h3 class="news-title">Outstanding Professor Award</h3>
+                        <p class="news-excerpt">Hanbat Innovation Award - Research Category for excellence in research and innovation</p>
+                    </div>
                 </div>
-                <div class="news-card glass-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="news-date">2026</div>
-                    <h3 class="news-title">Excellence Award - E-Learning Campus</h3>
-                    <p class="news-excerpt">Excellence Award in 2026 E-Learning Campus Best Practice Awards</p>
+                <div class="news-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="news-card glass-card">
+                        <div class="news-date">2026</div>
+                        <h3 class="news-title">Excellence Award - E-Learning Campus</h3>
+                        <p class="news-excerpt">Excellence Award in 2026 E-Learning Campus Best Practice Awards</p>
+                    </div>
                 </div>
-                <div class="news-card glass-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="news-date">Jan 2025</div>
-                    <h3 class="news-title">ETRI Journal Best Paper Award</h3>
-                    <p class="news-excerpt">Best Paper Award for "Anomaly detection of smart metering system for power management with battery storage system/electric vehicle"</p>
+                <div class="news-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="news-card glass-card">
+                        <div class="news-date">Jan 2025</div>
+                        <h3 class="news-title">ETRI Journal Best Paper Award</h3>
+                        <p class="news-excerpt">Best Paper Award for "Anomaly detection of smart metering system for power management with battery storage system/electric vehicle"</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2078,47 +2213,67 @@
             </div>
             <div class="project-list">
                 <div class="project-item glass-card">
+                    <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=300&q=80" alt="Quantum Battery" class="project-thumb">
                     <div class="project-info">
                         <h3>Core Technology of Quantum Battery</h3>
                         <div class="project-meta">
                             <span><i class="fas fa-building"></i> Korea Institute of Energy Technology</span>
                             <span><i class="far fa-calendar-alt"></i> 2026 - Present</span>
                         </div>
+                        <div class="project-desc">
+                            Researching fundamental quantum mechanics principles to develop next-generation energy storage systems with unprecedented charging speeds and capacity.
+                        </div>
                     </div>
                 </div>
                 <div class="project-item glass-card">
+                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=300&q=80" alt="LLM AI" class="project-thumb">
                     <div class="project-info">
                         <h3>LLM-based Conversational AI for Distributed Energy Resource Health Diagnosis</h3>
                         <div class="project-meta">
                             <span><i class="fas fa-building"></i> Korea Institute of Energy Research</span>
                             <span><i class="far fa-calendar-alt"></i> 2025</span>
                         </div>
+                        <div class="project-desc">
+                            Developing specialized large language models to diagnose and maintain distributed energy resources through natural language interactions.
+                        </div>
                     </div>
                 </div>
                 <div class="project-item glass-card">
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=300&q=80" alt="Smart Factory" class="project-thumb">
                     <div class="project-info">
                         <h3>Smart Factory Optimization with Hybrid Quantum Deep Learning and RL on IBM Q</h3>
                         <div class="project-meta">
                             <span><i class="fas fa-building"></i> Hanbat National University</span>
                             <span><i class="far fa-calendar-alt"></i> 2025 - Present</span>
                         </div>
+                        <div class="project-desc">
+                            Leveraging IBM Q quantum computers to optimize smart factory operations using hybrid quantum-classical reinforcement learning algorithms.
+                        </div>
                     </div>
                 </div>
                 <div class="project-item glass-card">
+                    <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=300&q=80" alt="Mobile Robot" class="project-thumb">
                     <div class="project-info">
                         <h3>Energy-Efficient Mobile Robot with PennyLane-based Quantum Deep Learning</h3>
                         <div class="project-meta">
                             <span><i class="fas fa-building"></i> Hanbat National University</span>
                             <span><i class="far fa-calendar-alt"></i> 2025 - Present</span>
                         </div>
+                        <div class="project-desc">
+                            Designing autonomous mobile robots that utilize PennyLane quantum machine learning for highly energy-efficient navigation and task execution.
+                        </div>
                     </div>
                 </div>
                 <div class="project-item glass-card">
+                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=300&q=80" alt="Network Security" class="project-thumb">
                     <div class="project-info">
                         <h3>KHNP Digital Control System Network and Database Structural Review</h3>
                         <div class="project-meta">
                             <span><i class="fas fa-building"></i> Korea Hydro & Nuclear Power</span>
                             <span><i class="far fa-calendar-alt"></i> 2025</span>
+                        </div>
+                        <div class="project-desc">
+                            Comprehensive security and structural analysis of digital control systems and databases for nuclear power plant infrastructure.
                         </div>
                     </div>
                 </div>
@@ -2166,22 +2321,27 @@
                     <div class="member-card">
                         <div class="member-name">Minu Baek (백민우)</div>
                         <div class="member-role">M.S. Student</div>
+                        <div class="member-fact">💡 Fun Fact: Loves quantum computing</div>
                     </div>
                     <div class="member-card">
                         <div class="member-name">Gihun Gil (길기훈)</div>
                         <div class="member-role">M.S. Student</div>
+                        <div class="member-fact">💡 Fun Fact: Expert in reinforcement learning</div>
                     </div>
                     <div class="member-card">
                         <div class="member-name">Yeojin Jang (장여진)</div>
                         <div class="member-role">M.S. Student</div>
+                        <div class="member-fact">💡 Fun Fact: Passionate about smart factories</div>
                     </div>
                     <div class="member-card">
                         <div class="member-name">Jenilyn Park (박제니린)</div>
                         <div class="member-role">M.S. Student</div>
+                        <div class="member-fact">💡 Fun Fact: Enjoys IoT security research</div>
                     </div>
                     <div class="member-card">
                         <div class="member-name">Byounghoon Son (손병훈)</div>
                         <div class="member-role">M.S. Student</div>
+                        <div class="member-fact">💡 Fun Fact: Big data enthusiast</div>
                     </div>
                 </div>
             </div>
@@ -2192,18 +2352,22 @@
                     <div class="member-card">
                         <div class="member-name">Junseong Park (박준성)</div>
                         <div class="member-role">Integrated B.S.-M.S.</div>
+                        <div class="member-fact">💡 Fun Fact: AI model optimization guru</div>
                     </div>
                     <div class="member-card">
                         <div class="member-name">Beomdo Park (박범도)</div>
                         <div class="member-role">Integrated B.S.-M.S.</div>
+                        <div class="member-fact">💡 Fun Fact: Always reading new papers</div>
                     </div>
                     <div class="member-card">
                         <div class="member-name">Hyeonseok Jang (장현석)</div>
                         <div class="member-role">Integrated B.S.-M.S.</div>
+                        <div class="member-fact">💡 Fun Fact: Loves coding late at night</div>
                     </div>
                     <div class="member-card">
                         <div class="member-name">Minsung Jung (정민성)</div>
                         <div class="member-role">Integrated B.S.-M.S.</div>
+                        <div class="member-fact">💡 Fun Fact: Coffee is his main fuel</div>
                     </div>
                 </div>
             </div>
@@ -2214,14 +2378,17 @@
                     <div class="member-card">
                         <div class="member-name">Seoyoung Lee (이서영)</div>
                         <div class="member-role">Undergraduate Researcher</div>
+                        <div class="member-fact">💡 Fun Fact: Aspiring AI researcher</div>
                     </div>
                     <div class="member-card">
                         <div class="member-name">Jio Yoo (유지오)</div>
                         <div class="member-role">Undergraduate Researcher</div>
+                        <div class="member-fact">💡 Fun Fact: Loves solving complex algorithms</div>
                     </div>
                     <div class="member-card">
                         <div class="member-name">Jisu Kang (강지수)</div>
                         <div class="member-role">Undergraduate Researcher</div>
+                        <div class="member-fact">💡 Fun Fact: Enjoys building neural networks</div>
                     </div>
                 </div>
             </div>
@@ -2232,6 +2399,7 @@
                     <div class="member-card">
                         <div class="member-name">Junyeon Kim (김준연)</div>
                         <div class="member-role">M.S. Student, also at SK shieldus</div>
+                        <div class="member-fact">💡 Fun Fact: Cybersecurity expert</div>
                     </div>
                 </div>
             </div>
