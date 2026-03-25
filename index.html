@@ -2062,11 +2062,11 @@
             <!-- Lottie Animation - AI Brain Icon -->
             <div style="display: flex; justify-content: center; margin-bottom: 1rem;">
                 <lottie-player 
-                    src="https://assets2.lottiefiles.com/packages/lf20_x17ybolp.json" 
+                    src="/lottie/ai-brain.json" 
                     background="transparent" 
                     speed="1" 
                     style="width: 150px; height: 150px;" 
-                    loop autoplay disableCheck>
+                    loop autoplay>
                 </lottie-player>
             </div>
             <h1>EcoAI Lab</h1>
@@ -2777,9 +2777,9 @@
     <!-- Isotope.js for filtering -->
     <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
     
-    <!-- Pagefind Search -->
-    <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
-    <script src="/pagefind/pagefind-ui.js"></script>
+    <!-- Search functionality disabled until Pagefind index is built -->
+    <!-- <link href="/pagefind/pagefind-ui.css" rel="stylesheet"> -->
+    <!-- <script src="/pagefind/pagefind-ui.js"></script> -->
     
     <script>
         // Initialize AOS (Animate On Scroll)
@@ -3076,55 +3076,68 @@
     </style>
 
     <script>
-        // 1. Particle System (Three.js)
+        // 1. Particle System (Three.js) with error handling
         function initParticles() {
-            const hero = document.querySelector('.hero');
-            if (!hero) return;
-            
-            // Create 3D scene with floating particles
-            const scene = new THREE.Scene();
-            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-            
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            renderer.domElement.id = 'particles-canvas';
-            hero.insertBefore(renderer.domElement, hero.firstChild);
-
-            // Particle system
-            const particlesGeometry = new THREE.BufferGeometry();
-            const particlesCount = 500;
-            const posArray = new Float32Array(particlesCount * 3);
-
-            for(let i = 0; i < particlesCount * 3; i++) {
-                posArray[i] = (Math.random() - 0.5) * 10;
-            }
-
-            particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-            const particlesMaterial = new THREE.PointsMaterial({
-                size: 0.02,
-                color: 0x2196f3,
-                transparent: true,
-                opacity: 0.8
-            });
-
-            const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
-            scene.add(particlesMesh);
-            camera.position.z = 5;
-
-            // Animation loop
-            function animate() {
-                requestAnimationFrame(animate);
-                particlesMesh.rotation.y += 0.001;
-                particlesMesh.rotation.x += 0.0005;
-                renderer.render(scene, camera);
-            }
-            animate();
-
-            window.addEventListener('resize', () => {
-                camera.aspect = window.innerWidth / window.innerHeight;
-                camera.updateProjectionMatrix();
+            try {
+                const hero = document.querySelector('.hero');
+                if (!hero) return;
+                
+                // Check WebGL support
+                const canvas = document.createElement('canvas');
+                const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+                if (!gl) {
+                    console.warn('WebGL not supported - skipping particle animation');
+                    return;
+                }
+                
+                // Create 3D scene with floating particles
+                const scene = new THREE.Scene();
+                const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+                const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+                
                 renderer.setSize(window.innerWidth, window.innerHeight);
-            });
+                renderer.domElement.id = 'particles-canvas';
+                hero.insertBefore(renderer.domElement, hero.firstChild);
+
+                // Particle system
+                const particlesGeometry = new THREE.BufferGeometry();
+                const particlesCount = 500;
+                const posArray = new Float32Array(particlesCount * 3);
+
+                for(let i = 0; i < particlesCount * 3; i++) {
+                    posArray[i] = (Math.random() - 0.5) * 10;
+                }
+
+                particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+                const particlesMaterial = new THREE.PointsMaterial({
+                    size: 0.02,
+                    color: 0x2196f3,
+                    transparent: true,
+                    opacity: 0.8
+                });
+
+                const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+                scene.add(particlesMesh);
+                camera.position.z = 5;
+
+                // Animation loop
+                function animate() {
+                    requestAnimationFrame(animate);
+                    particlesMesh.rotation.y += 0.001;
+                    particlesMesh.rotation.x += 0.0005;
+                    renderer.render(scene, camera);
+                }
+                animate();
+
+                window.addEventListener('resize', () => {
+                    camera.aspect = window.innerWidth / window.innerHeight;
+                    camera.updateProjectionMatrix();
+                    renderer.setSize(window.innerWidth, window.innerHeight);
+                });
+            } catch (error) {
+                console.warn('Particle animation failed:', error);
+                // Continue without particles - don't break other features
+            }
         }
 
         // 2. Typing Effect
@@ -3280,13 +3293,13 @@
 
         // Initialize all dynamic effects
         document.addEventListener('DOMContentLoaded', () => {
-            initParticles();
+            initCounters(); // Run first - critical for stats display
             initTypingEffect();
             initParallax();
-            initCounters();
             initMouseGlow();
             initMagneticButtons();
             initScrollReveal();
+            initParticles(); // Run last - WebGL may fail on some browsers
             
             // Add classes for other CSS effects
             document.querySelectorAll('.btn-primary').forEach(btn => {
