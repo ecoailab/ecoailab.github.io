@@ -51,6 +51,17 @@
     <!-- AOS Animation CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#2196f3">
+    <link rel="apple-touch-icon" href="/icon-192.png">
+
+    <!-- Lottie Web -->
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
     {
@@ -1887,6 +1898,15 @@
     <section id="home" class="hero">
         <div class="container hero-content">
             <div class="est-badge">Established 2024</div>
+            <div style="display: flex; justify-content: center; margin-bottom: 1rem;">
+                <lottie-player 
+                    src="https://lottie.host/ai-brain.json" 
+                    background="transparent" 
+                    speed="1" 
+                    style="width: 150px; height: 150px;" 
+                    loop autoplay>
+                </lottie-player>
+            </div>
             <h1>EcoAI Lab</h1>
             <div class="tagline">"Eyes on the sky: Innovate for the future"</div>
             <p class="mission">We are a research group at Hanbat National University, Department of Computer Engineering, dedicated to pioneering the convergence of environmental energy and artificial intelligence to create sustainable solutions for tomorrow's world.</p>
@@ -2845,106 +2865,55 @@
     </style>
 
     <script>
-        // 1. Particle System
+        // 1. Particle System (Three.js)
         function initParticles() {
-            const canvas = document.createElement('canvas');
-            canvas.id = 'particles-canvas';
             const hero = document.querySelector('.hero');
             if (!hero) return;
             
-            hero.insertBefore(canvas, hero.firstChild);
-            const ctx = canvas.getContext('2d');
+            // Create 3D scene with floating particles
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
             
-            let width, height;
-            let particles = [];
-            
-            function resize() {
-                width = hero.offsetWidth;
-                height = hero.offsetHeight;
-                canvas.width = width;
-                canvas.height = height;
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.domElement.id = 'particles-canvas';
+            hero.insertBefore(renderer.domElement, hero.firstChild);
+
+            // Particle system
+            const particlesGeometry = new THREE.BufferGeometry();
+            const particlesCount = 500;
+            const posArray = new Float32Array(particlesCount * 3);
+
+            for(let i = 0; i < particlesCount * 3; i++) {
+                posArray[i] = (Math.random() - 0.5) * 10;
             }
-            
-            window.addEventListener('resize', resize);
-            resize();
-            
-            class Particle {
-                constructor() {
-                    this.x = Math.random() * width;
-                    this.y = Math.random() * height;
-                    this.vx = (Math.random() - 0.5) * 0.5;
-                    this.vy = (Math.random() - 0.5) * 0.5 - 0.5; // Move upward
-                    this.radius = Math.random() * 2 + 1;
-                    this.color = `rgba(255, 255, 255, ${Math.random() * 0.5 + 0.3})`;
-                }
-                
-                update() {
-                    this.x += this.vx;
-                    this.y += this.vy;
-                    
-                    if (this.y < 0) this.y = height;
-                    if (this.x < 0) this.x = width;
-                    if (this.x > width) this.x = 0;
-                }
-                
-                draw() {
-                    ctx.beginPath();
-                    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                    ctx.fillStyle = this.color;
-                    ctx.fill();
-                }
-            }
-            
-            for (let i = 0; i < 50; i++) {
-                particles.push(new Particle());
-            }
-            
-            let mouseX = 0;
-            let mouseY = 0;
-            
-            hero.addEventListener('mousemove', (e) => {
-                const rect = hero.getBoundingClientRect();
-                mouseX = e.clientX - rect.left;
-                mouseY = e.clientY - rect.top;
+
+            particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+            const particlesMaterial = new THREE.PointsMaterial({
+                size: 0.02,
+                color: 0x2196f3,
+                transparent: true,
+                opacity: 0.8
             });
-            
+
+            const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+            scene.add(particlesMesh);
+            camera.position.z = 5;
+
+            // Animation loop
             function animate() {
-                ctx.clearRect(0, 0, width, height);
-                
-                particles.forEach(p => {
-                    p.update();
-                    p.draw();
-                    
-                    // Connect particles
-                    particles.forEach(p2 => {
-                        const dx = p.x - p2.x;
-                        const dy = p.y - p2.y;
-                        const dist = Math.sqrt(dx * dx + dy * dy);
-                        
-                        if (dist < 100) {
-                            ctx.beginPath();
-                            ctx.strokeStyle = `rgba(255, 255, 255, ${0.3 * (1 - dist/100)})`;
-                            ctx.lineWidth = 0.5;
-                            ctx.moveTo(p.x, p.y);
-                            ctx.lineTo(p2.x, p2.y);
-                            ctx.stroke();
-                        }
-                    });
-                    
-                    // Mouse interaction
-                    const dx = p.x - mouseX;
-                    const dy = p.y - mouseY;
-                    const dist = Math.sqrt(dx * dx + dy * dy);
-                    if (dist < 150) {
-                        p.x += dx * 0.01;
-                        p.y += dy * 0.01;
-                    }
-                });
-                
                 requestAnimationFrame(animate);
+                particlesMesh.rotation.y += 0.001;
+                particlesMesh.rotation.x += 0.0005;
+                renderer.render(scene, camera);
             }
-            
             animate();
+
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
         }
 
         // 2. Typing Effect
@@ -3109,6 +3078,56 @@
             document.querySelectorAll('.section-title').forEach(title => title.classList.add('glitch-hover'));
             document.querySelectorAll('.prof-image').forEach(img => img.classList.add('img-zoom-container'));
             document.querySelectorAll('.research-card').forEach(card => card.classList.add('hover-lift'));
+
+            // GSAP ScrollTrigger Animations
+            if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+                gsap.registerPlugin(ScrollTrigger);
+
+                // Animate sections on scroll
+                gsap.utils.toArray('section').forEach(section => {
+                    const cards = section.querySelectorAll('.glass-card');
+                    if (cards.length > 0) {
+                        gsap.from(cards, {
+                            scrollTrigger: {
+                                trigger: section,
+                                start: 'top 80%',
+                                toggleActions: 'play none none reverse'
+                            },
+                            y: 50,
+                            opacity: 0,
+                            duration: 0.8,
+                            stagger: 0.1,
+                            ease: 'power3.out'
+                        });
+                    }
+                });
+
+                // Parallax effect for hero
+                gsap.to('.hero', {
+                    scrollTrigger: {
+                        trigger: '.hero',
+                        start: 'top top',
+                        end: 'bottom top',
+                        scrub: true
+                    },
+                    backgroundPositionY: '200px',
+                    ease: 'none'
+                });
+
+                // Text reveal animation
+                gsap.utils.toArray('.section-title').forEach(title => {
+                    gsap.from(title, {
+                        scrollTrigger: {
+                            trigger: title,
+                            start: 'top 85%',
+                        },
+                        y: 30,
+                        opacity: 0,
+                        duration: 0.6,
+                        ease: 'power2.out'
+                    });
+                });
+            }
         });
     </script>
     <!-- GSAP Animation Library -->
@@ -3151,7 +3170,9 @@
         </div>
     </div>
 
-    <script>
+    <script type="module">
+        import { CreateMLCEngine } from 'https://esm.run/@mlc-ai/web-llm';
+
         // AI Chatbot Functionality
         const chatbotToggle = document.getElementById('chatbot-toggle');
         const chatbotContainer = document.getElementById('chatbot-container');
@@ -3160,47 +3181,43 @@
         const chatbotSend = document.getElementById('chatbot-send');
         const chatbotMessages = document.getElementById('chatbot-messages');
 
+        let engine = null;
+        let isEngineLoading = false;
+
         // Toggle chatbot
-        chatbotToggle.addEventListener('click', () => {
+        chatbotToggle.addEventListener('click', async () => {
             chatbotContainer.classList.toggle('active');
             if (chatbotContainer.classList.contains('active')) {
                 chatbotInput.focus();
+                
+                // Initialize WebLLM engine if not already done
+                if (!engine && !isEngineLoading) {
+                    isEngineLoading = true;
+                    addMessage("Initializing AI model... This may take a moment on first load.", 'bot');
+                    showLoading();
+                    
+                    try {
+                        engine = await CreateMLCEngine('SmolLM2-360M-Instruct-q4f16_1-MLC', {
+                            initProgressCallback: (progress) => {
+                                console.log(`Loading: ${progress.text}`);
+                            }
+                        });
+                        hideLoading();
+                        addMessage("AI model loaded successfully! How can I help you?", 'bot');
+                    } catch (error) {
+                        hideLoading();
+                        addMessage("Failed to load AI model. Please try again later.", 'bot');
+                        console.error("WebLLM Error:", error);
+                    } finally {
+                        isEngineLoading = false;
+                    }
+                }
             }
         });
 
         chatbotClose.addEventListener('click', () => {
             chatbotContainer.classList.remove('active');
         });
-
-        // Simple knowledge base for responses
-        const knowledgeBase = {
-            'research': 'Our research focuses on AI for environmental energy, including quantum computing, smart factories, IoT security, and sustainable AI solutions.',
-            'publication': 'Prof. Sangkeum Lee has published over 20 papers with 1,114+ citations. Check our Publications section for the latest work.',
-            'contact': 'You can reach us at sangkeum@hanbat.ac.kr or call +82 42 821 1205. Office: Room N4-416, Hanbat National University.',
-            'team': 'Our team includes Prof. Sangkeum Lee and graduate students working on cutting-edge AI research.',
-            'project': 'Current projects include Quantum Battery research, LLM-based AI for energy, and Smart Factory optimization.',
-            'location': 'We are located at Hanbat National University, 125 Dongseo-daero, Yuseong-gu, Daejeon 34158, Korea.',
-            'hello': 'Hello! How can I help you learn about EcoAI Lab today?',
-            'hi': 'Hi there! What would you like to know about our research lab?'
-        };
-
-        function getBotResponse(message) {
-            const lowerMsg = message.toLowerCase();
-            
-            for (const [keyword, response] of Object.entries(knowledgeBase)) {
-                if (lowerMsg.includes(keyword)) {
-                    return response;
-                }
-            }
-            
-            // Default responses
-            const defaults = [
-                "I'm not sure about that. Please email us at sangkeum@hanbat.ac.kr for more information.",
-                "That's an interesting question! Contact Prof. Lee directly for detailed discussions.",
-                "I can help with general lab info. For specific inquiries, please use the contact form."
-            ];
-            return defaults[Math.floor(Math.random() * defaults.length)];
-        }
 
         function addMessage(text, sender) {
             const messageDiv = document.createElement('div');
@@ -3236,13 +3253,46 @@
             showLoading();
             chatbotSend.disabled = true;
             
-            // Simulate response delay
-            await new Promise(resolve => setTimeout(resolve, 1000));
-            
-            // Get and display bot response
-            hideLoading();
-            const response = getBotResponse(message);
-            addMessage(response, 'bot');
+            if (!engine) {
+                hideLoading();
+                addMessage("AI model is not ready yet. Please wait.", 'bot');
+                chatbotSend.disabled = false;
+                return;
+            }
+
+            try {
+                const systemPrompt = `You are an AI assistant for EcoAI Lab at Hanbat National University. 
+                The lab focuses on AI for environmental energy, quantum computing, smart factories, and IoT security.
+                Professor: Sangkeum Lee (이상금)
+                Contact: sangkeum@hanbat.ac.kr
+                Be helpful, concise, and professional.`;
+                
+                const reply = await engine.chat.completions.create({
+                    messages: [
+                        { role: 'system', content: systemPrompt },
+                        { role: 'user', content: message }
+                    ],
+                    stream: true
+                });
+                
+                hideLoading();
+                
+                // Create a new message div for streaming response
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `chat-message bot`;
+                chatbotMessages.appendChild(messageDiv);
+                
+                let response = '';
+                for await (const chunk of reply) {
+                    response += chunk.choices[0]?.delta?.content || '';
+                    messageDiv.textContent = response;
+                    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+                }
+            } catch (error) {
+                hideLoading();
+                addMessage("Sorry, I encountered an error processing your request.", 'bot');
+                console.error("Chat Error:", error);
+            }
             
             chatbotSend.disabled = false;
             chatbotInput.focus();
@@ -3260,6 +3310,67 @@
                 chatbotContainer.classList.remove('active');
             }
         });
+    </script>
+    <script type="module">
+        import { pipeline } from 'https://cdn.jsdelivr.net/npm/@huggingface/transformers@3/dist/transformers.min.js';
+        
+        // Cosine similarity helper
+        function cosineSimilarity(vecA, vecB) {
+            let dotProduct = 0;
+            let normA = 0;
+            let normB = 0;
+            for (let i = 0; i < vecA.length; i++) {
+                dotProduct += vecA[i] * vecB[i];
+                normA += vecA[i] * vecA[i];
+                normB += vecB[i] * vecB[i];
+            }
+            if (normA === 0 || normB === 0) return 0;
+            return dotProduct / (Math.sqrt(normA) * Math.sqrt(normB));
+        }
+
+        let extractor = null;
+        let contentEmbeddings = [];
+
+        // Initialize semantic search
+        async function initSemanticSearch() {
+            try {
+                extractor = await pipeline('feature-extraction', 
+                    'Xenova/all-MiniLM-L6-v2', 
+                    { dtype: 'q8' }
+                );
+                
+                // Try to fetch pre-computed embeddings, fallback to empty array if not found
+                try {
+                    const response = await fetch('/embeddings.json');
+                    if (response.ok) {
+                        contentEmbeddings = await response.json();
+                    }
+                } catch (e) {
+                    console.log('No pre-computed embeddings found.');
+                }
+            } catch (error) {
+                console.error('Failed to initialize semantic search:', error);
+            }
+        }
+
+        // Initialize in background
+        initSemanticSearch();
+        
+        window.semanticSearch = async function(query) {
+            if (!extractor || contentEmbeddings.length === 0) return [];
+            
+            const queryVec = await extractor(query, { pooling: 'mean', normalize: true });
+            
+            // Calculate cosine similarity
+            const results = contentEmbeddings.map(item => ({
+                ...item,
+                score: cosineSimilarity(queryVec.data, item.embedding)
+            }))
+            .sort((a, b) => b.score - a.score)
+            .slice(0, 5);
+            
+            return results;
+        };
     </script>
 </body>
 </html>
