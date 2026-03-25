@@ -1,15 +1,105 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
+    <!-- Anti-FOUC Dark Mode Script -->
+    <script>
+        (function() {
+            const saved = localStorage.getItem('theme');
+            const sysDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (saved === 'dark' || (!saved && sysDark)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoAI Lab | Hanbat National University</title>
+    
+    <!-- Core SEO -->
+    <title>EcoAI Lab | AI for Environmental Energy Research | Hanbat National University</title>
+    <meta name="description" content="EcoAI Lab at Hanbat National University researches the convergence of environmental energy and artificial intelligence, including quantum computing, smart factories, and IoT security.">
+    <meta name="keywords" content="EcoAI Lab, AI, Environmental Energy, Quantum Computing, Smart Factory, IoT Security, Hanbat National University, Machine Learning, Reinforcement Learning">
+    <link rel="canonical" href="https://ecoailab.github.io/">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ecoailab.github.io/">
+    <meta property="og:title" content="EcoAI Lab | AI for Environmental Energy Research">
+    <meta property="og:description" content="Researching the convergence of environmental energy and artificial intelligence at Hanbat National University.">
+    <meta property="og:image" content="https://lh3.googleusercontent.com/sitesv/APaQ0SS91X6PVhjO74YTjj5v6-UMg5SbdTFafZbTGFTTX6oxHy23VU8CNUOvNEBWekwSwj143jIBoOGrWbKX7FVo1q7SA_NbXVHHLGS7dviCoG-7-mtmur7Hx2jEXrP8U0rUWrR3svo_ff4dftkKvPwQW-QnCJ_wnsv4pUE_xlLAtsgzw3tCqt_He7x8=w16383">
+    <meta property="og:site_name" content="EcoAI Lab">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="EcoAI Lab | AI for Environmental Energy Research">
+    <meta name="twitter:description" content="Researching the convergence of environmental energy and artificial intelligence at Hanbat National University.">
+    <meta name="twitter:image" content="https://lh3.googleusercontent.com/sitesv/APaQ0SS91X6PVhjO74YTjj5v6-UMg5SbdTFafZbTGFTTX6oxHy23VU8CNUOvNEBWekwSwj143jIBoOGrWbKX7FVo1q7SA_NbXVHHLGS7dviCoG-7-mtmur7Hx2jEXrP8U0rUWrR3svo_ff4dftkKvPwQW-QnCJ_wnsv4pUE_xlLAtsgzw3tCqt_He7x8=w16383">
+    
+    <!-- Academic Meta -->
+    <meta name="citation_author" content="Sangkeum Lee">
+    <meta name="citation_author_institution" content="Hanbat National University">
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ResearchOrganization",
+        "@id": "https://ecoailab.github.io/#organization",
+        "name": "EcoAI Lab",
+        "alternateName": "EcoAI Laboratory",
+        "url": "https://ecoailab.github.io",
+        "description": "EcoAI Lab researches the convergence of environmental energy and artificial intelligence at Hanbat National University, focusing on quantum computing, smart factories, IoT security, and sustainable AI solutions.",
+        "foundingDate": "2024",
+        "parentOrganization": {
+            "@type": "CollegeOrUniversity",
+            "name": "Hanbat National University",
+            "department": {
+                "@type": "Organization",
+                "name": "Department of Computer Engineering"
+            }
+        },
+        "member": [
+            {
+                "@type": "Person",
+                "name": "Sangkeum Lee",
+                "jobTitle": "Assistant Professor",
+                "url": "https://scholar.google.com/citations?user=HaZWX-AAAAAJ&hl=en",
+                "sameAs": [
+                    "https://github.com/ecoailab"
+                ]
+            }
+        ],
+        "sameAs": [
+            "https://github.com/ecoailab",
+            "https://sites.google.com/view/ecoai"
+        ],
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "sangkeum@hanbat.ac.kr",
+            "telephone": "+82-42-821-1205",
+            "contactType": "academic"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "125 Dongseo-daero, Yuseong-gu, Room N4-416",
+            "addressLocality": "Daejeon",
+            "addressCountry": "KR",
+            "postalCode": "34158"
+        }
+    }
+    </script>
     <style>
         :root {
+            /* Light Mode (Default) */
             --navy: #0f172a;
             --navy-light: #1e293b;
             --gold: #d4af37;
@@ -20,9 +110,36 @@
             --gray-400: #94a3b8;
             --gray-800: #1e293b;
             
+            /* Theme Variables */
+            --bg-primary: #ffffff;
+            --bg-secondary: #f1f5f9;
+            --bg-dark: #0f172a;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --text-light: #ffffff;
+            --border-color: rgba(212, 175, 55, 0.2);
+            --card-bg: #ffffff;
+            --card-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            
             --font-heading: 'Playfair Display', serif;
             --font-body: 'Inter', sans-serif;
             --font-elegant: 'Cormorant Garamond', serif;
+        }
+        
+        /* Dark Mode */
+        [data-theme="dark"] {
+            --bg-primary: #0a0f1c;
+            --bg-secondary: #0f172a;
+            --bg-dark: #0a0f1c;
+            --text-primary: #e2e8f0;
+            --text-secondary: #94a3b8;
+            --text-light: #ffffff;
+            --border-color: rgba(212, 175, 55, 0.3);
+            --card-bg: #1e293b;
+            --card-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            
+            --gray-100: #1e293b;
+            --gray-800: #f1f5f9;
         }
 
         * {
@@ -33,10 +150,55 @@
 
         body {
             font-family: var(--font-body);
-            color: var(--gray-800);
-            background-color: var(--gray-100);
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
             line-height: 1.6;
             overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        /* Dark Mode Toggle Button */
+        .theme-toggle {
+            background: none;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            padding: 8px 16px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .theme-toggle:hover {
+            background: var(--gold);
+            color: var(--navy);
+        }
+        
+        /* Focus visible for accessibility */
+        :focus-visible {
+            outline: 3px solid var(--gold);
+            outline-offset: 3px;
+        }
+        
+        /* Skip navigation link for accessibility */
+        .skip-nav {
+            position: absolute;
+            top: -100%;
+            left: 1rem;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 0.5rem 1rem;
+            z-index: 9999;
+            border-radius: 0 0 0.5rem 0.5rem;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        
+        .skip-nav:focus {
+            top: 0;
         }
 
         h1, h2, h3, h4, h5, h6 {
@@ -112,6 +274,107 @@
             color: var(--white);
             font-size: 1.5rem;
             cursor: pointer;
+        }
+        
+        /* Nav Actions */
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .search-toggle {
+            background: none;
+            border: none;
+            color: var(--gray-300);
+            font-size: 1.1rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .search-toggle:hover {
+            color: var(--gold);
+        }
+        
+        /* Search Modal */
+        .search-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 2000;
+            padding: 2rem;
+            overflow-y: auto;
+        }
+        
+        .search-modal.active {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding-top: 100px;
+        }
+        
+        .search-container {
+            width: 100%;
+            max-width: 700px;
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        .search-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .search-header h3 {
+            color: var(--text-primary);
+            font-size: 1.5rem;
+        }
+        
+        .search-close {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        
+        .search-close:hover {
+            color: var(--gold);
+        }
+        
+        /* Pagefind Customization */
+        .pagefind-ui__search-input {
+            background: var(--bg-secondary) !important;
+            color: var(--text-primary) !important;
+            border: 2px solid var(--border-color) !important;
+            border-radius: 8px !important;
+            padding: 1rem !important;
+            font-size: 1.1rem !important;
+        }
+        
+        .pagefind-ui__result {
+            border-bottom: 1px solid var(--border-color) !important;
+            padding: 1.5rem 0 !important;
+        }
+        
+        .pagefind-ui__result-title {
+            color: var(--gold) !important;
+            font-weight: 600 !important;
+        }
+        
+        .pagefind-ui__result-excerpt {
+            color: var(--text-secondary) !important;
         }
 
         /* Hero Section */
@@ -667,6 +930,8 @@
     </style>
 </head>
 <body>
+    <!-- Skip Navigation for Accessibility -->
+    <a href="#main-content" class="skip-nav">Skip to main content</a>
 
     <!-- Navigation -->
     <nav>
@@ -681,11 +946,34 @@
                 <li><a href="#publications">Publications</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <div class="nav-actions">
+                <!-- Search Toggle -->
+                <button class="search-toggle" id="search-toggle" aria-label="Open search">
+                    <i class="fas fa-search"></i>
+                </button>
+                <!-- Dark Mode Toggle -->
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
             <div class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
             </div>
         </div>
     </nav>
+    
+    <!-- Search Modal -->
+    <div class="search-modal" id="search-modal">
+        <div class="search-container">
+            <div class="search-header">
+                <h3>Search EcoAI Lab</h3>
+                <button class="search-close" id="search-close" aria-label="Close search">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="search"></div>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
@@ -704,22 +992,22 @@
     <!-- News Section -->
     <section id="news" class="section">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header" data-aos="fade-up">
                 <h2 class="section-title">Latest News</h2>
                 <p class="section-subtitle">Recent updates and achievements from our lab</p>
             </div>
             <div class="news-grid">
-                <div class="news-card">
+                <div class="news-card" data-aos="fade-up" data-aos-delay="0">
                     <div class="news-date">March 2026</div>
                     <h3 class="news-title">New Project on Quantum Battery Ultra-Fast Charging</h3>
                     <p class="news-excerpt">EcoAI Lab has secured a new research grant from the Korea Institute of Energy Technology to develop ultra-fast charging technology for quantum batteries.</p>
                 </div>
-                <div class="news-card">
+                <div class="news-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="news-date">January 2025</div>
                     <h3 class="news-title">LLM-based Conversational AI Project Launched</h3>
                     <p class="news-excerpt">We are partnering with the Korea Institute of Energy Research to develop an LLM-based conversational AI for energy resource health diagnosis.</p>
                 </div>
-                <div class="news-card">
+                <div class="news-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="news-date">September 2024</div>
                     <h3 class="news-title">EcoAI Lab Officially Established</h3>
                     <p class="news-excerpt">Prof. Sangkeum Lee has officially launched the EcoAI Lab at Hanbat National University, focusing on AI for environmental and energy optimization.</p>
@@ -1024,14 +1312,120 @@
         </div>
     </footer>
 
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Pagefind Search -->
+    <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+    <script src="/pagefind/pagefind-ui.js"></script>
+    
     <script>
+        // Initialize AOS (Animate On Scroll)
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 80,
+            easing: 'ease-out-cubic',
+            disable: function() {
+                // Disable on mobile for better performance
+                return window.innerWidth < 768;
+            }
+        });
+        
+        // Dark Mode Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = themeToggle.querySelector('.theme-icon');
+        const html = document.documentElement;
+        
+        function updateThemeIcon(theme) {
+            themeIcon.textContent = theme === 'dark' ? '☀️' : '🌙';
+            themeToggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+        }
+        
+        // Set initial icon
+        updateThemeIcon(html.getAttribute('data-theme') || 'light');
+        
+        themeToggle.addEventListener('click', () => {
+            const isDark = html.getAttribute('data-theme') === 'dark';
+            const nextTheme = isDark ? 'light' : 'dark';
+            html.setAttribute('data-theme', nextTheme);
+            localStorage.setItem('theme', nextTheme);
+            updateThemeIcon(nextTheme);
+        });
+        
+        // Listen for OS theme changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+            if (!localStorage.getItem('theme')) {
+                const newTheme = e.matches ? 'dark' : 'light';
+                html.setAttribute('data-theme', newTheme);
+                updateThemeIcon(newTheme);
+            }
+        });
+        
+        // Search Modal
+        const searchToggle = document.getElementById('search-toggle');
+        const searchModal = document.getElementById('search-modal');
+        const searchClose = document.getElementById('search-close');
+        let pagefindUI = null;
+        
+        function openSearch() {
+            searchModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            // Initialize Pagefind if not already done
+            if (!pagefindUI && typeof PagefindUI !== 'undefined') {
+                pagefindUI = new PagefindUI({
+                    element: '#search',
+                    showSubResults: true,
+                    showImages: false,
+                    excerptLength: 15
+                });
+            }
+            
+            // Focus on search input
+            setTimeout(() => {
+                const searchInput = document.querySelector('.pagefind-ui__search-input');
+                if (searchInput) searchInput.focus();
+            }, 100);
+        }
+        
+        function closeSearch() {
+            searchModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        searchToggle.addEventListener('click', openSearch);
+        searchClose.addEventListener('click', closeSearch);
+        
+        // Close search on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && searchModal.classList.contains('active')) {
+                closeSearch();
+            }
+            // Open search on Ctrl/Cmd + K
+            if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                e.preventDefault();
+                openSearch();
+            }
+        });
+        
+        // Close search on backdrop click
+        searchModal.addEventListener('click', (e) => {
+            if (e.target === searchModal) {
+                closeSearch();
+            }
+        });
+        
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
 
@@ -1040,12 +1434,22 @@
             const nav = document.querySelector('nav');
             if (window.scrollY > 50) {
                 nav.style.backgroundColor = 'rgba(15, 23, 42, 0.98)';
-                nav.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+                nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.2)';
             } else {
                 nav.style.backgroundColor = 'rgba(15, 23, 42, 0.95)';
                 nav.style.boxShadow = 'none';
             }
         });
+        
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
     </script>
 </body>
 </html>
