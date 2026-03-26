@@ -242,6 +242,19 @@ a:hover { color: var(--t1); }
   text-decoration: none;
 }
 .nav-links a:hover { color: var(--t1); background: var(--bg-hover); }
+.nav-links a.active {
+  color: var(--t1);
+  background: var(--bg-hover);
+  position: relative;
+}
+.nav-links a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 50%; transform: translateX(-50%);
+  width: 16px; height: 2px;
+  background: var(--accent);
+  border-radius: var(--r-pill);
+}
 
 .nav-actions {
   display: flex; align-items: center; gap: var(--sp-3);
@@ -1023,12 +1036,222 @@ a:hover { color: var(--t1); }
 }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 
+/* ── Back to top button ── */
+.back-to-top {
+  position: fixed; bottom: var(--sp-6); right: var(--sp-6);
+  width: 40px; height: 40px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--r-pill);
+  color: var(--t3); font-size: 14px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; z-index: 90;
+  opacity: 0; transform: translateY(12px);
+  transition: opacity var(--t-base), transform var(--t-base),
+              background var(--t-fast), border-color var(--t-fast), color var(--t-fast);
+  pointer-events: none;
+  box-shadow: var(--shadow-md);
+}
+.back-to-top.visible {
+  opacity: 1; transform: translateY(0); pointer-events: auto;
+}
+.back-to-top:hover {
+  background: var(--accent-tint); border-color: var(--accent);
+  color: var(--accent-soft);
+}
+
+/* ── Keyboard shortcut tooltip ── */
+.nav-logo::after {
+  content: 'Press / to search';
+  display: none;
+}
+
+/* ── Command bar ── */
+.cmd-bar {
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.6); backdrop-filter: blur(8px);
+  z-index: 999; display: none; align-items: flex-start;
+  justify-content: center; padding-top: 80px;
+}
+.cmd-bar.open { display: flex; }
+.cmd-box {
+  width: 100%; max-width: 560px;
+  background: var(--bg-panel); border: 1px solid var(--border);
+  border-radius: var(--r-xl); overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+.cmd-input-wrap {
+  display: flex; align-items: center; gap: var(--sp-3);
+  padding: var(--sp-4) var(--sp-5);
+  border-bottom: 1px solid var(--border);
+}
+.cmd-input-wrap i { color: var(--t3); font-size: 14px; flex-shrink: 0; }
+.cmd-input {
+  flex: 1; background: none; border: none; outline: none;
+  font-family: var(--font-sans); font-size: var(--text-base);
+  color: var(--t1); letter-spacing: -0.01em;
+}
+.cmd-input::placeholder { color: var(--t4); }
+.cmd-kbd {
+  font-family: var(--font-mono); font-size: 11px;
+  color: var(--t4); background: var(--bg-hover);
+  border: 1px solid var(--border); border-radius: var(--r-sm);
+  padding: 2px 6px; flex-shrink: 0;
+}
+.cmd-results {
+  max-height: 320px; overflow-y: auto;
+  padding: var(--sp-2);
+}
+.cmd-result {
+  display: flex; align-items: center; gap: var(--sp-3);
+  padding: var(--sp-3) var(--sp-3);
+  border-radius: var(--r-md); cursor: pointer;
+  transition: background var(--t-fast);
+}
+.cmd-result:hover, .cmd-result.focused { background: var(--bg-hover); }
+.cmd-result i { color: var(--t3); width: 16px; text-align: center; font-size: 13px; }
+.cmd-result-label { font-size: var(--text-sm); color: var(--t2); letter-spacing: -0.01em; }
+.cmd-footer {
+  padding: var(--sp-3) var(--sp-5);
+  border-top: 1px solid var(--border);
+  display: flex; gap: var(--sp-4);
+  font-size: 11px; color: var(--t4);
+}
+.cmd-footer span { display: flex; align-items: center; gap: var(--sp-1); }
+
+/* ── Hero animated mesh ── */
+.hero-mesh {
+  position: absolute; inset: 0; z-index: 0;
+  overflow: hidden; pointer-events: none;
+}
+.mesh-blob {
+  position: absolute; border-radius: 50%;
+  filter: blur(80px); opacity: 0.25;
+  animation: blob-float 12s ease-in-out infinite;
+}
+.mesh-blob:nth-child(1) {
+  width: 500px; height: 500px;
+  background: var(--accent); top: -20%; left: -10%;
+  animation-delay: 0s; animation-duration: 14s;
+}
+.mesh-blob:nth-child(2) {
+  width: 400px; height: 400px;
+  background: #7c3aed; top: 10%; right: -5%;
+  animation-delay: -4s; animation-duration: 18s;
+}
+.mesh-blob:nth-child(3) {
+  width: 300px; height: 300px;
+  background: #2563eb; bottom: -10%; left: 40%;
+  animation-delay: -8s; animation-duration: 16s;
+}
+@keyframes blob-float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  33% { transform: translateY(-20px) scale(1.05); }
+  66% { transform: translateY(10px) scale(0.95); }
+}
+
+/* ── Professor image hover ── */
+.professor-img {
+  transition: transform var(--t-base), box-shadow var(--t-base);
+}
+.professor-img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 0 3px var(--accent-tint), var(--shadow-md);
+}
+
+/* ── Team avatar hover ── */
+.team-member {
+  position: relative; overflow: hidden;
+}
+.team-member::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: var(--accent-tint); opacity: 0;
+  transition: opacity var(--t-fast);
+  pointer-events: none; border-radius: inherit;
+}
+.team-member:hover::before { opacity: 1; }
+
+/* ── Research card hover arrow ── */
+.research-card {
+  position: relative;
+}
+.research-card::after {
+  content: '→';
+  position: absolute; bottom: var(--sp-8); right: var(--sp-8);
+  color: var(--t4); font-size: var(--text-base);
+  opacity: 0; transform: translateX(-4px);
+  transition: opacity var(--t-base), transform var(--t-base), color var(--t-base);
+}
+.research-card:hover::after {
+  opacity: 1; transform: translateX(0); color: var(--accent-soft);
+}
+
+/* ── News item arrow ── */
+.news-item {
+  position: relative;
+}
+.news-item::after {
+  content: '↗';
+  position: absolute; right: 0; top: 50%; transform: translateY(-50%);
+  color: var(--t4); font-size: var(--text-sm);
+  opacity: 0; transition: opacity var(--t-base);
+}
+.news-item:hover::after { opacity: 1; }
+
+/* ── Project hover accent ── */
+.project-item {
+  border-left: 2px solid transparent;
+  transition: background var(--t-fast), border-color var(--t-fast);
+}
+.project-item:hover {
+  border-left-color: var(--accent);
+}
+
+/* ── Stat number gradient ── */
+.stat-number {
+  background: linear-gradient(135deg, var(--t1) 0%, var(--t2) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Section label glow ── */
+.section-label {
+  display: inline-block;
+}
+
+/* ── Pub item left accent ── */
+.pub-item {
+  border-left: 2px solid transparent;
+  transition: background var(--t-fast), border-color var(--t-fast);
+}
+.pub-item:hover {
+  border-left-color: var(--accent);
+}
+
+/* ── Image shimmer loading ── */
+.img-loading {
+  background: linear-gradient(
+    90deg,
+    var(--bg-hover) 0%,
+    var(--bg-active) 50%,
+    var(--bg-hover) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
-  .hero::before { animation: none; }
+  .hero::before, .mesh-blob { animation: none; }
 }
 
 /* ============================================================
@@ -1079,6 +1302,11 @@ a:hover { color: var(--t1); }
     </ul>
 
     <div class="nav-actions">
+      <button class="theme-btn" onclick="openCmdBar()" aria-label="Quick search (/ or Ctrl+K)"
+              title="Quick search  ⌘K" style="gap:var(--sp-2);width:auto;padding-inline:10px;">
+        <i class="fa-solid fa-magnifying-glass" style="font-size:12px;"></i>
+        <span style="font-size:11px;color:var(--t4);font-family:var(--font-mono);">⌘K</span>
+      </button>
       <button class="theme-btn" id="theme-btn" aria-label="Toggle dark mode">
         <i class="fa-solid fa-moon" id="theme-icon"></i>
       </button>
@@ -1088,6 +1316,28 @@ a:hover { color: var(--t1); }
     </div>
   </div>
 </nav>
+
+<!-- Back to top -->
+<button class="back-to-top" id="back-to-top" aria-label="Back to top">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
+
+<!-- Command Bar -->
+<div class="cmd-bar" id="cmd-bar" role="dialog" aria-label="Quick navigation">
+  <div class="cmd-box">
+    <div class="cmd-input-wrap">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" class="cmd-input" id="cmd-input" placeholder="Go to section, search papers…" autocomplete="off">
+      <span class="cmd-kbd">ESC</span>
+    </div>
+    <div class="cmd-results" id="cmd-results" role="listbox"></div>
+    <div class="cmd-footer">
+      <span><span class="cmd-kbd">↑↓</span> Navigate</span>
+      <span><span class="cmd-kbd">↵</span> Go</span>
+      <span><span class="cmd-kbd">ESC</span> Close</span>
+    </div>
+  </div>
+</div>
 
 <!-- Mobile menu -->
 <div class="nav-mobile" id="nav-mobile" role="menu">
@@ -1105,6 +1355,12 @@ a:hover { color: var(--t1); }
      HERO
      ============================================================ -->
 <section id="home" class="hero">
+  <!-- Animated mesh blobs -->
+  <div class="hero-mesh" aria-hidden="true">
+    <div class="mesh-blob"></div>
+    <div class="mesh-blob"></div>
+    <div class="mesh-blob"></div>
+  </div>
   <div class="container">
     <div class="hero-content">
       <div class="hero-badge">
@@ -1941,6 +2197,142 @@ function showToast(msg) {
   t.classList.add('show');
   setTimeout(() => t.classList.remove('show'), 2800);
 }
+
+/* ── Scroll spy (nav active state) ── */
+const sections = document.querySelectorAll('section[id], div[id="stats"]');
+const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
+
+const spy = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const id = e.target.id;
+      navAnchors.forEach(a => {
+        const match = a.getAttribute('href') === '#' + id;
+        a.classList.toggle('active', match);
+      });
+    }
+  });
+}, { threshold: 0.3, rootMargin: '-64px 0px -40% 0px' });
+
+sections.forEach(s => spy.observe(s));
+
+/* ── Back to top ── */
+const btt = document.getElementById('back-to-top');
+window.addEventListener('scroll', () => {
+  btt.classList.toggle('visible', window.scrollY > 400);
+}, { passive: true });
+btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+/* ── Command bar ── */
+const cmdBar  = document.getElementById('cmd-bar');
+const cmdInput = document.getElementById('cmd-input');
+const cmdResultsEl = document.getElementById('cmd-results');
+
+const cmdItems = [
+  { label: 'Go to Home',         icon: 'fa-house',          href: '#home' },
+  { label: 'Go to News',         icon: 'fa-newspaper',      href: '#news' },
+  { label: 'Go to Research',     icon: 'fa-flask',          href: '#research' },
+  { label: 'Go to Projects',     icon: 'fa-diagram-project',href: '#projects' },
+  { label: 'Go to People',       icon: 'fa-users',          href: '#team' },
+  { label: 'Go to Publications', icon: 'fa-book-open',      href: '#publications' },
+  { label: 'Go to Contact',      icon: 'fa-envelope',       href: '#contact' },
+  { label: 'Google Scholar',     icon: 'fa-graduation-cap', href: 'https://scholar.google.com/citations?user=HaZWX-AAAAAJ&hl=en', ext: true },
+  { label: 'GitHub',             icon: 'fa-brands fa-github', href: 'https://github.com/ecoailab', ext: true },
+  { label: 'Email Prof. Lee',    icon: 'fa-envelope',       href: 'mailto:sangkeum@hanbat.ac.kr', ext: true },
+  { label: 'Toggle dark mode',   icon: 'fa-moon',           action: () => themeBtn.click() },
+  { label: 'Machine learning for wireless sensor networks', icon: 'fa-file-lines', href: '#publications' },
+  { label: 'Reinforcement learning sparse binary rewards',  icon: 'fa-file-lines', href: '#publications' },
+  { label: 'Anomaly detection smart metering',              icon: 'fa-file-lines', href: '#publications' },
+];
+
+let focusedIdx = -1;
+
+function renderCmdResults(query) {
+  const q = query.toLowerCase().trim();
+  const filtered = q
+    ? cmdItems.filter(i => i.label.toLowerCase().includes(q))
+    : cmdItems;
+
+  if (!filtered.length) {
+    cmdResultsEl.innerHTML = `<div style="padding:var(--sp-5);text-align:center;color:var(--t4);font-size:var(--text-sm);">No results</div>`;
+    return;
+  }
+
+  cmdResultsEl.innerHTML = filtered.map((item, i) => `
+    <div class="cmd-result" data-idx="${i}" role="option" tabindex="-1"
+         onclick="execCmd(${JSON.stringify(item).replace(/"/g, '&quot;')})">
+      <i class="fa-solid ${item.icon}"></i>
+      <span class="cmd-result-label">${item.label}</span>
+      ${item.ext ? '<i class="fa-solid fa-arrow-up-right-from-square" style="margin-left:auto;color:var(--t4);font-size:11px;"></i>' : ''}
+    </div>`).join('');
+  focusedIdx = -1;
+}
+
+function execCmd(item) {
+  closeCmdBar();
+  if (item.action) { setTimeout(item.action, 80); return; }
+  if (item.ext) { window.open(item.href, '_blank', 'noopener,noreferrer'); return; }
+  const el = document.querySelector(item.href);
+  if (el) el.scrollIntoView({ behavior: 'smooth' });
+}
+
+function openCmdBar() {
+  cmdBar.classList.add('open');
+  renderCmdResults('');
+  requestAnimationFrame(() => cmdInput.focus());
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCmdBar() {
+  cmdBar.classList.remove('open');
+  cmdInput.value = '';
+  document.body.style.overflow = '';
+  focusedIdx = -1;
+}
+
+cmdInput.addEventListener('input', () => renderCmdResults(cmdInput.value));
+
+cmdInput.addEventListener('keydown', e => {
+  const items = cmdResultsEl.querySelectorAll('.cmd-result');
+  if (e.key === 'ArrowDown') {
+    e.preventDefault();
+    focusedIdx = (focusedIdx + 1) % items.length;
+    items.forEach((el, i) => el.classList.toggle('focused', i === focusedIdx));
+    items[focusedIdx]?.scrollIntoView({ block: 'nearest' });
+  } else if (e.key === 'ArrowUp') {
+    e.preventDefault();
+    focusedIdx = (focusedIdx - 1 + items.length) % items.length;
+    items.forEach((el, i) => el.classList.toggle('focused', i === focusedIdx));
+    items[focusedIdx]?.scrollIntoView({ block: 'nearest' });
+  } else if (e.key === 'Enter') {
+    if (focusedIdx >= 0) items[focusedIdx]?.click();
+    else if (items.length) items[0].click();
+  }
+});
+
+cmdBar.addEventListener('click', e => { if (e.target === cmdBar) closeCmdBar(); });
+
+// expose for inline onclick
+window.execCmd = execCmd;
+
+/* ── Keyboard shortcuts ── */
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') { closeCmdBar(); }
+  if ((e.key === '/' || (e.metaKey && e.key === 'k') || (e.ctrlKey && e.key === 'k'))
+      && !['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName)) {
+    e.preventDefault();
+    openCmdBar();
+  }
+});
+
+/* ── Image shimmer loading ── */
+document.querySelectorAll('img').forEach(img => {
+  if (!img.complete) {
+    img.classList.add('img-loading');
+    img.addEventListener('load', () => img.classList.remove('img-loading'), { once: true });
+    img.addEventListener('error', () => img.classList.remove('img-loading'), { once: true });
+  }
+});
 
 /* ── Service Worker ── */
 if ('serviceWorker' in navigator) {
