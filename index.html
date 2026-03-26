@@ -36,6 +36,9 @@
 <link rel="manifest" href="/manifest.json">
 <meta name="theme-color" content="#08090a">
 
+<!-- RSS Feed Discovery -->
+<link rel="alternate" type="application/rss+xml" title="EcoAI Lab News" href="/rss.xml">
+
 <!-- Plausible Analytics -->
 <script defer data-domain="ecoailab.github.io" src="https://plausible.io/js/script.js"></script>
 
@@ -1230,6 +1233,41 @@ a:hover { color: var(--t1); }
   border-left-color: var(--accent);
 }
 
+/* ── Gallery ── */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-3);
+}
+.gallery-item {
+  position: relative; overflow: hidden;
+  border-radius: var(--r-xl); aspect-ratio: 4/3;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+}
+.gallery-item--wide { grid-column: span 2; aspect-ratio: 16/9; }
+.gallery-item img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.6s var(--t-slow);
+}
+.gallery-item:hover img { transform: scale(1.06); }
+.gallery-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%);
+  display: flex; align-items: flex-end;
+  padding: var(--sp-4); opacity: 0;
+  transition: opacity var(--t-base);
+}
+.gallery-item:hover .gallery-overlay { opacity: 1; }
+.gallery-overlay span {
+  font-size: var(--text-sm); font-weight: 510;
+  color: #fff; letter-spacing: -0.01em;
+}
+@media (max-width: 640px) {
+  .gallery-grid { grid-template-columns: 1fr; }
+  .gallery-item--wide { grid-column: span 1; aspect-ratio: 4/3; }
+}
+
 /* ── Image shimmer loading ── */
 .img-loading {
   background: linear-gradient(
@@ -1298,6 +1336,7 @@ a:hover { color: var(--t1); }
       <li><a href="#projects">Projects</a></li>
       <li><a href="#team">People</a></li>
       <li><a href="#publications">Publications</a></li>
+      <li><a href="#gallery">Gallery</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
 
@@ -1346,6 +1385,7 @@ a:hover { color: var(--t1); }
   <a href="#projects" role="menuitem">Projects</a>
   <a href="#team" role="menuitem">People</a>
   <a href="#publications" role="menuitem">Publications</a>
+  <a href="#gallery" role="menuitem">Gallery</a>
   <a href="#contact" role="menuitem">Contact</a>
 </div>
 
@@ -1764,7 +1804,8 @@ a:hover { color: var(--t1); }
             <div class="pub-authors">T Kim, LF Vecchietti, K Choi, <strong>S Lee</strong>, D Har</div>
             <div class="pub-venue">IEEE Sensors Journal 21(11), 12379–12397 — 2020</div>
             <div class="pub-actions">
-              <a href="#" class="pub-link"><i class="fa-solid fa-file-pdf"></i> PDF</a>
+              <a href="https://doi.org/10.1109/JSEN.2020.3016821" target="_blank" rel="noopener noreferrer" class="pub-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> DOI</a>
+              <a href="https://ieeexplore.ieee.org/document/9159798" target="_blank" rel="noopener noreferrer" class="pub-link"><i class="fa-solid fa-file-pdf"></i> IEEE</a>
               <button class="pub-link" onclick="showBibtex('bib1')"><i class="fa-solid fa-quote-right"></i> BibTeX</button>
             </div>
           </div>
@@ -1786,7 +1827,8 @@ a:hover { color: var(--t1); }
             <div class="pub-authors">M Seo, LF Vecchietti, <strong>S Lee</strong>, D Har</div>
             <div class="pub-venue">IEEE Access 7, 118776–118791 — 2019</div>
             <div class="pub-actions">
-              <a href="#" class="pub-link"><i class="fa-solid fa-file-pdf"></i> PDF</a>
+              <a href="https://doi.org/10.1109/ACCESS.2019.2936863" target="_blank" rel="noopener noreferrer" class="pub-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> DOI</a>
+              <a href="https://ieeexplore.ieee.org/document/8807254" target="_blank" rel="noopener noreferrer" class="pub-link"><i class="fa-solid fa-file-pdf"></i> IEEE</a>
               <button class="pub-link" onclick="showBibtex('bib2')"><i class="fa-solid fa-quote-right"></i> BibTeX</button>
             </div>
           </div>
@@ -1807,7 +1849,8 @@ a:hover { color: var(--t1); }
             <div class="pub-authors">H Jin, <strong>S Lee</strong>, SH Nengroo, D Har</div>
             <div class="pub-venue">Applied Sciences 12(9), 4786 — 2022</div>
             <div class="pub-actions">
-              <a href="#" class="pub-link"><i class="fa-solid fa-file-pdf"></i> PDF</a>
+              <a href="https://doi.org/10.3390/app12094786" target="_blank" rel="noopener noreferrer" class="pub-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> DOI</a>
+              <a href="https://www.mdpi.com/2076-3417/12/9/4786" target="_blank" rel="noopener noreferrer" class="pub-link"><i class="fa-solid fa-file-pdf"></i> Open Access</a>
               <button class="pub-link" onclick="showBibtex('bib3')"><i class="fa-solid fa-quote-right"></i> BibTeX</button>
             </div>
           </div>
@@ -1826,9 +1869,10 @@ a:hover { color: var(--t1); }
           <div class="pub-body">
             <div class="pub-title">Anomaly detection of smart metering system for power management with battery storage system/electric vehicle</div>
             <div class="pub-authors"><strong>S Lee</strong>, SH Nengroo, H Jin, Y Doh, C Lee, T Heo, D Har</div>
-            <div class="pub-venue">ETRI Journal 45(4), 650–665 — 2023</div>
+            <div class="pub-venue">ETRI Journal 45(4), 650–665 — 2023 · <span style="color:var(--accent-soft);font-style:normal;">Best Paper Award</span></div>
             <div class="pub-actions">
-              <a href="#" class="pub-link"><i class="fa-solid fa-file-pdf"></i> PDF</a>
+              <a href="https://doi.org/10.4218/etrij.2022-0135" target="_blank" rel="noopener noreferrer" class="pub-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> DOI</a>
+              <a href="https://onlinelibrary.wiley.com/doi/full/10.4218/etrij.2022-0135" target="_blank" rel="noopener noreferrer" class="pub-link"><i class="fa-solid fa-file-pdf"></i> Open Access</a>
               <button class="pub-link" onclick="showBibtex('bib4')"><i class="fa-solid fa-quote-right"></i> BibTeX</button>
             </div>
           </div>
@@ -1849,7 +1893,8 @@ a:hover { color: var(--t1); }
             <div class="pub-authors">W Lai, M Kuang, X Wang, P Ghafariasl, MH Sabzalian, <strong>S Lee</strong></div>
             <div class="pub-venue">Scientific Reports 13(1), 19377 — 2023</div>
             <div class="pub-actions">
-              <a href="#" class="pub-link"><i class="fa-solid fa-file-pdf"></i> PDF</a>
+              <a href="https://doi.org/10.1038/s41598-023-46648-1" target="_blank" rel="noopener noreferrer" class="pub-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> DOI</a>
+              <a href="https://www.nature.com/articles/s41598-023-46648-1" target="_blank" rel="noopener noreferrer" class="pub-link"><i class="fa-solid fa-file-pdf"></i> Open Access</a>
               <button class="pub-link" onclick="showBibtex('bib5')"><i class="fa-solid fa-quote-right"></i> BibTeX</button>
             </div>
           </div>
@@ -1870,7 +1915,8 @@ a:hover { color: var(--t1); }
             <div class="pub-authors"><strong>S Lee</strong>, S Myung, J Hong, D Har</div>
             <div class="pub-venue">Desalination 398, 133–143 — 2016</div>
             <div class="pub-actions">
-              <a href="#" class="pub-link"><i class="fa-solid fa-file-pdf"></i> PDF</a>
+              <a href="https://doi.org/10.1016/j.desal.2016.07.031" target="_blank" rel="noopener noreferrer" class="pub-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> DOI</a>
+              <a href="https://www.sciencedirect.com/science/article/pii/S0011916416307494" target="_blank" rel="noopener noreferrer" class="pub-link"><i class="fa-solid fa-file-pdf"></i> ScienceDirect</a>
               <button class="pub-link" onclick="showBibtex('bib6')"><i class="fa-solid fa-quote-right"></i> BibTeX</button>
             </div>
           </div>
@@ -1913,6 +1959,39 @@ a:hover { color: var(--t1); }
 <!-- ============================================================
      CONTACT
      ============================================================ -->
+<!-- ============================================================
+     GALLERY
+     ============================================================ -->
+<section id="gallery" class="section">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">Gallery</p>
+      <h2 class="section-title">Lab Life</h2>
+      <p class="section-desc" style="margin-bottom:var(--sp-10)">
+        Moments from our research journey — events, teamwork, and milestones.
+      </p>
+    </div>
+    <div class="gallery-grid reveal">
+      <!-- 실제 Google Sites 갤러리 이미지 -->
+      <div class="gallery-item gallery-item--wide">
+        <img src="https://lh3.googleusercontent.com/sitesv/APaQ0SQ2UZwX_OMa7Pzr7uavcNktSuT0vUOrfR7lW-0GoI5ea3qDXq1zz2-DPGKXRqquGV8EtmngSOFXf1uUh6iQfN2_KYgCs6-yRe2SIvtYnnx6UizuxeI-gofcwkTPNvqqfz_N6KjyE3VUCzjzCtQSAyWOhZTq0T3Rqm3ufwobMVWb_2YVbuK1adOm=w1280" alt="EcoAI Lab Banner" loading="lazy" decoding="async">
+        <div class="gallery-overlay"><span>EcoAI Lab</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://lh3.googleusercontent.com/sitesv/APaQ0SSmufc_fcSiQF03hDHosvfeBmu8g9YbpvKxiI2ZvJJrbuNnRfhUNvmw-d23T6x7bQcxMulmPpGrCEjK_Yu4rbSLmmQYi9sYgY3NuTuMxaauL8Z9YmeC-f--sJf1sPtuWuQfp3pJsxJO9PJw8BqFUw4kHUY941Gvyvormo9IwylwuRTLVDZAixIy-s-o3_W-YebCYDjTYVUdNHdhHwMqrPrtZZc9RZTK5YNC6TM=w800" alt="Research Diagram" loading="lazy" decoding="async">
+        <div class="gallery-overlay"><span>Research Vision</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://lh3.googleusercontent.com/sitesv/APaQ0SQDA6H7-KiJp40Yf7AqJ62Ddfwe0zhI58WATDVpbP6vDg5_Zujgsj7VUUiBbrjhFzkhbcq5UFJ7vjBzoMjqZ_6OOWRl6nBUmr4Fae-mZtKZm7j6-vdiTZXfnxHX4MG0EWgVT4IxKJk2WBvdC9bqyWiuevBr5Aj6hnk6WfC8yPHQnwH6972QGYTWARmy6af3uM1rjOa0dXpCQPWkAjBZ94mji5aUw5azlbAU=w600" alt="Prof. Sangkeum Lee" loading="lazy" decoding="async">
+        <div class="gallery-overlay"><span>Prof. Sangkeum Lee</span></div>
+      </div>
+    </div>
+    <p class="reveal" style="margin-top:var(--sp-5);font-size:var(--text-sm);color:var(--t4);text-align:center;">
+      More photos on <a href="https://sites.google.com/view/ecoai/gallery" target="_blank" rel="noopener noreferrer">Google Sites Gallery →</a>
+    </p>
+  </div>
+</section>
+
 <section id="contact" class="section">
   <div class="container">
     <div class="reveal">
@@ -2028,6 +2107,8 @@ a:hover { color: var(--t1); }
         <a href="https://scholar.google.com/citations?user=HaZWX-AAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
         <a href="https://github.com/ecoailab" target="_blank" rel="noopener noreferrer">GitHub</a>
         <a href="https://sites.google.com/view/ecoai" target="_blank" rel="noopener noreferrer">Google Sites</a>
+        <a href="/rss.xml" title="RSS Feed"><i class="fa-solid fa-rss" style="font-size:12px;"></i> RSS</a>
+        <a href="/sitemap.xml">Sitemap</a>
       </div>
       <div class="footer-copy">
         © 2024 EcoAI Lab, Hanbat National University. Department of Computer Engineering.
@@ -2235,6 +2316,7 @@ const cmdItems = [
   { label: 'Go to Projects',     icon: 'fa-diagram-project',href: '#projects' },
   { label: 'Go to People',       icon: 'fa-users',          href: '#team' },
   { label: 'Go to Publications', icon: 'fa-book-open',      href: '#publications' },
+  { label: 'Go to Gallery',      icon: 'fa-images',         href: '#gallery' },
   { label: 'Go to Contact',      icon: 'fa-envelope',       href: '#contact' },
   { label: 'Google Scholar',     icon: 'fa-graduation-cap', href: 'https://scholar.google.com/citations?user=HaZWX-AAAAAJ&hl=en', ext: true },
   { label: 'GitHub',             icon: 'fa-brands fa-github', href: 'https://github.com/ecoailab', ext: true },
