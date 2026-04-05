@@ -1,0 +1,44 @@
+# Hugo build output
+/public/
+/resources/_gen/
+assets/jsconfig.json
+.hugo_build.lock
+
+# Build output folder (deployed separately)
+ecoailab.github.io/
+
+# Temporary files
+*.log
+*.tmp
+*.temp
+
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE/editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Node.js dependencies
+node_modules/
+.pnpm-store/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Development screenshots and artifacts
+fixed-*.png
+fullpage-check.png
+*.screenshot.png
+
+# Backup files
+*.bak
+*.backup
+*.old
