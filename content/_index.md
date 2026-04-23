@@ -57,54 +57,6 @@ sections:
         padding: ['40px', '0', '40px', '0']
 
   - block: markdown
-    id: news
-    content:
-      title: '📰 최신 소식'
-      subtitle: 'News & Updates'
-      text: |
-        <div class="news-list" style="display: flex; flex-direction: column; gap: 16px; margin-top: 24px;">
-        
-        <div class="news-item" style="display: flex; align-items: flex-start; gap: 16px; padding: 16px; background: #f8fafc; border-radius: 12px; border-left: 4px solid #3b82f6;">
-          <div style="min-width: 80px; color: #64748b; font-size: 0.875rem; font-weight: 600;">2026.01</div>
-          <div>
-            <div style="font-weight: 600; color: #1e293b; margin-bottom: 4px;">KICS Winter Conference Undergraduate Paper Award</div>
-            <div style="color: #64748b; font-size: 0.9rem;">"Self-Evolving Four-Layer Normalization Gate for Cost-Efficient Intelligent AICC" - Jihoon Kim, Gihun Gil, and Sangkeum Lee</div>
-          </div>
-        </div>
-        
-        <div class="news-item" style="display: flex; align-items: flex-start; gap: 16px; padding: 16px; background: #f8fafc; border-radius: 12px; border-left: 4px solid #10b981;">
-          <div style="min-width: 80px; color: #64748b; font-size: 0.875rem; font-weight: 600;">2026.01</div>
-          <div>
-            <div style="font-weight: 600; color: #1e293b; margin-bottom: 4px;">AAAI 2026 Newsletter — EcoAI Lab Featured</div>
-            <div style="color: #64748b; font-size: 0.9rem;">Research on reinforcement learning and quantum AI-based optimization for energy systems</div>
-          </div>
-        </div>
-        
-        <div class="news-item" style="display: flex; align-items: flex-start; gap: 16px; padding: 16px; background: #f8fafc; border-radius: 12px; border-left: 4px solid #f59e0b;">
-          <div style="min-width: 80px; color: #64748b; font-size: 0.875rem; font-weight: 600;">2026.01</div>
-          <div>
-            <div style="font-weight: 600; color: #1e293b; margin-bottom: 4px;">HBNU High-Impact Researcher Award</div>
-            <div style="color: #64748b; font-size: 0.9rem;">Hanbat National University, Academic Year 2026</div>
-          </div>
-        </div>
-        
-        <div class="news-item" style="display: flex; align-items: flex-start; gap: 16px; padding: 16px; background: #f8fafc; border-radius: 12px; border-left: 4px solid #8b5cf6;">
-          <div style="min-width: 80px; color: #64748b; font-size: 0.875rem; font-weight: 600;">2025.12</div>
-          <div>
-            <div style="font-weight: 600; color: #1e293b; margin-bottom: 4px;">KICS Fall Conference — 3 Undergraduate Paper Awards</div>
-            <div style="color: #64748b; font-size: 0.9rem;">RL-based Wi-Fi 7 MLO scheduling and quantum battery charging research recognized</div>
-          </div>
-        </div>
-        
-        </div>
-    design:
-      columns: '1'
-      background:
-        color: '#ffffff'
-      spacing:
-        padding: ['60px', '0', '60px', '0']
-
-  - block: markdown
     content:
       title: '🎯 연구 분야'
       subtitle: 'Research Areas'

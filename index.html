@@ -1,0 +1,2744 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<!-- Anti-FOUC -->
+<script>(function(){const s=localStorage.getItem('theme');if(s==='light')document.documentElement.setAttribute('data-theme','light');})()</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EcoAI Lab | AI for Environmental Energy — Hanbat National University</title>
+<meta name="description" content="EcoAI Lab researches the convergence of environmental energy and AI, including quantum computing, smart factories, and IoT security at Hanbat National University.">
+<meta name="keywords" content="EcoAI Lab, AI, Environmental Energy, Quantum Computing, Smart Factory, IoT, Hanbat National University">
+<link rel="canonical" href="https://ecoailab.github.io/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ecoailab.github.io/">
+<meta property="og:title" content="EcoAI Lab | AI for Environmental Energy">
+<meta property="og:description" content="Pioneering the convergence of environmental energy and artificial intelligence at Hanbat National University.">
+<meta property="og:image" content="https://ecoailab.github.io/images/prof-lee-web.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ResearchOrganization","name":"EcoAI Lab","url":"https://ecoailab.github.io","foundingDate":"2024","parentOrganization":{"@type":"CollegeOrUniversity","name":"Hanbat National University"},"member":[{"@type":"Person","name":"Sangkeum Lee","jobTitle":"Assistant Professor"}],"contactPoint":{"@type":"ContactPoint","email":"sangkeum@hanbat.ac.kr"}}
+</script>
+
+<!-- Fonts: Geist (Vercel) + Inter fallback -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- PWA -->
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#08090a">
+
+<!-- RSS Feed Discovery -->
+<link rel="alternate" type="application/rss+xml" title="EcoAI Lab News" href="/rss.xml">
+
+<!-- Plausible Analytics -->
+<script defer data-domain="ecoailab.github.io" src="https://plausible.io/js/script.js"></script>
+
+<style>
+/* ============================================================
+   DESIGN TOKENS — Linear / Vercel / Apple Aesthetic
+   ============================================================ */
+:root {
+  /* Fonts */
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+  --font-mono: "SF Mono", "Berkeley Mono", ui-monospace, monospace;
+
+  /* Type scale */
+  --text-xs:   0.75rem;
+  --text-sm:   0.875rem;
+  --text-base: 0.9375rem;
+  --text-lg:   1.0625rem;
+  --text-xl:   1.25rem;
+  --text-2xl:  1.5rem;
+  --text-3xl:  2rem;
+  --text-4xl:  2.5rem;
+  --text-5xl:  3.5rem;
+  --text-6xl:  5rem;
+
+  /* Spacing (8pt grid) */
+  --sp-1: 4px;  --sp-2: 8px;   --sp-3: 12px; --sp-4: 16px;
+  --sp-5: 20px; --sp-6: 24px;  --sp-8: 32px; --sp-10: 40px;
+  --sp-12: 48px; --sp-16: 64px; --sp-20: 80px; --sp-24: 96px;
+
+  /* Radius */
+  --r-sm: 6px; --r-md: 8px; --r-lg: 12px;
+  --r-xl: 16px; --r-2xl: 24px; --r-pill: 9999px;
+
+  /* Transitions */
+  --t-fast: 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --t-base: 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
+  --t-slow: 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* Dark theme (default) */
+:root, [data-theme="dark"] {
+  color-scheme: dark;
+  --bg:          #08090a;
+  --bg-panel:    #0f1011;
+  --bg-elevated: #1c1c1f;
+  --bg-hover:    #232326;
+  --bg-active:   #28282c;
+  --border:      #23252a;
+  --border-mid:  #34343a;
+  --border-hi:   #3e3e44;
+  --border-sub:  rgba(255,255,255,0.05);
+  --t1: #f7f8f8;
+  --t2: #d0d6e0;
+  --t3: #8a8f98;
+  --t4: #62666d;
+  --accent:      #6366f1;
+  --accent-soft: #818cf8;
+  --accent-tint: rgba(99,102,241,0.12);
+  --accent-glow: rgba(99,102,241,0.25);
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.15);
+  --shadow-md: 0 4px 24px rgba(0,0,0,0.25);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,0.4);
+  --nav-bg: rgba(8,9,10,0.82);
+}
+
+/* Light theme */
+[data-theme="light"] {
+  color-scheme: light;
+  --bg:          #fafafa;
+  --bg-panel:    #ffffff;
+  --bg-elevated: #ffffff;
+  --bg-hover:    #f4f4f5;
+  --bg-active:   #e4e4e7;
+  --border:      #e4e4e7;
+  --border-mid:  #d4d4d8;
+  --border-hi:   #a1a1aa;
+  --border-sub:  rgba(0,0,0,0.04);
+  --t1: #09090b;
+  --t2: #3f3f46;
+  --t3: #71717a;
+  --t4: #a1a1aa;
+  --accent:      #4f46e5;
+  --accent-soft: #6366f1;
+  --accent-tint: rgba(79,70,229,0.08);
+  --accent-glow: rgba(79,70,229,0.15);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.05), 0 2px 4px rgba(0,0,0,0.04);
+  --shadow-lg: 0 10px 15px rgba(0,0,0,0.08), 0 4px 6px rgba(0,0,0,0.04);
+  --nav-bg: rgba(250,250,250,0.85);
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  color: var(--t2);
+  background: var(--bg);
+  font-feature-settings: 'cv06' 1, 'cv10' 1, 'liga' 1, 'calt' 1;
+  font-optical-sizing: auto;
+  overflow-x: hidden;
+}
+
+img { display: block; max-width: 100%; height: auto; }
+
+a {
+  color: var(--accent-soft);
+  text-decoration: none;
+  transition: color var(--t-fast);
+}
+a:hover { color: var(--t1); }
+
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* Skip nav */
+.skip-nav {
+  position: absolute; top: -100%; left: 1rem;
+  background: var(--accent); color: #fff;
+  padding: .5rem 1rem; border-radius: 0 0 var(--r-md) var(--r-md);
+  font-weight: 510; z-index: 9999; text-decoration: none;
+}
+.skip-nav:focus { top: 0; }
+
+/* Scroll progress */
+.scroll-progress {
+  position: fixed; top: 0; left: 0; height: 2px;
+  background: var(--accent); z-index: 9999;
+  transform-origin: left;
+  animation: progress-grow linear;
+  animation-timeline: scroll(root);
+}
+@keyframes progress-grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@supports not (animation-timeline: scroll()) {
+  .scroll-progress { animation: none; display: none; }
+}
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+.nav {
+  position: sticky; top: 0; height: 64px;
+  background: var(--nav-bg);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-bottom: 1px solid var(--border-sub);
+  z-index: 100;
+  display: flex; align-items: center;
+  padding-inline: var(--sp-6);
+}
+
+.nav-inner {
+  width: 100%; max-width: 1200px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--sp-8);
+}
+
+.nav-logo {
+  font-size: var(--text-base);
+  font-weight: 680;
+  color: var(--t1);
+  letter-spacing: -0.02em;
+  text-decoration: none;
+  display: flex; align-items: center; gap: var(--sp-2);
+  flex-shrink: 0;
+}
+
+.nav-logo-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent-glow);
+  animation: pulse-dot 2.5s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.3); opacity: 0.8; }
+}
+
+.nav-links {
+  display: flex; align-items: center; gap: var(--sp-1);
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: var(--text-sm);
+  font-weight: 510;
+  color: var(--t3);
+  letter-spacing: -0.01em;
+  padding: var(--sp-2) var(--sp-3);
+  border-radius: var(--r-md);
+  transition: color var(--t-fast), background var(--t-fast);
+  text-decoration: none;
+}
+.nav-links a:hover { color: var(--t1); background: var(--bg-hover); }
+.nav-links a.active {
+  color: var(--t1);
+  background: var(--bg-hover);
+  position: relative;
+}
+.nav-links a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 50%; transform: translateX(-50%);
+  width: 16px; height: 2px;
+  background: var(--accent);
+  border-radius: var(--r-pill);
+}
+
+.nav-actions {
+  display: flex; align-items: center; gap: var(--sp-3);
+  flex-shrink: 0;
+}
+
+.theme-btn {
+  width: 34px; height: 34px; border-radius: var(--r-md);
+  background: transparent; border: 1px solid var(--border);
+  color: var(--t3); font-size: 14px;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  transition: background var(--t-fast), border-color var(--t-fast), color var(--t-fast);
+}
+.theme-btn:hover { background: var(--bg-hover); border-color: var(--border-mid); color: var(--t1); }
+
+.hamburger {
+  display: none; background: none; border: none;
+  color: var(--t2); font-size: 18px; cursor: pointer; padding: var(--sp-2);
+}
+
+/* Mobile menu */
+.nav-mobile {
+  display: none;
+  position: fixed; top: 64px; left: 0; right: 0;
+  background: var(--bg-panel);
+  border-bottom: 1px solid var(--border);
+  padding: var(--sp-4);
+  z-index: 99;
+}
+.nav-mobile.open { display: block; }
+.nav-mobile a {
+  display: block; padding: var(--sp-3) var(--sp-4);
+  font-size: var(--text-base); font-weight: 510;
+  color: var(--t2); border-radius: var(--r-md);
+  transition: background var(--t-fast), color var(--t-fast);
+  text-decoration: none;
+}
+.nav-mobile a:hover { background: var(--bg-hover); color: var(--t1); }
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+.container {
+  width: 100%; max-width: 1100px;
+  margin: 0 auto; padding-inline: var(--sp-6);
+}
+
+.section { padding-block: var(--sp-20); }
+.section + .section { border-top: 1px solid var(--border); }
+
+.section-label {
+  font-size: var(--text-xs);
+  font-weight: 680;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-soft);
+  margin-bottom: var(--sp-4);
+}
+
+.section-title {
+  font-size: var(--text-3xl);
+  font-weight: 680;
+  color: var(--t1);
+  letter-spacing: -0.022em;
+  line-height: 1.1;
+  text-wrap: balance;
+  margin-bottom: var(--sp-4);
+}
+
+.section-desc {
+  font-size: var(--text-lg);
+  color: var(--t3);
+  max-width: 560px;
+  letter-spacing: -0.01em;
+  line-height: 1.6;
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  min-height: calc(100svh - 64px);
+  display: flex; align-items: center;
+  position: relative; overflow: hidden;
+  padding-block: var(--sp-24);
+}
+
+/* Subtle gradient mesh background */
+.hero::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 50%, rgba(99,102,241,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 80% 30%, rgba(139,92,246,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 50% 90%, rgba(59,130,246,0.06) 0%, transparent 60%);
+  animation: hero-gradient 20s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+@keyframes hero-gradient {
+  0%   { transform: translateX(-5%) translateY(-5%) scale(1); }
+  100% { transform: translateX(5%) translateY(5%) scale(1.05); }
+}
+
+.hero-content {
+  position: relative; z-index: 1;
+  max-width: 800px;
+}
+
+.hero-badge {
+  display: inline-flex; align-items: center; gap: var(--sp-2);
+  height: 28px; padding-inline: var(--sp-3);
+  background: var(--accent-tint);
+  border: 1px solid rgba(99,102,241,0.2);
+  border-radius: var(--r-pill);
+  font-size: var(--text-xs); font-weight: 680;
+  letter-spacing: 0.04em; text-transform: uppercase;
+  color: var(--accent-soft);
+  margin-bottom: var(--sp-8);
+  animation: fadeUp 0.6s var(--t-slow) both;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 7vw, var(--text-6xl));
+  font-weight: 680;
+  color: var(--t1);
+  letter-spacing: -0.03em;
+  line-height: 1.0;
+  margin-bottom: var(--sp-6);
+  animation: fadeUp 0.6s var(--t-slow) 0.1s both;
+  text-wrap: balance;
+}
+
+.hero-title em {
+  font-style: normal;
+  background: linear-gradient(135deg, var(--accent-soft) 0%, #a78bfa 50%, #60a5fa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-tagline {
+  font-size: var(--text-xl);
+  color: var(--t3);
+  letter-spacing: -0.015em;
+  margin-bottom: var(--sp-6);
+  animation: fadeUp 0.6s var(--t-slow) 0.15s both;
+}
+
+.hero-desc {
+  font-size: var(--text-lg);
+  color: var(--t3);
+  max-width: 560px;
+  line-height: 1.7;
+  letter-spacing: -0.01em;
+  margin-bottom: var(--sp-10);
+  animation: fadeUp 0.6s var(--t-slow) 0.2s both;
+}
+
+.hero-actions {
+  display: flex; align-items: center; gap: var(--sp-4);
+  flex-wrap: wrap;
+  animation: fadeUp 0.6s var(--t-slow) 0.25s both;
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: var(--sp-2);
+  height: 40px; padding-inline: 18px;
+  font-family: var(--font-sans);
+  font-size: var(--text-sm); font-weight: 510;
+  letter-spacing: -0.01em;
+  border-radius: var(--r-pill); border: none;
+  cursor: pointer; touch-action: manipulation;
+  text-decoration: none;
+  transition: opacity var(--t-fast), transform var(--t-fast), background var(--t-fast), border-color var(--t-fast), color var(--t-fast);
+}
+
+.btn-primary {
+  background: var(--accent); color: #fff;
+  box-shadow: 0 0 0 0 var(--accent-glow);
+}
+.btn-primary:hover { opacity: 0.88; color: #fff; box-shadow: 0 0 20px var(--accent-glow); }
+.btn-primary:active { transform: scale(0.97); }
+
+.btn-secondary {
+  background: transparent; color: var(--t2);
+  border: 1px solid var(--border);
+  height: 40px;
+}
+.btn-secondary:hover { background: var(--bg-elevated); border-color: var(--border-mid); color: var(--t1); }
+.btn-secondary:active { transform: scale(0.97); }
+
+/* ============================================================
+   STATS BAR
+   ============================================================ */
+.stats-bar {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding-block: var(--sp-8);
+  background: var(--bg-panel);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+}
+
+.stat-item {
+  background: var(--bg-panel);
+  padding: var(--sp-6) var(--sp-8);
+  text-align: center;
+}
+
+.stat-number {
+  font-size: var(--text-4xl);
+  font-weight: 680;
+  color: var(--t1);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  margin-bottom: var(--sp-1);
+}
+
+.stat-label {
+  font-size: var(--text-xs);
+  font-weight: 510;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--t4);
+}
+
+/* ============================================================
+   NEWS / TIMELINE
+   ============================================================ */
+.news-list {
+  display: flex; flex-direction: column;
+  gap: 0;
+}
+
+.news-item {
+  display: flex; align-items: flex-start;
+  gap: var(--sp-8);
+  padding: var(--sp-6) 0;
+  border-bottom: 1px solid var(--border);
+  transition: background var(--t-fast);
+}
+.news-item:last-child { border-bottom: none; }
+
+.news-date {
+  font-size: var(--text-xs); font-weight: 510;
+  color: var(--t4); letter-spacing: 0.02em;
+  white-space: nowrap; width: 90px; flex-shrink: 0;
+  margin-top: 3px;
+  font-variant-numeric: tabular-nums;
+}
+
+.news-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--border-mid); flex-shrink: 0; margin-top: 8px;
+  transition: background var(--t-fast);
+}
+.news-item:hover .news-dot { background: var(--accent-soft); }
+
+.news-body { flex: 1; }
+.news-title {
+  font-size: var(--text-base); font-weight: 510;
+  color: var(--t1); letter-spacing: -0.012em;
+  margin-bottom: var(--sp-1);
+  transition: color var(--t-fast);
+}
+.news-item:hover .news-title { color: var(--accent-soft); }
+
+.news-desc {
+  font-size: var(--text-sm); color: var(--t3); line-height: 1.5;
+  letter-spacing: -0.01em;
+}
+
+.news-badge {
+  display: inline-flex; align-items: center;
+  height: 20px; padding-inline: var(--sp-2);
+  background: var(--accent-tint); color: var(--accent-soft);
+  border-radius: var(--r-pill); font-size: 11px; font-weight: 680;
+  letter-spacing: 0.04em; text-transform: uppercase;
+  white-space: nowrap; flex-shrink: 0; margin-top: 2px;
+}
+
+/* ============================================================
+   RESEARCH GRID
+   ============================================================ */
+.research-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+}
+
+.research-card {
+  background: var(--bg-panel);
+  padding: var(--sp-8);
+  transition: background var(--t-base);
+}
+.research-card:hover { background: var(--bg-hover); }
+
+.research-icon {
+  width: 40px; height: 40px; border-radius: var(--r-lg);
+  background: var(--accent-tint);
+  border: 1px solid rgba(99,102,241,0.15);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--accent-soft); font-size: 18px;
+  margin-bottom: var(--sp-5);
+  transition: box-shadow var(--t-base);
+}
+.research-card:hover .research-icon {
+  box-shadow: 0 0 16px var(--accent-glow);
+}
+
+.research-title {
+  font-size: var(--text-base); font-weight: 590;
+  color: var(--t1); letter-spacing: -0.012em;
+  margin-bottom: var(--sp-2); line-height: 1.3;
+}
+
+.research-desc {
+  font-size: var(--text-sm); color: var(--t3);
+  line-height: 1.6; letter-spacing: -0.01em;
+}
+
+/* ============================================================
+   PROJECTS
+   ============================================================ */
+.projects-list {
+  display: flex; flex-direction: column;
+  border: 1px solid var(--border); border-radius: var(--r-xl);
+  overflow: hidden;
+}
+
+.project-item {
+  display: flex; align-items: center;
+  gap: var(--sp-6); padding: var(--sp-5) var(--sp-6);
+  background: var(--bg-panel);
+  border-bottom: 1px solid var(--border);
+  transition: background var(--t-fast);
+  cursor: default;
+}
+.project-item:last-child { border-bottom: none; }
+.project-item:hover { background: var(--bg-hover); }
+
+.project-num {
+  font-size: var(--text-xs); font-weight: 680;
+  color: var(--t4); letter-spacing: 0.04em;
+  width: 28px; flex-shrink: 0; text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.project-body { flex: 1; }
+.project-name {
+  font-size: var(--text-base); font-weight: 510;
+  color: var(--t1); letter-spacing: -0.012em;
+  line-height: 1.35; margin-bottom: 2px;
+}
+.project-funder {
+  font-size: var(--text-sm); color: var(--t4); letter-spacing: -0.01em;
+}
+
+.project-meta {
+  display: flex; align-items: center; gap: var(--sp-3);
+  flex-shrink: 0;
+}
+
+.project-year {
+  font-size: var(--text-xs); font-weight: 510;
+  color: var(--t4); letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.project-status {
+  display: inline-flex; align-items: center; gap: 4px;
+  height: 22px; padding-inline: var(--sp-2);
+  border-radius: var(--r-pill);
+  font-size: 11px; font-weight: 510; letter-spacing: 0.02em;
+}
+.project-status.active {
+  background: rgba(34,197,94,0.12);
+  color: #4ade80;
+}
+.project-status.active::before {
+  content: '';
+  width: 5px; height: 5px; border-radius: 50%;
+  background: #4ade80;
+  animation: blink-dot 2s ease-in-out infinite;
+}
+@keyframes blink-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+.project-status.completed {
+  background: rgba(148,163,184,0.1);
+  color: var(--t4);
+}
+
+/* ============================================================
+   TEAM
+   ============================================================ */
+.professor-card {
+  display: flex; gap: var(--sp-10); align-items: flex-start;
+  padding: var(--sp-10);
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  margin-bottom: var(--sp-10);
+}
+
+.professor-img {
+  width: 120px; height: 120px; border-radius: var(--r-xl);
+  object-fit: cover; flex-shrink: 0;
+  border: 1px solid var(--border);
+}
+
+.professor-info { flex: 1; }
+
+.professor-name {
+  font-size: var(--text-2xl); font-weight: 680;
+  color: var(--t1); letter-spacing: -0.02em;
+  margin-bottom: 2px;
+}
+.professor-title {
+  font-size: var(--text-sm); color: var(--accent-soft); font-weight: 510;
+  letter-spacing: -0.01em; margin-bottom: var(--sp-4);
+}
+
+.professor-bio {
+  font-size: var(--text-sm); color: var(--t3);
+  line-height: 1.65; letter-spacing: -0.01em;
+  margin-bottom: var(--sp-5); max-width: 520px;
+}
+
+.professor-cv {
+  display: flex; flex-direction: column; gap: var(--sp-1);
+  margin-bottom: var(--sp-5);
+}
+.cv-item {
+  font-size: var(--text-xs); color: var(--t3);
+  letter-spacing: -0.01em; display: flex; gap: var(--sp-3);
+}
+.cv-year { color: var(--t4); font-variant-numeric: tabular-nums; flex-shrink: 0; width: 90px; }
+
+.professor-links {
+  display: flex; gap: var(--sp-3); flex-wrap: wrap;
+}
+
+.team-group-title {
+  font-size: var(--text-sm); font-weight: 680;
+  color: var(--t4); letter-spacing: 0.06em;
+  text-transform: uppercase; margin-bottom: var(--sp-4);
+  margin-top: var(--sp-8);
+}
+.team-group-title:first-child { margin-top: 0; }
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--sp-2);
+}
+
+.team-member {
+  display: flex; align-items: center; gap: var(--sp-3);
+  padding: var(--sp-3) var(--sp-4);
+  background: var(--bg-panel); border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  transition: background var(--t-fast), border-color var(--t-fast);
+}
+.team-member:hover { background: var(--bg-hover); border-color: var(--border-mid); }
+
+.team-avatar {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--accent-tint); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: var(--text-sm); font-weight: 680;
+  color: var(--accent-soft); flex-shrink: 0;
+}
+
+.team-name {
+  font-size: var(--text-sm); font-weight: 510;
+  color: var(--t1); letter-spacing: -0.012em;
+  line-height: 1.2;
+}
+.team-name-ko {
+  font-size: var(--text-xs); color: var(--t4);
+  letter-spacing: 0;
+}
+
+/* ============================================================
+   PUBLICATIONS
+   ============================================================ */
+.pub-filters {
+  display: flex; gap: var(--sp-2); flex-wrap: wrap;
+  margin-bottom: var(--sp-8);
+}
+
+.filter-btn {
+  height: 30px; padding-inline: 12px;
+  background: transparent; border: 1px solid var(--border);
+  border-radius: var(--r-pill);
+  font-size: var(--text-xs); font-weight: 510;
+  color: var(--t3); cursor: pointer;
+  transition: background var(--t-fast), border-color var(--t-fast), color var(--t-fast);
+  font-family: var(--font-sans); letter-spacing: -0.01em;
+}
+.filter-btn:hover { background: var(--bg-hover); color: var(--t1); border-color: var(--border-mid); }
+.filter-btn.active { background: var(--accent-tint); color: var(--accent-soft); border-color: rgba(99,102,241,0.25); }
+
+.pub-list {
+  display: flex; flex-direction: column;
+  border: 1px solid var(--border); border-radius: var(--r-xl);
+  overflow: hidden;
+}
+
+.pub-item {
+  padding: var(--sp-6);
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-panel);
+  transition: background var(--t-fast);
+}
+.pub-item:last-child { border-bottom: none; }
+.pub-item:hover { background: var(--bg-hover); }
+
+.pub-row {
+  display: flex; gap: var(--sp-4); align-items: flex-start;
+}
+
+.pub-citations {
+  font-size: var(--text-xs); font-weight: 680;
+  color: var(--t4); letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap; flex-shrink: 0;
+  width: 48px; text-align: right; margin-top: 3px;
+}
+.pub-citations span { color: var(--accent-soft); }
+
+.pub-body { flex: 1; }
+
+.pub-title {
+  font-size: var(--text-base); font-weight: 510;
+  color: var(--t1); letter-spacing: -0.012em;
+  line-height: 1.4; margin-bottom: var(--sp-1);
+}
+
+.pub-authors {
+  font-size: var(--text-sm); color: var(--t3);
+  letter-spacing: -0.01em; margin-bottom: 2px;
+}
+.pub-authors strong { color: var(--accent-soft); font-weight: 510; }
+
+.pub-venue {
+  font-size: var(--text-sm); color: var(--t4); font-style: italic;
+  letter-spacing: -0.01em;
+}
+
+.pub-actions {
+  display: flex; gap: var(--sp-3); margin-top: var(--sp-3);
+}
+
+.pub-link {
+  display: inline-flex; align-items: center; gap: var(--sp-1);
+  font-size: var(--text-xs); font-weight: 510;
+  color: var(--t4); letter-spacing: -0.01em;
+  background: none; border: none; cursor: pointer;
+  padding: 0; font-family: var(--font-sans);
+  transition: color var(--t-fast);
+}
+.pub-link:hover { color: var(--accent-soft); }
+
+/* BibTeX popup */
+.bibtex-modal {
+  display: none; position: fixed; inset: 0;
+  background: rgba(0,0,0,0.7); backdrop-filter: blur(8px);
+  z-index: 999; align-items: center; justify-content: center;
+  padding: var(--sp-6);
+}
+.bibtex-modal.active { display: flex; }
+
+.bibtex-box {
+  background: var(--bg-panel); border: 1px solid var(--border);
+  border-radius: var(--r-xl); padding: var(--sp-6);
+  max-width: 600px; width: 100%;
+  box-shadow: var(--shadow-lg);
+}
+.bibtex-header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: var(--sp-4);
+}
+.bibtex-header h4 { font-size: var(--text-sm); font-weight: 590; color: var(--t1); }
+.bibtex-close {
+  background: none; border: none; color: var(--t3);
+  cursor: pointer; font-size: 18px; padding: var(--sp-1);
+  transition: color var(--t-fast);
+}
+.bibtex-close:hover { color: var(--t1); }
+.bibtex-pre {
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: var(--r-lg); padding: var(--sp-4);
+  font-family: var(--font-mono); font-size: 12px;
+  color: var(--t2); overflow-x: auto; line-height: 1.6;
+  margin-bottom: var(--sp-4); white-space: pre;
+}
+.bibtex-copy {
+  width: 100%;
+  height: 38px; background: var(--accent); color: #fff;
+  border: none; border-radius: var(--r-lg);
+  font-size: var(--text-sm); font-weight: 510;
+  cursor: pointer; font-family: var(--font-sans);
+  transition: opacity var(--t-fast);
+}
+.bibtex-copy:hover { opacity: 0.88; }
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+.contact-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: var(--sp-10);
+}
+
+.contact-info-list {
+  display: flex; flex-direction: column; gap: var(--sp-5);
+}
+
+.contact-row {
+  display: flex; gap: var(--sp-4); align-items: flex-start;
+}
+
+.contact-icon-wrap {
+  width: 36px; height: 36px; border-radius: var(--r-lg);
+  background: var(--accent-tint); border: 1px solid rgba(99,102,241,0.15);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--accent-soft); font-size: 14px; flex-shrink: 0;
+}
+
+.contact-label {
+  font-size: var(--text-xs); font-weight: 680;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--t4); margin-bottom: 2px;
+}
+.contact-value {
+  font-size: var(--text-sm); color: var(--t2); letter-spacing: -0.01em;
+}
+.contact-value a { color: var(--accent-soft); }
+.contact-value a:hover { color: var(--t1); }
+
+.contact-form {
+  display: flex; flex-direction: column; gap: var(--sp-4);
+}
+
+.form-group { display: flex; flex-direction: column; gap: var(--sp-2); }
+
+.form-label {
+  font-size: var(--text-xs); font-weight: 590;
+  color: var(--t3); letter-spacing: 0.02em;
+}
+
+.form-input, .form-select, .form-textarea {
+  background: var(--bg-panel); border: 1px solid var(--border);
+  border-radius: var(--r-lg); padding: 10px var(--sp-4);
+  font-family: var(--font-sans); font-size: var(--text-sm);
+  color: var(--t1); line-height: 1.5;
+  transition: border-color var(--t-fast), box-shadow var(--t-fast);
+  outline: none; width: 100%;
+}
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-tint);
+}
+.form-textarea { resize: vertical; min-height: 120px; }
+
+.form-submit {
+  height: 40px; background: var(--accent); color: #fff;
+  border: none; border-radius: var(--r-pill);
+  font-family: var(--font-sans); font-size: var(--text-sm); font-weight: 510;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  gap: var(--sp-2); letter-spacing: -0.01em;
+  transition: opacity var(--t-fast), transform var(--t-fast);
+}
+.form-submit:hover { opacity: 0.88; }
+.form-submit:active { transform: scale(0.98); }
+
+#form-status {
+  font-size: var(--text-sm); padding: var(--sp-3) var(--sp-4);
+  border-radius: var(--r-lg); display: none;
+  letter-spacing: -0.01em;
+}
+#form-status.success {
+  display: block; background: rgba(34,197,94,0.1); color: #4ade80;
+  border: 1px solid rgba(34,197,94,0.2);
+}
+#form-status.error {
+  display: block; background: rgba(239,68,68,0.1); color: #f87171;
+  border: 1px solid rgba(239,68,68,0.2);
+}
+
+/* Map */
+.map-embed {
+  border: 1px solid var(--border); border-radius: var(--r-xl);
+  overflow: hidden; margin-top: var(--sp-6);
+  height: 200px;
+}
+.map-embed iframe { width: 100%; height: 100%; border: 0; }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer {
+  padding-block: var(--sp-12);
+  border-top: 1px solid var(--border);
+}
+
+.footer-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: var(--sp-4);
+}
+
+.footer-logo {
+  font-size: var(--text-sm); font-weight: 680;
+  color: var(--t3); letter-spacing: -0.01em;
+}
+
+.footer-links {
+  display: flex; gap: var(--sp-6); flex-wrap: wrap;
+}
+.footer-links a {
+  font-size: var(--text-sm); color: var(--t4); letter-spacing: -0.01em;
+  transition: color var(--t-fast); text-decoration: none;
+}
+.footer-links a:hover { color: var(--t1); }
+
+.footer-copy {
+  font-size: var(--text-xs); color: var(--t4); letter-spacing: -0.01em;
+  width: 100%;
+}
+
+/* ============================================================
+   TOAST
+   ============================================================ */
+.toast {
+  position: fixed; bottom: var(--sp-6); left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--bg-elevated); border: 1px solid var(--border);
+  border-radius: var(--r-pill); padding: 10px 18px;
+  font-size: var(--text-sm); font-weight: 510; color: var(--t1);
+  box-shadow: var(--shadow-lg); z-index: 9998;
+  opacity: 0; pointer-events: none;
+  transition: opacity var(--t-base), transform var(--t-base);
+  white-space: nowrap; display: flex; align-items: center; gap: var(--sp-2);
+}
+.toast.show {
+  opacity: 1; transform: translateX(-50%) translateY(0);
+}
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+  opacity: 0; transform: translateY(16px);
+  transition: opacity 0.6s var(--t-slow), transform 0.6s var(--t-slow);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ── Back to top button ── */
+.back-to-top {
+  position: fixed; bottom: var(--sp-6); right: var(--sp-6);
+  width: 40px; height: 40px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--r-pill);
+  color: var(--t3); font-size: 14px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; z-index: 90;
+  opacity: 0; transform: translateY(12px);
+  transition: opacity var(--t-base), transform var(--t-base),
+              background var(--t-fast), border-color var(--t-fast), color var(--t-fast);
+  pointer-events: none;
+  box-shadow: var(--shadow-md);
+}
+.back-to-top.visible {
+  opacity: 1; transform: translateY(0); pointer-events: auto;
+}
+.back-to-top:hover {
+  background: var(--accent-tint); border-color: var(--accent);
+  color: var(--accent-soft);
+}
+
+/* ── Keyboard shortcut tooltip ── */
+.nav-logo::after {
+  content: 'Press / to search';
+  display: none;
+}
+
+/* ── Command bar ── */
+.cmd-bar {
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.6); backdrop-filter: blur(8px);
+  z-index: 999; display: none; align-items: flex-start;
+  justify-content: center; padding-top: 80px;
+}
+.cmd-bar.open { display: flex; }
+.cmd-box {
+  width: 100%; max-width: 560px;
+  background: var(--bg-panel); border: 1px solid var(--border);
+  border-radius: var(--r-xl); overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+.cmd-input-wrap {
+  display: flex; align-items: center; gap: var(--sp-3);
+  padding: var(--sp-4) var(--sp-5);
+  border-bottom: 1px solid var(--border);
+}
+.cmd-input-wrap i { color: var(--t3); font-size: 14px; flex-shrink: 0; }
+.cmd-input {
+  flex: 1; background: none; border: none; outline: none;
+  font-family: var(--font-sans); font-size: var(--text-base);
+  color: var(--t1); letter-spacing: -0.01em;
+}
+.cmd-input::placeholder { color: var(--t4); }
+.cmd-kbd {
+  font-family: var(--font-mono); font-size: 11px;
+  color: var(--t4); background: var(--bg-hover);
+  border: 1px solid var(--border); border-radius: var(--r-sm);
+  padding: 2px 6px; flex-shrink: 0;
+}
+.cmd-results {
+  max-height: 320px; overflow-y: auto;
+  padding: var(--sp-2);
+}
+.cmd-result {
+  display: flex; align-items: center; gap: var(--sp-3);
+  padding: var(--sp-3) var(--sp-3);
+  border-radius: var(--r-md); cursor: pointer;
+  transition: background var(--t-fast);
+}
+.cmd-result:hover, .cmd-result.focused { background: var(--bg-hover); }
+.cmd-result i { color: var(--t3); width: 16px; text-align: center; font-size: 13px; }
+.cmd-result-label { font-size: var(--text-sm); color: var(--t2); letter-spacing: -0.01em; }
+.cmd-footer {
+  padding: var(--sp-3) var(--sp-5);
+  border-top: 1px solid var(--border);
+  display: flex; gap: var(--sp-4);
+  font-size: 11px; color: var(--t4);
+}
+.cmd-footer span { display: flex; align-items: center; gap: var(--sp-1); }
+
+/* ── Hero animated mesh ── */
+.hero-mesh {
+  position: absolute; inset: 0; z-index: 0;
+  overflow: hidden; pointer-events: none;
+}
+.mesh-blob {
+  position: absolute; border-radius: 50%;
+  filter: blur(80px); opacity: 0.25;
+  animation: blob-float 12s ease-in-out infinite;
+}
+.mesh-blob:nth-child(1) {
+  width: 500px; height: 500px;
+  background: var(--accent); top: -20%; left: -10%;
+  animation-delay: 0s; animation-duration: 14s;
+}
+.mesh-blob:nth-child(2) {
+  width: 400px; height: 400px;
+  background: #7c3aed; top: 10%; right: -5%;
+  animation-delay: -4s; animation-duration: 18s;
+}
+.mesh-blob:nth-child(3) {
+  width: 300px; height: 300px;
+  background: #2563eb; bottom: -10%; left: 40%;
+  animation-delay: -8s; animation-duration: 16s;
+}
+@keyframes blob-float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  33% { transform: translateY(-20px) scale(1.05); }
+  66% { transform: translateY(10px) scale(0.95); }
+}
+
+/* ── Professor image hover ── */
+.professor-img {
+  transition: transform var(--t-base), box-shadow var(--t-base);
+}
+.professor-img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 0 3px var(--accent-tint), var(--shadow-md);
+}
+
+/* ── Team avatar hover ── */
+.team-member {
+  position: relative; overflow: hidden;
+}
+.team-member::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: var(--accent-tint); opacity: 0;
+  transition: opacity var(--t-fast);
+  pointer-events: none; border-radius: inherit;
+}
+.team-member:hover::before { opacity: 1; }
+
+/* ── Research card hover arrow ── */
+.research-card {
+  position: relative;
+}
+.research-card::after {
+  content: '→';
+  position: absolute; bottom: var(--sp-8); right: var(--sp-8);
+  color: var(--t4); font-size: var(--text-base);
+  opacity: 0; transform: translateX(-4px);
+  transition: opacity var(--t-base), transform var(--t-base), color var(--t-base);
+}
+.research-card:hover::after {
+  opacity: 1; transform: translateX(0); color: var(--accent-soft);
+}
+
+/* ── News item arrow ── */
+.news-item {
+  position: relative;
+}
+.news-item::after {
+  content: '↗';
+  position: absolute; right: 0; top: 50%; transform: translateY(-50%);
+  color: var(--t4); font-size: var(--text-sm);
+  opacity: 0; transition: opacity var(--t-base);
+}
+.news-item:hover::after { opacity: 1; }
+
+/* ── Project hover accent ── */
+.project-item {
+  border-left: 2px solid transparent;
+  transition: background var(--t-fast), border-color var(--t-fast);
+}
+.project-item:hover {
+  border-left-color: var(--accent);
+}
+
+/* ── Stat number gradient ── */
+.stat-number {
+  background: linear-gradient(135deg, var(--t1) 0%, var(--t2) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Section label glow ── */
+.section-label {
+  display: inline-block;
+}
+
+/* ── Pub item left accent ── */
+.pub-item {
+  border-left: 2px solid transparent;
+  transition: background var(--t-fast), border-color var(--t-fast);
+}
+.pub-item:hover {
+  border-left-color: var(--accent);
+}
+
+/* ── Gallery ── */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-3);
+}
+.gallery-item {
+  position: relative; overflow: hidden;
+  border-radius: var(--r-xl); aspect-ratio: 4/3;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+}
+.gallery-item--wide { grid-column: span 2; aspect-ratio: 16/9; }
+.gallery-item img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.6s var(--t-slow);
+}
+.gallery-item:hover img { transform: scale(1.06); }
+.gallery-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%);
+  display: flex; align-items: flex-end;
+  padding: var(--sp-4); opacity: 0;
+  transition: opacity var(--t-base);
+}
+.gallery-item:hover .gallery-overlay { opacity: 1; }
+.gallery-overlay span {
+  font-size: var(--text-sm); font-weight: 510;
+  color: #fff; letter-spacing: -0.01em;
+}
+@media (max-width: 640px) {
+  .gallery-grid { grid-template-columns: 1fr; }
+  .gallery-item--wide { grid-column: span 1; aspect-ratio: 4/3; }
+}
+
+/* ── Image shimmer loading ── */
+.img-loading {
+  background: linear-gradient(
+    90deg,
+    var(--bg-hover) 0%,
+    var(--bg-active) 50%,
+    var(--bg-hover) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  .hero::before, .mesh-blob { animation: none; }
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .hamburger { display: block; }
+  .hero-title { font-size: 2.5rem; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .research-grid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .professor-card { flex-direction: column; }
+  .professor-img { width: 80px; height: 80px; }
+  .project-meta { display: none; }
+  .footer-inner { flex-direction: column; align-items: flex-start; }
+}
+
+@media (max-width: 480px) {
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .stat-number { font-size: var(--text-3xl); }
+  .hero { padding-block: var(--sp-16); }
+}
+</style>
+</head>
+
+<body>
+<a href="#main" class="skip-nav">Skip to main content</a>
+<div class="scroll-progress"></div>
+
+<!-- ============================================================
+     NAVIGATION
+     ============================================================ -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo" aria-label="EcoAI Lab home">
+      <div class="nav-logo-dot" aria-hidden="true"></div>
+      EcoAI Lab
+    </a>
+
+    <ul class="nav-links" role="list">
+      <li><a href="#news">News</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#team">People</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="theme-btn" onclick="openCmdBar()" aria-label="Quick search (/ or Ctrl+K)"
+              title="Quick search  ⌘K" style="gap:var(--sp-2);width:auto;padding-inline:10px;">
+        <i class="fa-solid fa-magnifying-glass" style="font-size:12px;"></i>
+        <span style="font-size:11px;color:var(--t4);font-family:var(--font-mono);">⌘K</span>
+      </button>
+      <button class="theme-btn" id="theme-btn" aria-label="Toggle dark mode">
+        <i class="fa-solid fa-moon" id="theme-icon"></i>
+      </button>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Back to top -->
+<button class="back-to-top" id="back-to-top" aria-label="Back to top">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
+
+<!-- Command Bar -->
+<div class="cmd-bar" id="cmd-bar" role="dialog" aria-label="Quick navigation">
+  <div class="cmd-box">
+    <div class="cmd-input-wrap">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" class="cmd-input" id="cmd-input" placeholder="Go to section, search papers…" autocomplete="off">
+      <span class="cmd-kbd">ESC</span>
+    </div>
+    <div class="cmd-results" id="cmd-results" role="listbox"></div>
+    <div class="cmd-footer">
+      <span><span class="cmd-kbd">↑↓</span> Navigate</span>
+      <span><span class="cmd-kbd">↵</span> Go</span>
+      <span><span class="cmd-kbd">ESC</span> Close</span>
+    </div>
+  </div>
+</div>
+
+<!-- Mobile menu -->
+<div class="nav-mobile" id="nav-mobile" role="menu">
+  <a href="#news" role="menuitem">News</a>
+  <a href="#research" role="menuitem">Research</a>
+  <a href="#projects" role="menuitem">Projects</a>
+  <a href="#team" role="menuitem">People</a>
+  <a href="#publications" role="menuitem">Publications</a>
+  <a href="#gallery" role="menuitem">Gallery</a>
+  <a href="#contact" role="menuitem">Contact</a>
+</div>
+
+<main id="main">
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section id="home" class="hero">
+  <!-- Animated mesh blobs -->
+  <div class="hero-mesh" aria-hidden="true">
+    <div class="mesh-blob"></div>
+    <div class="mesh-blob"></div>
+    <div class="mesh-blob"></div>
+  </div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <i class="fa-solid fa-circle-dot" aria-hidden="true"></i>
+        Established 2024 · Hanbat National University
+      </div>
+
+      <h1 class="hero-title">
+        <em>Eyes on the sky.</em><br>
+        Innovate for the future.
+      </h1>
+
+      <p class="hero-desc">
+        We are a research group at the Department of Computer Engineering,
+        pioneering the convergence of <strong style="color:var(--t2);font-weight:510">environmental energy</strong>
+        and <strong style="color:var(--t2);font-weight:510">artificial intelligence</strong> to create sustainable solutions for tomorrow's world.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#research" class="btn btn-primary">
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          Explore Research
+        </a>
+        <a href="#team" class="btn btn-secondary">Meet the Team</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     STATS
+     ============================================================ -->
+<div class="stats-bar" aria-label="Lab statistics">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-number"><span class="counter" data-target="20" data-suffix="+">20+</span></div>
+        <div class="stat-label">Publications</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number"><span class="counter" data-target="1114">1,114</span></div>
+        <div class="stat-label">Citations</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number"><span class="counter" data-target="20">20</span></div>
+        <div class="stat-label">h-index</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number"><span class="counter" data-target="29">29</span></div>
+        <div class="stat-label">i10-index</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     NEWS
+     ============================================================ -->
+<section id="news" class="section">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">Latest News</p>
+      <h2 class="section-title">Recent Updates</h2>
+    </div>
+
+    <div class="news-list" role="list">
+      <div class="news-item reveal" role="listitem">
+        <div class="news-date">2026</div>
+        <div class="news-dot" aria-hidden="true"></div>
+        <div class="news-body">
+          <div class="news-title">KICS Winter Conference Undergraduate Paper Award (Encouragement Prize)</div>
+          <div class="news-desc">"Self-Evolving Four-Layer Normalization Gate for Cost-Efficient Intelligent AICC" by Jihoon Kim, Gihun Gil, and Sangkeum Lee</div>
+        </div>
+        <span class="news-badge">Award</span>
+      </div>
+      <div class="news-item reveal" role="listitem">
+        <div class="news-date">2026</div>
+        <div class="news-dot" aria-hidden="true"></div>
+        <div class="news-body">
+          <div class="news-title">AAAI 2026 Newsletter — EcoAI Lab Featured</div>
+          <div class="news-desc">EcoAI Lab leads research on reinforcement learning and quantum AI–based optimization for energy and industrial systems, advancing carbon-neutral smart factories and smart buildings</div>
+        </div>
+        <span class="news-badge">Press</span>
+      </div>
+      <div class="news-item reveal" role="listitem">
+        <div class="news-date">2026</div>
+        <div class="news-dot" aria-hidden="true"></div>
+        <div class="news-body">
+          <div class="news-title">HBNU High-Impact Researcher Award</div>
+          <div class="news-desc">Hanbat National University, Academic Year 2026</div>
+        </div>
+        <span class="news-badge">Award</span>
+      </div>
+      <div class="news-item reveal" role="listitem">
+        <div class="news-date">2026</div>
+        <div class="news-dot" aria-hidden="true"></div>
+        <div class="news-body">
+          <div class="news-title">Outstanding Professor Award (Hanbat Innovation Award – Research Category)</div>
+          <div class="news-desc">Hanbat National University, 2026</div>
+        </div>
+        <span class="news-badge">Award</span>
+      </div>
+      <div class="news-item reveal" role="listitem">
+        <div class="news-date">2026</div>
+        <div class="news-dot" aria-hidden="true"></div>
+        <div class="news-body">
+          <div class="news-title">Excellence Award — 2026 E-Learning Campus Best Practice Awards</div>
+          <div class="news-desc">Hanbat National University</div>
+        </div>
+        <span class="news-badge">Award</span>
+      </div>
+      <div class="news-item reveal" role="listitem">
+        <div class="news-date">2026</div>
+        <div class="news-dot" aria-hidden="true"></div>
+        <div class="news-body">
+          <div class="news-title">Speaker — 2026 Sejong 5+1 Future Strategic Industry Technology &amp; Idea Seminar</div>
+          <div class="news-desc">Presented global technology trends and future insights on quantum and agentic AI</div>
+        </div>
+        <span class="news-badge">Speaker</span>
+      </div>
+      <div class="news-item reveal" role="listitem">
+        <div class="news-date">2026</div>
+        <div class="news-dot" aria-hidden="true"></div>
+        <div class="news-body">
+          <div class="news-title">Session Chair — KICS Winter Conference 2026</div>
+          <div class="news-desc">Korean Institute of Communications and Information Sciences</div>
+        </div>
+        <span class="news-badge">Service</span>
+      </div>
+      <div class="news-item reveal" role="listitem">
+        <div class="news-date">2025</div>
+        <div class="news-dot" aria-hidden="true"></div>
+        <div class="news-body">
+          <div class="news-title">KICS Fall Conference — 3 Undergraduate Paper Awards &amp; 3 Capstone Design Awards</div>
+          <div class="news-desc">Encouragement Prizes for RL-based Wi-Fi 7 MLO scheduling (Harin Jang, Yeojin Jang) and quantum battery charging (Junseong Park, Hyeonseok Jang, Beomdo Park); Capstone Design awards for keyboard encryption, quantum battery superabsorption, and generative AI process monitoring</div>
+        </div>
+        <span class="news-badge">Award</span>
+      </div>
+      <div class="news-item reveal" role="listitem">
+        <div class="news-date">2025</div>
+        <div class="news-dot" aria-hidden="true"></div>
+        <div class="news-body">
+          <div class="news-title">2025 Public Data Utilization Contest — 2 Awards</div>
+          <div class="news-desc">Chairman's Award of Korea National Railway (Harin Jang, Jio Yoo) &amp; Chairman's Award of Daejeon University-Industry Council (Yeojin Jang, Seoyoung Lee)</div>
+        </div>
+        <span class="news-badge">Award</span>
+      </div>
+      <div class="news-item reveal" role="listitem">
+        <div class="news-date">2025</div>
+        <div class="news-dot" aria-hidden="true"></div>
+        <div class="news-body">
+          <div class="news-title">Best Paper Award — 6th Korea Artificial Intelligence Conference</div>
+          <div class="news-desc">"Neural SDE-Based Reinforcement Learning for Uncertainty-Aware Papermaking" by Donggeon Yu, Sangkeum Lee, Yoonmee Doh, Jinyoung Choi</div>
+        </div>
+        <span class="news-badge">Paper</span>
+      </div>
+      <div class="news-item reveal" role="listitem">
+        <div class="news-date">2025</div>
+        <div class="news-dot" aria-hidden="true"></div>
+        <div class="news-body">
+          <div class="news-title">IBM Q Quantum Computing Cloud Program — Selected</div>
+          <div class="news-desc">Hanbat National University selected for IBM Q's 2025 Quantum Computing Cloud program</div>
+        </div>
+        <span class="news-badge">Program</span>
+      </div>
+      <div class="news-item reveal" role="listitem">
+        <div class="news-date">2025</div>
+        <div class="news-dot" aria-hidden="true"></div>
+        <div class="news-body">
+          <div class="news-title">Press — Quantum computing for smart homes (Yahoo Finance, HVACR Journal)</div>
+          <div class="news-desc">HVAC controller achieving up to 63% power and 64.4% electricity cost reductions featured internationally</div>
+        </div>
+        <span class="news-badge">Press</span>
+      </div>
+      <div class="news-item reveal" role="listitem">
+        <div class="news-date">2025</div>
+        <div class="news-dot" aria-hidden="true"></div>
+        <div class="news-body">
+          <div class="news-title">Technology Transfer — AI-based Home Energy Management (ETRI)</div>
+          <div class="news-desc">Korean Patent Application No. 10-2023-0150848, transferred from ETRI, 2025</div>
+        </div>
+        <span class="news-badge">Transfer</span>
+      </div>
+      <div class="news-item reveal" role="listitem">
+        <div class="news-date">2025</div>
+        <div class="news-dot" aria-hidden="true"></div>
+        <div class="news-body">
+          <div class="news-title">ETRI Journal Best Paper Award 2025</div>
+          <div class="news-desc">"Anomaly detection of smart metering system for power management with battery storage system/electric vehicle"</div>
+        </div>
+        <span class="news-badge">Paper</span>
+      </div>
+      <div class="news-item reveal" role="listitem">
+        <div class="news-date">2025</div>
+        <div class="news-dot" aria-hidden="true"></div>
+        <div class="news-body">
+          <div class="news-title">2024 HBNU Best Research Award — Outstanding Professor</div>
+          <div class="news-desc">Hanbat National University, 2025</div>
+        </div>
+        <span class="news-badge">Award</span>
+      </div>
+      <div class="news-item reveal" role="listitem">
+        <div class="news-date">2024</div>
+        <div class="news-dot" aria-hidden="true"></div>
+        <div class="news-body">
+          <div class="news-title">Best Paper Award — KICS Fall Conference 2024</div>
+          <div class="news-desc">"GAF-based Time Series Clustering and Volatility Analysis for Smart Factory Optimization" by Namseok Koo, Suna Park, Yoonmee Doh, and Sangkeum Lee</div>
+        </div>
+        <span class="news-badge">Paper</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     RESEARCH
+     ============================================================ -->
+<section id="research" class="section">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">Research Areas</p>
+      <h2 class="section-title">What We Study</h2>
+      <p class="section-desc" style="margin-bottom:var(--sp-10)">
+        Six core domains at the intersection of artificial intelligence and environmental energy.
+      </p>
+    </div>
+
+    <div class="research-grid">
+      <div class="research-card reveal">
+        <div class="research-icon"><i class="fa-solid fa-network-wired"></i></div>
+        <div class="research-title">Sensor Network Optimization</div>
+        <div class="research-desc">Applying deep learning to optimize sensor networks for achieving carbon zero goals.</div>
+      </div>
+      <div class="research-card reveal">
+        <div class="research-icon"><i class="fa-solid fa-industry"></i></div>
+        <div class="research-title">Smart Factory & Home Energy</div>
+        <div class="research-desc">Intelligent AI systems for energy management and optimization in industrial and residential environments.</div>
+      </div>
+      <div class="research-card reveal">
+        <div class="research-icon"><i class="fa-solid fa-shield-halved"></i></div>
+        <div class="research-title">IoT and Security Sensors</div>
+        <div class="research-desc">Enhancing security and reliability of IoT devices through advanced AI techniques.</div>
+      </div>
+      <div class="research-card reveal">
+        <div class="research-icon"><i class="fa-solid fa-atom"></i></div>
+        <div class="research-title">Quantum Computing & Battery</div>
+        <div class="research-desc">Exploring quantum computing and energy storage, focusing on quantum battery technologies.</div>
+      </div>
+      <div class="research-card reveal">
+        <div class="research-icon"><i class="fa-solid fa-robot"></i></div>
+        <div class="research-title">Reinforcement Learning & Agents</div>
+        <div class="research-desc">Designing autonomous AI agents using reinforcement learning for complex decision-making.</div>
+      </div>
+      <div class="research-card reveal">
+        <div class="research-icon"><i class="fa-solid fa-database"></i></div>
+        <div class="research-title">Big Data & Energy Optimization</div>
+        <div class="research-desc">Analyzing large-scale datasets to uncover patterns and optimize energy consumption.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PROJECTS
+     ============================================================ -->
+<section id="projects" class="section">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">Projects</p>
+      <h2 class="section-title">Active Research</h2>
+      <p class="section-desc" style="margin-bottom:var(--sp-8)">
+        Current projects with government agencies and academic institutions.
+      </p>
+    </div>
+
+    <div class="projects-list reveal">
+      <div class="project-item">
+        <div class="project-num">01</div>
+        <div class="project-body">
+          <div class="project-name">Core Technology of Quantum Battery Enabling Ultra-Fast Charging 100× Faster than Lithium-Ion</div>
+          <div class="project-funder">Korea Institute of Energy Technology Evaluation and Planning (KETEP) · Ministry of Trade, Industry and Energy</div>
+        </div>
+        <div class="project-meta">
+          <div class="project-year">2026–</div>
+          <div class="project-status active">Active</div>
+        </div>
+      </div>
+      <div class="project-item">
+        <div class="project-num">02</div>
+        <div class="project-body">
+          <div class="project-name">Ultra-Efficient Optimization of Smart Factory via Hybrid Quantum Deep Learning and RL on IBM Q (Energy reduction 20%, Quality deviation −1.5%, Production +3%)</div>
+          <div class="project-funder">Hanbat National University</div>
+        </div>
+        <div class="project-meta">
+          <div class="project-year">2025–</div>
+          <div class="project-status active">Active</div>
+        </div>
+      </div>
+      <div class="project-item">
+        <div class="project-num">03</div>
+        <div class="project-body">
+          <div class="project-name">Energy-Efficient Mobile Robot Simulation via PennyLane Quantum Deep Learning and VPS-LLM Planning</div>
+          <div class="project-funder">Hanbat National University</div>
+        </div>
+        <div class="project-meta">
+          <div class="project-year">2025–</div>
+          <div class="project-status active">Active</div>
+        </div>
+      </div>
+      <div class="project-item">
+        <div class="project-num">04</div>
+        <div class="project-body">
+          <div class="project-name">Customized Conversational AI Framework for Papermaking Processes</div>
+          <div class="project-funder">ETRI</div>
+        </div>
+        <div class="project-meta">
+          <div class="project-year">2025–</div>
+          <div class="project-status active">Active</div>
+        </div>
+      </div>
+      <div class="project-item">
+        <div class="project-num">05</div>
+        <div class="project-body">
+          <div class="project-name">LLM-based Conversational AI Assistant for Distributed Energy Resource Health Diagnosis</div>
+          <div class="project-funder">Korea Institute of Energy Research</div>
+        </div>
+        <div class="project-meta">
+          <div class="project-year">2025</div>
+          <div class="project-status completed">Done</div>
+        </div>
+      </div>
+      <div class="project-item">
+        <div class="project-num">06</div>
+        <div class="project-body">
+          <div class="project-name">KHNP Digital Control System (DSC) Network and Database Structural Review</div>
+          <div class="project-funder">Korea Hydro &amp; Nuclear Power</div>
+        </div>
+        <div class="project-meta">
+          <div class="project-year">2025</div>
+          <div class="project-status completed">Done</div>
+        </div>
+      </div>
+      <div class="project-item">
+        <div class="project-num">07</div>
+        <div class="project-body">
+          <div class="project-name">Core Technology of Quantum Battery (100× Faster)</div>
+          <div class="project-funder">ETRI</div>
+        </div>
+        <div class="project-meta">
+          <div class="project-year">2025</div>
+          <div class="project-status completed">Done</div>
+        </div>
+      </div>
+      <div class="project-item">
+        <div class="project-num">08</div>
+        <div class="project-body">
+          <div class="project-name">Factory Energy Data Analysis for High Consumption Process Energy Demand and Supply Management</div>
+          <div class="project-funder">ETRI</div>
+        </div>
+        <div class="project-meta">
+          <div class="project-year">2024</div>
+          <div class="project-status completed">Done</div>
+        </div>
+      </div>
+      <div class="project-item">
+        <div class="project-num">09</div>
+        <div class="project-body">
+          <div class="project-name">Development of Korea Green Button Platform</div>
+          <div class="project-funder">KETEP · Ministry of Trade, Industry and Energy</div>
+        </div>
+        <div class="project-meta">
+          <div class="project-year">2023</div>
+          <div class="project-status completed">Done</div>
+        </div>
+      </div>
+      <div class="project-item">
+        <div class="project-num">10</div>
+        <div class="project-body">
+          <div class="project-name">Converged Cluster of AI-based High Efficiency Port Energy Management for Carbon Neutral</div>
+          <div class="project-funder">Government</div>
+        </div>
+        <div class="project-meta">
+          <div class="project-year">2022–23</div>
+          <div class="project-status completed">Done</div>
+        </div>
+      </div>
+      <div class="project-item">
+        <div class="project-num">11</div>
+        <div class="project-body">
+          <div class="project-name">Real-Time Diagnosis of Home Energy Usage &amp; Smart Autonomous Control System</div>
+          <div class="project-funder">KETEP · Ministry of Trade, Industry and Energy</div>
+        </div>
+        <div class="project-meta">
+          <div class="project-year">2021–23</div>
+          <div class="project-status completed">Done</div>
+        </div>
+      </div>
+      <div class="project-item">
+        <div class="project-num">12</div>
+        <div class="project-body">
+          <div class="project-name">Customized Factory Energy Management System for High-Energy Processes (bio/pharma/food/metal/papermaking)</div>
+          <div class="project-funder">KETEP · Ministry of Trade, Industry and Energy</div>
+        </div>
+        <div class="project-meta">
+          <div class="project-year">2021–</div>
+          <div class="project-status active">Active</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TEAM
+     ============================================================ -->
+<section id="team" class="section">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">People</p>
+      <h2 class="section-title">Our Team</h2>
+    </div>
+
+    <!-- Professor -->
+    <div class="professor-card reveal">
+      <img
+        src="/images/prof-lee-web.jpg"
+        alt="Prof. Sangkeum Lee"
+        class="professor-img"
+        loading="lazy"
+        decoding="async"
+      >
+      <div class="professor-info">
+        <div class="professor-name">Sangkeum Lee <span style="font-size:var(--text-xl);color:var(--t3);">이상금</span></div>
+        <div class="professor-title">Assistant Professor · Lab Director</div>
+        <div class="professor-bio">
+          Prof. Lee leads EcoAI Lab's research at the intersection of artificial intelligence, quantum computing, and environmental energy optimization.
+        </div>
+        <div class="professor-cv">
+          <div class="cv-item"><span class="cv-year">2023–Present</span> Assistant Professor, Hanbat National University</div>
+          <div class="cv-item"><span class="cv-year">2021–2023</span> Senior Researcher, ETRI</div>
+          <div class="cv-item"><span class="cv-year">2020–2021</span> Post-Doctoral Researcher, KAIST</div>
+          <div class="cv-item"><span class="cv-year">2018–2020</span> Ph.D., KAIST CCS Graduate School</div>
+          <div class="cv-item"><span class="cv-year">2016–2018</span> M.S., KAIST</div>
+          <div class="cv-item"><span class="cv-year">2009–2016</span> B.S., Korea University</div>
+        </div>
+        <div class="professor-links">
+          <a href="https://scholar.google.com/citations?user=HaZWX-AAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="height:32px;font-size:var(--text-xs);">
+            <i class="fa-solid fa-graduation-cap"></i> Google Scholar
+          </a>
+          <a href="https://github.com/ecoailab" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="height:32px;font-size:var(--text-xs);">
+            <i class="fa-brands fa-github"></i> GitHub
+          </a>
+          <a href="mailto:sangkeum@hanbat.ac.kr" class="btn btn-secondary" style="height:32px;font-size:var(--text-xs);">
+            <i class="fa-solid fa-envelope"></i> Email
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Students -->
+    <div class="reveal">
+      <div class="team-group-title">M.S. Students</div>
+      <div class="team-grid">
+        <div class="team-member">
+          <div class="team-avatar">MB</div>
+          <div><div class="team-name">Minu Baek</div><div class="team-name-ko">백민우</div></div>
+        </div>
+        <div class="team-member">
+          <div class="team-avatar">GG</div>
+          <div><div class="team-name">Gihun Gil</div><div class="team-name-ko">길기훈</div></div>
+        </div>
+        <div class="team-member">
+          <div class="team-avatar">YJ</div>
+          <div><div class="team-name">Yeojin Jang</div><div class="team-name-ko">장여진</div></div>
+        </div>
+        <div class="team-member">
+          <div class="team-avatar">JP</div>
+          <div><div class="team-name">Jenilyn Park</div><div class="team-name-ko">박제니린</div></div>
+        </div>
+        <div class="team-member">
+          <div class="team-avatar">BS</div>
+          <div><div class="team-name">Byounghoon Son</div><div class="team-name-ko">손병훈</div></div>
+        </div>
+        <div class="team-member">
+          <div class="team-avatar">JK</div>
+          <div>
+            <div class="team-name">Junyeon Kim</div>
+            <div class="team-name-ko">김준연 · SK shieldus</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-group-title">Integrated B.S.–M.S.</div>
+      <div class="team-grid">
+        <div class="team-member">
+          <div class="team-avatar">JP</div>
+          <div><div class="team-name">Junseong Park</div><div class="team-name-ko">박준성</div></div>
+        </div>
+        <div class="team-member">
+          <div class="team-avatar">BP</div>
+          <div><div class="team-name">Beomdo Park</div><div class="team-name-ko">박범도</div></div>
+        </div>
+        <div class="team-member">
+          <div class="team-avatar">HJ</div>
+          <div><div class="team-name">Hyeonseok Jang</div><div class="team-name-ko">장현석</div></div>
+        </div>
+        <div class="team-member">
+          <div class="team-avatar">MJ</div>
+          <div><div class="team-name">Minsung Jung</div><div class="team-name-ko">정민성</div></div>
+        </div>
+      </div>
+
+      <div class="team-group-title">Undergraduate Researchers</div>
+      <div class="team-grid">
+        <div class="team-member">
+          <div class="team-avatar">SL</div>
+          <div><div class="team-name">Seoyoung Lee</div><div class="team-name-ko">이서영</div></div>
+        </div>
+        <div class="team-member">
+          <div class="team-avatar">JY</div>
+          <div><div class="team-name">Jio Yoo</div><div class="team-name-ko">유지오</div></div>
+        </div>
+        <div class="team-member">
+          <div class="team-avatar">JK</div>
+          <div><div class="team-name">Jisu Kang</div><div class="team-name-ko">강지수</div></div>
+        </div>
+      </div>
+
+      <div class="team-group-title">Alumni</div>
+      <div class="team-grid">
+        <div class="team-member" style="opacity:0.7;">
+          <div class="team-avatar" style="background:var(--bg-active);">BJ</div>
+          <div><div class="team-name">Beomhee Jung</div><div class="team-name-ko">정범희 · UG 2024</div></div>
+        </div>
+        <div class="team-member" style="opacity:0.7;">
+          <div class="team-avatar" style="background:var(--bg-active);">NJ</div>
+          <div><div class="team-name">Nayoung Jin</div><div class="team-name-ko">진나영 · UG 2024</div></div>
+        </div>
+        <div class="team-member" style="opacity:0.7;">
+          <div class="team-avatar" style="background:var(--bg-active);">WK</div>
+          <div><div class="team-name">Woohyeon Kwon</div><div class="team-name-ko">권우현 · UG 2026</div></div>
+        </div>
+        <div class="team-member" style="opacity:0.7;">
+          <div class="team-avatar" style="background:var(--bg-active);">HJ</div>
+          <div><div class="team-name">Harin Jang</div><div class="team-name-ko">장하린 · UG 2025</div></div>
+        </div>
+        <div class="team-member" style="opacity:0.7;">
+          <div class="team-avatar" style="background:var(--bg-active);">JL</div>
+          <div><div class="team-name">Jeongseop Lee</div><div class="team-name-ko">이정섭 · UG 2025</div></div>
+        </div>
+        <div class="team-member" style="opacity:0.7;">
+          <div class="team-avatar" style="background:var(--bg-active);">DY</div>
+          <div><div class="team-name">Donggeon Yu</div><div class="team-name-ko">유동건 · UG 2025</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Professor's reviewing/lecturing -->
+    <div class="reveal" style="margin-top:var(--sp-12);padding:var(--sp-8);background:var(--bg-panel);border:1px solid var(--border);border-radius:var(--r-xl);">
+      <p class="section-label" style="margin-bottom:var(--sp-4);">Academic Service</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-8);">
+        <div>
+          <div style="font-size:var(--text-sm);font-weight:590;color:var(--t1);margin-bottom:var(--sp-3);">Courses Taught</div>
+          <div style="display:flex;flex-direction:column;gap:var(--sp-2);">
+            <div style="font-size:var(--text-xs);color:var(--t3);">Machine Learning <span style="color:var(--t4);">(2023–2, 2024–2)</span></div>
+            <div style="font-size:var(--text-xs);color:var(--t3);">Information Security <span style="color:var(--t4);">(2023–2 ~ 2026–1)</span></div>
+            <div style="font-size:var(--text-xs);color:var(--t3);">Data Science <span style="color:var(--t4);">(2024–1 ~ 2026–1)</span></div>
+            <div style="font-size:var(--text-xs);color:var(--t3);">Blockchain <span style="color:var(--t4);">(2024–1 ~ 2026–1)</span></div>
+            <div style="font-size:var(--text-xs);color:var(--t3);">Data Mining <span style="color:var(--t4);">(2024–2, 2026–1)</span></div>
+            <div style="font-size:var(--text-xs);color:var(--t3);">Big Data Analysis <span style="color:var(--t4);">(2025–2)</span></div>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:var(--text-sm);font-weight:590;color:var(--t1);margin-bottom:var(--sp-3);">Reviewing Editor / Reviewer</div>
+          <div style="font-size:var(--text-xs);color:var(--t3);line-height:1.7;">
+            Springer Nature (2025–), IEEE Access, IEEE Sensors Journal, IEEE Transactions on Smart Grid, IEEE Transactions on Energy Markets, AAAI, IJCAI, ICML, Energy and Buildings, Applied Soft Computing, Expert Systems with Applications, Journal of Cleaner Production, Renewable Energy, + 15 more journals
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PUBLICATIONS
+     ============================================================ -->
+<section id="publications" class="section">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">Publications</p>
+      <h2 class="section-title">International Publications</h2>
+      <p class="section-desc" style="margin-bottom:var(--sp-6)">
+        Peer-reviewed journal articles and conference papers.
+      </p>
+    </div>
+
+    <div class="pub-filters reveal">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="ai">AI / ML</button>
+      <button class="filter-btn" data-filter="energy">Energy</button>
+      <button class="filter-btn" data-filter="iot">IoT / Security</button>
+      <button class="filter-btn" data-filter="quantum">Quantum</button>
+      <button class="filter-btn" data-filter="y2026">2026</button>
+      <button class="filter-btn" data-filter="y2025">2025</button>
+      <button class="filter-btn" data-filter="y2024">2024</button>
+    </div>
+
+    <div class="pub-list reveal" id="pub-list">
+
+      <div class="pub-item" data-tags="ai iot">
+        <div class="pub-row">
+          <div class="pub-citations"><span>173</span><br>cited</div>
+          <div class="pub-body">
+            <div class="pub-title">Machine learning for advanced wireless sensor networks: A review</div>
+            <div class="pub-authors">T Kim, LF Vecchietti, K Choi, <strong>S Lee</strong>, D Har</div>
+            <div class="pub-venue">IEEE Sensors Journal 21(11), 12379–12397 — 2020</div>
+            <div class="pub-actions">
+              <a href="https://doi.org/10.1109/JSEN.2020.3016821" target="_blank" rel="noopener noreferrer" class="pub-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> DOI</a>
+              <a href="https://ieeexplore.ieee.org/document/9159798" target="_blank" rel="noopener noreferrer" class="pub-link"><i class="fa-solid fa-file-pdf"></i> IEEE</a>
+              <button class="pub-link" onclick="showBibtex('bib1')"><i class="fa-solid fa-quote-right"></i> BibTeX</button>
+            </div>
+          </div>
+        </div>
+        <div class="bibtex-data" id="bib1" style="display:none;">@article{kim2020machine,
+  title={Machine learning for advanced wireless sensor networks: A review},
+  author={Kim, T and Vecchietti, LF and Choi, K and Lee, S and Har, D},
+  journal={IEEE Sensors Journal},
+  volume={21}, number={11}, pages={12379--12397},
+  year={2020}, publisher={IEEE}
+}</div>
+      </div>
+
+      <div class="pub-item" data-tags="ai">
+        <div class="pub-row">
+          <div class="pub-citations"><span>68</span><br>cited</div>
+          <div class="pub-body">
+            <div class="pub-title">Rewards prediction-based credit assignment for reinforcement learning with sparse binary rewards</div>
+            <div class="pub-authors">M Seo, LF Vecchietti, <strong>S Lee</strong>, D Har</div>
+            <div class="pub-venue">IEEE Access 7, 118776–118791 — 2019</div>
+            <div class="pub-actions">
+              <a href="https://doi.org/10.1109/ACCESS.2019.2936863" target="_blank" rel="noopener noreferrer" class="pub-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> DOI</a>
+              <a href="https://ieeexplore.ieee.org/document/8807254" target="_blank" rel="noopener noreferrer" class="pub-link"><i class="fa-solid fa-file-pdf"></i> IEEE</a>
+              <button class="pub-link" onclick="showBibtex('bib2')"><i class="fa-solid fa-quote-right"></i> BibTeX</button>
+            </div>
+          </div>
+        </div>
+        <div class="bibtex-data" id="bib2" style="display:none;">@article{seo2019rewards,
+  title={Rewards prediction-based credit assignment for reinforcement learning with sparse binary rewards},
+  author={Seo, M and Vecchietti, LF and Lee, S and Har, D},
+  journal={IEEE Access}, volume={7}, pages={118776--118791},
+  year={2019}, publisher={IEEE}
+}</div>
+      </div>
+
+      <div class="pub-item" data-tags="energy">
+        <div class="pub-row">
+          <div class="pub-citations"><span>64</span><br>cited</div>
+          <div class="pub-body">
+            <div class="pub-title">Development of charging/discharging scheduling algorithm for economical and energy-efficient operation of multi-EV charging station</div>
+            <div class="pub-authors">H Jin, <strong>S Lee</strong>, SH Nengroo, D Har</div>
+            <div class="pub-venue">Applied Sciences 12(9), 4786 — 2022</div>
+            <div class="pub-actions">
+              <a href="https://doi.org/10.3390/app12094786" target="_blank" rel="noopener noreferrer" class="pub-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> DOI</a>
+              <a href="https://www.mdpi.com/2076-3417/12/9/4786" target="_blank" rel="noopener noreferrer" class="pub-link"><i class="fa-solid fa-file-pdf"></i> Open Access</a>
+              <button class="pub-link" onclick="showBibtex('bib3')"><i class="fa-solid fa-quote-right"></i> BibTeX</button>
+            </div>
+          </div>
+        </div>
+        <div class="bibtex-data" id="bib3" style="display:none;">@article{jin2022development,
+  title={Development of charging/discharging scheduling algorithm for economical and energy-efficient operation of multi-EV charging station},
+  author={Jin, H and Lee, S and Nengroo, SH and Har, D},
+  journal={Applied Sciences}, volume={12}, number={9}, pages={4786},
+  year={2022}
+}</div>
+      </div>
+
+      <div class="pub-item" data-tags="energy iot">
+        <div class="pub-row">
+          <div class="pub-citations"><span>60</span><br>cited</div>
+          <div class="pub-body">
+            <div class="pub-title">Anomaly detection of smart metering system for power management with battery storage system/electric vehicle</div>
+            <div class="pub-authors"><strong>S Lee</strong>, SH Nengroo, H Jin, Y Doh, C Lee, T Heo, D Har</div>
+            <div class="pub-venue">ETRI Journal 45(4), 650–665 — 2023 · <span style="color:var(--accent-soft);font-style:normal;">Best Paper Award</span></div>
+            <div class="pub-actions">
+              <a href="https://doi.org/10.4218/etrij.2022-0135" target="_blank" rel="noopener noreferrer" class="pub-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> DOI</a>
+              <a href="https://onlinelibrary.wiley.com/doi/full/10.4218/etrij.2022-0135" target="_blank" rel="noopener noreferrer" class="pub-link"><i class="fa-solid fa-file-pdf"></i> Open Access</a>
+              <button class="pub-link" onclick="showBibtex('bib4')"><i class="fa-solid fa-quote-right"></i> BibTeX</button>
+            </div>
+          </div>
+        </div>
+        <div class="bibtex-data" id="bib4" style="display:none;">@article{lee2023anomaly,
+  title={Anomaly detection of smart metering system for power management with battery storage system/electric vehicle},
+  author={Lee, S and Nengroo, SH and Jin, H and Doh, Y and Lee, C and Heo, T and Har, D},
+  journal={ETRI Journal}, volume={45}, number={4}, pages={650--665},
+  year={2023}
+}</div>
+      </div>
+
+      <div class="pub-item" data-tags="ai">
+        <div class="pub-row">
+          <div class="pub-citations"><span>57</span><br>cited</div>
+          <div class="pub-body">
+            <div class="pub-title">Skin cancer diagnosis (SCD) using artificial neural network (ANN) and improved gray wolf optimization (IGWO)</div>
+            <div class="pub-authors">W Lai, M Kuang, X Wang, P Ghafariasl, MH Sabzalian, <strong>S Lee</strong></div>
+            <div class="pub-venue">Scientific Reports 13(1), 19377 — 2023</div>
+            <div class="pub-actions">
+              <a href="https://doi.org/10.1038/s41598-023-46648-1" target="_blank" rel="noopener noreferrer" class="pub-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> DOI</a>
+              <a href="https://www.nature.com/articles/s41598-023-46648-1" target="_blank" rel="noopener noreferrer" class="pub-link"><i class="fa-solid fa-file-pdf"></i> Open Access</a>
+              <button class="pub-link" onclick="showBibtex('bib5')"><i class="fa-solid fa-quote-right"></i> BibTeX</button>
+            </div>
+          </div>
+        </div>
+        <div class="bibtex-data" id="bib5" style="display:none;">@article{lai2023skin,
+  title={Skin cancer diagnosis (SCD) using artificial neural network (ANN) and improved gray wolf optimization (IGWO)},
+  author={Lai, W and Kuang, M and Wang, X and Ghafariasl, P and Sabzalian, MH and Lee, S},
+  journal={Scientific Reports}, volume={13}, number={1}, pages={19377},
+  year={2023}
+}</div>
+      </div>
+
+      <div class="pub-item" data-tags="energy">
+        <div class="pub-row">
+          <div class="pub-citations"><span>47</span><br>cited</div>
+          <div class="pub-body">
+            <div class="pub-title">Reverse osmosis desalination process optimized for maximum permeate production with renewable energy</div>
+            <div class="pub-authors"><strong>S Lee</strong>, S Myung, J Hong, D Har</div>
+            <div class="pub-venue">Desalination 398, 133–143 — 2016</div>
+            <div class="pub-actions">
+              <a href="https://doi.org/10.1016/j.desal.2016.07.031" target="_blank" rel="noopener noreferrer" class="pub-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> DOI</a>
+              <a href="https://www.sciencedirect.com/science/article/pii/S0011916416307494" target="_blank" rel="noopener noreferrer" class="pub-link"><i class="fa-solid fa-file-pdf"></i> ScienceDirect</a>
+              <button class="pub-link" onclick="showBibtex('bib6')"><i class="fa-solid fa-quote-right"></i> BibTeX</button>
+            </div>
+          </div>
+        </div>
+        <div class="bibtex-data" id="bib6" style="display:none;">@article{lee2016reverse,
+  title={Reverse osmosis desalination process optimized for maximum permeate production with renewable energy},
+  author={Lee, S and Myung, S and Hong, J and Har, D},
+  journal={Desalination}, volume={398}, pages={133--143},
+  year={2016}
+}</div>
+      </div>
+
+      <!-- 2026 papers -->
+      <div class="pub-item y2026 quantum ai" data-tags="quantum ai y2026">
+        <div class="pub-row">
+          <div class="pub-citations"><span>New</span><br>2026</div>
+          <div class="pub-body">
+            <div class="pub-title">Measurement-Informed Safe Reinforcement Learning for Quantum Battery Charging via Harmonic-Syndrome Diagnostics and BMS Constraints</div>
+            <div class="pub-authors"><strong>S Lee</strong>, B Park, J Park, H Jang, H Jeong, T Heo</div>
+            <div class="pub-venue">IEEE Transactions on Quantum Engineering, 2026</div>
+            <div class="pub-actions"><a href="#" class="pub-link"><i class="fa-solid fa-file-pdf"></i> Paper</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="pub-item y2026 energy iot" data-tags="energy iot y2026">
+        <div class="pub-row">
+          <div class="pub-citations"><span>New</span><br>2026</div>
+          <div class="pub-body">
+            <div class="pub-title">Decentralized Stabilization of Smart Grids against Deception Cyber-attack via Active Disturbance Rejection Control</div>
+            <div class="pub-authors">HM Soliman, <strong>S Lee</strong>, FA El Sheikhi, Y Jang, EHE Bayoumi</div>
+            <div class="pub-venue">IEEE Access, 2026</div>
+            <div class="pub-actions"><a href="#" class="pub-link"><i class="fa-solid fa-file-pdf"></i> Paper</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="pub-item y2026 ai" data-tags="ai y2026">
+        <div class="pub-row">
+          <div class="pub-citations"><span>New</span><br>2026</div>
+          <div class="pub-body">
+            <div class="pub-title">Frequency Hopping Synchronization for Satellite Communication System Using Reinforcement Learning</div>
+            <div class="pub-authors"><strong>S Lee</strong></div>
+            <div class="pub-venue">Applied Soft Computing, 2026</div>
+            <div class="pub-actions"><a href="#" class="pub-link"><i class="fa-solid fa-file-pdf"></i> Paper</a></div>
+          </div>
+        </div>
+      </div>
+      <!-- 2025 papers -->
+      <div class="pub-item y2025 quantum energy" data-tags="quantum energy y2025">
+        <div class="pub-row">
+          <div class="pub-citations"><span>New</span><br>2025</div>
+          <div class="pub-body">
+            <div class="pub-title">Continuous-Variable Quantum Reinforcement Learning for HVAC Control and Power Management in Residential Building</div>
+            <div class="pub-authors">SH Nengroo, D Har, H Jeong, T Heo, <strong>S Lee</strong></div>
+            <div class="pub-venue">Energy and AI, 2025</div>
+            <div class="pub-actions"><a href="#" class="pub-link"><i class="fa-solid fa-file-pdf"></i> Paper</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="pub-item y2025 energy ai" data-tags="energy ai y2025">
+        <div class="pub-row">
+          <div class="pub-citations"><span>New</span><br>2025</div>
+          <div class="pub-body">
+            <div class="pub-title">FFT-Guided Multi-Window USAD with DTW–Isolation Forest for Reliable Anomaly Detection in Industrial Power Time-Series</div>
+            <div class="pub-authors">W Kwon, M Jung, J Park, <strong>S Lee</strong></div>
+            <div class="pub-venue">Energies, 2025</div>
+            <div class="pub-actions"><a href="#" class="pub-link"><i class="fa-solid fa-file-pdf"></i> Paper</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="pub-item y2025 ai energy" data-tags="ai energy y2025">
+        <div class="pub-row">
+          <div class="pub-citations"><span>New</span><br>2025</div>
+          <div class="pub-body">
+            <div class="pub-title">A Comparative Study of Customized Algorithms for Anomaly Detection in Industry-Specific Power Data</div>
+            <div class="pub-authors">M Jung, H Jang, W Kwon, J Seo, S Park, B Park, J Park, D Yu, <strong>S Lee</strong></div>
+            <div class="pub-venue">Energies, 2025</div>
+            <div class="pub-actions"><a href="#" class="pub-link"><i class="fa-solid fa-file-pdf"></i> Paper</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="pub-item y2025 ai" data-tags="ai y2025">
+        <div class="pub-row">
+          <div class="pub-citations"><span>New</span><br>2025</div>
+          <div class="pub-body">
+            <div class="pub-title">A Novel Deep Learning Framework with Artificial Protozoa Optimization for Wind Power Prediction</div>
+            <div class="pub-authors"><strong>S Lee</strong>, MH Almomani, SA Alomari, K Saleem, et al.</div>
+            <div class="pub-venue">Scientific Reports, 2025</div>
+            <div class="pub-actions"><a href="#" class="pub-link"><i class="fa-solid fa-file-pdf"></i> Paper</a></div>
+          </div>
+        </div>
+      </div>
+      <!-- 2024 papers -->
+      <div class="pub-item y2024 iot ai" data-tags="iot ai y2024">
+        <div class="pub-row">
+          <div class="pub-citations"><span>New</span><br>2024</div>
+          <div class="pub-body">
+            <div class="pub-title">Defending CNN Against FGSM Attacks Using Beta-Based Personalized Activation Functions and Adversarial Training</div>
+            <div class="pub-authors">H Issaoui, A Eladel, A Zouinkhi, M Zaied, L Khriji, SH Nengroo, <strong>S Lee</strong></div>
+            <div class="pub-venue">IEEE Access, 2024</div>
+            <div class="pub-actions"><a href="#" class="pub-link"><i class="fa-solid fa-file-pdf"></i> Paper</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="pub-item y2024 energy ai" data-tags="energy ai y2024">
+        <div class="pub-row">
+          <div class="pub-citations"><span>New</span><br>2024</div>
+          <div class="pub-body">
+            <div class="pub-title">P2P Power Trading Based on Reinforcement Learning for Nanogrid Clusters</div>
+            <div class="pub-authors">H Jin, SH Nengroo, J Jin, D Har, <strong>S Lee</strong></div>
+            <div class="pub-venue">Expert Systems with Applications, 2024</div>
+            <div class="pub-actions"><a href="#" class="pub-link"><i class="fa-solid fa-file-pdf"></i> Paper</a></div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /.pub-list -->
+
+    <div class="reveal" style="margin-top:var(--sp-6);text-align:center;">
+      <a href="https://scholar.google.com/citations?user=HaZWX-AAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+        <i class="fa-solid fa-graduation-cap"></i>
+        View All on Google Scholar
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- BibTeX modal -->
+<div class="bibtex-modal" id="bibtex-modal" role="dialog" aria-modal="true" aria-label="BibTeX citation">
+  <div class="bibtex-box">
+    <div class="bibtex-header">
+      <h4>BibTeX Citation</h4>
+      <button class="bibtex-close" id="bibtex-close" aria-label="Close">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <pre class="bibtex-pre" id="bibtex-content"></pre>
+    <button class="bibtex-copy" id="bibtex-copy">
+      <i class="fa-solid fa-copy"></i> Copy to clipboard
+    </button>
+  </div>
+</div>
+
+<!-- ============================================================
+     CONTACT
+     ============================================================ -->
+<!-- ============================================================
+     GALLERY
+     ============================================================ -->
+<section id="gallery" class="section">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">Gallery</p>
+      <h2 class="section-title">Lab Life</h2>
+      <p class="section-desc" style="margin-bottom:var(--sp-10)">
+        Moments from our research journey — events, teamwork, and milestones.
+      </p>
+    </div>
+    <div class="gallery-grid reveal">
+      <!-- 실제 Google Sites 갤러리 이미지 -->
+      <div class="gallery-item gallery-item--wide">
+        <img src="/images/prof-lee-2-web.jpg" alt="Prof. Sangkeum Lee — Issuemagazine Interview" loading="lazy" decoding="async">
+        <div class="gallery-overlay"><span>Prof. Sangkeum Lee — Research Leadership</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="/images/prof-lee-web.jpg" alt="Prof. Sangkeum Lee" loading="lazy" decoding="async">
+        <div class="gallery-overlay"><span>Prof. Sangkeum Lee</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="/images/prof-lee-3-web.jpg" alt="Prof. Sangkeum Lee — Lab" loading="lazy" decoding="async">
+        <div class="gallery-overlay"><span>EcoAI Lab · Hanbat National University</span></div>
+      </div>
+    </div>
+    <p class="reveal" style="margin-top:var(--sp-5);font-size:var(--text-sm);color:var(--t4);text-align:center;">
+      More photos on <a href="https://sites.google.com/view/ecoai/gallery" target="_blank" rel="noopener noreferrer">Google Sites Gallery →</a>
+    </p>
+  </div>
+</section>
+
+<section id="contact" class="section">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">Contact</p>
+      <h2 class="section-title">Get in Touch</h2>
+      <p class="section-desc" style="margin-bottom:var(--sp-10)">
+        Open to research collaborations, PhD inquiries, and industry partnerships.
+      </p>
+    </div>
+
+    <div class="contact-grid reveal">
+      <div>
+        <div class="contact-info-list">
+          <div class="contact-row">
+            <div class="contact-icon-wrap"><i class="fa-solid fa-envelope"></i></div>
+            <div>
+              <div class="contact-label">Email</div>
+              <div class="contact-value"><a href="mailto:sangkeum@hanbat.ac.kr">sangkeum@hanbat.ac.kr</a></div>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-icon-wrap"><i class="fa-solid fa-phone"></i></div>
+            <div>
+              <div class="contact-label">Phone</div>
+              <div class="contact-value">+82 42 821 1205</div>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-icon-wrap"><i class="fa-solid fa-door-open"></i></div>
+            <div>
+              <div class="contact-label">Office</div>
+              <div class="contact-value">Room N4-416, Hanbat National University</div>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-icon-wrap"><i class="fa-solid fa-location-dot"></i></div>
+            <div>
+              <div class="contact-label">Address</div>
+              <div class="contact-value">125 Dongseo-daero, Yuseong-gu<br>Daejeon 34158, Republic of Korea</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="map-embed">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3212.868213606554!2d127.2961813152775!3d36.35045698004344!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35654b0000000001%3A0x1b0b0b0b0b0b0b0b!2sHanbat%20National%20University!5e0!3m2!1sen!2skr!4v1620000000000!5m2!1sen!2skr"
+            title="EcoAI Lab location — Hanbat National University"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
+
+      <div>
+        <form
+          class="contact-form"
+          id="contact-form"
+          action="https://formspree.io/f/xnqevjdr"
+          method="POST"
+        >
+          <input type="text" name="_gotcha" style="display:none" aria-hidden="true">
+
+          <div class="form-group">
+            <label for="name" class="form-label">Full Name *</label>
+            <input type="text" id="name" name="name" class="form-input" required placeholder="Dr. Jane Smith" autocomplete="name">
+          </div>
+
+          <div class="form-group">
+            <label for="email" class="form-label">Email *</label>
+            <input type="email" id="email" name="email" class="form-input" required placeholder="jane@university.edu" autocomplete="email">
+          </div>
+
+          <div class="form-group">
+            <label for="subject" class="form-label">Subject</label>
+            <select id="subject" name="subject" class="form-select">
+              <option value="">Select a topic…</option>
+              <option>Research Collaboration</option>
+              <option>PhD / Postdoc Inquiry</option>
+              <option>Industry Partnership</option>
+              <option>Media / Press</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message" class="form-label">Message *</label>
+            <textarea id="message" name="message" class="form-textarea" required placeholder="Tell us about your inquiry…"></textarea>
+          </div>
+
+          <button type="submit" class="form-submit" id="submit-btn">
+            <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+            Send Message
+          </button>
+
+          <div id="form-status" role="status"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">EcoAI Lab · Est. 2024</div>
+      <div class="footer-links">
+        <a href="https://www.hanbat.ac.kr" target="_blank" rel="noopener noreferrer">Hanbat University</a>
+        <a href="https://scholar.google.com/citations?user=HaZWX-AAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+        <a href="https://github.com/ecoailab" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://sites.google.com/view/ecoai" target="_blank" rel="noopener noreferrer">Google Sites</a>
+        <a href="/rss.xml" title="RSS Feed"><i class="fa-solid fa-rss" style="font-size:12px;"></i> RSS</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </div>
+      <div class="footer-copy">
+        © 2024 EcoAI Lab, Hanbat National University. Department of Computer Engineering.
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Toast -->
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
+<script>
+/* ── Theme ── */
+const html = document.documentElement;
+const themeBtn = document.getElementById('theme-btn');
+const themeIcon = document.getElementById('theme-icon');
+
+function setTheme(t) {
+  html.setAttribute('data-theme', t);
+  localStorage.setItem('theme', t);
+  themeIcon.className = t === 'dark' ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
+  themeBtn.setAttribute('aria-label', t === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+}
+setTheme(localStorage.getItem('theme') || 'dark');
+themeBtn.addEventListener('click', () => setTheme(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'));
+
+/* ── Mobile menu ── */
+const hamburger = document.getElementById('hamburger');
+const navMobile = document.getElementById('nav-mobile');
+
+hamburger.addEventListener('click', () => {
+  const open = navMobile.classList.toggle('open');
+  hamburger.setAttribute('aria-expanded', String(open));
+});
+
+navMobile.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    navMobile.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+  });
+});
+
+/* ── Smooth scroll ── */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (!target) return;
+    e.preventDefault();
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+
+/* ── Scroll reveal ── */
+const ro = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      ro.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+
+/* ── Animated counters ── */
+const co = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target;
+    const end = parseInt(el.dataset.target, 10);
+    const suffix = el.dataset.suffix || '';
+    const dur = 1600;
+    const start = performance.now();
+    const update = now => {
+      const p = Math.min((now - start) / dur, 1);
+      const ease = 1 - (1 - p) ** 3;
+      el.textContent = Math.floor(end * ease).toLocaleString() + suffix;
+      if (p < 1) requestAnimationFrame(update);
+      else el.textContent = end.toLocaleString() + suffix;
+    };
+    requestAnimationFrame(update);
+    co.unobserve(el);
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.counter').forEach(el => co.observe(el));
+
+/* ── Publication filter ── */
+const filterBtns = document.querySelectorAll('.filter-btn');
+const pubItems = document.querySelectorAll('.pub-item');
+
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const f = btn.dataset.filter;
+    pubItems.forEach(item => {
+      const tags = item.dataset.tags || '';
+      const show = f === 'all' || tags.includes(f);
+      item.style.display = show ? '' : 'none';
+    });
+  });
+});
+
+/* ── BibTeX ── */
+const bibtexModal = document.getElementById('bibtex-modal');
+const bibtexContent = document.getElementById('bibtex-content');
+const bibtexClose = document.getElementById('bibtex-close');
+const bibtexCopy = document.getElementById('bibtex-copy');
+
+function showBibtex(id) {
+  const data = document.getElementById(id).textContent.trim();
+  bibtexContent.textContent = data;
+  bibtexModal.classList.add('active');
+  bibtexClose.focus();
+}
+
+bibtexClose.addEventListener('click', () => bibtexModal.classList.remove('active'));
+bibtexModal.addEventListener('click', e => { if (e.target === bibtexModal) bibtexModal.classList.remove('active'); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') bibtexModal.classList.remove('active'); });
+
+bibtexCopy.addEventListener('click', () => {
+  navigator.clipboard.writeText(bibtexContent.textContent).then(() => {
+    showToast('✓ Copied to clipboard');
+  }).catch(() => showToast('Copy failed'));
+});
+
+/* ── Contact form ── */
+const form = document.getElementById('contact-form');
+const formStatus = document.getElementById('form-status');
+const submitBtn = document.getElementById('submit-btn');
+
+form.addEventListener('submit', async e => {
+  e.preventDefault();
+  const orig = submitBtn.innerHTML;
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending…';
+  formStatus.className = '';
+
+  try {
+    const res = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { Accept: 'application/json' }
+    });
+    if (res.ok) {
+      formStatus.textContent = '✓ Message sent! We'll reply within 2 business days.';
+      formStatus.className = 'success';
+      form.reset();
+    } else throw new Error();
+  } catch {
+    formStatus.textContent = '✗ Send failed. Please email sangkeum@hanbat.ac.kr directly.';
+    formStatus.className = 'error';
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = orig;
+  }
+});
+
+/* ── Toast ── */
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2800);
+}
+
+/* ── Scroll spy (nav active state) ── */
+const sections = document.querySelectorAll('section[id], div[id="stats"]');
+const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
+
+const spy = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const id = e.target.id;
+      navAnchors.forEach(a => {
+        const match = a.getAttribute('href') === '#' + id;
+        a.classList.toggle('active', match);
+      });
+    }
+  });
+}, { threshold: 0.3, rootMargin: '-64px 0px -40% 0px' });
+
+sections.forEach(s => spy.observe(s));
+
+/* ── Back to top ── */
+const btt = document.getElementById('back-to-top');
+window.addEventListener('scroll', () => {
+  btt.classList.toggle('visible', window.scrollY > 400);
+}, { passive: true });
+btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+/* ── Command bar ── */
+const cmdBar  = document.getElementById('cmd-bar');
+const cmdInput = document.getElementById('cmd-input');
+const cmdResultsEl = document.getElementById('cmd-results');
+
+const cmdItems = [
+  { label: 'Go to Home',         icon: 'fa-house',          href: '#home' },
+  { label: 'Go to News',         icon: 'fa-newspaper',      href: '#news' },
+  { label: 'Go to Research',     icon: 'fa-flask',          href: '#research' },
+  { label: 'Go to Projects',     icon: 'fa-diagram-project',href: '#projects' },
+  { label: 'Go to People',       icon: 'fa-users',          href: '#team' },
+  { label: 'Go to Publications', icon: 'fa-book-open',      href: '#publications' },
+  { label: 'Go to Gallery',      icon: 'fa-images',         href: '#gallery' },
+  { label: 'Go to Contact',      icon: 'fa-envelope',       href: '#contact' },
+  { label: 'Google Scholar',     icon: 'fa-graduation-cap', href: 'https://scholar.google.com/citations?user=HaZWX-AAAAAJ&hl=en', ext: true },
+  { label: 'GitHub',             icon: 'fa-brands fa-github', href: 'https://github.com/ecoailab', ext: true },
+  { label: 'Email Prof. Lee',    icon: 'fa-envelope',       href: 'mailto:sangkeum@hanbat.ac.kr', ext: true },
+  { label: 'Toggle dark mode',   icon: 'fa-moon',           action: () => themeBtn.click() },
+  { label: 'Machine learning for wireless sensor networks', icon: 'fa-file-lines', href: '#publications' },
+  { label: 'Reinforcement learning sparse binary rewards',  icon: 'fa-file-lines', href: '#publications' },
+  { label: 'Anomaly detection smart metering',              icon: 'fa-file-lines', href: '#publications' },
+];
+
+let focusedIdx = -1;
+
+function renderCmdResults(query) {
+  const q = query.toLowerCase().trim();
+  const filtered = q
+    ? cmdItems.filter(i => i.label.toLowerCase().includes(q))
+    : cmdItems;
+
+  if (!filtered.length) {
+    cmdResultsEl.innerHTML = `<div style="padding:var(--sp-5);text-align:center;color:var(--t4);font-size:var(--text-sm);">No results</div>`;
+    return;
+  }
+
+  cmdResultsEl.innerHTML = filtered.map((item, i) => `
+    <div class="cmd-result" data-idx="${i}" role="option" tabindex="-1"
+         onclick="execCmd(${JSON.stringify(item).replace(/"/g, '&quot;')})">
+      <i class="fa-solid ${item.icon}"></i>
+      <span class="cmd-result-label">${item.label}</span>
+      ${item.ext ? '<i class="fa-solid fa-arrow-up-right-from-square" style="margin-left:auto;color:var(--t4);font-size:11px;"></i>' : ''}
+    </div>`).join('');
+  focusedIdx = -1;
+}
+
+function execCmd(item) {
+  closeCmdBar();
+  if (item.action) { setTimeout(item.action, 80); return; }
+  if (item.ext) { window.open(item.href, '_blank', 'noopener,noreferrer'); return; }
+  const el = document.querySelector(item.href);
+  if (el) el.scrollIntoView({ behavior: 'smooth' });
+}
+
+function openCmdBar() {
+  cmdBar.classList.add('open');
+  renderCmdResults('');
+  requestAnimationFrame(() => cmdInput.focus());
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCmdBar() {
+  cmdBar.classList.remove('open');
+  cmdInput.value = '';
+  document.body.style.overflow = '';
+  focusedIdx = -1;
+}
+
+cmdInput.addEventListener('input', () => renderCmdResults(cmdInput.value));
+
+cmdInput.addEventListener('keydown', e => {
+  const items = cmdResultsEl.querySelectorAll('.cmd-result');
+  if (e.key === 'ArrowDown') {
+    e.preventDefault();
+    focusedIdx = (focusedIdx + 1) % items.length;
+    items.forEach((el, i) => el.classList.toggle('focused', i === focusedIdx));
+    items[focusedIdx]?.scrollIntoView({ block: 'nearest' });
+  } else if (e.key === 'ArrowUp') {
+    e.preventDefault();
+    focusedIdx = (focusedIdx - 1 + items.length) % items.length;
+    items.forEach((el, i) => el.classList.toggle('focused', i === focusedIdx));
+    items[focusedIdx]?.scrollIntoView({ block: 'nearest' });
+  } else if (e.key === 'Enter') {
+    if (focusedIdx >= 0) items[focusedIdx]?.click();
+    else if (items.length) items[0].click();
+  }
+});
+
+cmdBar.addEventListener('click', e => { if (e.target === cmdBar) closeCmdBar(); });
+
+// expose for inline onclick
+window.execCmd = execCmd;
+
+/* ── Keyboard shortcuts ── */
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') { closeCmdBar(); }
+  if ((e.key === '/' || (e.metaKey && e.key === 'k') || (e.ctrlKey && e.key === 'k'))
+      && !['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName)) {
+    e.preventDefault();
+    openCmdBar();
+  }
+});
+
+/* ── Image shimmer loading ── */
+document.querySelectorAll('img').forEach(img => {
+  if (!img.complete) {
+    img.classList.add('img-loading');
+    img.addEventListener('load', () => img.classList.remove('img-loading'), { once: true });
+    img.addEventListener('error', () => img.classList.remove('img-loading'), { once: true });
+  }
+});
+
+/* ── Service Worker ── */
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js').catch(() => {});
+  });
+}
+</script>
+</body>
+</html>
