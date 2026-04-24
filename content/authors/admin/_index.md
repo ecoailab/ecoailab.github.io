@@ -1,6 +1,6 @@
 ---
 # Display name
-title: Sangkeum Lee
+title: 이상금 Sangkeum Lee
 
 # Full name (for SEO)
 first_name: Sangkeum
@@ -8,13 +8,13 @@ last_name: Lee
 
 # Status emoji
 status:
-  icon: ☕️
+  icon: 🌱
 
 # Is this the primary user of the site?
 superuser: true
 
 # Role/position
-role: Professor of Computer Engineering
+role: Professor, Department of Computer Engineering
 
 # Organizations/Affiliations
 organizations:
@@ -40,31 +40,16 @@ interests:
 
 # Education
 education:
-  courses:
-    - course: Ph.D. in Computer Engineering
-      institution: University Name
-      year: Year
-    - course: M.S. in Computer Engineering
-      institution: University Name
-      year: Year
-    - course: B.S. in Computer Engineering
-      institution: University Name
-      year: Year
+  courses: []
 
 # Social/Academic Networking
 social:
   - icon: envelope
     icon_pack: fas
     link: 'mailto:sangkeum@hanbat.ac.kr'
-  - icon: google-scholar
-    icon_pack: ai
-    link: https://scholar.google.com/citations?user=YOUR_ID
   - icon: github
     icon_pack: fab
     link: https://github.com/ecoai-lab
-  - icon: orcid
-    icon_pack: ai
-    link: https://orcid.org/YOUR_ORCID
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
 email: 'sangkeum@hanbat.ac.kr'
@@ -74,8 +59,8 @@ user_groups:
   - Principal Investigator
 ---
 
-Sangkeum Lee is a Professor at the Department of Computer Engineering, Hanbat National University, Korea. 
-He leads the EcoAI Lab, focusing on research at the intersection of environmental sustainability and artificial intelligence.
+이상금 교수는 한밭대학교 컴퓨터공학과에서 EcoAI Lab을 이끌고 있습니다.
+EcoAI Lab은 환경에너지와 인공지능의 접점에서 스마트팩토리·스마트홈, IoT 센서 네트워크, 보안, 강화학습, 양자컴퓨팅, 멀티에이전트 시스템을 연구합니다.
 
 **연구실**: N4-416  
 **전화**: +82-42-821-1205  

@@ -1,5 +1,5 @@
 ---
-title: Recent & Upcoming Talks
+title: 세미나 및 행사
 cms_exclude: true
 #url: talk
 

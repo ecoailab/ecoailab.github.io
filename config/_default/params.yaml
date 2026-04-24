@@ -19,9 +19,9 @@ hugoblox:
     # Schema.org type for structured data
     type: organization                        # person | organization | local_business
     # Short tagline displayed on your site
-    tagline: "Eyes on the sky: Innovate for the future"
+    tagline: "환경에너지와 인공지능으로 지속가능한 미래를 연구합니다"
     # Site meta description for search engines and social sharing
-    description: "EcoAI Lab at Hanbat National University focuses on environmental energy, smart factory/home, IoT sensors, security, and AI technologies including quantum computing, reinforcement learning, and agent-based systems."
+    description: "한밭대학교 EcoAI Lab은 환경에너지, 스마트팩토리·스마트홈, IoT 센서 네트워크, 보안, 양자컴퓨팅, 강화학습, 멀티에이전트 AI를 연구하는 컴퓨터공학 연구실입니다."
     # Social accounts (used for meta tags like Twitter Cards)
     social:
       twitter: ""
@@ -92,7 +92,7 @@ hugoblox:
     search: true
     theme_toggle: true
     theme_picker: true
-    language_switcher: true
+    language_switcher: false
     # Call-to-action button
     cta:
       enable: false
@@ -106,7 +106,7 @@ hugoblox:
   footer:
     # Footer style variant
     style: minimal                      # minimal | columns | centered
-    language_switcher: true
+    language_switcher: false
     # Custom footer text (HTML supported)
     text: ""
 
@@ -129,26 +129,26 @@ hugoblox:
   # ────────────────────────────────────────────────────────────────────────────
   seo:
     # Browser tab title override (defaults to identity.name if not set)
-    title: ""
+    title: "EcoAI Lab | 한밭대학교 환경에너지 AI 연구실"
     # For local_business identity type only
     location:
       address:
-        street: ""
-        city: ""
-        region: ""
-        postal_code: ""
-        country: ""
+        street: "동서대로 125"
+        city: "유성구"
+        region: "대전광역시"
+        postal_code: "34158"
+        country: "KR"
       coordinates:
         latitude: null
         longitude: null
-      phone: ""
+      phone: "+82-42-821-1205"
     # AI/LLM crawler guidance (llms.txt)
     ai:
       allow:
         - /
       disallow: []
       note: "Guidance for AI crawlers - customize to match your public content."
-      contact: ""
+      contact: "sangkeum@hanbat.ac.kr"
 
   # ────────────────────────────────────────────────────────────────────────────
   # CONTENT
@@ -175,9 +175,19 @@ hugoblox:
   search:
     enable: true
     # Trending/suggested search terms
-    suggestions: []
+    suggestions:
+      - 환경에너지
+      - 스마트팩토리
+      - IoT 보안
+      - 강화학습
+      - 양자컴퓨팅
+      - 멀티에이전트
     # Quick action shortcuts in search modal
-    quick_actions: []
+    quick_actions:
+      - name: 연구실 문의
+        url: mailto:sangkeum@hanbat.ac.kr
+      - name: 주요 논문
+        url: /#publications
 
   # ────────────────────────────────────────────────────────────────────────────
   # COMMENTS
@@ -231,8 +241,8 @@ hugoblox:
   # Source code repository for "Edit this page" links
   # ────────────────────────────────────────────────────────────────────────────
   repository:
-    enable: false
-    url: ""                             # e.g., https://github.com/username/repo
+    enable: true
+    url: "https://github.com/ECOAIlab/ecoailab.github.io"                             # e.g., https://github.com/username/repo
     branch: main
     content_dir: content
 
@@ -241,9 +251,9 @@ hugoblox:
   # Regional formatting preferences
   # ────────────────────────────────────────────────────────────────────────────
   locale:
-    date_format: "Jan 2, 2006"          # Go time format
-    time_format: "3:04 PM"
-    address_format: en-us
+    date_format: "2006년 1월 2일"          # Go time format
+    time_format: "15:04"
+    address_format: ko-kr
 
   # ────────────────────────────────────────────────────────────────────────────
   # SECURITY

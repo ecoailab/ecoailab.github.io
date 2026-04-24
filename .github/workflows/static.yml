@@ -1,37 +1,24 @@
-name: Deploy static content to Pages
+name: Legacy static Pages deploy disabled
 
 on:
-  push:
-    branches: [main]
+  # Disabled by default to avoid racing the primary Hugo Pages workflow.
+  # Run manually only when intentionally deploying prebuilt static files.
   workflow_dispatch:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
   group: pages
   cancel-in-progress: false
 
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  disabled:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-      
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: .
-      
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Explain disabled workflow
+        run: |
+          echo "This legacy static workflow is intentionally disabled."
+          echo "Use .github/workflows/hugo.yml for the canonical HugoBlox build and GitHub Pages deployment."

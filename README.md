@@ -100,7 +100,7 @@ EcoAI-Lab-Website/
 # 사이트 이름
 dentity:
   name: "EcoAI Lab"
-  tagline: "Eyes on the sky: Innovate for the future"
+  tagline: "환경에너지와 인공지능으로 지속가능한 미래를 연구합니다"
 
 # 테마 색상
 theme:

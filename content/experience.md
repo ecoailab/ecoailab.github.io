@@ -1,5 +1,5 @@
 ---
-title: 'Experience'
+title: '연구실 소개'
 date: 2023-10-24
 type: landing
 
@@ -12,7 +12,7 @@ design:
 sections:
   - block: resume-experience
     content:
-      username: me
+      username: admin
     design:
       # Hugo date format
       date_format: 'January 2006'
@@ -20,14 +20,14 @@ sections:
       is_education_first: false
   - block: resume-skills
     content:
-      title: Skills & Hobbies
-      username: me
+      title: Research Skills
+      username: admin
   - block: resume-awards
     content:
       title: Awards
-      username: me
+      username: admin
   - block: resume-languages
     content:
       title: Languages
-      username: me
+      username: admin
 ---

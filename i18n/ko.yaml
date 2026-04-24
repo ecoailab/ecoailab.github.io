@@ -1,0 +1,71 @@
+read_more:
+  other: 더 읽기
+
+read_less:
+  other: 접기
+
+page_not_found:
+  other: 페이지를 찾을 수 없습니다
+
+search:
+  other: 검색
+
+search_placeholder:
+  other: 검색어를 입력하세요
+
+search_results:
+  other: 검색 결과
+
+no_results:
+  other: 검색 결과가 없습니다
+
+table_of_contents:
+  other: 목차
+
+last_updated:
+  other: 최근 업데이트
+
+published_with:
+  other: '{hugoblox}로 제작'
+
+powered_by:
+  other: 제공
+
+share:
+  other: 공유
+
+cite:
+  other: 인용
+
+download:
+  other: 다운로드
+
+contact:
+  other: 문의
+
+email:
+  other: 이메일
+
+phone:
+  other: 전화
+
+address:
+  other: 주소
+
+interests:
+  other: 관심 분야
+
+education:
+  other: 학력
+
+experience:
+  other: 경력
+
+publications:
+  other: 논문
+
+projects:
+  other: 프로젝트
+
+members:
+  other: 구성원

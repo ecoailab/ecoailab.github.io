@@ -12,7 +12,7 @@ baseURL: 'https://ecoailab.github.io/'
 ## LANGUAGE
 ############################
 
-defaultContentLanguage: en
+defaultContentLanguage: ko
 hasCJKLanguage: true
 defaultContentLanguageInSubdir: false
 removePathAccents: true
@@ -47,9 +47,12 @@ outputs:
   section: [HTML, RSS]
 imaging:
   resampleFilter: lanczos
-  quality: 90
+  quality: 85
   anchor: smart
   hint: picture
+caches:
+  images:
+    dir: :cacheDir/images
 timeout: 600000
 taxonomies:
   author: authors

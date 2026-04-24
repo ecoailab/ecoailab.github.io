@@ -1,9 +1,9 @@
 {
-  "name": "hugo-blox-academic-cv-starter",
+  "name": "ecoailab-website",
   "version": "1.0.0",
   "private": true,
   "packageManager": "pnpm@10.14.0",
-  "description": "Academic CV starter template for Hugo Blox with Tailwind CSS v4",
+  "description": "EcoAI Lab website built with Hugo Blox, Tailwind CSS, and Pagefind",
   "scripts": {
     "dev": "hugo server --disableFastRender",
     "build": "hugo --minify && pnpm run pagefind",
@@ -12,7 +12,7 @@
   "dependencies": {
     "@tailwindcss/cli": "^4.1.12",
     "@tailwindcss/typography": "^0.5.10",
-    "pagefind": "^1.4.0",
+    "pagefind": "1.5.2",
     "preact": "^10.27.2",
     "tailwindcss": "^4.1.12"
   }
