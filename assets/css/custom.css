@@ -83,3 +83,37 @@
   margin: 0;
   color: #475569;
 }
+
+.ecoai-alumni-panel a {
+  color: #0369a1;
+  font-weight: 700;
+}
+
+.ecoai-page-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.ecoai-page-card {
+  padding: 18px 20px;
+  border: 1px solid rgba(14, 165, 233, 0.16);
+  border-radius: 18px;
+  background: rgba(248, 250, 252, 0.9);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+}
+
+.ecoai-page-card strong {
+  display: block;
+  margin-bottom: 8px;
+  color: #0369a1;
+}
+
+.ecoai-note {
+  padding: 18px 20px;
+  border-left: 4px solid #06b6d4;
+  border-radius: 14px;
+  background: #ecfeff;
+  color: #164e63;
+}

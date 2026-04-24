@@ -95,9 +95,9 @@ hugoblox:
     language_switcher: false
     # Call-to-action button
     cta:
-      enable: false
-      text: ""
-      url: ""
+      enable: true
+      text: "Join Us"
+      url: "/join-us/"
 
   # ────────────────────────────────────────────────────────────────────────────
   # FOOTER
@@ -108,7 +108,7 @@ hugoblox:
     style: minimal                      # minimal | columns | centered
     language_switcher: false
     # Custom footer text (HTML supported)
-    text: ""
+    text: "<a href='/governance/'>운영정책</a> · <a href='/privacy/'>개인정보 처리 안내</a> · <a href='/accessibility/'>접근성 안내</a>"
 
   # ────────────────────────────────────────────────────────────────────────────
   # COPYRIGHT
@@ -116,7 +116,7 @@ hugoblox:
   # ────────────────────────────────────────────────────────────────────────────
   copyright:
     # Copyright notice - supports {year}, {name}, {license} placeholders
-    notice: "© {year} {name}. This work is licensed under {license}"
+    notice: "© {year} {name}. Public content is shared for research and education."
     license:
       type: cc                          # cc | custom
       allow_derivatives: false
@@ -187,7 +187,11 @@ hugoblox:
       - name: 연구실 문의
         url: mailto:sangkeum@hanbat.ac.kr
       - name: 주요 논문
-        url: /#publications
+        url: /publications/
+      - name: Join Us
+        url: /join-us/
+      - name: 협업 문의
+        url: /collaborate/
 
   # ────────────────────────────────────────────────────────────────────────────
   # COMMENTS
@@ -271,7 +275,7 @@ hugoblox:
   # Privacy and compliance features
   # ────────────────────────────────────────────────────────────────────────────
   privacy:
-    enable: false
+    enable: true
     anonymize_analytics: true
 
   # ────────────────────────────────────────────────────────────────────────────

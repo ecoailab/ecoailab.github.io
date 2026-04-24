@@ -27,8 +27,8 @@ sections:
         url: '#research'
         icon: rocket-launch
       secondary_action:
-        text: 논문 보기
-        url: '#publications'
+        text: Join Us
+        url: '/join-us/'
         icon: document-text
     design:
       background:
@@ -134,7 +134,7 @@ sections:
     content:
       title: '주요 연구 프로젝트'
       subtitle: 'Research Projects'
-      text: 'EcoAI Lab의 핵심 연구 방향을 프로젝트 형태로 정리했습니다.'
+      text: 'EcoAI Lab의 핵심 연구 방향을 프로젝트 형태로 정리했습니다. 각 프로젝트는 문제, 접근 방법, 기대 산출물 중심으로 계속 보완합니다.'
       filters:
         folders:
           - projects
@@ -149,9 +149,9 @@ sections:
       title: '주요 논문'
       subtitle: 'Featured Publications'
       text: |
-        EcoAI Lab의 검증된 논문 목록을 정리 중입니다.
+        EcoAI Lab의 검증된 논문 목록을 정리 중입니다. 확정되지 않은 논문명이나 DOI는 공개하지 않습니다.
 
-        실제 논문 데이터가 확정되면 DOI, PDF, 코드, 데이터 링크와 함께 공개하겠습니다.
+        실제 논문 데이터가 확정되면 DOI, PDF, 코드, 데이터 링크와 함께 `/publications/`에 공개하겠습니다.
     design:
       columns: '1'
       background:
@@ -196,7 +196,7 @@ sections:
 
         <div class="ecoai-alumni-panel">
           <strong>Alumni 정보 정리 중</strong>
-          <p>졸업생·수료생 명단, 진학/취업 현황, 연구 기여 정보는 공개 가능 여부를 확인한 뒤 업데이트합니다.</p>
+          <p>졸업생·수료생 명단, 진학/취업 현황, 연구 기여 정보는 공개 가능 여부를 확인한 뒤 <a href="/alumni/">Alumni 페이지</a>에 업데이트합니다.</p>
         </div>
         
         </div>
@@ -270,7 +270,7 @@ sections:
         </div>
         
         <div style="text-align: center; margin-top: 40px; padding: 20px; background: linear-gradient(135deg, #fef3c7, #fde68a); border-radius: 16px;">
-        <h4 style="color: #92400e; margin: 0;">산학협력, 공동연구, 인턴십 문의를 환영합니다.</h4>
+        <h4 style="color: #92400e; margin: 0;">산학협력, 공동연구, 인턴십 문의는 <a href="/collaborate/">협업 안내</a>와 <a href="/join-us/">Join Us</a>를 참고해 주세요.</h4>
         </div>
     design:
       columns: '1'
@@ -281,12 +281,12 @@ sections:
     content:
       title: 'EcoAI Lab과 함께 지속가능한 미래를 연구하세요'
       text: |
-        환경과 AI 기술의 융합을 통해 지속가능한 미래를 만들어갑니다.
+        환경에너지와 AI 기술의 접점에서 실제 문제를 함께 다룰 학생과 협업 파트너를 기다립니다.
         
-        열정적인 학생들을 항상 환영합니다!
+        지원 전에는 Join Us 페이지의 준비 자료와 관심 주제 안내를 확인해 주세요.
       button:
-        text: 연구실 문의하기
-        url: mailto:sangkeum@hanbat.ac.kr
+        text: Join Us 보기
+        url: /join-us/
         icon: mail
     design:
       card:

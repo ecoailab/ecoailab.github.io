@@ -11,20 +11,29 @@ main:
     url: /#research
     weight: 11
   - name: 논문
-    url: /#publications
+    url: publications/
     weight: 12
   - name: 구성원
     url: /#members
     weight: 13
-  - name: 갤러리
-    url: /#gallery
-    weight: 14
   - name: 프로젝트
     url: projects/
     weight: 20
-  - name: 강의
-    url: courses/
+  - name: 소식
+    url: blog/
+    weight: 21
+  - name: Alumni
+    url: alumni/
+    weight: 22
+  - name: Join Us
+    url: join-us/
     weight: 30
+  - name: 협업
+    url: collaborate/
+    weight: 31
+  - name: 운영정책
+    url: governance/
+    weight: 50
   - name: 문의
     url: /#contact
-    weight: 40
+    weight: 60
