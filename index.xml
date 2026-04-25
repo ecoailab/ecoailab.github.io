@@ -1,22 +1,190 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>EcoAI Lab</title><link>https://ecoailab.github.io/</link><atom:link href="https://ecoailab.github.io/index.xml" rel="self" type="application/rss+xml"/><description>EcoAI Lab</description><generator>HugoBlox Kit (https://hugoblox.com)</generator><language>ko-kr</language><lastBuildDate>Mon, 01 Jan 2024 00:00:00 +0000</lastBuildDate><image><url>https://ecoailab.github.io/media/icon_hu_5d4790f2768271fc.png</url><title>EcoAI Lab</title><link>https://ecoailab.github.io/</link></image><item><title>Alumni</title><link>https://ecoailab.github.io/alumni/</link><pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate><guid>https://ecoailab.github.io/alumni/</guid><description>&lt;p&gt;Alumni 정보는 현재 정리 중입니다. 이름, 진로, 소속, 연구 주제는 당사자의 공개 동의가 확인된 뒤에만 게시합니다.&lt;/p&gt;
-&lt;h2 id="공개-예정-항목"&gt;공개 예정 항목&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>EcoAI Lab</title><link>https://ecoailab.github.io/</link><atom:link href="https://ecoailab.github.io/index.xml" rel="self" type="application/rss+xml"/><description>EcoAI Lab</description><generator>HugoBlox Kit (https://hugoblox.com)</generator><language>ko-kr</language><lastBuildDate>Mon, 01 Jan 2024 00:00:00 +0000</lastBuildDate><image><url>https://ecoailab.github.io/media/icon_hu_5d4790f2768271fc.png</url><title>EcoAI Lab</title><link>https://ecoailab.github.io/</link></image><item><title>Alumni</title><link>https://ecoailab.github.io/alumni/</link><pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate><guid>https://ecoailab.github.io/alumni/</guid><description>&lt;p&gt;기존 Google Sites People 페이지에 공개된 Alumni 정보를 옮겼습니다. 학번, 개인 연락처 등 민감 정보는 공개하지 않습니다.&lt;/p&gt;
+&lt;h2 id="alumni"&gt;Alumni&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;이름과 영문 이름&lt;/li&gt;
-&lt;li&gt;참여 기간&lt;/li&gt;
-&lt;li&gt;연구 주제 또는 프로젝트 기여&lt;/li&gt;
-&lt;li&gt;졸업 후 진로 또는 현재 소속&lt;/li&gt;
-&lt;li&gt;공개 가능한 연락 경로&lt;/li&gt;
+&lt;li&gt;Beomhee Jung (정범희), Nayoung Jin (진나영), undergraduate, 2024.&lt;/li&gt;
+&lt;li&gt;Naeun Yoon (윤나은), Seungju Lee (이승주), Juryeong Kim (김주령), Daeun Ahn (안다은), Namseok Koo (구남석), Suna Park (박선아), Jiyun Seo (서지윤), Donggeon Yu (유동건), Jeongseop Lee (이정섭), Harin Jang (장하린), undergraduate, 2025.&lt;/li&gt;
+&lt;li&gt;Woohyeon Kwon (권우현), undergraduate, 2026.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="운영-원칙"&gt;운영 원칙&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;학번, 개인 전화번호, 사적인 이메일은 공개하지 않습니다.&lt;/li&gt;
 &lt;li&gt;본인이 원하지 않는 정보는 게시하지 않습니다.&lt;/li&gt;
-&lt;li&gt;진로 정보는 확인된 내용만 적습니다.&lt;/li&gt;
+&lt;li&gt;진로 정보는 Google Sites에 공개된 내용 또는 별도 확인된 내용만 적습니다.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;정보 공개를 원하거나 수정이 필요한 경우
-로 연락해 주세요.&lt;/p&gt;</description></item><item><title>EcoAI Lab 홈페이지 개편 안내</title><link>https://ecoailab.github.io/blog/website-renewal/</link><pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate><guid>https://ecoailab.github.io/blog/website-renewal/</guid><description>&lt;p&gt;EcoAI Lab 홈페이지를 연구실 소개 중심으로 다시 정리했습니다. 환경에너지, IoT 보안, 강화학습, 양자 AI, 멀티에이전트 시스템을 중심으로 연구 분야와 프로젝트를 확인할 수 있습니다.&lt;/p&gt;
+로 연락해 주세요.&lt;/p&gt;</description></item><item><title>Awards 2024</title><link>https://ecoailab.github.io/gallery/2024-awards/</link><pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate><guid>https://ecoailab.github.io/gallery/2024-awards/</guid><description>&lt;div class="ecoai-year-tabs"&gt;&lt;a href="https://ecoailab.github.io/gallery/2024-awards/"&gt;2024&lt;/a&gt;&lt;a href="https://ecoailab.github.io/gallery/2025-awards/"&gt;2025&lt;/a&gt;&lt;a href="https://ecoailab.github.io/gallery/awards/"&gt;2026&lt;/a&gt;&lt;/div&gt;
+&lt;p&gt;Googleusercontent 직접 이미지 URL은 외부 사이트에서 ORB/403 차단될 수 있어, 원문 Gallery가 안정적으로 보이도록 Google Sites embedded view를 보존합니다.&lt;/p&gt;
+&lt;iframe class="ecoai-legacy-frame" title="
+EcoAI Lab 2024 Awards gallery
+" src="
+https://sites.google.com/view/ecoai/gallery/2024-awards
+?embedded=true" loading="lazy"&gt;&lt;/iframe&gt;
+&lt;p&gt;
+&lt;/p&gt;</description></item><item><title>Awards 2025</title><link>https://ecoailab.github.io/gallery/2025-awards/</link><pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate><guid>https://ecoailab.github.io/gallery/2025-awards/</guid><description>&lt;div class="ecoai-year-tabs"&gt;&lt;a href="https://ecoailab.github.io/gallery/2024-awards/"&gt;2024&lt;/a&gt;&lt;a href="https://ecoailab.github.io/gallery/2025-awards/"&gt;2025&lt;/a&gt;&lt;a href="https://ecoailab.github.io/gallery/awards/"&gt;2026&lt;/a&gt;&lt;/div&gt;
+&lt;p&gt;Googleusercontent 직접 이미지 URL은 외부 사이트에서 ORB/403 차단될 수 있어, 원문 Gallery가 안정적으로 보이도록 Google Sites embedded view를 보존합니다.&lt;/p&gt;
+&lt;iframe class="ecoai-legacy-frame" title="
+EcoAI Lab 2025 Awards gallery
+" src="
+https://sites.google.com/view/ecoai/gallery/2025-awards
+?embedded=true" loading="lazy"&gt;&lt;/iframe&gt;
+&lt;p&gt;
+&lt;/p&gt;</description></item><item><title>Awards 2026</title><link>https://ecoailab.github.io/gallery/awards/</link><pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate><guid>https://ecoailab.github.io/gallery/awards/</guid><description>&lt;div class="ecoai-year-tabs"&gt;&lt;a href="https://ecoailab.github.io/gallery/2024-awards/"&gt;2024&lt;/a&gt;&lt;a href="https://ecoailab.github.io/gallery/2025-awards/"&gt;2025&lt;/a&gt;&lt;a href="https://ecoailab.github.io/gallery/awards/"&gt;2026&lt;/a&gt;&lt;/div&gt;
+&lt;p&gt;Googleusercontent 직접 이미지 URL은 외부 사이트에서 ORB/403 차단될 수 있어, 원문 Gallery가 안정적으로 보이도록 Google Sites embedded view를 보존합니다.&lt;/p&gt;
+&lt;iframe class="ecoai-legacy-frame" title="
+EcoAI Lab 2026 Awards gallery
+" src="
+https://sites.google.com/view/ecoai/gallery/awards
+?embedded=true" loading="lazy"&gt;&lt;/iframe&gt;
+&lt;p&gt;
+&lt;/p&gt;</description></item><item><title>Domestic Publications</title><link>https://ecoailab.github.io/publications/domestic/</link><pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate><guid>https://ecoailab.github.io/publications/domestic/</guid><description>&lt;p&gt;Source:
+&lt;/p&gt;
+&lt;h2 id="domestic-journal"&gt;Domestic Journal&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Sangkeum Lee, Dongsoo Har, Luiz Felipe Vecchietti, Junhee Hong, Hoi-Jeong Lim. “Optimal Link Scheduling Based on Attributes of Nodes in 6TiSCH Wireless Networks”, The Journal of KIIT, 2020.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="domestic-conferences-talkposter"&gt;Domestic Conferences (Talk/Poster)&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Seoyoung Lee, Minu Baek, Gihun Gil, Yeojin Jang, Jio Yoo and Sangkeum Lee, &amp;ldquo;제지공정 시계열 데이터의 이상 원인 자동 해석을 위한 LLM 기반 설명 생성 모델 연구,&amp;rdquo; 한국통신학회 종합 학술 발표회(동계), 2026. (Talk)&lt;/li&gt;
+&lt;li&gt;Yeojin Jang, Minu Baek, Gihun Gil, Seoyoung Lee, Jio Yoo and Sangkeum Lee, &amp;ldquo;대규모 산업망의 QoS 보장을 위한 CVaR 기반 위험 민감 강화학습 라우팅 기법,&amp;rdquo; 한국통신학회 종합 학술 발표회(동계), 2026. (Talk)&lt;/li&gt;
+&lt;li&gt;Jisu Kang, Woohyeon Kwon, Minsung Jung, Hojun Jin and Sangkeum Lee, “LSTM Autoencoder 기반 수요관리용 ESS 운전 패턴 분석 및 이상 운전 탐지,&amp;quot; 한국통신학회 종합 학술 발표회(동계), 2026. (Talk)&lt;/li&gt;
+&lt;li&gt;Minsung Jung, Woohyeon Kwon, Jisu Kang, Taewook Heo, Chungho Lee and Sangkeum Lee, &amp;ldquo;화공 산업 전력 데이터의 부하 패턴 특성 분석 및 계층적 클러스터링 기반 이상 탐지 프레임워크,&amp;rdquo; 한국통신학회 종합 학술 발표회(동계), 2026. (Talk)&lt;/li&gt;
+&lt;li&gt;Junseong Park, Hyeonseok Jang, Beomdo Park, Hoon Jeong, Taewook Heo and Sangkeum Lee, &amp;ldquo;개방 양자계 환경에서의 양자 배터리 충전 프로토콜 최적화를 위한 커리큘럼 강화학습 프레임워크,&amp;rdquo; 한국통신학회 종합 학술 발표회(동계), 2026. (Talk)&lt;/li&gt;
+&lt;li&gt;Beomdo Park, Junseong Park, Hyeonseok Jang, Hoon Jeong, Taewook Heo and Sangkeum Lee, &amp;ldquo;물리 지식 기반 그래프 트랜스포머 강화학습을 이용한 강건한 양자 배터리 충전 최적화,&amp;rdquo; 한국통신학회 종합 학술 발표회(동계), 2026. (Talk)&lt;/li&gt;
+&lt;li&gt;Gihun Gil, Sumin Hong, Cheneum Park and Sangkeum Lee, “Wilson Score 기반 상위 댓글 선별과 DPO 선호 최적화를 활용한 한국어 뉴스 댓글 생성 모델,&amp;quot; 한국통신학회 종합 학술 발표회(동계), 2026. (Poster)&lt;/li&gt;
+&lt;li&gt;Jun Jeon, Baek Minu and Sangkeum Lee, “CLIP2FL 기반 Long-tail 연합학습을 위한 균형 지식 증류(BKD) 기법,&amp;quot; 한국통신학회 종합 학술 발표회(동계), 2026. (Poster)&lt;/li&gt;
+&lt;li&gt;Jihun Kim, Gihun Gil and Sangkeum Lee, &amp;ldquo;비용 효율적인 지능형 AICC를 위한 자가 진화형 4계층 정규화 게이트,&amp;rdquo; 한국통신학회 종합 학술 발표회(동계), 2026. (Poster)&lt;/li&gt;
+&lt;li&gt;Minu Baek, Jio Yoo, Gihun Gil, Seoyoung Lee, Yeojin Jang, Yonmee Doh, Jinyoung Choi and Sangkeum Lee, &amp;ldquo;제지공정 강화학습 안전제어를 위한 데이터 기반 운전 영역 정량화 및 품질 영향 분석,&amp;rdquo; 한국통신학회 종합 학술 발표회(동계), 2026. (Poster)&lt;/li&gt;
+&lt;li&gt;Woohyeon Kwon, Minsung Jung, Jisu Kang, Chungho Lee, Taewook Heo and Sangkeum Lee, &amp;ldquo;SML 에이전트를 활용한 데이터 분석 및 이상 경계 구간 탐지,&amp;rdquo; 한국통신학회 종합 학술 발표회(동계), 2026. (Poster)&lt;/li&gt;
+&lt;li&gt;Byounghoon Son, Yeojin Jang and Sangkeum Lee, &amp;ldquo;통신 메타데이터의 엔트로피 분석과 하이브리드 딥러닝 기반 청년 고립 탐지,&amp;rdquo; 한국통신학회 종합 학술 발표회(동계), 2026. (Poster)&lt;/li&gt;
+&lt;li&gt;Hyunho Song, Harin Jang and Sangkeum Lee, &amp;ldquo;타슈 공공자전거 수요 예측 및 패턴 분석에 관한 연구,&amp;rdquo; 한국통신학회 종합 학술 발표회(동계), 2026. (Poster)&lt;/li&gt;
+&lt;li&gt;Hyeonseok Jang, Beomdo Park, Junseong Park, Hoon Jeong, Taewook Heo and Sangkeum Lee, &amp;ldquo;비마르코프 환경의 OQBs 충전 최적화를 위한 LSTM-SAC 프레임워크,&amp;rdquo; 한국통신학회 종합 학술 발표회(동계), 2026. (Poster)&lt;/li&gt;
+&lt;li&gt;Jio Yoo, Minu Baek, Gihun Gil, Seoyoung Lee, Yeojin Jang and Sangkeum Lee, &amp;ldquo;제지 공정 강화학습에서 GMM 기반 OOD 감지와 계층적 안전 스위칭 정책의 CVaR 기반 위험 관리 효과 분석,&amp;rdquo; 한국통신학회 종합 학술 발표회(동계), 2026. (Poster)&lt;/li&gt;
+&lt;li&gt;Harin Jang, Yeojin Jang, and Sangkeum Lee, &amp;ldquo;Wi-Fi 7 MLO 환경에서 QoS 인식 동적 링크 관리에 대한 강화학습 접근법,&amp;rdquo; 한국통신학회 종합 학술 발표회(추계), 2025. (Poster)&lt;/li&gt;
+&lt;li&gt;Yeojin Jang, Harin Jang, and Sangkeum Lee, &amp;ldquo;산업 네트워크 환경에서의 DQN 기반 지능형 라우팅 정책 연구,&amp;rdquo; 한국통신학회 종합 학술 발표회(추계), 2025. (Poster)&lt;/li&gt;
+&lt;li&gt;Woohyeon Kwon, Minsung Jung, Jeongseop Lee, Taewook Heo, Chungho Lee, and Sangkeum Lee, &amp;ldquo;DTW 군집화 기반 롤링 IQR 규칙 강화학습을 통한 이상치 탐지 모델에 관한 연구,&amp;rdquo; 한국통신학회 종합 학술 발표회(추계), 2025. (Poster)&lt;/li&gt;
+&lt;li&gt;Minsung Jung, Woohyeon Kwon, Jeongseop Lee, Taewook Heo, Chungho Lee, and Sangkeum Lee, &amp;ldquo;강화학습(SAC) 기반 LSTM-AE 이상 탐지 임계값 동적 최적화,&amp;rdquo; 한국통신학회 종합 학술 발표회(추계), 2025. (Poster)&lt;/li&gt;
+&lt;li&gt;Beomdo Park, Hyeonseok Jang, Junseong Park, Hoon Jeong, Taewook Heo, and Sangkeum Lee, &amp;ldquo;그래프 신경망 기반 강화학습을 통한 양자 배터리 초흡수 이득 활용,&amp;rdquo; 한국통신학회 종합 학술 발표회(추계), 2025. (Talk)&lt;/li&gt;
+&lt;li&gt;Junseong Park, Beomdo Park, Hyeonseok Jang, Hoon Jeong, Taewook Heo, and Sangkeum Lee, &amp;ldquo;단계적 강화학습 프레임워크를 통한 강건한 양자 배터리 충전,&amp;rdquo; 한국통신학회 종합 학술 발표회(추계), 2025. (Poster)&lt;/li&gt;
+&lt;li&gt;Hyeonseok Jang, Junseong Park, Beomdo Park, Hoon Jeong, Taewook Heo, and Sangkeum Lee, &amp;ldquo;비마르코프 노이즈를 활용한 PPO 기반 양자 배터리 충전 프로토콜 최적화,&amp;rdquo; 한국통신학회 종합 학술 발표회(추계), 2025. (Poster)&lt;/li&gt;
+&lt;li&gt;Gihun Gil, Seoyoung Lee, Minu Baek, Jio Yoo, Jinyoung Choi, Yoonmee Doh, and Sangkeum Lee, &amp;ldquo;실시간 제지 공정 운영 효율화를 위한 LLM과 RAG기반 대화형 AI 어시스턴트 설계,&amp;rdquo; 한국통신학회 종합 학술 발표회(추계), 2025. (Talk)&lt;/li&gt;
+&lt;li&gt;Minu Baek, Jio Yoo, Gihun Gil, Seoyoung Lee, Yoonmee Doh, Jinyoung Choi, and Sangkeum Lee, &amp;ldquo;강화학습 기반 제지 공정 자율 운전: 초기 안정화 가속화 전략,&amp;rdquo; 한국통신학회 종합 학술 발표회(추계), 2025. (Talk)&lt;/li&gt;
+&lt;li&gt;Donggeon Yu, Sangkeum Lee, Yoonmee Doh, Jinyoung Choi, &amp;ldquo;제지공정 변동성 반영을 위한 Neural SDE 기반 강화학습 연구,&amp;rdquo; 제6회 한국 인공지능 학술대회, 2025. (Talk)&lt;/li&gt;
+&lt;li&gt;Donggeon Yu, Suna Park, Jiyun Seo, and Sangkeum Lee, “스마트 팩토리 내 트윈 모델 성능 향상을 위한 물리 모델 고도화 연구,” 한국통신학회 종합 학술 발표회(하계), 2025. (Talk)&lt;/li&gt;
+&lt;li&gt;Hyeonseok Jang, Minsung Jung, Chungho Lee, Taewook Heo, and Sangkeum Lee, “이상치 탐지 성능 향상을 위한 MI‐FGSM 데이터 증강 기법,” 대한전자공학회 종합 학술 발표회(하계), 2025. (Poster)&lt;/li&gt;
+&lt;li&gt;Beomdo Park, Woohyeon Kwon, Chungho Lee, Taewook Heo, and Sangkeum Lee, “고속 푸리에 변환(FFT) 기반 주기 추출 및 윈도우 구성을 활용한 GELU CNN‐GRU AE 모델의 실시간 전력 시계열 이상치 탐지,” 대한전자공학회 종합 학술 발표회(하계), 2025. (Poster)&lt;/li&gt;
+&lt;li&gt;Junseong Park, Jeongseop Lee, Donggeon Yu, Chungho Lee, Taewook Heo, and Sangkeum Lee, “LSTM Autoencoder와 Unsupervised Anomaly Detection 모델의 시간 해상도별 이상치 탐지 성능 분석,” 대한전자공학회 종합 학술 발표회(하계), 2025. (Poster)&lt;/li&gt;
+&lt;li&gt;Bongkyung Kim, Harin Jang, Yeojin Jang, and Sangkeum Lee, “사용자 맞춤형 키 매핑 테이블의 블록체인 저장 구조 설계 및 구현: Hyperledger Fabric 기반 접근 방식,” 대한전자공학회 종합 학술 발표회(하계), 2025. (Poster)&lt;/li&gt;
+&lt;li&gt;Yeojin Jang, Bongkyung Kim, Harin Jang, and Sangkeum Lee, “키로깅 시뮬레이션 기반 공격 분석 및 보안 기법 검증,” 대한전자공학회 종합 학술 발표회(하계), 2025. (Poster)&lt;/li&gt;
+&lt;li&gt;Harin Jang, Yeojin Jang, Bongkyung Kim, and Sangkeum Lee, “키보드 입력 보안을 위한 실시간 암호화 기법 연구,” 대한전자공학회 종합 학술 발표회(하계), 2025. (Poster)&lt;/li&gt;
+&lt;li&gt;Gihun Gil, Minseok Oh, Sumin Hong, Wongeun Ji, and Sangkeum Lee, “열화상 이상 탐지 시스템 구축을 위한 YOLO11n과 YOLO1s 비교 분석,” 대한전자공학회 종합 학술 발표회(하계), 2025. (Poster)&lt;/li&gt;
+&lt;li&gt;Wongeun Ji, Sumin Hong, Minseok Oh, Gihun Gil, and Sangkeum Lee, “클러스터링 기반 컴퓨터 열화상 이미지 데이터 분석을 통한 이상 탐지,” 대한전자공학회 종합 학술 발표회(하계), 2025. (Poster)&lt;/li&gt;
+&lt;li&gt;Suna Park, Jiyun Seo, Yoonmee Doh, and Sangkeum Lee, “팩토리 운전 전략 최적화를 위한 다목적 함수 및 강화학습 기반 전략 도출,” 대한전자공학회 종합 학술 발표회(하계), 2025. (Poster)&lt;/li&gt;
+&lt;li&gt;Jiyun Seo, Suna Park, Yoonmee Doh, and Sangkeum Lee, “펄프 배합비와 계절성 기반 스팀 사용량 예측을 통한 제지 공정 최적화 연구,” 대한전자공학회 종합 학술 발표회(하계), 2025. (Poster)&lt;/li&gt;
+&lt;li&gt;Minsung Jung, Junseo Kim, Jiyun Seo, Chungho Lee, Taewook Heo, Sangkeum Lee, &amp;ldquo;금속 산업 용도별 전력 데이터 비율 기반 임계값 최적화를 통한 이상치 탐지,&amp;rdquo; 한국통신학회 종합 학술 발표회(동계), 2025. (Poster)&lt;/li&gt;
+&lt;li&gt;Hyeonseok Jang, Beomdo Park, Hanseong Kang, Suna Park, Chungho Lee, Taewook Heo, Sangkeum Lee, &amp;ldquo;DBA K-Means 군집화 알고리즘 기반 화공산업 전력 사용량 이상치 탐지,&amp;rdquo; 한국통신학회 종합 학술 발표회(동계), 2025. (Poster)&lt;/li&gt;
+&lt;li&gt;Woohyeon Kwon, Junseong Park, Namseok Koo, Chungho Lee, Taewook Heo, Sangkeum Lee, &amp;ldquo;Isolation Forest와 Autoencoder 하이브리드 이상치 탐지 기법을 활용한 산업 전력 데이터 분석 및 최적화,&amp;rdquo; 한국통신학회 종합 학술 발표회(동계), 2025. (Poster)&lt;/li&gt;
+&lt;li&gt;Namseok Koo, Suna Park, Daeun Ahn, Yoonmee Doh, Sangkeum Lee, &amp;ldquo;스마트 팩토리 최적화를 위한 GAF 기반 시계열 클러스터링 및 변동성 분석,&amp;rdquo; 한국통신학회 종합 학술 발표회(추계), 2024. (Talk)&lt;/li&gt;
+&lt;li&gt;Seungju Lee, Jiyun Seo, Sangkeum Lee, &amp;ldquo;공급수 온도별 다항 회귀 모델링을 통한 역삼투 담수화 플랜트의 최적화,&amp;rdquo; 한국통신학회 종합 학술 발표회(추계), 2024. (Talk)&lt;/li&gt;
+&lt;li&gt;Juryeong Kim, Daeun Ahn, Naeun Yoon, Sangkeum Lee, &amp;ldquo;딥러닝 전처리 모델 및 클러스터링 분석을 활용한 주거용 건물 실시간 공기질 모니터링 플랫폼,&amp;rdquo; 한국통신학회 종합 학술 발표회(추계), 2024. (Poster)&lt;/li&gt;
+&lt;li&gt;Namseok Koo, Suna Park, Daeun Ahn, Junyeon Kim, Yoonmee Doh, Sangkeum Lee, “스팀량 예측 인공지능 모델을 통한 공정의 에너지 효율 개선 모니터링 시스템,” 대한전자공학회 종합 학술 발표회(하계), 2024. (Poster)&lt;/li&gt;
+&lt;li&gt;Naeun Yoon, Beomhee Jung, Juryeong Kim, Nayoung Jin, Junyeon Kim, Yoonmee Doh, Sangkeum Lee, “초지 공정 최적화를 위한 특성 상관관계 기반 기계학습 기법을 이용한 에너지 효율 향상 모델,” 대한전자공학회 종합 학술 발표회(하계), 2024. (Poster)&lt;/li&gt;
+&lt;li&gt;Jinyoung Choi, Yoonmee Doh, Beomhee Jung, Sangkeum Lee, “제지공정 에너지 절감을 위한 초지공정 스팀에너지 모델링 연구,” 한국통신학회 종합 학술 발표회(하계), 2024. (Talk)&lt;/li&gt;
+&lt;li&gt;Beomhee Jung, Suna Park, Juryeong Kim, Chungho Lee, Sangkeum Lee, “산업 전기데이터 무결성을 위한 LSTM 네트워크를 이용한 결측치 처리 정보보호 플랫폼,” 한국통신학회 종합 학술 발표회(동계), 2024. (Talk)&lt;/li&gt;
+&lt;li&gt;Daeun Ahn, Naeun Yoon, Nayoung Jin, Sangkeum Lee, “멀티 센서 기반의 스마트홈 공기질 향상을 위한 모니터링 시스템,” 한국통신학회 종합 학술 발표회(동계), 2024. (Talk)&lt;/li&gt;
+&lt;li&gt;Haechan Jeong, Sangkeum Lee, “최대 생산량 및 에너지 절감을 위한 역삼투 담수화 플랜트 공정 최적화,” 한국통신학회 종합 학술 발표회(추계), 2023. (Talk)&lt;/li&gt;
+&lt;li&gt;Sangkeum Lee, Yoonmee Doh, Chungho Lee, Taewook Heo, “주거용 건물의 냉방 에너지 절감을 위한 클러스터링 분석,” 한국통신학회 종합 학술 발표회(하계), 2023. (Talk)&lt;/li&gt;
+&lt;li&gt;Hojun Jin, Sangkeum Lee, Sarvar Hussain Nengroo, Haechan Jeong, Dongsoo Har, “무선 센서 네트워크를 이용한 분산형 신재생에너지 관리,” 제33회 통신정보 합동학술대회, 2023. (Talk).&lt;/li&gt;
+&lt;li&gt;Chungho Lee, Sangkeum Lee, Yoonmee Doh, Taewook Heo, “카르페디엠: 디지털트윈 기반 홈에너지관리시스템 프레임워크,” 한국통신학회 종합 학술 발표회 (동계), 2023. (Talk).&lt;/li&gt;
+&lt;li&gt;Kwanyeong Lee, Seon Hyeog Kim, Sangkeum Lee, Tae-Wook Heo, IL Woo Lee, “연속공정에서의 공장 에너지 수요 분석 및 예측 모델,” 한국통신학회 종합 학술 발표회 (동계), 2023. (Talk).&lt;/li&gt;
+&lt;li&gt;Soonhyun Kwon, Joahyoung Lee, Seonhyeog Kim, Sangkeum Lee, Youngmee Shin, Yoonmee Doh, and Taewook Heo, “공정에너지 절감을 위한 지식베이스 기반 디지털 트윈 시스템 설계와 구현,” 한국통신학회 종합 학술 발표회 (동계), 2023. (Talk).&lt;/li&gt;
+&lt;li&gt;Yeonji Jung, Yoonmee Doh, Seon hyeog Kim, Sangkeum Lee “제지 공정 시스템 에너지 절감을 위한 데이터 분류 및 특성 연구,” 한국통신학회 종합 학술 발표회 (동계), 2023. (Talk).&lt;/li&gt;
+&lt;li&gt;Sangkeum Lee, Yoonmee Doh, Chungho Lee, Taewook Heo, “가전제품 사용 패턴을 이용한 재실 감지를 위한 머신러닝 기반 클러스터링 방법론,” 제1회 한국 에너지 학술대회, 2022. (Talk).&lt;/li&gt;
+&lt;li&gt;Seonhyeog Kim, Yoonmee Doh, Youngmee Shin, Soonhyun Kwon, Joahyoung Lee, Sangkeum Lee, and Taewook Heo, “공장에너지관리시스템(FEMS)의 공정 이상 모니터링을 위한 신경망 기반 분류 알고리즘 연구,” 한국통신학회 종합 학술 발표회 (하계), 2022. (Talk)&lt;/li&gt;
+&lt;li&gt;Sangkeum Lee, Yoonmee Doh, Youngmee Shin, Soonhyun Kwon, Joahyoung Lee, Seonhyeog Kim, and Taewook Heo, “제지공정 건조 실린더의 스팀에너지 모델링 방법론,” 한국통신학회 종합 학술 발표회 (하계), 2022. (Talk)&lt;/li&gt;
+&lt;li&gt;Soonhyun Kwon, Joahyoung Lee, Seonhyeog Kim, Sangkeum Lee, Youngmee Shin, Yoonmee Doh, and Taewook Heo, “IoE 환경에서 공장에너지 관리를 위한 빅시맨틱 시스템 설계,” 한국정보처리학회 학술 발표 대회 (춘계), 2022. (Talk)&lt;/li&gt;
+&lt;li&gt;Sangkeum Lee, Yoonmee Doh, Chungho Lee, and Taewook Heo, &amp;ldquo;GRU 오토인코더를 이용한 스마트미터링 데이터 이상치 탐지,&amp;rdquo; 한국통신학회 종합 학술 발표회 (동계), 2022. (Talk)&lt;/li&gt;
+&lt;li&gt;Chungho Lee, Yoonmee Doh, Sangkeum Lee, Taewook Heo. “에너지 빅데이터 활용을 위한 계량 클라우드 플랫폼 설계 및 구현,” 한국통신학회 종합 학술 대회 (추계), 2021. (Talk)&lt;/li&gt;
+&lt;/ol&gt;</description></item><item><title>EcoAI Lab 홈페이지 개편 안내</title><link>https://ecoailab.github.io/blog/website-renewal/</link><pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate><guid>https://ecoailab.github.io/blog/website-renewal/</guid><description>&lt;p&gt;EcoAI Lab 홈페이지를 연구실 소개 중심으로 다시 정리했습니다. 환경에너지, IoT 보안, 강화학습, 양자 AI, 멀티에이전트 시스템을 중심으로 연구 분야와 프로젝트를 확인할 수 있습니다.&lt;/p&gt;
 &lt;p&gt;이번 개편에서는 구성원 정보, 프로젝트 소개, 지원 안내, 협업 문의, 개인정보와 접근성 안내를 먼저 정리했습니다. 논문과 Alumni 정보는 확인된 데이터와 공개 동의가 준비되는 대로 추가합니다.&lt;/p&gt;
-&lt;p&gt;앞으로는 연구성과, 세미나, 프로젝트 진행 상황을 연구실 소식으로 꾸준히 업데이트할 예정입니다.&lt;/p&gt;</description></item><item><title>IoT 센서 네트워크와 보안</title><link>https://ecoailab.github.io/projects/iot-security-sensing/</link><pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate><guid>https://ecoailab.github.io/projects/iot-security-sensing/</guid><description>&lt;p&gt;EcoAI Lab은 IoT 센서 네트워크에서 수집되는 데이터를 기반으로 이상 탐지, 위협 분석, 안전한 지능형 서비스 구조를 연구합니다.&lt;/p&gt;
+&lt;p&gt;앞으로는 연구성과, 세미나, 프로젝트 진행 상황을 연구실 소식으로 꾸준히 업데이트할 예정입니다.&lt;/p&gt;</description></item><item><title>Gallery</title><link>https://ecoailab.github.io/gallery/</link><pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate><guid>https://ecoailab.github.io/gallery/</guid><description>&lt;p&gt;기존 Google Sites의 Gallery 하위 페이지를 내부 라우트로 정리했습니다. 이미지 원본은 Google Sites에 게시된 공개 이미지 URL을 보존해 표시합니다.&lt;/p&gt;
+&lt;div class="ecoai-route-grid"&gt;
+&lt;a href="https://ecoailab.github.io/gallery/awards/"&gt;&lt;strong&gt;Awards 2026&lt;/strong&gt;&lt;span&gt;Current awards gallery&lt;/span&gt;&lt;/a&gt;
+&lt;a href="https://ecoailab.github.io/gallery/2025-awards/"&gt;&lt;strong&gt;Awards 2025&lt;/strong&gt;&lt;span&gt;2025 awards archive&lt;/span&gt;&lt;/a&gt;
+&lt;a href="https://ecoailab.github.io/gallery/2024-awards/"&gt;&lt;strong&gt;Awards 2024&lt;/strong&gt;&lt;span&gt;2024 awards archive&lt;/span&gt;&lt;/a&gt;
+&lt;a href="https://ecoailab.github.io/gallery/memories/"&gt;&lt;strong&gt;Memories 2026&lt;/strong&gt;&lt;span&gt;Current memories gallery&lt;/span&gt;&lt;/a&gt;
+&lt;a href="https://ecoailab.github.io/gallery/2025-memories/"&gt;&lt;strong&gt;Memories 2025&lt;/strong&gt;&lt;span&gt;2025 memories archive&lt;/span&gt;&lt;/a&gt;
+&lt;a href="https://ecoailab.github.io/gallery/2024-memories/"&gt;&lt;strong&gt;Memories 2024&lt;/strong&gt;&lt;span&gt;2024 memories archive&lt;/span&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;p&gt;원문 출처:
+&lt;/p&gt;</description></item><item><title>International Publications</title><link>https://ecoailab.github.io/publications/international/</link><pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate><guid>https://ecoailab.github.io/publications/international/</guid><description>&lt;p&gt;Source:
+&lt;/p&gt;
+&lt;h2 id="international-journal"&gt;International Journal&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Minu Baek, Sangkeum Lee, &amp;ldquo;A Three-Stage Reinforcement Learning Pipeline for Autonomous Process Control in the Papermaking Industry,&amp;rdquo; IEEE Transactions on Industrial Informatics, 2026.&lt;/li&gt;
+&lt;li&gt;Yeojin Jang, Harin Jang, and Sangkeum Lee, &amp;ldquo;A Quantum-Resistant and AI-Resilient Real-Time Keystroke Protection Framework with Blockchain-Backed Decentralized Identity,&amp;rdquo; IEEE Access, 2026.&lt;/li&gt;
+&lt;li&gt;Sangkeum Lee, Beomdo Park, Junseong Park, Hyeonseok Jang, Hoon Jeong, and Taewook Heo, &amp;ldquo;Measurement-Informed Safe Reinforcement Learning for Quantum Battery Charging via Harmonic-Syndrome Diagnostics and BMS Constraints,&amp;rdquo; IEEE Transactions on Quantum Engineering, 2026.&lt;/li&gt;
+&lt;li&gt;Hisham M. Soliman, Sangkeum Lee, Farag A. El Sheikhi, Yeojin Jang and Ehab H. E. Bayoumi, &amp;ldquo;Decentralized Stabilization of Smart Grids against Deception Cyber-attack via Active Disturbance Rejection Control,&amp;rdquo; IEEE Access, 2026.&lt;/li&gt;
+&lt;li&gt;Sangkeum Lee, &amp;ldquo;Frequency Hopping Synchronization for Satellite Communication System Using Reinforcement Learning,&amp;rdquo; Applied Soft Computing, 2026.&lt;/li&gt;
+&lt;li&gt;Woohyeon Kwon, Minsung Jung, Junseong Park, Sangkeum Lee, &amp;ldquo;FFT-Guided Multi-Window USAD with DTW–Isolation Forest for Reliable Anomaly Detection in Industrial Power Time-Series,&amp;rdquo; Energies, 2025.&lt;/li&gt;
+&lt;li&gt;Sookeun Song, Minseo Jo, Bong Kuk Lee, Sangkeum Lee, Hyunbean Yi, &amp;ldquo;Camera-based Sow Posture Analysis and Prediction of Artificial Insemination Timing,&amp;rdquo; Agriculture, 2025.&lt;/li&gt;
+&lt;li&gt;Minsung Jung, Hyeonseok Jang, Woohyeon Kwon, Jiyun Seo, Suna Park, Beomdo Park, Junseong Park, Donggeon Yu, Sangkeum Lee, &amp;ldquo;A Comparative Study of Customized Algorithms for Anomaly Detection in Industry-Specific Power Data,&amp;rdquo; Energies, 2025.&lt;/li&gt;
+&lt;li&gt;Jianxin Xiong, Zhiyuan Zhou, Vyacheslav V Dubrovskiy, Sangkeum Lee, &amp;ldquo;A new digital watermarking model using honey encryption and reversible cellular automata,&amp;rdquo; Scientific Reports, 2025.&lt;/li&gt;
+&lt;li&gt;Sarvar Hussain Nengroo, Dongsoo Har, Hoon Jeong, Taewook Heo, Sangkeum Lee, &amp;ldquo;Continuous-Variable Quantum Reinforcement Learning for HVAC Control and Power Management in Residential Building,&amp;rdquo; Energy and AI, 2025.&lt;/li&gt;
+&lt;li&gt;Mahmoud Abdel-Salam, Saleh Ali Alomari, Jun Yang, Sangkeum Lee, Kashif Saleem, Aseel Smerat, “Harnessing Dynamic Turbulent Dynamics in Parrot Optimization Algorithm for Complex High-Dimensional Engineering Problems,” Computer Methods in Applied Mechanics and Engineering, 2025.&lt;/li&gt;
+&lt;li&gt;Qiang Sun, Lin Yang, Cheng Guo, Sangkeum Lee, &amp;ldquo;Machine Learning-based Optimisation Algorithms for Sentiment Analysis: An Analysis of the State-of-the-Art and Upcoming Challenges,” Journal of Experimental &amp;amp; Theoretical Artificial Intelligence, 2025.&lt;/li&gt;
+&lt;li&gt;Haoyu Yang, Entesar Gemeay, Abdullah Alqahtani, Abed Alanazi, Shtwai Alsubai, Sangkeum Lee, &amp;ldquo;Facial Expression Recognition by Multi-Scale Local Binary Patterns (MLBP) and Convolutional Neural Network (CNN) Features,&amp;rdquo; Expert Systems, 2025.&lt;/li&gt;
+&lt;li&gt;Sangkeum Lee, Mohammad H. Almomani, Saleh Ali Alomari, Kashif Saleem, Aseel Smerat, Vaclav Snasel, Amir H. Gandomi, Laith Abualigah, &amp;ldquo;A Novel Deep Learning Framework with Artificial Protozoa Optimization-based Adaptive Environmental Response for Wind Power Prediction,&amp;rdquo; Scientific Reports, 2025.&lt;/li&gt;
+&lt;li&gt;Mahmoud Abdel-Salam, Saleh Ali Alomari, Mohammad H. Almomani, Gang Hu, Sangkeum Lee, Kashif Saleem, Aseel Smerat, Laith Abualigah, &amp;ldquo;Quadruple Strategy-Driven Hiking Optimization Algorithm for Low and High-Dimensional Feature Selection and Real-World Skin Cancer Classification,&amp;rdquo; Knowledge-Based Systems, 2025.&lt;/li&gt;
+&lt;li&gt;Zhijing Liu, Tong Su, Michail A. Zakharov, Guoliang Wei, Sangkeum Lee, &amp;ldquo;Software Defect Prediction based on Residual/Shuffle Network Optimized by Upgraded Fish Migration Optimization Algorithm,&amp;rdquo; Scientific Reports, 2025.&lt;/li&gt;
+&lt;li&gt;Hisham M. Soliman, Ehab H.E. Bayoumi, Sangkeum Lee, &amp;ldquo;Ellipsoidal Design of Robust Secure Frequency Control in Smart Cities under Denial-of-Service Cyber Attack,&amp;rdquo; Smart Cities, 2025.&lt;/li&gt;
+&lt;li&gt;Wang Long, Zhao Qixin, Michail A Zakharov, Sangkeum Lee, &amp;ldquo;Optimizing fault prediction in software based on MnasNet/LSTM optimized by an improved lotus flower algorithm,&amp;rdquo; Egyptian Informatics Journal, 2025.&lt;/li&gt;
+&lt;li&gt;Haoyu Yang, Entesar Gemeay, Mohamad A. Alawad, Mohamed Alkaoud, Sangkeum Lee, Shaimaa Ahmed Elsaid, &amp;ldquo;Utilizing convolutional neural network and gray wolf optimization for image super-resolution,&amp;rdquo; Journal of King Saud University – Science, 2025.&lt;/li&gt;
+&lt;li&gt;Ehab H. E. Bayoumi, Hisham M. Soliman, Sangkeum Lee, &amp;ldquo;Ellipsoidal-Set Design of Robust and Secure Control Against Denial-of-Service Cyber Attacks in Electric-Vehicle Induction Motor Drives,&amp;rdquo; Technologies, 2025.&lt;/li&gt;
+&lt;li&gt;Hanen Issaoui, Asma Eladel, Ahmed Zouinkhi, Mourad Zaied, Lazhar Khriji, Sarvar Hussain Nengroo, Sangkeum Lee, &amp;ldquo;Defending CNN Against FGSM Attacks Using Beta-Based Personalized Activation Functions and Adversarial Training,&amp;rdquo; IEEE Access, 2024.&lt;/li&gt;
+&lt;li&gt;Mimouna Abdullah Alkhonaini, Entesar Gemeay, Firas Muhammad Zeki Mahmood, Mohamed Ayari, Farhan A Alenizi, Sangkeum Lee, &amp;ldquo;A new encryption algorithm for image data based on two-way chaotic maps and iterative cellular automata,&amp;rdquo; Scientific Reports, 2024.&lt;/li&gt;
+&lt;li&gt;Jianhong Ye, Zhiyong Zhao, Ehsan Ghafourian, AmirReza Tajally, Hamzah Ali Alkhazaleh, Sangkeum Lee, &amp;ldquo;Optimizing the Topology of Convolutional Neural Network (CNN) and Artificial Neural Network (ANN) for Brain Tumor diagnosis (BTD) through MRIs,&amp;rdquo; Heliyon, 2024.&lt;/li&gt;
+&lt;li&gt;Hojun Jin, Sarvar Nengroo, Juhee Jin, Dongsoo Har, Sangkeum Lee, “P2P Power Trading Based on Reinforcement Learning for Nanogrid Clusters,” Expert Systems with Applications, 2024.&lt;/li&gt;
+&lt;li&gt;Sarvar Hussain Nengroo*, Sangkeum Lee*, Mostafa F. Shaaban, Dongsoo Har, &amp;ldquo;Incorporating Energy Storage System into Grid Connected PV System with the Application of Wireless Sensor Network,&amp;rdquo; Journal of Energy Storage, 2024.&lt;/li&gt;
+&lt;li&gt;Mimouna Abdullah Alkhonaini, Farhan A Alenizi, Yahia Hasan Jazyah, Sangkeum Lee, “A two-phase spatiotemporal chaos-based protocol for data integrity in IoT,” Scientific Reports, 2024.&lt;/li&gt;
+&lt;li&gt;Ting Xu, Mohammad Hosein Sabzalian, Ahmad Hammoud, Hamed Tahami, Ali Gholami, Sangkeum Lee, “An innovative machine learning based on feed-forward artificial neural network and equilibrium optimization for predicting solar irradiance,” Scientific Reports, 2024.&lt;/li&gt;
+&lt;li&gt;Wanqi Lai, Meixia Kuang, Xiaorou Wang, Parviz Ghafariasl, Mohammad Hosein Sabzalian, Sangkeum Lee, “Skin cancer diagnosis (SCD) using Artificial Neural Network (ANN) and Improved Gray Wolf Optimization (IGWO),” Scientific Reports, 2023.&lt;/li&gt;
+&lt;li&gt;Sui Zhihan, Ali Mohammadiounotikandi, Saeed Ghareh Khanlooei, Sepideh Monjezi, Mekhmonov Sultonali Umaralievich, Ali Ehsani, Sangkeum Lee, “A new conceptual model to investigate the role of hospital&amp;rsquo;s capabilities on sustainable learning,” Heliyon, 2023.&lt;/li&gt;
+&lt;li&gt;Wajih El Hadj Youssef, Ali Abdelli, Fehmi Kharroubi, Fethi Dridi, Lazhar Khriji, Razzaqul Ahshan, Mohsen Machhout, Sarvar Hussain Nengroo, Sangkeum Lee, “A Secure Chaos-based Lightweight Cryptosystem for the Internet of Things,” IEEE Access, 2023.&lt;/li&gt;
+&lt;li&gt;Hisham M. Soliman, Ehab H. E. Bayoumi, Farag A. El-Sheikhi, Razzaqul Ahshan, Sarvar Hussain Nengroo, Sangkeum Lee, “Invariant set-based DC microgrid decentralized actuator fault-tolerant control,” IEEE Access, 2023.&lt;/li&gt;
+&lt;li&gt;Md. Sayed Hasan Rifat, Md. Ashaduzzaman Niloy, Mutasim Fuad Rizvi, Ashik Ahmed, Razzaqul Ahshan, Sarvar Hussain Nengroo, Sangkeum Lee, “Application of Binary Slime Mould Optimization Algorithm for solving Unit Commitment Problem,” IEEE Access, 2023.&lt;/li&gt;
+&lt;li&gt;Sangkeum Lee, Sarvar Hussain Nengroo, Hojun Jin, Yoonmee Doh, Chungho Lee, Taewook Heo, and Dongsoo Har, &amp;ldquo;Anomaly Detection of Smart Metering System for Power Management with Battery Storage System/Electric Vehicle,” ETRI Journal, 2023.&lt;/li&gt;
+&lt;li&gt;Hojun Jin, Sangkeum Lee, Sarvar Hussain Nengroo, Dongsoo Har, “Peer-to-peer energy trading between nanogrids with utilization of energy storage system considering battery degradation cost,” Energy and Buildings, 2023.&lt;/li&gt;
+&lt;li&gt;Muftah Mohamed Baroud, Amirali Eghtesad, Muhammed Ahmed Mahdi, Masoud Bahojb Nouri, Mohammad Worya Khordehbinan, Sangkeum Lee, &amp;ldquo;A new method for solving the flow shop scheduling problem on symmetric networks using a hybrid nature-inspired algorithm,&amp;rdquo; Symmetry, 2023.&lt;/li&gt;
+&lt;li&gt;Sangkeum Lee, Li Ping Yan, Maryam Sanatifar, Lingyi Feng, Seyedalireza Jazayerifar, Atieh Nouralishahi, &amp;ldquo;The Applications of Intelligent Optimization Algorithms in Sentiment Analysis: A Deep and Systematic Study,&amp;rdquo; Arabian Journal of Business and Management Review, 2023.&lt;/li&gt;
+&lt;li&gt;Shayan Bahadoran Baghbadorani, Seyed abdolhassan johari, Zahra Fakhri, Esmaeil Khaksar Shahmirzadi, Shav-katov Navruzbek Shavkatovich, Sangkeum Lee, “A New Version of African Vulture Optimizer for Apparel Supply Chain Management Based on Reorder Decision-Making,” Sustainability, 2022.&lt;/li&gt;
+&lt;li&gt;Sarvar Hussain Nengroo, Hojun Jin, and Sangkeum Lee, &amp;ldquo;Management of Distributed Renewable Energy Resources with the Help of a Wireless Sensor Network,” Applied Sciences, 2022.&lt;/li&gt;
+&lt;li&gt;Hojun Jin, Sangkeum Lee, Sarvar Hussain Nengroo, Dongsoo Har, &amp;ldquo;Development of Charging/Discharging Scheduling Algorithm for Economical and Energy-Efficient Operation of Multi-EV Charging Station,&amp;rdquo; Applied Sciences, 2022.&lt;/li&gt;
+&lt;li&gt;Sangkeum Lee, Hojun Jin, Luiz Felipe Vecchietti, Junhee Hong, Ki-Bum Park, Pham Ngoc Son, and Dongsoo Har, &amp;ldquo;Cooperative decentralized peer-to-peer electricity trading of nanogrid clusters based on predictions of load demand and PV power generation using a gated recurrent unit model,&amp;rdquo; IET Renewable Power Generation, 2021.&lt;/li&gt;
+&lt;li&gt;Taeyoung Kim, Luiz Felipe Vecchietti, Kyujin Choi, Sangkeum Lee, and Dongsoo Har, &amp;ldquo;Machine Learning for Advanced Wireless Sensor Networks: A Review,&amp;rdquo; IEEE Sensors Journal, 2020.&lt;/li&gt;
+&lt;li&gt;Sangkeum Lee, Hojun Jin, Luiz Felipe Vecchietti, Junhee Hong, and Dongsoo Har. “Short-term Predictive Power Management of PV-powered Nanogrids,” IEEE Access, 2020.&lt;/li&gt;
+&lt;li&gt;Sangkeum Lee, Luiz Felipe Vecchietti, Hojun Jin, Junhee Hong, and Dongsoo Har. “Power Management by LSTM Network for Nanogrids,” IEEE Access, 2020.&lt;/li&gt;
+&lt;li&gt;Sangkeum Lee, Suil Kim, Minah Seo, Dongsoo Har. &amp;ldquo;Synchronization of Frequency Hopping by LSTM Network for Satellite Communication System,&amp;rdquo; IEEE Communications Letters, 2019.&lt;/li&gt;
+&lt;li&gt;Minah Seo, Luiz Felipe Vecchietti, Sangkeum Lee, and Dongsoo Har. &amp;ldquo;Rewards Prediction-Based Credit Assignment for Reinforcement Learning with Sparse Binary Rewards,&amp;rdquo; IEEE Access, 2019.&lt;/li&gt;
+&lt;li&gt;Sangkeum Lee, Junho Lee, Heedae Jung, Jintae Cho, Junhee Hong, Sangmin Lee, and Dongsoo Har. &amp;ldquo;Optimal Power Management for Nanogrids Based on Technical Information of Electric Appliances,&amp;rdquo; Energy and Buildings, 2019.&lt;/li&gt;
+&lt;li&gt;Sangkeum Lee, Hong-Yeon Cho, and Dongsoo Har. &amp;ldquo;Operation Optimization with Jointly Controlled Modules Powered by Hybrid Energy Source: A Case Study of Desalination,&amp;rdquo; Renewable and Sustainable Energy Reviews, 2018.&lt;/li&gt;
+&lt;li&gt;Celso Moraes, Sunghee Myung, Sangkeum Lee, and Dongsoo Har. &amp;ldquo;Distributed Sensor Nodes Charged by Mobile Charger with Directional Antenna and by Energy Trading for Balancing,&amp;rdquo; Sensors, 2017.&lt;/li&gt;
+&lt;li&gt;Sangkeum Lee, Junhee Hong, and Dongsoo Har. &amp;ldquo;Jointly Optimized Control for Reverse Osmosis Desalination Process with Different Types of Energy Resource,&amp;rdquo; Energy, 2016.&lt;/li&gt;
+&lt;li&gt;Sangkeum Lee, Sunghee Myung, Junhee Hong, and Dongsoo Har. &amp;ldquo;Reverse Osmosis Desalination Process Optimized for Maximum Permeate Production with Renewable Energy,&amp;rdquo; Desalination, 2016.&lt;/li&gt;
+&lt;li&gt;Ryu, Hyun-Gyu, Sang-Keum Lee, and Dongsoo Har. &amp;ldquo;Data transmission with reduced delay for distributed acoustic sensors,&amp;rdquo; International Journal of Distributed Sensor Networks, 2015.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="international-conferences-talkposter"&gt;International Conferences (Talk/Poster)&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Beomdo Park, Hyeonseok Jang, Junseong Park, Minu Baek, Gihun Gil, Minsung Jung, Woohyeon Kwon, Harin Jang, Yeojin Jang, Hoon Jeong, Taewook Heo and Sangkeum Lee, &amp;ldquo;Multi-Stage Reinforcement Learning for Robust Charging of Quantum Batteries (Student Abstract),&amp;rdquo; Proceedings of the AAAI Conference on Artificial Intelligence, 2026. (Poster)&lt;/li&gt;
+&lt;li&gt;Sangkeum Lee, Sarvar Nengroo, Hojun Jin, Yoonmee Doh, Chungho Lee, Taewook Heo, Dongsoo Har, “Power Management in Smart Residential Building with Deep Learning Model for Occupancy Detection by Usage Pattern of Electric Appliances,” 2023 5th International Electronics Communication Conference (IECC 2023), 2023. (Talk)&lt;/li&gt;
+&lt;li&gt;Seongkwon Cho, Chungho Lee, Sangkeum Lee, Jin-Hong Kim, Yoonmee Doh, Cheol-Soo Park, “Integrated control of radiant floor heating system in residential buildings,” Building Simulation 2023, 2023. (Talk)&lt;/li&gt;
+&lt;li&gt;Sangkeum Lee, Sarvar Hussain Nengroo, Yeonji Jung, Seonhyeog Kim, Soonhyun Kwon, Youngmee Shin, Yoonmee Doh, Taewook Heo, Dongsoo Har, “Factory Energy Management by Steam Energy Cluster Modeling in Paper-Making,” 11th International Conference on Smart Grid 2023 (icsmartgrid 2023), 2023. (Talk)&lt;/li&gt;
+&lt;li&gt;Sangkeum Lee, Sarvar Hussain Nengroo, Hojun Jin, Yoonmee Doh, Chungho Lee, Taewook Heo, and Dongsoo Har. “Smart Metering System Capable of Anomaly Detection by Bi-Directional LSTM Autoencoder,” IEEE International Conference on Consumer Electronics (ICCE) 2022, 2022. (Talk)&lt;/li&gt;
+&lt;li&gt;Sarvar Hussain Nengroo, Sangkeum Lee, Hojun Jin, Dongsoo Har. &amp;ldquo;Optimal Scheduling of Energy Storage for Power System with Capability of Sensing Short-Term Future PV Power Production,&amp;rdquo; 2021 International Conference on Power and Energy Systems (IECES), 2021. (Talk)&lt;/li&gt;
+&lt;li&gt;Sangkeum Lee, Hojun Jin, Sarvar Hussain Nengroo, Dongsoo Har. &amp;ldquo;P2P Power Trading between Nanogrid Clusters Exploiting Electric Vehicles and Renewable Energy Sources,&amp;rdquo; 2021 International Conference on Computational Science and Computational Intelligence (CSCI), 2021. (Talk)&lt;/li&gt;
+&lt;li&gt;Hojun Jin, Sarvar Hussain Nengroo, Sangkeum Lee, Dongsoo Har. &amp;ldquo;Power Management of Microgrid Integrated with Electric Vehicles in Residential Parking Station,&amp;rdquo; 10th International Conference on Renewable Energy Research and Applications (ICRERA), 2021. (Talk)&lt;/li&gt;
+&lt;li&gt;Sangkeum Lee, Dongsoo Har. “Optimal Energy Management in Nanogrids,” SENSORCOMM 2017: The Eleventh International Conference on Sensor Technologies and Applications, 2017. (Talk)&lt;/li&gt;
+&lt;li&gt;Sunghee Myung, Sangkeum Lee, Celso Moraes, Dongsoo Har, &amp;ldquo;Charging wireless rechargeable sensor networks deployed in a rectangular street grid,&amp;rdquo; 2016 3rd Asia-Pacific World Congress on Computer Science and Engineering (APWC on CSE), 2016.&lt;/li&gt;
+&lt;/ol&gt;</description></item><item><title>IoT 센서 네트워크와 보안</title><link>https://ecoailab.github.io/projects/iot-security-sensing/</link><pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate><guid>https://ecoailab.github.io/projects/iot-security-sensing/</guid><description>&lt;p&gt;EcoAI Lab은 IoT 센서 네트워크에서 수집되는 데이터를 기반으로 이상 탐지, 위협 분석, 안전한 지능형 서비스 구조를 연구합니다.&lt;/p&gt;
 &lt;p&gt;환경에너지 시스템과 연결된 센서 데이터의 신뢰성, 보안성, 운영 안정성을 높이는 것이 핵심 목표입니다.&lt;/p&gt;
 &lt;h2 id="문제"&gt;문제&lt;/h2&gt;
 &lt;p&gt;IoT 기반 에너지 시스템은 많은 센서와 네트워크에 의존합니다. 센서 오류, 데이터 변조, 네트워크 장애가 발생하면 AI 모델의 판단도 흔들릴 수 있습니다.&lt;/p&gt;
@@ -57,7 +225,50 @@
 &lt;/li&gt;
 &lt;li&gt;연구실: 한밭대학교 N4-416&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;메일 제목에는 &lt;code&gt;[EcoAI Lab 지원 문의] 이름&lt;/code&gt; 형식을 권장합니다.&lt;/p&gt;</description></item><item><title>개인정보 처리 안내</title><link>https://ecoailab.github.io/privacy/</link><pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate><guid>https://ecoailab.github.io/privacy/</guid><description>&lt;p&gt;EcoAI Lab 홈페이지는 연구실 소개와 연구 활동 공유를 목적으로 운영됩니다. 구성원 정보는 공개에 동의한 범위에서만 게시합니다.&lt;/p&gt;
+&lt;p&gt;메일 제목에는 &lt;code&gt;[EcoAI Lab 지원 문의] 이름&lt;/code&gt; 형식을 권장합니다.&lt;/p&gt;</description></item><item><title>Memories 2024</title><link>https://ecoailab.github.io/gallery/2024-memories/</link><pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate><guid>https://ecoailab.github.io/gallery/2024-memories/</guid><description>&lt;div class="ecoai-year-tabs"&gt;&lt;a href="https://ecoailab.github.io/gallery/2024-memories/"&gt;2024&lt;/a&gt;&lt;a href="https://ecoailab.github.io/gallery/2025-memories/"&gt;2025&lt;/a&gt;&lt;a href="https://ecoailab.github.io/gallery/memories/"&gt;2026&lt;/a&gt;&lt;/div&gt;
+&lt;p&gt;Googleusercontent 직접 이미지 URL은 외부 사이트에서 ORB/403 차단될 수 있어, 원문 Gallery가 안정적으로 보이도록 Google Sites embedded view를 보존합니다.&lt;/p&gt;
+&lt;iframe class="ecoai-legacy-frame" title="
+EcoAI Lab 2024 Memories gallery
+" src="
+https://sites.google.com/view/ecoai/gallery/2024-memories
+?embedded=true" loading="lazy"&gt;&lt;/iframe&gt;
+&lt;p&gt;
+&lt;/p&gt;</description></item><item><title>Memories 2025</title><link>https://ecoailab.github.io/gallery/2025-memories/</link><pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate><guid>https://ecoailab.github.io/gallery/2025-memories/</guid><description>&lt;div class="ecoai-year-tabs"&gt;&lt;a href="https://ecoailab.github.io/gallery/2024-memories/"&gt;2024&lt;/a&gt;&lt;a href="https://ecoailab.github.io/gallery/2025-memories/"&gt;2025&lt;/a&gt;&lt;a href="https://ecoailab.github.io/gallery/memories/"&gt;2026&lt;/a&gt;&lt;/div&gt;
+&lt;p&gt;Googleusercontent 직접 이미지 URL은 외부 사이트에서 ORB/403 차단될 수 있어, 원문 Gallery가 안정적으로 보이도록 Google Sites embedded view를 보존합니다.&lt;/p&gt;
+&lt;iframe class="ecoai-legacy-frame" title="
+EcoAI Lab 2025 Memories gallery
+" src="
+https://sites.google.com/view/ecoai/gallery/2025-memories
+?embedded=true" loading="lazy"&gt;&lt;/iframe&gt;
+&lt;p&gt;
+&lt;/p&gt;</description></item><item><title>Memories 2026</title><link>https://ecoailab.github.io/gallery/memories/</link><pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate><guid>https://ecoailab.github.io/gallery/memories/</guid><description>&lt;div class="ecoai-year-tabs"&gt;&lt;a href="https://ecoailab.github.io/gallery/2024-memories/"&gt;2024&lt;/a&gt;&lt;a href="https://ecoailab.github.io/gallery/2025-memories/"&gt;2025&lt;/a&gt;&lt;a href="https://ecoailab.github.io/gallery/memories/"&gt;2026&lt;/a&gt;&lt;/div&gt;
+&lt;p&gt;Googleusercontent 직접 이미지 URL은 외부 사이트에서 ORB/403 차단될 수 있어, 원문 Gallery가 안정적으로 보이도록 Google Sites embedded view를 보존합니다.&lt;/p&gt;
+&lt;iframe class="ecoai-legacy-frame" title="
+EcoAI Lab 2026 Memories gallery
+" src="
+https://sites.google.com/view/ecoai/gallery/memories
+?embedded=true" loading="lazy"&gt;&lt;/iframe&gt;
+&lt;p&gt;
+&lt;/p&gt;</description></item><item><title>News</title><link>https://ecoailab.github.io/news/</link><pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate><guid>https://ecoailab.github.io/news/</guid><description>&lt;p&gt;기존 Google Sites의 News 페이지는 수상, 세미나, 언론보도, 위원 활동, 국제협력 기록을 연도순으로 정리한 긴 아카이브입니다. 현재 내부 사이트에서는 원문 전체를 보존하기 위해 아래 임베드와 원본 링크를 함께 제공합니다.&lt;/p&gt;
+&lt;iframe class="ecoai-legacy-frame" title="EcoAI Lab Google Sites news archive" src="https://sites.google.com/view/ecoai/news?embedded=true" loading="lazy"&gt;&lt;/iframe&gt;
+&lt;p&gt;
+&lt;/p&gt;</description></item><item><title>Patents</title><link>https://ecoailab.github.io/publications/patents/</link><pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate><guid>https://ecoailab.github.io/publications/patents/</guid><description>&lt;p&gt;Source:
+&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;인공 지능 기반의 P2P 전력 거래 방법 및 P2P 전력 거래 장치, 대한민국 특허 출원번호 10-2021-0051023, 2021/4, 한국전자통신연구원.&lt;/li&gt;
+&lt;li&gt;인공 지능 기반의 P2P 전력 거래 방법 및 P2P 전력 거래 장치, 대한민국 특허 등록번호 10-2601197, 2023/11, 한국전자통신연구원.&lt;/li&gt;
+&lt;li&gt;Artificial intelligence based P2P power trading method and apparatus, 미국 특허 출원번호 US17/674624, 2022/2, 한국전자통신연구원.&lt;/li&gt;
+&lt;li&gt;스마트미터링 시스템에서 배터리/전기차의 인공지능 이상감지 및 충/방전 제어방법, 대한민국 특허 출원번호 10-2022-0122673, 2022/9, 한국전자통신연구원.&lt;/li&gt;
+&lt;li&gt;제어 규칙과 인공지능이 통합된 스마트 홈 제어 시스템, 대한민국 특허 출원번호 10-2023-0008939, 2023/01, 한국전자통신연구원.&lt;/li&gt;
+&lt;li&gt;전력 관리 시스템 및 방법, 대한민국 특허 출원번호 10-2023-0095478, 2023/07, 한국전자통신연구원.&lt;/li&gt;
+&lt;li&gt;가전기기 사용 패턴을 이용한 재실 기반 가정 에너지 관리 AI 기법, 대한민국 특허 출원번호 10-2023-0150848, 2023/11, 한국전자통신연구원.&lt;/li&gt;
+&lt;li&gt;신재생에너지 발전량 예측 기반 무선 센서 네트워크 내 링크 스케줄링 기법, 대한민국 특허 출원번호 10-2022-0179530, 2022/12, 한국과학기술원.&lt;/li&gt;
+&lt;li&gt;배관 시스템의 결함 진단 및 정확도 향상 방법, 10-2020-0017631, 한국전자통신연구원.&lt;/li&gt;
+&lt;li&gt;공장 에너지 관리 시스템에서 공정 이상 진단과 모니터링 방법 및 시스템, 10-2023-0066964, 한국전자통신연구원.&lt;/li&gt;
+&lt;li&gt;제지공정 스팀&amp;amp;회수열 인공지능&amp;amp;물리모델링으로 디지털트윈 모델링 구축, 한국전자통신연구원.&lt;/li&gt;
+&lt;li&gt;연속 공정 효율화를 위한 다중 목표 기반 운전 가이드 장치 및 방법, 한국전자통신연구원.&lt;/li&gt;
+&lt;li&gt;커리큘럼 강화학습을 이용한 양자 배터리의 강건한 충전 시스템, 10-2025-0162492, 국립한밭대학교.&lt;/li&gt;
+&lt;/ol&gt;</description></item><item><title>개인정보 처리 안내</title><link>https://ecoailab.github.io/privacy/</link><pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate><guid>https://ecoailab.github.io/privacy/</guid><description>&lt;p&gt;EcoAI Lab 홈페이지는 연구실 소개와 연구 활동 공유를 목적으로 운영됩니다. 구성원 정보는 공개에 동의한 범위에서만 게시합니다.&lt;/p&gt;
 &lt;h2 id="공개하지-않는-정보"&gt;공개하지 않는 정보&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;학번&lt;/li&gt;

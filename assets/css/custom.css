@@ -409,6 +409,97 @@
   font-weight: 950;
 }
 
+.ecoai-route-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin: 28px 0;
+}
+
+.ecoai-route-grid a,
+.ecoai-year-tabs a {
+  border: 1px solid rgba(14, 165, 233, 0.16);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #0f172a;
+  text-decoration: none;
+  box-shadow: 0 14px 36px rgba(15, 23, 42, 0.07);
+}
+
+.ecoai-route-grid a {
+  display: block;
+  padding: 18px 20px;
+}
+
+.ecoai-route-grid strong,
+.ecoai-route-grid span {
+  display: block;
+}
+
+.ecoai-route-grid strong {
+  color: #0369a1;
+  font-size: 1.05rem;
+  font-weight: 950;
+}
+
+.ecoai-route-grid span {
+  margin-top: 6px;
+  color: #475569;
+  font-size: 0.94rem;
+  line-height: 1.55;
+}
+
+.ecoai-year-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0 0 22px;
+}
+
+.ecoai-year-tabs a {
+  padding: 10px 16px;
+  font-weight: 900;
+}
+
+.ecoai-legacy-frame {
+  width: 100%;
+  min-height: 78vh;
+  border: 1px solid rgba(14, 165, 233, 0.18);
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 20px 56px rgba(15, 23, 42, 0.1);
+}
+
+.ecoai-local-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin: 24px 0;
+}
+
+.ecoai-local-gallery figure {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(14, 165, 233, 0.14);
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 16px 42px rgba(15, 23, 42, 0.08);
+}
+
+.ecoai-local-gallery img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.ecoai-local-gallery figcaption {
+  padding: 8px 12px;
+  color: #64748b;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
 .ecoai-research-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -769,6 +860,8 @@
 }
 
 .ecoai-hero-pathways a:focus-visible,
+.ecoai-route-grid a:focus-visible,
+.ecoai-year-tabs a:focus-visible,
 .ecoai-archive-links a:focus-visible,
 .ecoai-text-link:focus-visible,
 .ecoai-contact-card a:focus-visible,

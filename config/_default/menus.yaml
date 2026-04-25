@@ -13,21 +13,41 @@ main:
   - name: 논문
     url: publications/
     weight: 12
+  - name: 국제논문
+    url: publications/international/
+    parent: 논문
+    weight: 13
+  - name: 국내논문
+    url: publications/domestic/
+    parent: 논문
+    weight: 14
+  - name: 특허
+    url: publications/patents/
+    parent: 논문
+    weight: 15
   - name: 구성원
     url: /#members
-    weight: 13
+    weight: 16
   - name: 프로젝트
     url: projects/
     weight: 20
   - name: 소식
-    url: blog/
+    url: news/
     weight: 21
   - name: 갤러리
-    url: /#gallery
+    url: gallery/
     weight: 22
+  - name: Awards
+    url: gallery/awards/
+    parent: 갤러리
+    weight: 23
+  - name: Memories
+    url: gallery/memories/
+    parent: 갤러리
+    weight: 24
   - name: Alumni
     url: alumni/
-    weight: 23
+    weight: 25
   - name: Join Us
     url: join-us/
     weight: 30

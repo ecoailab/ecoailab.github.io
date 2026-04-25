@@ -1,6 +1,6 @@
 ---
-title: 논문
-description: EcoAI Lab의 학술 논문, 학회 발표, 프리프린트를 정리합니다.
+title: 논문 및 연구성과
+description: EcoAI Lab의 국제논문, 국내논문·학술대회, 특허를 Google Sites 원문 기준으로 정리합니다.
 cms_exclude: true
 
 # View.
@@ -12,13 +12,18 @@ banner:
   image: ''
 ---
 
-EcoAI Lab의 검증된 학술 성과를 정리하는 공간입니다. 논문 제목, 저자, 게재 정보, DOI, PDF, 코드, 데이터 링크가 확인된 항목만 게시합니다.
+EcoAI Lab 기존 Google Sites의 Publications 하위 페이지를 기준으로 국제논문, 국내논문·학술대회, 특허를 내부 페이지로 정리했습니다.
 
-아직 공개 가능한 논문 데이터가 확정되지 않은 항목은 임의로 등록하지 않습니다. 연구성과가 확정되면 연도, 유형, 주제별로 찾아볼 수 있게 정리합니다.
+<div class="ecoai-route-grid">
+  <a href="/publications/international/"><strong>International</strong><span>International journals and conferences</span></a>
+  <a href="/publications/domestic/"><strong>Domestic</strong><span>Domestic journal and conference records</span></a>
+  <a href="/publications/patents/"><strong>Patents</strong><span>Patent applications and registrations</span></a>
+</div>
 
-## 게시 기준
+## 정리 기준
 
-- 제목과 저자 정보가 확인된 논문
-- DOI, 학회/저널명, 게재 연도 등 인용 정보가 확인된 논문
-- 공개 가능한 PDF, 코드, 데이터 링크가 있는 경우 함께 표기
-- 특허, 학위논문, 기술보고서는 유형을 구분해 게시
+- Google Sites에 공개된 제목, 저자, 매체, 연도 정보를 그대로 옮겼습니다.
+- DOI, PDF, 코드, 데이터 링크는 원문에 별도 공개된 경우에만 추가합니다.
+- 오탈자나 표기 불일치는 원문 보존을 우선하고, 추후 확인된 항목만 보정합니다.
+
+원문 출처: [EcoAI Lab Google Sites Publications](https://sites.google.com/view/ecoai/publications/international)

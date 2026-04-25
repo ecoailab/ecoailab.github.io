@@ -32,7 +32,7 @@ sections:
 
         <span class="ecoai-hero-subtitle">한밭대학교 컴퓨터공학과 EcoAI 연구실</span>
         
-        <span class="ecoai-hero-deck">EcoAI Lab은 스마트팩토리·스마트홈 에너지 최적화, IoT 센서 네트워크, 보안, 강화학습, 양자컴퓨팅, 멀티에이전트 AI를 연구합니다.</span>
+        <span class="ecoai-hero-deck">EcoAI Lab은 에너지 관리(스마트팩토리·스마트홈·항만), 양자AI·양자배터리, IoT·위성 통신, 심층강화학습, LLM 에이전트, 딥러닝 이상탐지, 빅데이터 분석을 연구합니다.</span>
 
         <div class="ecoai-hero-proof">
           <span><strong>Energy</strong> Smart Factory · Smart Home</span>
@@ -75,14 +75,14 @@ sections:
     id: highlights
     content:
       items:
-        - statistic: '10+'
-          description: 연구 성과
-        - statistic: '5+'
-          description: 핵심 연구 주제
-        - statistic: '12'
-          description: 교수 및 학생 구성원
-        - statistic: '2018'
-          description: 설립 연도
+        - statistic: '51'
+          description: International journal entries
+        - statistic: '60'
+          description: Domestic conference entries
+        - statistic: '13'
+          description: Patent records
+        - statistic: '6'
+          description: Gallery archive pages
     design:
       columns: '4'
       background:
@@ -98,14 +98,14 @@ sections:
       text: |
         <div class="ecoai-authority-strip">
           <div>
-            <span>Research Domains</span>
-            <strong>에너지 관리 · 양자AI · 통신</strong>
-            <p>스마트팩토리/홈/항만, 양자배터리, IoT/위성 통신을 연결합니다.</p>
+          <span>Research Domains</span>
+          <strong>에너지 관리 · 양자AI · 양자배터리 · 통신</strong>
+          <p>스마트팩토리/홈/항만, IoT/위성 통신, 에너지 클라우드 문제를 연결합니다.</p>
           </div>
           <div>
-            <span>Core Methods</span>
-            <strong>양자컴퓨팅 · 심층강화학습 · LLM 에이전트</strong>
-            <p>딥러닝 이상탐지와 빅데이터 분석으로 실제 시스템 문제를 다룹니다.</p>
+          <span>Core Methods</span>
+          <strong>양자컴퓨팅 · 심층강화학습 · LLM 에이전트</strong>
+          <p>딥러닝 이상탐지와 빅데이터 분석으로 탄소중립 운영 문제를 다룹니다.</p>
           </div>
           <div>
             <span>Collaboration</span>
@@ -229,7 +229,7 @@ sections:
         <span class="ecoai-panel-label">Research outputs</span>
         <strong class="ecoai-output-title">검증된 연구성과만 공개합니다.</strong>
 
-        EcoAI Lab의 검증된 논문 목록을 새 사이트 형식으로 정리 중입니다. 기존 연구성과는 아래 아카이브에서 확인할 수 있습니다.
+        기존 Google Sites의 International, Domestic, Patents 하위 페이지를 새 사이트 내부 페이지로 옮겨 연구성과를 한곳에서 확인할 수 있게 정리했습니다.
 
         <div class="ecoai-output-meta" aria-label="Research output categories">
           <span>International</span>
@@ -239,10 +239,10 @@ sections:
         </div>
 
         <div class="ecoai-archive-links">
-          <a href="https://sites.google.com/view/ecoai/publications/international">International publications</a>
-          <a href="https://sites.google.com/view/ecoai/publications/domestic">Domestic publications</a>
-          <a href="https://sites.google.com/view/ecoai/publications/patents">Patents</a>
-          <a href="/blog/">Lab news</a>
+          <a href="/publications/international/">International publications</a>
+          <a href="/publications/domestic/">Domestic publications</a>
+          <a href="/publications/patents/">Patents</a>
+          <a href="/news/">Lab news</a>
         </div>
 
         <a class="ecoai-text-link" href="/publications/">논문/연구성과 페이지 보기 →</a>
@@ -267,34 +267,36 @@ sections:
         <div>
         <span class="ecoai-panel-label">Lab Director</span>
         <h3>이상금 (Sangkeum Lee), Ph.D.</h3>
-        <p>한밭대학교 컴퓨터공학과 교수</p>
-        <p class="ecoai-muted">Environmental Energy · AI Systems · IoT Security</p>
+        <p>한밭대학교 컴퓨터공학과 부교수</p>
+        <p class="ecoai-muted">Energy Systems · Smart Industries · Quantum AI · Reinforcement Learning</p>
         </div>
         </div>
         
         ### 학생 (Students)
         
-        <p>학부 연구생들과 함께 환경에너지와 AI 융합 연구를 진행하고 있습니다. 개인정보 보호를 위해 학번 등 식별 정보는 공개하지 않습니다.</p>
+        <p>석사과정, 학석사연계과정, 학부연구생과 함께 환경에너지와 AI 융합 연구를 진행하고 있습니다. 개인정보 보호를 위해 학번 등 식별 정보는 공개하지 않습니다.</p>
         
         <div class="ecoai-member-grid">
-        <span>장현석 <small>Hyeonseok Jang</small></span>
-        <span>박준성 <small>Junseong Park</small></span>
-        <span>박범도 <small>Beomdo Park</small></span>
-        <span>강한성 <small>Hanseong Kang</small></span>
-        <span>김준서 <small>Junseo Kim</small></span>
-        <span>정민성 <small>Minsung Jung</small></span>
-        <span>권우현 <small>Woohyeon Kwon</small></span>
-        <span>박선아 <small>Suna Park</small></span>
-        <span>안다은 <small>Daeun Ahn</small></span>
-        <span>구남석 <small>Namseok Koo</small></span>
-        <span>서지윤 <small>Jiyun Seo</small></span>
+        <span>김준연 <small>Junyeon Kim · current: SK shieldus</small></span>
+        <span>백민우 <small>Minu Baek · M.S.</small></span>
+        <span>길기훈 <small>Gihun Gil · M.S.</small></span>
+        <span>박준성 <small>Junseong Park · Int. B.S.–M.S.</small></span>
+        <span>박범도 <small>Beomdo Park · Int. B.S.–M.S.</small></span>
+        <span>장현석 <small>Hyeonseok Jang · Int. B.S.–M.S.</small></span>
+        <span>장여진 <small>Yeojin Jang · M.S.</small></span>
+        <span>정민성 <small>Minsung Jung · Int. B.S.–M.S.</small></span>
+        <span>박제니린 <small>Jenilyn Park · M.S.</small></span>
+        <span>손병훈 <small>Byounghoon Son · M.S.</small></span>
+        <span>이서영 <small>Seoyoung Lee · Undergraduate</small></span>
+        <span>유지오 <small>Jio Yoo · Undergraduate</small></span>
+        <span>강지수 <small>Jisu Kang · Undergraduate</small></span>
         </div>
 
         ### 졸업생 및 Alumni
 
         <div class="ecoai-alumni-panel">
-          <strong>Alumni 정보 정리 중</strong>
-          <p>졸업생·수료생 명단, 진학/취업 현황, 연구 기여 정보는 공개 가능 여부를 확인한 뒤 <a href="/alumni/">Alumni 페이지</a>에 업데이트합니다.</p>
+          <strong>Alumni</strong>
+          <p>Beomhee Jung, Nayoung Jin, Naeun Yoon, Seungju Lee, Juryeong Kim, Daeun Ahn, Namseok Koo, Suna Park, Jiyun Seo, Donggeon Yu, Jeongseop Lee, Harin Jang, Woohyeon Kwon 등 공개된 Alumni 정보를 <a href="/alumni/">Alumni 페이지</a>에 정리했습니다.</p>
         </div>
         
         </div>
@@ -329,8 +331,9 @@ sections:
         </div>
 
         <div class="ecoai-archive-links ecoai-gallery-links">
-          <a href="https://sites.google.com/view/ecoai/gallery/awards">기존 Awards 갤러리</a>
-          <a href="https://sites.google.com/view/ecoai/gallery/memories">기존 Memories 갤러리</a>
+          <a href="/gallery/awards/">Awards 갤러리</a>
+          <a href="/gallery/memories/">Memories 갤러리</a>
+          <a href="/gallery/">전체 갤러리 보기</a>
         </div>
     design:
       columns: '1'
