@@ -95,6 +95,33 @@
   backdrop-filter: blur(14px);
 }
 
+.ecoai-skip-link {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 10;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #075985;
+  font-weight: 900;
+  text-decoration: none;
+  transform: translateY(-140%);
+  transition: transform 0.18s ease;
+}
+
+.ecoai-skip-link:focus-visible {
+  transform: translateY(0);
+  outline: 3px solid #22d3ee;
+  outline-offset: 3px;
+}
+
+.ecoai-anchor-target {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 .ecoai-hero-tags {
   display: flex;
   flex-wrap: wrap;
@@ -231,6 +258,47 @@
   backdrop-filter: blur(10px);
 }
 
+.ecoai-hero-pathways {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  max-width: 680px;
+  margin-top: 22px;
+}
+
+.ecoai-hero-pathways a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 14px 16px;
+  border: 1px solid rgba(186, 230, 253, 0.28);
+  border-radius: 18px;
+  background: rgba(2, 6, 23, 0.44);
+  color: #f8fafc;
+  text-decoration: none;
+  box-shadow: 0 18px 50px rgba(2, 6, 23, 0.28);
+  backdrop-filter: blur(16px);
+}
+
+.ecoai-hero-pathways strong,
+.ecoai-hero-pathways span {
+  display: block;
+}
+
+.ecoai-hero-pathways strong {
+  font-size: 0.82rem;
+  font-weight: 950;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.ecoai-hero-pathways span {
+  color: #a7f3d0;
+  font-size: 0.92rem;
+  font-weight: 800;
+}
+
 .ecoai-section-intro {
   max-width: 940px;
   margin: 0 auto 42px;
@@ -310,6 +378,35 @@
   font-size: 1.05rem;
   font-weight: 650;
   line-height: 1.72;
+}
+
+.ecoai-benchmark-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+  max-width: 1180px;
+  margin: 20px auto 0;
+}
+
+.ecoai-benchmark-grid span {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 68px;
+  padding: 14px 16px;
+  border: 1px solid rgba(14, 165, 233, 0.14);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.82);
+  color: #334155;
+  font-size: 0.92rem;
+  font-weight: 800;
+  box-shadow: 0 14px 36px rgba(15, 23, 42, 0.055);
+}
+
+.ecoai-benchmark-grid strong {
+  color: #0891b2;
+  font-size: 0.82rem;
+  font-weight: 950;
 }
 
 .ecoai-research-grid {
@@ -611,6 +708,27 @@
   line-height: 1.08;
 }
 
+.ecoai-output-meta {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 24px 0 0;
+}
+
+.ecoai-output-meta span {
+  padding: 8px 12px;
+  border: 1px solid rgba(103, 232, 249, 0.26);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #cffafe;
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .ecoai-panel-label {
   display: inline-flex;
   margin-bottom: 12px;
@@ -648,6 +766,17 @@
   font-weight: 800;
   text-decoration: none;
   box-shadow: 0 10px 26px rgba(15, 23, 42, 0.06);
+}
+
+.ecoai-hero-pathways a:focus-visible,
+.ecoai-archive-links a:focus-visible,
+.ecoai-text-link:focus-visible,
+.ecoai-contact-card a:focus-visible,
+.ecoai-alumni-panel a:focus-visible,
+.ecoai-contact-banner a:focus-visible {
+  outline: 3px solid #22d3ee;
+  outline-offset: 4px;
+  text-decoration: underline;
 }
 
 .ecoai-gallery-links {
@@ -747,6 +876,8 @@
 @media (max-width: 720px) {
   .ecoai-hero-proof,
   .ecoai-authority-strip,
+  .ecoai-hero-pathways,
+  .ecoai-benchmark-grid,
   .ecoai-gallery {
     grid-template-columns: 1fr;
   }
@@ -788,6 +919,46 @@
 
   .ecoai-professor-card img {
     margin: 0 auto;
+  }
+}
+
+@media (min-width: 721px) and (max-width: 900px) {
+  .ecoai-hero-title {
+    font-size: clamp(3.4rem, 7vw, 4.2rem);
+  }
+
+  .ecoai-hero-brand {
+    position: static;
+    max-width: 620px;
+    margin: 0 0 26px;
+  }
+
+  .ecoai-hero-proof,
+  .ecoai-hero-pathways,
+  .ecoai-authority-strip,
+  .ecoai-benchmark-grid,
+  .ecoai-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .ecoai-gallery {
+    width: min(680px, calc(100vw - 56px));
+    grid-auto-rows: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ecoai-research-card,
+  .ecoai-gallery figure,
+  .ecoai-gallery img,
+  .ecoai-skip-link {
+    transition: none;
+  }
+
+  .ecoai-research-card:hover,
+  .ecoai-gallery figure:hover,
+  .ecoai-gallery figure:hover img {
+    transform: none;
   }
 }
 

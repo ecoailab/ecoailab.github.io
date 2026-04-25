@@ -15,6 +15,9 @@ sections:
     content:
       title: 'EcoAI Lab'
       text: |
+        <a class="ecoai-skip-link" href="#main-content">본문으로 건너뛰기</a>
+        <span id="main-content" class="ecoai-anchor-target" aria-hidden="true"></span>
+
         <span class="ecoai-hero-kicker">Hanbat National University · Computer Engineering</span>
 
         <div class="ecoai-hero-brand">
@@ -42,6 +45,12 @@ sections:
           <span>IoT/Security</span>
           <span>Reinforcement Learning</span>
           <span>Quantum AI</span>
+        </div>
+
+        <div class="ecoai-hero-pathways" aria-label="Visitor pathways">
+          <a href="/join-us/"><strong>Students</strong><span>Join Us</span></a>
+          <a href="/collaborate/"><strong>Partners</strong><span>Collaborate</span></a>
+          <a href="#publications"><strong>Researchers</strong><span>Outputs</span></a>
         </div>
       primary_action:
         text: 연구 소개
@@ -103,6 +112,14 @@ sections:
             <strong>산학협력 및 인턴십</strong>
             <p>공동연구, 산업 문제 해결, 학부 연구 참여를 위한 접점을 제공합니다.</p>
           </div>
+        </div>
+
+        <div class="ecoai-benchmark-grid" aria-label="EcoAI Lab website design checklist">
+          <span><strong>01</strong> Mission-first hero</span>
+          <span><strong>02</strong> Audience pathways</span>
+          <span><strong>03</strong> Research taxonomy</span>
+          <span><strong>04</strong> Verifiable outputs</span>
+          <span><strong>05</strong> People & recruiting</span>
         </div>
     design:
       columns: '1'
@@ -214,10 +231,18 @@ sections:
 
         EcoAI Lab의 검증된 논문 목록을 새 사이트 형식으로 정리 중입니다. 기존 연구성과는 아래 아카이브에서 확인할 수 있습니다.
 
+        <div class="ecoai-output-meta" aria-label="Research output categories">
+          <span>International</span>
+          <span>Domestic</span>
+          <span>Patents</span>
+          <span>Lab News</span>
+        </div>
+
         <div class="ecoai-archive-links">
           <a href="https://sites.google.com/view/ecoai/publications/international">International publications</a>
           <a href="https://sites.google.com/view/ecoai/publications/domestic">Domestic publications</a>
           <a href="https://sites.google.com/view/ecoai/publications/patents">Patents</a>
+          <a href="/blog/">Lab news</a>
         </div>
 
         <a class="ecoai-text-link" href="/publications/">논문/연구성과 페이지 보기 →</a>

@@ -1,1 +1,23 @@
 <script async defer src="https://buttons.github.io/buttons.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var labels = {
+      'mailto:sangkeum@hanbat.ac.kr': 'Email EcoAI Lab',
+      '/publications/': 'View EcoAI Lab publications',
+      '/join-us/': 'View EcoAI Lab join us information',
+      '/collaborate/': 'View EcoAI Lab collaboration information',
+      '/projects/iot-security-sensing/': 'Open IoT security sensing project',
+      '/projects/smart-energy-optimization/': 'Open smart energy optimization project',
+      '/projects/quantum-rl-agents/': 'Open quantum reinforcement learning agents project',
+      'https://creativecommons.org/licenses/by-nc-nd/4.0': 'Creative Commons BY-NC-ND 4.0 license'
+    };
+
+    Object.keys(labels).forEach(function (href) {
+      document.querySelectorAll('a[href="' + href + '"]').forEach(function (link) {
+        if (!link.textContent.trim() && !link.getAttribute('aria-label')) {
+          link.setAttribute('aria-label', labels[href]);
+        }
+      });
+    });
+  });
+</script>
