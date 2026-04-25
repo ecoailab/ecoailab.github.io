@@ -15,13 +15,20 @@ sections:
     content:
       title: 'EcoAI Lab'
       text: |
+        <span class="ecoai-hero-kicker">Hanbat National University · Computer Engineering</span>
+
         ## 환경에너지와 인공지능으로 지속가능한 미래를 연구합니다
         
         ### 한밭대학교 컴퓨터공학과 EcoAI 연구실
         
         EcoAI Lab은 스마트팩토리·스마트홈 에너지 최적화, IoT 센서 네트워크, 보안, 강화학습, 양자컴퓨팅, 멀티에이전트 AI를 연구합니다.
         
-        **Environmental Energy** · **IoT/Security** · **Reinforcement Learning** · **Quantum AI**
+        <div class="ecoai-hero-tags">
+          <span>Environmental Energy</span>
+          <span>IoT/Security</span>
+          <span>Reinforcement Learning</span>
+          <span>Quantum AI</span>
+        </div>
       primary_action:
         text: 연구 소개
         url: '#research'
@@ -39,7 +46,7 @@ sections:
             saturate: 0.9
         text_color_light: true
       spacing:
-        padding: ['100px', '0', '100px', '0']
+        padding: ['130px', '0', '120px', '0']
 
   - block: stats
     id: highlights
@@ -66,29 +73,36 @@ sections:
       title: '연구 분야'
       subtitle: 'Research Areas'
       text: |
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 30px;">
+        <div class="ecoai-section-intro">
+        EcoAI Lab은 에너지 시스템, 센서 네트워크, 보안, AI 최적화를 하나의 연구 흐름으로 연결합니다.
+        </div>
+
+        <div class="ecoai-research-grid">
         
-        <div style="background: linear-gradient(135deg, #ecfeff 0%, #cffafe 100%); padding: 25px; border-radius: 16px; border-left: 4px solid #06b6d4;">
-        <h3 style="color: #0e7490; margin-top: 0;">🌍 환경에너지</h3>
-        <ul style="margin: 0; padding-left: 20px;">
+        <div class="ecoai-research-card ecoai-card-cyan">
+        <div class="ecoai-card-icon">01</div>
+        <h3>환경에너지</h3>
+        <ul>
         <li>스마트팩토리 에너지 최적화</li>
         <li>스마트홈 에너지 관리</li>
         <li>재생에너지 예측 시스템</li>
         </ul>
         </div>
         
-        <div style="background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%); padding: 25px; border-radius: 16px; border-left: 4px solid #10b981;">
-        <h3 style="color: #047857; margin-top: 0;">🔒 IoT & 보안</h3>
-        <ul style="margin: 0; padding-left: 20px;">
+        <div class="ecoai-research-card ecoai-card-emerald">
+        <div class="ecoai-card-icon">02</div>
+        <h3>IoT & 보안</h3>
+        <ul>
         <li>IoT 센서 네트워크</li>
         <li>사이버보안 시스템</li>
         <li>물리보안 솔루션</li>
         </ul>
         </div>
         
-        <div style="background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); padding: 25px; border-radius: 16px; border-left: 4px solid #3b82f6;">
-        <h3 style="color: #1d4ed8; margin-top: 0;">🤖 AI 기술</h3>
-        <ul style="margin: 0; padding-left: 20px;">
+        <div class="ecoai-research-card ecoai-card-blue">
+        <div class="ecoai-card-icon">03</div>
+        <h3>AI 기술</h3>
+        <ul>
         <li>양자컴퓨팅 & 머신러닝</li>
         <li>강화학습 기반 최적화</li>
         <li>멀티에이전트 시스템</li>
@@ -149,9 +163,15 @@ sections:
       title: '주요 논문'
       subtitle: 'Featured Publications'
       text: |
+        <div class="ecoai-output-panel">
+        <span class="ecoai-panel-label">Research outputs</span>
+
         EcoAI Lab의 검증된 논문 목록을 정리 중입니다. 확정되지 않은 논문명이나 DOI는 공개하지 않습니다.
 
         실제 논문 데이터가 확정되면 DOI, PDF, 코드, 데이터 링크와 함께 `/publications/`에 공개하겠습니다.
+
+        <a class="ecoai-text-link" href="/publications/">논문/연구성과 페이지 보기 →</a>
+        </div>
     design:
       columns: '1'
       background:
@@ -163,15 +183,18 @@ sections:
       title: '연구실 구성원'
       subtitle: 'Lab Members'
       text: |
-        <div style="text-align: center; margin: 30px 0;">
+        <div class="ecoai-members-section">
         
         ### 교수 (Professor)
         
-        <div style="display: inline-block; background: linear-gradient(135deg, #f0f9ff, #e0f2fe); padding: 30px 50px; border-radius: 20px; margin: 20px; box-shadow: 0 20px 45px rgba(2, 132, 199, 0.12);">
-        <img src="/media/authors/admin.jpg" alt="이상금 교수 프로필 사진" style="width: 160px; height: 160px; object-fit: cover; border-radius: 999px; margin: 0 auto 20px; border: 4px solid white; box-shadow: 0 12px 30px rgba(15, 23, 42, 0.18);">
-        <h3 style="color: #0369a1; margin: 0;">이상금 (Sangkeum Lee), Ph.D.</h3>
-        <p style="color: #64748b; margin: 10px 0;">한밭대학교 컴퓨터공학과 교수</p>
-        <p style="color: #94a3b8; font-size: 0.9em;">EcoAI Lab Director</p>
+        <div class="ecoai-professor-card">
+        <img src="/media/authors/admin.jpg" alt="이상금 교수 프로필 사진">
+        <div>
+        <span class="ecoai-panel-label">Lab Director</span>
+        <h3>이상금 (Sangkeum Lee), Ph.D.</h3>
+        <p>한밭대학교 컴퓨터공학과 교수</p>
+        <p class="ecoai-muted">Environmental Energy · AI Systems · IoT Security</p>
+        </div>
         </div>
         
         ### 학생 (Students)
@@ -241,36 +264,36 @@ sections:
       title: '연락처'
       subtitle: 'Contact Us'
       text: |
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 30px;">
+        <div class="ecoai-contact-grid">
         
-        <div style="text-align: center; padding: 25px;">
-        <div style="font-size: 2em; margin-bottom: 10px;">📧</div>
+        <div class="ecoai-contact-card">
+        <div class="ecoai-contact-icon">@</div>
         <strong>Email</strong><br>
         <a href="mailto:sangkeum@hanbat.ac.kr">sangkeum@hanbat.ac.kr</a>
         </div>
         
-        <div style="text-align: center; padding: 25px;">
-        <div style="font-size: 2em; margin-bottom: 10px;">📞</div>
+        <div class="ecoai-contact-card">
+        <div class="ecoai-contact-icon">T</div>
         <strong>전화</strong><br>
         <a href="tel:+82428211205">+82 42 821 1205</a>
         </div>
         
-        <div style="text-align: center; padding: 25px;">
-        <div style="font-size: 2em; margin-bottom: 10px;">📍</div>
+        <div class="ecoai-contact-card">
+        <div class="ecoai-contact-icon">N4</div>
         <strong>연구실</strong><br>
         N4-416, 한밭대학교
         </div>
         
-        <div style="text-align: center; padding: 25px;">
-        <div style="font-size: 2em; margin-bottom: 10px;">🏫</div>
+        <div class="ecoai-contact-card">
+        <div class="ecoai-contact-icon">KR</div>
         <strong>주소</strong><br>
         대전광역시 유성구 동서대로 125
         </div>
         
         </div>
         
-        <div style="text-align: center; margin-top: 40px; padding: 20px; background: linear-gradient(135deg, #fef3c7, #fde68a); border-radius: 16px;">
-        <h4 style="color: #92400e; margin: 0;">산학협력, 공동연구, 인턴십 문의는 <a href="/collaborate/">협업 안내</a>와 <a href="/join-us/">Join Us</a>를 참고해 주세요.</h4>
+        <div class="ecoai-contact-banner">
+        <h4>산학협력, 공동연구, 인턴십 문의는 <a href="/collaborate/">협업 안내</a>와 <a href="/join-us/">Join Us</a>를 참고해 주세요.</h4>
         </div>
     design:
       columns: '1'

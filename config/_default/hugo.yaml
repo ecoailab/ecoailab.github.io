@@ -44,7 +44,7 @@ imaging:
 caches:
   images:
     dir: :cacheDir/images
-timeout: "600000"
+timeout: 600s
 taxonomies:
   author: authors
   tag: tags

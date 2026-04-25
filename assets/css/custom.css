@@ -1,3 +1,123 @@
+.page-body {
+  background:
+    radial-gradient(circle at 8% 12%, rgba(34, 211, 238, 0.13), transparent 28rem),
+    radial-gradient(circle at 92% 8%, rgba(16, 185, 129, 0.12), transparent 26rem),
+    linear-gradient(180deg, #ffffff 0%, #f8fafc 44%, #ffffff 100%);
+}
+
+.ecoai-hero-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 18px;
+  padding: 8px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  border-radius: 999px;
+  background: rgba(8, 47, 73, 0.34);
+  color: #e0f2fe;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  backdrop-filter: blur(14px);
+}
+
+.ecoai-hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.ecoai-hero-tags span {
+  padding: 9px 13px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.13);
+  color: #f8fafc;
+  font-size: 0.92rem;
+  font-weight: 700;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.18);
+  backdrop-filter: blur(10px);
+}
+
+.ecoai-section-intro {
+  max-width: 760px;
+  margin: 0 auto 32px;
+  color: #475569;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  text-align: center;
+}
+
+.ecoai-research-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+  margin-top: 28px;
+}
+
+.ecoai-research-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 245px;
+  padding: 28px;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  border-radius: 28px;
+  background: #ffffff;
+  box-shadow: 0 24px 70px rgba(15, 23, 42, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.ecoai-research-card::after {
+  position: absolute;
+  right: -46px;
+  bottom: -46px;
+  width: 150px;
+  height: 150px;
+  border-radius: 999px;
+  background: rgba(14, 165, 233, 0.1);
+  content: "";
+}
+
+.ecoai-research-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(14, 165, 233, 0.34);
+  box-shadow: 0 30px 90px rgba(15, 23, 42, 0.13);
+}
+
+.ecoai-card-cyan { background: linear-gradient(145deg, #ffffff 0%, #ecfeff 100%); }
+.ecoai-card-emerald { background: linear-gradient(145deg, #ffffff 0%, #ecfdf5 100%); }
+.ecoai-card-blue { background: linear-gradient(145deg, #ffffff 0%, #eff6ff 100%); }
+
+.ecoai-card-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  margin-bottom: 18px;
+  border-radius: 14px;
+  background: #0f172a;
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+}
+
+.ecoai-research-card h3 {
+  margin: 0 0 14px;
+  color: #0f172a;
+  font-size: 1.28rem;
+}
+
+.ecoai-research-card ul {
+  margin: 0;
+  padding-left: 18px;
+  color: #475569;
+  line-height: 1.9;
+}
+
 .ecoai-member-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -25,6 +145,52 @@
   font-weight: 500;
 }
 
+.ecoai-members-section {
+  max-width: 980px;
+  margin: 30px auto 0;
+  text-align: center;
+}
+
+.ecoai-professor-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 28px;
+  max-width: 780px;
+  margin: 22px auto 36px;
+  padding: 28px;
+  border: 1px solid rgba(14, 165, 233, 0.18);
+  border-radius: 30px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(236, 254, 255, 0.92));
+  box-shadow: 0 28px 80px rgba(15, 23, 42, 0.11);
+  text-align: left;
+}
+
+.ecoai-professor-card img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border: 5px solid #ffffff;
+  border-radius: 999px;
+  box-shadow: 0 18px 42px rgba(15, 23, 42, 0.18);
+}
+
+.ecoai-professor-card h3 {
+  margin: 8px 0 8px;
+  color: #075985;
+  font-size: 1.35rem;
+}
+
+.ecoai-professor-card p {
+  margin: 0 0 8px;
+  color: #475569;
+}
+
+.ecoai-muted {
+  color: #64748b !important;
+  font-size: 0.94rem;
+}
+
 .ecoai-gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -39,6 +205,12 @@
   border-radius: 22px;
   background: #ffffff;
   box-shadow: 0 20px 50px rgba(15, 23, 42, 0.11);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.ecoai-gallery figure:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 28px 70px rgba(15, 23, 42, 0.16);
 }
 
 .ecoai-gallery img {
@@ -82,6 +254,91 @@
 .ecoai-alumni-panel p {
   margin: 0;
   color: #475569;
+}
+
+.ecoai-output-panel {
+  max-width: 850px;
+  margin: 10px auto 0;
+  padding: 30px 34px;
+  border: 1px solid rgba(14, 165, 233, 0.18);
+  border-radius: 28px;
+  background: linear-gradient(135deg, #f8fafc 0%, #ecfeff 100%);
+  color: #334155;
+  box-shadow: 0 24px 70px rgba(15, 23, 42, 0.08);
+}
+
+.ecoai-panel-label {
+  display: inline-flex;
+  margin-bottom: 12px;
+  color: #0891b2;
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.ecoai-text-link {
+  display: inline-flex;
+  margin-top: 16px;
+  color: #0369a1;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.ecoai-contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  margin-top: 30px;
+}
+
+.ecoai-contact-card {
+  padding: 24px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 18px 52px rgba(15, 23, 42, 0.08);
+  text-align: center;
+}
+
+.ecoai-contact-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 12px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #06b6d4, #2563eb);
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 900;
+}
+
+.ecoai-contact-banner {
+  margin-top: 34px;
+  padding: 24px;
+  border: 1px solid rgba(245, 158, 11, 0.26);
+  border-radius: 24px;
+  background: linear-gradient(135deg, #fff7ed, #fef3c7);
+  text-align: center;
+  box-shadow: 0 18px 44px rgba(146, 64, 14, 0.08);
+}
+
+.ecoai-contact-banner h4 {
+  margin: 0;
+  color: #78350f;
+}
+
+@media (max-width: 720px) {
+  .ecoai-professor-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .ecoai-professor-card img {
+    margin: 0 auto;
+  }
 }
 
 .ecoai-alumni-panel a {
