@@ -17,9 +17,9 @@ sections:
       text: |
         <span class="ecoai-hero-kicker">Hanbat National University · Computer Engineering</span>
 
-        ## 환경에너지와 인공지능으로 지속가능한 미래를 연구합니다
-        
-        ### 한밭대학교 컴퓨터공학과 EcoAI 연구실
+        <span class="ecoai-hero-title">환경에너지와 인공지능으로 지속가능한 미래를 연구합니다</span>
+
+        <span class="ecoai-hero-subtitle">한밭대학교 컴퓨터공학과 EcoAI 연구실</span>
         
         EcoAI Lab은 스마트팩토리·스마트홈 에너지 최적화, IoT 센서 네트워크, 보안, 강화학습, 양자컴퓨팅, 멀티에이전트 AI를 연구합니다.
         
@@ -166,9 +166,13 @@ sections:
         <div class="ecoai-output-panel">
         <span class="ecoai-panel-label">Research outputs</span>
 
-        EcoAI Lab의 검증된 논문 목록을 정리 중입니다. 확정되지 않은 논문명이나 DOI는 공개하지 않습니다.
+        EcoAI Lab의 검증된 논문 목록을 새 사이트 형식으로 정리 중입니다. 기존 연구성과는 아래 아카이브에서 확인할 수 있습니다.
 
-        실제 논문 데이터가 확정되면 DOI, PDF, 코드, 데이터 링크와 함께 `/publications/`에 공개하겠습니다.
+        <div class="ecoai-archive-links">
+          <a href="https://sites.google.com/view/ecoai/publications/international">International publications</a>
+          <a href="https://sites.google.com/view/ecoai/publications/domestic">Domestic publications</a>
+          <a href="https://sites.google.com/view/ecoai/publications/patents">Patents</a>
+        </div>
 
         <a class="ecoai-text-link" href="/publications/">논문/연구성과 페이지 보기 →</a>
         </div>
@@ -251,6 +255,11 @@ sections:
             <img src="/media/lab/prof-lee-gallery-3.jpg" alt="EcoAI Lab 프로필 사진 3">
             <figcaption>Smart Energy Research</figcaption>
           </figure>
+        </div>
+
+        <div class="ecoai-archive-links ecoai-gallery-links">
+          <a href="https://sites.google.com/view/ecoai/gallery/awards">기존 Awards 갤러리</a>
+          <a href="https://sites.google.com/view/ecoai/gallery/memories">기존 Memories 갤러리</a>
         </div>
     design:
       columns: '1'

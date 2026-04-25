@@ -29,6 +29,29 @@
   margin-top: 28px;
 }
 
+.ecoai-hero-title,
+.ecoai-hero-subtitle {
+  display: block;
+}
+
+.ecoai-hero-title {
+  max-width: 920px;
+  margin: 8px 0 18px;
+  color: #ffffff;
+  font-size: clamp(2.25rem, 5vw, 4.75rem);
+  font-weight: 900;
+  letter-spacing: -0.055em;
+  line-height: 1.04;
+  text-shadow: 0 24px 70px rgba(2, 6, 23, 0.48);
+}
+
+.ecoai-hero-subtitle {
+  margin-bottom: 20px;
+  color: #bae6fd;
+  font-size: clamp(1.05rem, 2.1vw, 1.55rem);
+  font-weight: 800;
+}
+
 .ecoai-hero-tags span {
   padding: 9px 13px;
   border: 1px solid rgba(255, 255, 255, 0.28);
@@ -187,7 +210,7 @@
 }
 
 .ecoai-muted {
-  color: #64748b !important;
+  color: #64748b;
   font-size: 0.94rem;
 }
 
@@ -283,6 +306,37 @@
   color: #0369a1;
   font-weight: 800;
   text-decoration: none;
+}
+
+.ecoai-archive-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.ecoai-archive-links a {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 14px;
+  border: 1px solid rgba(14, 165, 233, 0.22);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.82);
+  color: #075985;
+  font-size: 0.92rem;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.06);
+}
+
+.ecoai-gallery-links {
+  justify-content: center;
+  margin-top: 26px;
+}
+
+.page-footer .powered-by a[href*="hugoblox.com"],
+.page-footer a[data-hbx] {
+  display: none;
 }
 
 .ecoai-contact-grid {

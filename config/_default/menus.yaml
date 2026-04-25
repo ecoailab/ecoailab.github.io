@@ -22,9 +22,12 @@ main:
   - name: 소식
     url: blog/
     weight: 21
+  - name: 갤러리
+    url: /#gallery
+    weight: 22
   - name: Alumni
     url: alumni/
-    weight: 22
+    weight: 23
   - name: Join Us
     url: join-us/
     weight: 30
