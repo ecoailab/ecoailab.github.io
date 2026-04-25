@@ -1,0 +1,77 @@
+backend:
+  name: github
+  repo: ECOAIlab/ecoailab.github.io
+  branch: main
+
+site_url: https://ecoailab.github.io
+display_url: https://ecoailab.github.io
+logo_url: /media/icon_hu_266a52959709d742.png
+
+media_folder: static/uploads
+public_folder: /uploads
+
+publish_mode: editorial_workflow
+
+collections:
+  - name: pages
+    label: 주요 페이지
+    files:
+      - label: 홈페이지
+        name: home
+        file: content/_index.md
+        fields:
+          - { label: 제목, name: title, widget: string, required: false }
+          - { label: 요약, name: summary, widget: text, required: false }
+          - { label: 날짜, name: date, widget: datetime, required: false }
+          - { label: 타입, name: type, widget: hidden, default: landing }
+          - { label: 디자인, name: design, widget: object, required: false, collapsed: true, fields: [{ label: Spacing, name: spacing, widget: string, required: false }] }
+          - { label: 섹션, name: sections, widget: list, required: false, allow_add: true, fields: [{ label: Block, name: block, widget: string }, { label: ID, name: id, widget: string, required: false }, { label: Content, name: content, widget: object, required: false, collapsed: true, fields: [{ label: Title, name: title, widget: string, required: false }, { label: Text, name: text, widget: markdown, required: false }] }] }
+      - label: Join Us
+        name: join_us
+        file: content/join-us/index.md
+        fields:
+          - { label: 제목, name: title, widget: string }
+          - { label: 요약, name: summary, widget: text, required: false }
+          - { label: 설명, name: description, widget: text, required: false }
+          - { label: 날짜, name: date, widget: datetime, required: false }
+          - { label: 타입, name: type, widget: hidden, default: page }
+          - { label: 본문, name: body, widget: markdown }
+      - label: 협업 안내
+        name: collaborate
+        file: content/collaborate/index.md
+        fields:
+          - { label: 제목, name: title, widget: string }
+          - { label: 요약, name: summary, widget: text, required: false }
+          - { label: 설명, name: description, widget: text, required: false }
+          - { label: 날짜, name: date, widget: datetime, required: false }
+          - { label: 타입, name: type, widget: hidden, default: page }
+          - { label: 본문, name: body, widget: markdown }
+
+  - name: blog
+    label: 연구실 소식
+    folder: content/blog
+    path: "{{slug}}/index"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: 제목, name: title, widget: string }
+      - { label: 요약, name: summary, widget: text, required: false }
+      - { label: 설명, name: description, widget: text, required: false }
+      - { label: 날짜, name: date, widget: datetime }
+      - { label: 작성자, name: authors, widget: list, required: false, default: [admin], field: { label: Author, name: author, widget: string } }
+      - { label: 태그, name: tags, widget: list, required: false, field: { label: Tag, name: tag, widget: string } }
+      - { label: 본문, name: body, widget: markdown }
+
+  - name: projects
+    label: 연구 프로젝트
+    folder: content/projects
+    path: "{{slug}}/index"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: 제목, name: title, widget: string }
+      - { label: 날짜, name: date, widget: datetime }
+      - { label: 요약, name: summary, widget: text }
+      - { label: 태그, name: tags, widget: list, required: false, field: { label: Tag, name: tag, widget: string } }
+      - { label: Featured, name: featured, widget: boolean, default: true, required: false }
+      - { label: 본문, name: body, widget: markdown }

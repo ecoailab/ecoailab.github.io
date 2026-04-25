@@ -135,6 +135,43 @@ hugo server -D
 
 ---
 
+## 품질 검사와 CMS
+
+### 자동 품질 검사
+
+`.github/workflows/site-quality.yml`는 사이트를 빌드한 뒤 Lighthouse CI와 링크 검사를 실행합니다.
+
+- Lighthouse CI 설정: `lighthouserc.json`
+- 링크 검사 설정: `lychee.toml`
+- 검사 대상: Hugo가 생성한 `public/` 폴더
+
+로컬에서 확인하려면 다음 순서로 실행합니다.
+
+```bash
+pnpm install --frozen-lockfile
+hugo --gc --minify --baseURL "https://ecoailab.github.io/"
+pnpm run pagefind
+pnpm run quality:lighthouse
+```
+
+링크 검사는 GitHub Actions에서 `lycheeverse/lychee-action`으로 실행합니다. 로컬에서 같은 검사를 하려면 lychee를 설치한 뒤 아래 명령을 실행합니다.
+
+```bash
+lychee --config lychee.toml --cache --no-progress --root-dir . --base-url https://ecoailab.github.io/ "public/**/*.html"
+```
+
+### Decap CMS 관리 화면
+
+관리 화면은 `/admin/` 경로에 생성됩니다.
+
+- CMS 화면: `static/admin/index.html`
+- CMS 설정: `static/admin/config.yml`
+- 관리 대상: 홈페이지 일부, Join Us, 협업 안내, 연구실 소식, 연구 프로젝트
+
+GitHub Pages는 정적 호스팅만 제공하므로 CMS 화면은 표시할 수 있지만 GitHub 로그인 인증은 별도 OAuth/proxy 설정이 필요합니다. 실제 편집 기능을 쓰려면 GitHub OAuth 앱, 외부 인증 프록시, 또는 Decap CMS가 지원하는 별도 인증 구성을 연결해야 합니다.
+
+---
+
 ## 📧 연락처
 
 **EcoAI Lab**  
