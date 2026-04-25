@@ -17,6 +17,14 @@ sections:
       text: |
         <span class="ecoai-hero-kicker">Hanbat National University · Computer Engineering</span>
 
+        <div class="ecoai-hero-brand">
+          <img src="/media/lab/ecoai-logo.jpg" alt="EcoAI Lab logo">
+          <div>
+            <strong>Eyes on the sky</strong>
+            <span>Innovate for the future</span>
+          </div>
+        </div>
+
         <span class="ecoai-hero-title">환경에너지와 인공지능으로 지속가능한 미래를 연구합니다</span>
 
         <span class="ecoai-hero-subtitle">한밭대학교 컴퓨터공학과 EcoAI 연구실</span>
@@ -48,8 +56,8 @@ sections:
         image:
           filename: lab/prof-lee-hero.jpg
           filters:
-            brightness: 0.25
-            saturate: 0.82
+            brightness: 0.2
+            saturate: 0.78
         text_color_light: true
       spacing:
         padding: ['112px', '0', '104px', '0']
@@ -72,6 +80,36 @@ sections:
         color: '#0f172a'
       spacing:
         padding: ['34px', '0', '34px', '0']
+
+  - block: markdown
+    id: agenda
+    content:
+      title: '연구 지도'
+      subtitle: 'Research Map'
+      text: |
+        <div class="ecoai-authority-strip">
+          <div>
+            <span>Research Domains</span>
+            <strong>에너지 관리 · 양자AI · 통신</strong>
+            <p>스마트팩토리/홈/항만, 양자배터리, IoT/위성 통신을 연결합니다.</p>
+          </div>
+          <div>
+            <span>Core Methods</span>
+            <strong>양자컴퓨팅 · 심층강화학습 · LLM 에이전트</strong>
+            <p>딥러닝 이상탐지와 빅데이터 분석으로 실제 시스템 문제를 다룹니다.</p>
+          </div>
+          <div>
+            <span>Collaboration</span>
+            <strong>산학협력 및 인턴십</strong>
+            <p>공동연구, 산업 문제 해결, 학부 연구 참여를 위한 접점을 제공합니다.</p>
+          </div>
+        </div>
+    design:
+      columns: '1'
+      background:
+        color: '#f8fafc'
+      spacing:
+        padding: ['70px', '0', '46px', '0']
 
   - block: markdown
     id: research
