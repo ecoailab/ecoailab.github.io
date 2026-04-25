@@ -21,7 +21,13 @@ sections:
 
         <span class="ecoai-hero-subtitle">한밭대학교 컴퓨터공학과 EcoAI 연구실</span>
         
-        EcoAI Lab은 스마트팩토리·스마트홈 에너지 최적화, IoT 센서 네트워크, 보안, 강화학습, 양자컴퓨팅, 멀티에이전트 AI를 연구합니다.
+        <span class="ecoai-hero-deck">EcoAI Lab은 스마트팩토리·스마트홈 에너지 최적화, IoT 센서 네트워크, 보안, 강화학습, 양자컴퓨팅, 멀티에이전트 AI를 연구합니다.</span>
+
+        <div class="ecoai-hero-proof">
+          <span><strong>Energy</strong> Smart Factory · Smart Home</span>
+          <span><strong>AI</strong> Reinforcement Learning · Quantum AI</span>
+          <span><strong>Security</strong> IoT Sensor Networks</span>
+        </div>
         
         <div class="ecoai-hero-tags">
           <span>Environmental Energy</span>
@@ -42,11 +48,11 @@ sections:
         image:
           filename: lab/prof-lee-hero.jpg
           filters:
-            brightness: 0.42
-            saturate: 0.9
+            brightness: 0.25
+            saturate: 0.82
         text_color_light: true
       spacing:
-        padding: ['130px', '0', '120px', '0']
+        padding: ['112px', '0', '104px', '0']
 
   - block: stats
     id: highlights
@@ -63,9 +69,9 @@ sections:
     design:
       columns: '4'
       background:
-        color: '#f0f9ff'
+        color: '#0f172a'
       spacing:
-        padding: ['40px', '0', '40px', '0']
+        padding: ['34px', '0', '34px', '0']
 
   - block: markdown
     id: research
@@ -74,6 +80,7 @@ sections:
       subtitle: 'Research Areas'
       text: |
         <div class="ecoai-section-intro">
+        <span>Research map</span>
         EcoAI Lab은 에너지 시스템, 센서 네트워크, 보안, AI 최적화를 하나의 연구 흐름으로 연결합니다.
         </div>
 
@@ -165,6 +172,7 @@ sections:
       text: |
         <div class="ecoai-output-panel">
         <span class="ecoai-panel-label">Research outputs</span>
+        <strong class="ecoai-output-title">검증된 연구성과만 공개합니다.</strong>
 
         EcoAI Lab의 검증된 논문 목록을 새 사이트 형식으로 정리 중입니다. 기존 연구성과는 아래 아카이브에서 확인할 수 있습니다.
 
@@ -187,7 +195,7 @@ sections:
       title: '연구실 구성원'
       subtitle: 'Lab Members'
       text: |
-        <div class="ecoai-members-section">
+        <div class="ecoai-members-section ecoai-editorial-panel">
         
         ### 교수 (Professor)
         
@@ -238,7 +246,7 @@ sections:
       title: '연구실 갤러리'
       subtitle: 'Lab Gallery'
       text: |
-        <div class="ecoai-gallery">
+        <div class="ecoai-gallery ecoai-gallery-editorial">
           <figure>
             <img src="/media/lab/prof-lee-profile.jpg" alt="EcoAI Lab 연구실 대표 사진">
             <figcaption>EcoAI Lab research leadership</figcaption>
