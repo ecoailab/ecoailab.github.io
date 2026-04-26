@@ -5,7 +5,7 @@ backend:
 
 site_url: https://ecoailab.github.io
 display_url: https://ecoailab.github.io
-logo_url: /media/icon_hu_266a52959709d742.png
+logo_url: /media/lab/ecoai-logo.jpg
 
 media_folder: static/uploads
 public_folder: /uploads

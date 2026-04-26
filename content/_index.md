@@ -18,39 +18,32 @@ sections:
         <a class="ecoai-skip-link" href="#main-content">본문으로 건너뛰기</a>
         <span id="main-content" class="ecoai-anchor-target" aria-hidden="true"></span>
 
-        <span class="ecoai-hero-kicker">Hanbat National University · Computer Engineering</span>
+        <span class="ecoai-hero-kicker">Hanbat National University · EcoAI Lab</span>
 
         <div class="ecoai-hero-brand">
           <img src="/media/lab/ecoai-logo.jpg" alt="EcoAI Lab logo">
           <div>
-            <strong>Eyes on the sky</strong>
-            <span>Innovate for the future</span>
+            <strong>EcoAI Lab</strong>
+            <span>Environmental Energy × AI</span>
           </div>
         </div>
 
-        <span class="ecoai-hero-title">환경에너지와 인공지능으로 지속가능한 미래를 연구합니다</span>
+        <span class="ecoai-hero-title">환경에너지 문제를 AI로 해석하고 최적화합니다</span>
 
         <span class="ecoai-hero-subtitle">한밭대학교 컴퓨터공학과 EcoAI 연구실</span>
         
-        <span class="ecoai-hero-deck">EcoAI Lab은 에너지 관리(스마트팩토리·스마트홈·항만), 양자AI·양자배터리, IoT·위성 통신, 심층강화학습, LLM 에이전트, 딥러닝 이상탐지, 빅데이터 분석을 연구합니다.</span>
+        <span class="ecoai-hero-deck">EcoAI Lab은 스마트 에너지 시스템, 센서 네트워크, 보안, 강화학습 기반 최적화를 중심으로 지속가능한 산업·생활 환경을 연구합니다.</span>
 
         <div class="ecoai-hero-proof">
-          <span><strong>Energy</strong> Smart Factory · Smart Home</span>
-          <span><strong>AI</strong> Reinforcement Learning · Quantum AI</span>
-          <span><strong>Security</strong> IoT Sensor Networks</span>
-        </div>
-        
-        <div class="ecoai-hero-tags">
-          <span>Environmental Energy</span>
-          <span>IoT/Security</span>
-          <span>Reinforcement Learning</span>
-          <span>Quantum AI</span>
+          <span><strong>Energy Systems</strong> 스마트팩토리 · 스마트홈 에너지 관리</span>
+          <span><strong>Intelligent Optimization</strong> 강화학습 · 데이터 기반 의사결정</span>
+          <span><strong>Secure Sensing</strong> IoT 센서 네트워크 · 보안</span>
         </div>
 
         <div class="ecoai-hero-pathways" aria-label="Visitor pathways">
+          <a href="#research"><strong>Research</strong><span>연구 분야</span></a>
+          <a href="#publications"><strong>Outputs</strong><span>논문·특허</span></a>
           <a href="/join-us/"><strong>Students</strong><span>Join Us</span></a>
-          <a href="/collaborate/"><strong>Partners</strong><span>Collaborate</span></a>
-          <a href="#publications"><strong>Researchers</strong><span>Outputs</span></a>
         </div>
       primary_action:
         text: 연구 소개
@@ -65,24 +58,24 @@ sections:
         image:
           filename: lab/prof-lee-hero.jpg
           filters:
-            brightness: 0.2
-            saturate: 0.78
-        text_color_light: true
+            brightness: 0.92
+            saturate: 0.62
+        text_color_light: false
       spacing:
-        padding: ['112px', '0', '104px', '0']
+        padding: ['86px', '0', '78px', '0']
 
   - block: stats
     id: highlights
     content:
       items:
         - statistic: '51'
-          description: International journal entries
+          description: International publications
         - statistic: '60'
-          description: Domestic conference entries
+          description: Domestic publications
         - statistic: '13'
-          description: Patent records
+          description: Patents
         - statistic: '6'
-          description: Gallery archive pages
+          description: Gallery pages
     design:
       columns: '4'
       background:
@@ -99,13 +92,13 @@ sections:
         <div class="ecoai-authority-strip">
           <div>
           <span>Research Domains</span>
-          <strong>에너지 관리 · 양자AI · 양자배터리 · 통신</strong>
-          <p>스마트팩토리/홈/항만, IoT/위성 통신, 에너지 클라우드 문제를 연결합니다.</p>
+          <strong>에너지 관리 · 센서 네트워크 · 보안</strong>
+          <p>스마트팩토리, 스마트홈, 항만, IoT 기반 환경에너지 문제를 연결합니다.</p>
           </div>
           <div>
           <span>Core Methods</span>
-          <strong>양자컴퓨팅 · 심층강화학습 · LLM 에이전트</strong>
-          <p>딥러닝 이상탐지와 빅데이터 분석으로 탄소중립 운영 문제를 다룹니다.</p>
+          <strong>강화학습 · 이상탐지 · 데이터 분석</strong>
+          <p>운영 데이터를 기반으로 예측, 탐지, 최적화 문제를 다룹니다.</p>
           </div>
           <div>
             <span>Collaboration</span>
@@ -114,12 +107,12 @@ sections:
           </div>
         </div>
 
-        <div class="ecoai-benchmark-grid" aria-label="EcoAI Lab website design checklist">
-          <span><strong>01</strong> Mission-first hero</span>
-          <span><strong>02</strong> Audience pathways</span>
-          <span><strong>03</strong> Research taxonomy</span>
+        <div class="ecoai-benchmark-grid" aria-label="EcoAI Lab research guide">
+          <span><strong>01</strong> Energy systems</span>
+          <span><strong>02</strong> Secure sensing</span>
+          <span><strong>03</strong> Intelligent optimization</span>
           <span><strong>04</strong> Verifiable outputs</span>
-          <span><strong>05</strong> People & recruiting</span>
+          <span><strong>05</strong> Student research</span>
         </div>
     design:
       columns: '1'
@@ -136,7 +129,7 @@ sections:
       text: |
         <div class="ecoai-section-intro">
         <span>Research map</span>
-        EcoAI Lab은 에너지 시스템, 센서 네트워크, 보안, AI 최적화를 하나의 연구 흐름으로 연결합니다.
+        복잡한 에너지 운영 문제를 데이터, 보안, 최적화 관점에서 연구합니다.
         </div>
 
         <div class="ecoai-research-grid">
@@ -227,7 +220,7 @@ sections:
       text: |
         <div class="ecoai-output-panel">
         <span class="ecoai-panel-label">Research outputs</span>
-        <strong class="ecoai-output-title">검증된 연구성과만 공개합니다.</strong>
+        <strong class="ecoai-output-title">연구성과는 검증된 기록 중심으로 정리합니다.</strong>
 
         기존 Google Sites의 International, Domestic, Patents 하위 페이지를 새 사이트 내부 페이지로 옮겨 연구성과를 한곳에서 확인할 수 있게 정리했습니다.
 
@@ -338,8 +331,7 @@ sections:
     design:
       columns: '1'
       background:
-        gradient_start: '#f8fafc'
-        gradient_end: '#ecfeff'
+        color: '#f8fafc'
 
   - block: markdown
     id: contact
@@ -385,7 +377,7 @@ sections:
 
   - block: cta-card
     content:
-      title: 'EcoAI Lab과 함께 지속가능한 미래를 연구하세요'
+      title: 'EcoAI Lab과 함께 연구할 학생과 협업 파트너를 기다립니다'
       text: |
         환경에너지와 AI 기술의 접점에서 실제 문제를 함께 다룰 학생과 협업 파트너를 기다립니다.
         
@@ -396,7 +388,7 @@ sections:
         icon: mail
     design:
       card:
-        css_class: 'bg-gradient-to-r from-cyan-500 to-blue-500'
+        css_class: 'ecoai-cta-quiet'
       spacing:
         padding: ['60px', '0', '60px', '0']
 ---
