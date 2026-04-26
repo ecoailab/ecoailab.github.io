@@ -8,10 +8,19 @@ type: page
 
 <div class="ecoai-year-tabs"><a href="/gallery/2024-memories/">2024</a><a href="/gallery/2025-memories/">2025</a><a href="/gallery/memories/">2026</a></div>
 
-Googleusercontent 직접 이미지 URL과 Google Sites iframe은 외부 사이트에서 ORB/403 또는 CSP 차단될 수 있습니다. 깨진 이미지나 임베드 대신 원본 Gallery 페이지로 안정적으로 연결합니다.
+<div class="ecoai-archive-hero ecoai-archive-detail">
+  <span class="ecoai-panel-label">Memories archive · 2026</span>
+  <strong>EcoAI Lab의 2026년 연구실 활동 사진 기록으로 연결합니다.</strong>
+  <p>사진 원본과 캡션은 기존 Google Sites Gallery에서 관리됩니다. 이 페이지는 내부 아카이브 경로와 검증된 원문 링크를 제공합니다.</p>
+</div>
 
-<div class="ecoai-note">원본 사진은 Google Sites에서 계속 관리됩니다. 아래 링크로 Memories 2026 갤러리를 확인하세요.</div>
+<div class="ecoai-archive-split ecoai-news-split" aria-label="Memories 2026 archive details">
+  <section><span>Category</span><strong>Memories</strong><p>세미나, 행사, 워크숍 등 연구실 활동 사진 기록입니다.</p></section>
+  <section><span>Year</span><strong>2026</strong><p>현재 Memories 아카이브 항목입니다.</p></section>
+</div>
 
 <div class="ecoai-route-grid">
   <a href="https://sites.google.com/view/ecoai/gallery/memories"><strong>원본 Memories 2026 열기</strong><span>Google Sites Gallery에서 전체 사진과 캡션을 확인합니다.</span></a>
 </div>
+
+<div class="ecoai-note">Googleusercontent 직접 이미지와 Google Sites iframe은 브라우저 정책으로 차단될 수 있어, 원본 페이지 링크를 안정적인 출처로 제공합니다.</div>

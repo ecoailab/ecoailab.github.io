@@ -1146,3 +1146,105 @@
   background: #ecfeff;
   color: #164e63;
 }
+
+.ecoai-archive-hero {
+  margin: 24px 0 28px;
+  padding: 34px 38px;
+  border: 1px solid rgba(14, 165, 233, 0.16);
+  border-radius: 28px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(248, 250, 252, 0.94)),
+    radial-gradient(circle at 100% 0, rgba(14, 165, 233, 0.1), transparent 20rem);
+  box-shadow: 0 18px 48px rgba(15, 23, 42, 0.065);
+}
+
+.ecoai-archive-hero strong {
+  display: block;
+  max-width: 820px;
+  color: #0f172a;
+  font-size: clamp(1.65rem, 3vw, 2.35rem);
+  font-weight: 950;
+  letter-spacing: -0.045em;
+  line-height: 1.14;
+}
+
+.ecoai-archive-hero p {
+  max-width: 760px;
+  margin: 14px 0 0;
+  color: #334155;
+  font-size: 1.04rem;
+  font-weight: 560;
+  line-height: 1.76;
+}
+
+.ecoai-archive-detail {
+  margin-top: 18px;
+  padding: 30px 34px;
+}
+
+.ecoai-archive-detail strong {
+  font-size: clamp(1.45rem, 2.45vw, 2rem);
+}
+
+.ecoai-archive-split {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 28px 0 34px;
+}
+
+.ecoai-archive-split section {
+  padding: 28px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 24px;
+  background: #ffffff;
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.055);
+}
+
+.ecoai-archive-split span {
+  display: inline-flex;
+  margin-bottom: 10px;
+  color: #0891b2;
+  font-size: 0.78rem;
+  font-weight: 950;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.ecoai-archive-split strong {
+  display: block;
+  color: #0f172a;
+  font-size: 1.34rem;
+  font-weight: 950;
+  letter-spacing: -0.03em;
+}
+
+.ecoai-archive-split p {
+  margin: 12px 0 0;
+  color: #475569;
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+.ecoai-news-split {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+@media (max-width: 720px) {
+  .ecoai-archive-hero {
+    padding: 26px 22px;
+    border-radius: 22px;
+  }
+
+  .ecoai-archive-detail {
+    padding: 24px 20px;
+  }
+
+  .ecoai-archive-split {
+    grid-template-columns: 1fr;
+  }
+
+  .ecoai-archive-split section {
+    padding: 22px;
+  }
+}
