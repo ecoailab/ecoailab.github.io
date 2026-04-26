@@ -7,7 +7,7 @@ date: 2024-01-01
 type: page
 ---
 
-기존 Google Sites의 Gallery 하위 페이지를 내부 라우트로 정리했습니다. 이미지 원본은 Google Sites에 게시된 공개 이미지 URL을 보존해 표시합니다.
+기존 Google Sites의 Gallery 하위 페이지를 내부 라우트로 정리했습니다. Googleusercontent 직접 이미지와 Google Sites iframe은 브라우저 정책으로 차단될 수 있어, 각 내부 페이지에서 안정적인 원본 링크를 제공합니다.
 
 <div class="ecoai-route-grid">
   <a href="/gallery/awards/"><strong>Awards 2026</strong><span>Current awards gallery</span></a>
