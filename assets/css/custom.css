@@ -461,46 +461,6 @@
   font-weight: 900;
 }
 
-.ecoai-legacy-frame {
-  width: 100%;
-  min-height: 68vh;
-  border: 1px solid rgba(14, 165, 233, 0.18);
-  border-radius: 20px;
-  background: #fff;
-  box-shadow: 0 18px 48px rgba(15, 23, 42, 0.095);
-}
-
-.ecoai-local-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 14px;
-  margin: 24px 0;
-}
-
-.ecoai-local-gallery figure {
-  margin: 0;
-  overflow: hidden;
-  border: 1px solid rgba(14, 165, 233, 0.14);
-  border-radius: 20px;
-  background: #ffffff;
-  box-shadow: 0 16px 42px rgba(15, 23, 42, 0.08);
-}
-
-.ecoai-local-gallery img {
-  display: block;
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-}
-
-.ecoai-local-gallery figcaption {
-  padding: 10px 12px;
-  color: #64748b;
-  font-size: 0.88rem;
-  font-weight: 800;
-  line-height: 1.45;
-}
-
 .ecoai-research-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -1039,11 +999,6 @@
     padding: 14px 16px;
   }
 
-  .ecoai-legacy-frame {
-    min-height: 58vh;
-    border-radius: 16px;
-  }
-
   .page-wrapper .page-body > main article.prose {
     font-size: 1rem;
     line-height: 1.7;
@@ -1121,10 +1076,6 @@
 }
 
 @media (min-width: 721px) and (max-width: 900px) {
-  .ecoai-legacy-frame {
-    min-height: 62vh;
-  }
-
   .ecoai-hero-title {
     font-size: clamp(3.4rem, 7vw, 4.2rem);
   }
