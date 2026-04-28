@@ -9,6 +9,10 @@ type: page
 
 Source: [Google Sites · International](https://sites.google.com/view/ecoai/publications/international)
 
+<div class="ecoai-year-tabs" aria-label="International publication quick links"><a href="#international-journal">International Journal</a><a href="#international-conferences">International Conferences</a></div>
+
+<span id="international-journal" class="ecoai-anchor-target" aria-hidden="true"></span>
+
 ## International Journal
 
 1. Minu Baek, Sangkeum Lee, "A Three-Stage Reinforcement Learning Pipeline for Autonomous Process Control in the Papermaking Industry," IEEE Transactions on Industrial Informatics, 2026.
@@ -62,6 +66,8 @@ Source: [Google Sites · International](https://sites.google.com/view/ecoai/publ
 49. Sangkeum Lee, Junhee Hong, and Dongsoo Har. "Jointly Optimized Control for Reverse Osmosis Desalination Process with Different Types of Energy Resource," Energy, 2016.
 50. Sangkeum Lee, Sunghee Myung, Junhee Hong, and Dongsoo Har. "Reverse Osmosis Desalination Process Optimized for Maximum Permeate Production with Renewable Energy," Desalination, 2016.
 51. Ryu, Hyun-Gyu, Sang-Keum Lee, and Dongsoo Har. "Data transmission with reduced delay for distributed acoustic sensors," International Journal of Distributed Sensor Networks, 2015.
+
+<span id="international-conferences" class="ecoai-anchor-target" aria-hidden="true"></span>
 
 ## International Conferences (Talk/Poster)
 

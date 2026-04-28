@@ -9,6 +9,12 @@ type: page
 
 Source: [Google Sites · Patents](https://sites.google.com/view/ecoai/publications/patents)
 
+<div class="ecoai-year-tabs" aria-label="Patent archive quick links"><a href="#patents-list">Patents List</a><a href="/publications/">Publications Hub</a></div>
+
+<span id="patents-list" class="ecoai-anchor-target" aria-hidden="true"></span>
+
+## Patents
+
 1. 인공 지능 기반의 P2P 전력 거래 방법 및 P2P 전력 거래 장치, 대한민국 특허 출원번호 10-2021-0051023, 2021/4, 한국전자통신연구원.
 2. 인공 지능 기반의 P2P 전력 거래 방법 및 P2P 전력 거래 장치, 대한민국 특허 등록번호 10-2601197, 2023/11, 한국전자통신연구원.
 3. Artificial intelligence based P2P power trading method and apparatus, 미국 특허 출원번호 US17/674624, 2022/2, 한국전자통신연구원.

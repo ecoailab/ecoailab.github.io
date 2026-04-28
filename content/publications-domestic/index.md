@@ -9,9 +9,15 @@ type: page
 
 Source: [Google Sites · Domestic](https://sites.google.com/view/ecoai/publications/domestic)
 
+<div class="ecoai-year-tabs" aria-label="Domestic publication quick links"><a href="#domestic-journal">Domestic Journal</a><a href="#domestic-conferences">Domestic Conferences</a></div>
+
+<span id="domestic-journal" class="ecoai-anchor-target" aria-hidden="true"></span>
+
 ## Domestic Journal
 
 1. Sangkeum Lee, Dongsoo Har, Luiz Felipe Vecchietti, Junhee Hong, Hoi-Jeong Lim. “Optimal Link Scheduling Based on Attributes of Nodes in 6TiSCH Wireless Networks”, The Journal of KIIT, 2020.
+
+<span id="domestic-conferences" class="ecoai-anchor-target" aria-hidden="true"></span>
 
 ## Domestic Conferences (Talk/Poster)
 
