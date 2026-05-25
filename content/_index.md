@@ -30,7 +30,7 @@ sections:
         </div>
 
         <figure class="ecoai-hero-photo">
-          <img src="/media/lab/prof-lee-gallery-2.jpg" alt="EcoAI Lab 연구실 구성원 단체 사진" width="1600" height="1067" loading="eager" decoding="async" fetchpriority="high" sizes="(max-width: 900px) calc(100vw - 32px), 520px">
+          <img src="/media/lab/ecoai-gpt-hero.webp" alt="환경에너지 AI 연구 환경을 표현한 생성형 히어로 이미지" width="1586" height="992" loading="eager" decoding="async" fetchpriority="high" sizes="(max-width: 900px) calc(100vw - 32px), 520px">
           <figcaption>
             <span>Lab signal</span>
             <strong>Data, sensing, security, and intelligent operation.</strong>
@@ -77,7 +77,7 @@ sections:
     design:
       background:
         image:
-          filename: lab/prof-lee-hero.jpg
+          filename: lab/ecoai-gpt-hero.webp
           filters:
             brightness: 0.92
             saturate: 0.62
