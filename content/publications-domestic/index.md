@@ -3,7 +3,8 @@ title: Domestic Publications
 url: '/publications/domestic/'
 summary: EcoAI Lab domestic journal and conference records copied from the legacy Google Sites page.
 description: Domestic journal and conference publications from the EcoAI Lab Google Sites Publications page.
-date: 2024-01-01
+date: 2026-05-15
+lastmod: 2026-05-15
 type: page
 ---
 

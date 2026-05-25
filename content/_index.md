@@ -2,7 +2,8 @@
 # Leave the homepage title empty to use the site title
 title: ''
 summary: '한밭대학교 EcoAI Lab은 환경에너지와 인공지능을 결합해 스마트팩토리, 스마트홈, IoT 보안, 강화학습, 양자컴퓨팅 기반 문제 해결을 연구합니다.'
-date: 2024-01-01
+date: 2026-05-15
+lastmod: 2026-05-15
 type: landing
 
 design:
@@ -18,31 +19,51 @@ sections:
         <a class="ecoai-skip-link" href="#main-content">본문으로 건너뛰기</a>
         <span id="main-content" class="ecoai-anchor-target" aria-hidden="true"></span>
 
-        <span class="ecoai-hero-kicker">Hanbat National University · EcoAI Lab</span>
+        <span class="ecoai-hero-kicker">Hanbat National University · Environmental Energy AI</span>
 
         <div class="ecoai-hero-brand">
-          <img src="/media/lab/ecoai-logo.jpg" alt="EcoAI Lab logo">
+          <span class="ecoai-hero-mark" role="img" aria-label="EcoAI Lab logo"></span>
           <div>
             <strong>EcoAI Lab</strong>
             <span>Environmental Energy × AI</span>
           </div>
         </div>
 
-        <span class="ecoai-hero-title">환경에너지 문제를 AI로 해석하고 최적화합니다</span>
+        <figure class="ecoai-hero-photo">
+          <img src="/media/lab/prof-lee-gallery-2.jpg" alt="EcoAI Lab 연구실 구성원 단체 사진" width="1600" height="1067" loading="eager" decoding="async">
+          <figcaption>
+            <span>Lab signal</span>
+            <strong>Data, sensing, security, and intelligent operation.</strong>
+          </figcaption>
+        </figure>
+
+        <span class="ecoai-hero-title">환경에너지 AI를 현장 운영의 언어로 만듭니다</span>
 
         <span class="ecoai-hero-subtitle">한밭대학교 컴퓨터공학과 EcoAI 연구실</span>
         
-        <span class="ecoai-hero-deck">EcoAI Lab은 스마트 에너지 시스템, 센서 네트워크, 보안, 강화학습 기반 최적화를 중심으로 지속가능한 산업·생활 환경을 연구합니다.</span>
+        <span class="ecoai-hero-deck">EcoAI Lab은 스마트팩토리, 스마트홈, IoT 센서 네트워크에서 생기는 에너지 문제를 데이터로 설명하고, 보안과 강화학습 기반 최적화로 실험 가능한 해법을 만듭니다.</span>
+
+        <div class="ecoai-hero-brief" aria-label="EcoAI Lab research output summary">
+          <span>Research archive</span>
+          <strong>61 international · 61 domestic · 13 patents</strong>
+          <a href="/publications/">성과 보기</a>
+        </div>
 
         <div class="ecoai-hero-proof">
-          <span><strong>Energy Systems</strong> 스마트팩토리 · 스마트홈 에너지 관리</span>
-          <span><strong>Intelligent Optimization</strong> 강화학습 · 데이터 기반 의사결정</span>
-          <span><strong>Secure Sensing</strong> IoT 센서 네트워크 · 보안</span>
+          <span><strong>Energy Data</strong> 스마트팩토리 · 스마트홈 운영 신호</span>
+          <span><strong>Secure Sensing</strong> IoT 센서 네트워크 · 이상 흐름</span>
+          <span><strong>Adaptive Agents</strong> 강화학습 · 데이터 기반 의사결정</span>
+        </div>
+
+        <div class="ecoai-hero-signal" aria-label="EcoAI Lab research operating principles">
+          <span><strong>Observe</strong> 현장 데이터와 센서 흐름을 정리합니다</span>
+          <span><strong>Model</strong> 예측·탐지·최적화 모델로 검증합니다</span>
+          <span><strong>Deploy</strong> 논문·특허·협업 과제로 연결합니다</span>
         </div>
 
         <div class="ecoai-hero-pathways" aria-label="Visitor pathways">
-          <a href="#research"><strong>Research</strong><span>연구 분야</span></a>
-          <a href="#publications"><strong>Outputs</strong><span>논문·특허</span></a>
+          <a href="#agenda"><strong>Map</strong><span>연구 지도</span></a>
+          <a href="#flagships"><strong>Stories</strong><span>대표 연구</span></a>
           <a href="/join-us/"><strong>Students</strong><span>Join Us</span></a>
         </div>
       primary_action:
@@ -62,20 +83,20 @@ sections:
             saturate: 0.62
         text_color_light: false
       spacing:
-        padding: ['86px', '0', '78px', '0']
+        padding: ['32px', '0', '12px', '0']
 
   - block: stats
     id: highlights
     content:
       items:
-        - statistic: '51'
-          description: International publications
-        - statistic: '60'
-          description: Domestic publications
+        - statistic: '61'
+          description: International journal/conference records
+        - statistic: '61'
+          description: Domestic journal/conference records
         - statistic: '13'
-          description: Patents
-        - statistic: '6'
-          description: Gallery pages
+          description: Patent records
+        - statistic: '2026'
+          description: Latest archived activity year
     design:
       columns: '4'
       background:
@@ -107,13 +128,56 @@ sections:
           </div>
         </div>
 
-        <div class="ecoai-benchmark-grid" aria-label="EcoAI Lab research guide">
-          <span><strong>01</strong> Energy systems</span>
-          <span><strong>02</strong> Secure sensing</span>
-          <span><strong>03</strong> Intelligent optimization</span>
-          <span><strong>04</strong> Verifiable outputs</span>
-          <span><strong>05</strong> Student research</span>
+        <div class="ecoai-research-board" aria-label="EcoAI Lab research board">
+          <div class="ecoai-board-head">
+            <span>EcoAI operating map</span>
+            <strong>현장 신호를 연구 가능한 단위로 나누고, 검증된 산출물로 연결합니다.</strong>
+            <p>에너지 수요, 센서 신뢰성, 최적화 의사결정, 논문·특허 기록을 한 흐름 안에서 다룹니다.</p>
+          </div>
+
+          <div class="ecoai-board-tabs" aria-label="Research route labels">
+            <span>Problem</span>
+            <span>Data</span>
+            <span>Model</span>
+            <span>Output</span>
+          </div>
+
+          <div class="ecoai-board-grid">
+            <a class="ecoai-board-node ecoai-node-energy" href="/projects/smart-energy-optimization/">
+              <span>01 · Energy</span>
+              <strong>수요와 운영 패턴</strong>
+              <p>스마트팩토리·스마트홈 에너지 데이터를 예측과 제어 문제로 정리합니다.</p>
+            </a>
+            <a class="ecoai-board-node ecoai-node-sensing" href="/projects/iot-security-sensing/">
+              <span>02 · Sensing</span>
+              <strong>센서 신뢰성과 보안</strong>
+              <p>센서 오류, 이상 흐름, 보안 이벤트가 AI 판단에 미치는 영향을 추적합니다.</p>
+            </a>
+            <a class="ecoai-board-node ecoai-node-model" href="/projects/quantum-rl-agents/">
+              <span>03 · Model</span>
+              <strong>강화학습 의사결정</strong>
+              <p>복잡한 운영 조건을 에이전트 기반 탐색과 최적화 실험으로 비교합니다.</p>
+            </a>
+            <a class="ecoai-board-node ecoai-node-output" href="/publications/">
+              <span>04 · Archive</span>
+              <strong>논문·특허 기록</strong>
+              <p>실험 결과를 국제·국내 논문, 특허, 프로젝트 기록으로 남깁니다.</p>
+            </a>
+          </div>
         </div>
+
+        <div class="ecoai-method-panel" aria-label="EcoAI Lab research method">
+          <div>
+            <span>Research Method</span>
+            <strong>문제를 좁히고, 데이터를 확인하고, 결과를 기록합니다.</strong>
+          </div>
+          <ol class="ecoai-method-steps">
+            <li class="ecoai-method-step"><strong class="ecoai-method-step-title">Problem Framing</strong><small class="ecoai-method-step-copy">에너지·보안·운영 문제를 측정 가능한 질문으로 바꿉니다.</small></li>
+            <li class="ecoai-method-step"><strong class="ecoai-method-step-title">Modeling</strong><small class="ecoai-method-step-copy">강화학습, 이상탐지, 예측 모델을 비교 가능한 실험으로 설계합니다.</small></li>
+            <li class="ecoai-method-step"><strong class="ecoai-method-step-title">Evidence</strong><small class="ecoai-method-step-copy">논문, 특허, 프로젝트 기록으로 연구 결과를 검증합니다.</small></li>
+          </ol>
+        </div>
+
     design:
       columns: '1'
       background:
@@ -165,6 +229,13 @@ sections:
         </div>
         
         </div>
+
+        <div class="ecoai-research-cadence" aria-label="Research cadence">
+          <span>Lab cadence</span>
+          <strong>주간 보고 → 실험 리뷰 → 산출물 아카이브</strong>
+          <p>연구 주제를 넓게 벌리기보다, 매주 기록된 진행 상황을 바탕으로 실험·분석·문서화를 연결합니다. 학생 연구는 작은 검증 단위에서 시작해 프로젝트와 논문 기록으로 확장합니다.</p>
+        </div>
+
     design:
       columns: '1'
       background:
@@ -198,6 +269,58 @@ sections:
         gradient_start: '#f8fafc'
         gradient_end: '#e2e8f0'
 
+  - block: markdown
+    id: flagships
+    content:
+      title: '대표 연구 스토리'
+      subtitle: 'Flagship Problems'
+      text: |
+        <div class="ecoai-flagship-layout">
+          <div class="ecoai-flagship-visual" aria-label="EcoAI Lab research pipeline">
+            <span class="ecoai-visual-label">EcoAI research pipeline</span>
+            <strong>Field signals become models, decisions, and archived outputs.</strong>
+            <div class="ecoai-data-rail" aria-hidden="true">
+              <span>Sensor</span>
+              <span>Model</span>
+              <span>Decision</span>
+              <span>Output</span>
+            </div>
+          </div>
+
+          <div class="ecoai-flagship-copy">
+            <span>From field data to evidence</span>
+            <strong>연구 주제는 현장 문제에서 출발하고, 실험 가능한 산출물로 끝납니다.</strong>
+            <p>스마트 에너지, 보안 센싱, 강화학습 에이전트는 따로 떨어진 기술 목록이 아니라 하나의 흐름으로 연결됩니다. 데이터를 모으고, 신뢰성을 확인하고, 예측·탐지·최적화 모델로 검증합니다.</p>
+          </div>
+
+          <a class="ecoai-story-card" href="/projects/smart-energy-optimization/">
+            <span>01 · Energy</span>
+            <strong>스마트 에너지 최적화</strong>
+            <p>스마트팩토리와 스마트홈 데이터를 기반으로 수요 예측, 재생에너지 변동성, 강화학습 제어 정책을 다룹니다.</p>
+            <small>Forecast → Simulation → RL Policy</small>
+          </a>
+
+          <a class="ecoai-story-card" href="/projects/iot-security-sensing/">
+            <span>02 · Secure Sensing</span>
+            <strong>IoT 센서 네트워크와 보안</strong>
+            <p>센서 오류, 데이터 변조, 네트워크 장애가 AI 판단을 흔들지 않도록 이상 탐지와 보안 이벤트 분석 구조를 설계합니다.</p>
+            <small>Quality Check → Threat Analysis → Safe Service</small>
+          </a>
+
+          <a class="ecoai-story-card" href="/projects/quantum-rl-agents/">
+            <span>03 · Agents</span>
+            <strong>양자 AI와 강화학습 에이전트</strong>
+            <p>복잡한 에너지·보안 최적화 문제를 멀티에이전트 의사결정과 양자 최적화 가능성 관점에서 비교합니다.</p>
+            <small>Multi-Agent → Quantum Search → Evaluation</small>
+          </a>
+        </div>
+    design:
+      columns: '1'
+      background:
+        color: '#f8fafc'
+      spacing:
+        padding: ['72px', '0', '58px', '0']
+
   - block: collection
     id: projects
     content:
@@ -222,13 +345,19 @@ sections:
         <span class="ecoai-panel-label">Research outputs</span>
         <strong class="ecoai-output-title">연구성과는 검증된 기록 중심으로 정리합니다.</strong>
 
-        기존 Google Sites의 International, Domestic, Patents 하위 페이지를 새 사이트 내부 페이지로 옮겨 연구성과를 한곳에서 확인할 수 있게 정리했습니다.
+        기존 Google Sites의 International, Domestic, Patents 하위 페이지를 새 사이트 내부 페이지로 옮겼습니다. 국제논문·국제학술대회 61건, 국내논문·국내학술대회 61건, 특허 13건을 유형별로 확인할 수 있습니다.
 
         <div class="ecoai-output-meta" aria-label="Research output categories">
           <span>International</span>
           <span>Domestic</span>
           <span>Patents</span>
           <span>Lab News</span>
+        </div>
+
+        <div class="ecoai-output-scoreboard" aria-label="Research output summary">
+          <span><strong>61</strong>International records</span>
+          <span><strong>61</strong>Domestic records</span>
+          <span><strong>13</strong>Patent records</span>
         </div>
 
         <div class="ecoai-archive-links">
@@ -256,7 +385,7 @@ sections:
         ### 교수 (Professor)
         
         <div class="ecoai-professor-card">
-        <img src="/media/authors/admin.jpg" alt="이상금 교수 프로필 사진">
+        <img src="/media/authors/admin.jpg" alt="이상금 교수 프로필 사진" width="150" height="150" loading="lazy" decoding="async">
         <div>
         <span class="ecoai-panel-label">Lab Director</span>
         <h3>이상금 (Sangkeum Lee), Ph.D.</h3>
@@ -306,19 +435,19 @@ sections:
       text: |
         <div class="ecoai-gallery ecoai-gallery-editorial">
           <figure>
-            <img src="/media/lab/prof-lee-profile.jpg" alt="EcoAI Lab 연구실 대표 사진">
+            <img src="/media/lab/prof-lee-profile.jpg" alt="EcoAI Lab 연구실 대표 사진" width="1200" height="800" loading="lazy" decoding="async">
             <figcaption>EcoAI Lab research leadership</figcaption>
           </figure>
           <figure>
-            <img src="/media/lab/prof-lee-gallery-1.jpg" alt="EcoAI Lab 프로필 사진 1">
+            <img src="/media/lab/prof-lee-gallery-1.jpg" alt="EcoAI Lab 프로필 사진 1" width="1600" height="1067" loading="lazy" decoding="async">
             <figcaption>Environmental Energy × AI</figcaption>
           </figure>
           <figure>
-            <img src="/media/lab/prof-lee-gallery-2.jpg" alt="EcoAI Lab 프로필 사진 2">
+            <img src="/media/lab/prof-lee-gallery-2.jpg" alt="EcoAI Lab 프로필 사진 2" width="1600" height="1067" loading="lazy" decoding="async">
             <figcaption>IoT, Security, and Intelligent Systems</figcaption>
           </figure>
           <figure>
-            <img src="/media/lab/prof-lee-gallery-3.jpg" alt="EcoAI Lab 프로필 사진 3">
+            <img src="/media/lab/prof-lee-gallery-3.jpg" alt="EcoAI Lab 프로필 사진 3" width="1600" height="1067" loading="lazy" decoding="async">
             <figcaption>Smart Energy Research</figcaption>
           </figure>
         </div>

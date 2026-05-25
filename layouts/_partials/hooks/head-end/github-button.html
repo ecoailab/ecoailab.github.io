@@ -1,9 +1,9 @@
-<link rel="icon" type="image/jpeg" href="/media/lab/ecoai-logo.jpg">
-<link rel="apple-touch-icon" href="/media/lab/ecoai-logo.jpg">
+<link rel="icon" type="image/png" href="/media/lab/ecoai-logo.png">
+<link rel="apple-touch-icon" href="/media/lab/ecoai-logo.png">
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    var labels = {
+  document.addEventListener('DOMContentLoaded', () => {
+    const labels = {
       'mailto:sangkeum@hanbat.ac.kr': 'Email EcoAI Lab',
       '/publications/': 'View EcoAI Lab publications',
       '/join-us/': 'View EcoAI Lab join us information',
@@ -14,8 +14,8 @@
       'https://creativecommons.org/licenses/by-nc-nd/4.0': 'Creative Commons BY-NC-ND 4.0 license'
     };
 
-    Object.keys(labels).forEach(function (href) {
-      document.querySelectorAll('a[href="' + href + '"]').forEach(function (link) {
+    Object.keys(labels).forEach((href) => {
+      document.querySelectorAll(`a[href="${href}"]`).forEach((link) => {
         if (!link.textContent.trim() && !link.getAttribute('aria-label')) {
           link.setAttribute('aria-label', labels[href]);
         }

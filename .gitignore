@@ -1,6 +1,8 @@
 # Hugo build output
 /public/
 /resources/_gen/
+hugo_stats.json
+media/*_hu_*.png
 assets/jsconfig.json
 .hugo_build.lock
 

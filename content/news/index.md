@@ -3,7 +3,8 @@ title: News
 url: '/news/'
 summary: EcoAI Lab news, awards, talks, media coverage, and announcements from Google Sites.
 description: EcoAI Lab news archive with verified links to the legacy Google Sites news page.
-date: 2024-01-01
+date: 2026-05-15
+lastmod: 2026-05-15
 type: page
 ---
 

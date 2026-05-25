@@ -3,7 +3,8 @@ title: Patents
 url: '/publications/patents/'
 summary: EcoAI Lab patent records copied from the legacy Google Sites page.
 description: Patent applications and registrations from the EcoAI Lab Google Sites Publications page.
-date: 2024-01-01
+date: 2026-05-15
+lastmod: 2026-05-15
 type: page
 ---
 

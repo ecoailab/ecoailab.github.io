@@ -18,7 +18,7 @@
 
 ### 2단계: 파일 업로드
 
-이 폴터의 모든 파일을 GitHub에 업로드:
+이 폴더의 모든 파일을 GitHub에 업로드:
 
 ```powershell
 # 저장소 클론
@@ -46,7 +46,7 @@ git push origin main
 
 ---
 
-## 📁 폴터 구조
+## 📁 폴더 구조
 
 ```
 EcoAI-Lab-Website/
@@ -81,12 +81,12 @@ EcoAI-Lab-Website/
 `content/authors/admin/_index.md` 파일 편집
 
 ### 논문 추가
-1. `content/publications/` 폴터에 새 폴터 생성
+1. `content/publications/` 폴더에 새 폴더 생성
 2. `index.md` + `cite.bib` 파일 작성
 3. 커밋 → 자동 배포
 
 ### 프로젝트 추가
-1. `content/projects/` 폴터에 새 폴터 생성
+1. `content/projects/` 폴더에 새 폴더 생성
 2. `index.md` 작성
 3. 이미지: `featured.jpg` 또는 `featured.png`
 
@@ -98,7 +98,7 @@ EcoAI-Lab-Website/
 
 ```yaml
 # 사이트 이름
-dentity:
+identity:
   name: "EcoAI Lab"
   tagline: "환경에너지와 인공지능으로 지속가능한 미래를 연구합니다"
 
@@ -189,5 +189,5 @@ GitHub Pages는 정적 호스팅만 제공하므로 CMS 화면은 표시할 수 
 
 ---
 
-**최종 업데이트**: 2024년  
-**버전**: 1.0
+**최종 업데이트**: 2026년 5월
+**버전**: 1.1

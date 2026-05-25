@@ -3,7 +3,8 @@ title: International Publications
 url: '/publications/international/'
 summary: EcoAI Lab international journal and conference publications copied from the legacy Google Sites page.
 description: EcoAI Lab international journals and conferences from the legacy Google Sites Publications page.
-date: 2024-01-01
+date: 2026-05-15
+lastmod: 2026-05-15
 type: page
 ---
 
