@@ -2943,3 +2943,67 @@ body.page-wrapper h1.text-4xl.font-bold.tracking-tight.sm\:text-6xl {
     grid-template-columns: 1fr;
   }
 }
+
+/* Top-tier polish: project cards should read as real research entries, not placeholders. */
+.page-body section#projects .container.grid {
+  width: min(100% - 32px, 1180px);
+  max-width: 1180px !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  align-items: stretch;
+  gap: 22px;
+}
+
+.page-body section#projects [role="article"] {
+  height: 100%;
+  border-radius: 8px !important;
+  box-shadow: 0 20px 58px rgba(15, 23, 42, 0.1);
+}
+
+.page-body section#projects [role="article"] > .relative {
+  aspect-ratio: 16 / 10;
+}
+
+.page-body section#projects [role="article"] img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.page-body section#projects [role="article"] .p-8 {
+  padding: 24px !important;
+}
+
+.page-body section#projects [role="article"] h3 {
+  min-height: 3.1rem;
+  font-size: 1.08rem;
+}
+
+.page-body section#projects [role="article"] p {
+  font-size: 0.98rem;
+}
+
+@media (max-width: 1020px) {
+  .page-body section#projects .container.grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .page-body section#projects .container.grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .page-body section#projects [role="article"] h3 {
+    min-height: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-body section#projects [role="article"] {
+    transition: none;
+  }
+
+  .page-body section#projects [role="article"]:hover {
+    transform: none;
+  }
+}

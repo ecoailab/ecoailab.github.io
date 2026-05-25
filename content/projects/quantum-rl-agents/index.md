@@ -1,6 +1,7 @@
 ---
 title: 양자 AI와 강화학습 에이전트
 date: 2024-01-01
+lastmod: 2026-05-25
 summary: 양자컴퓨팅, 강화학습, 멀티에이전트 시스템을 결합해 복잡한 최적화 문제를 해결하는 연구 주제입니다.
 tags:
   - Quantum AI
@@ -8,6 +9,9 @@ tags:
   - 멀티에이전트
   - 최적화
 featured: true
+image:
+  caption: 'EcoAI Lab adaptive agents and optimization research'
+  filename: featured.jpg
 ---
 
 EcoAI Lab은 양자컴퓨팅과 강화학습을 활용해 에너지, 보안, 운영 최적화 문제를 해결하는 차세대 AI 방법론을 탐구합니다.

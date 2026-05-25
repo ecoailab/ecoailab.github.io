@@ -1,6 +1,7 @@
 ---
 title: IoT 센서 네트워크와 보안
 date: 2024-01-01
+lastmod: 2026-05-25
 summary: IoT 센서 네트워크와 물리·사이버 보안 데이터를 활용해 안전한 지능형 시스템을 설계하는 연구 주제입니다.
 tags:
   - IoT
@@ -8,6 +9,9 @@ tags:
   - 센서 네트워크
   - 데이터 분석
 featured: true
+image:
+  caption: 'EcoAI Lab IoT and secure sensing research'
+  filename: featured.jpg
 ---
 
 EcoAI Lab은 IoT 센서 네트워크에서 수집되는 데이터를 기반으로 이상 탐지, 위협 분석, 안전한 지능형 서비스 구조를 연구합니다.

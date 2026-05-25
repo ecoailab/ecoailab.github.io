@@ -3,7 +3,7 @@
 title: ''
 summary: '한밭대학교 EcoAI Lab은 환경에너지와 인공지능을 결합해 스마트팩토리, 스마트홈, IoT 보안, 강화학습, 양자컴퓨팅 기반 문제 해결을 연구합니다.'
 date: 2026-05-15
-lastmod: 2026-05-15
+lastmod: 2026-05-25
 type: landing
 
 design:
@@ -30,7 +30,7 @@ sections:
         </div>
 
         <figure class="ecoai-hero-photo">
-          <img src="/media/lab/prof-lee-gallery-2.jpg" alt="EcoAI Lab 연구실 구성원 단체 사진" width="1600" height="1067" loading="eager" decoding="async">
+          <img src="/media/lab/prof-lee-gallery-2.jpg" alt="EcoAI Lab 연구실 구성원 단체 사진" width="1600" height="1067" loading="eager" decoding="async" fetchpriority="high" sizes="(max-width: 900px) calc(100vw - 32px), 520px">
           <figcaption>
             <span>Lab signal</span>
             <strong>Data, sensing, security, and intelligent operation.</strong>

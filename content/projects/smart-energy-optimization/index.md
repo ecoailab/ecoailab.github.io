@@ -1,6 +1,7 @@
 ---
 title: 스마트 에너지 최적화
 date: 2024-01-01
+lastmod: 2026-05-25
 summary: 스마트팩토리와 스마트홈 환경에서 에너지 사용량을 예측하고 최적화하는 AI 기반 연구 주제입니다.
 tags:
   - 환경에너지
@@ -8,6 +9,9 @@ tags:
   - 스마트홈
   - 최적화
 featured: true
+image:
+  caption: 'EcoAI Lab smart energy research discussion'
+  filename: featured.jpg
 ---
 
 EcoAI Lab은 스마트팩토리와 스마트홈의 에너지 데이터를 기반으로 수요 예측, 효율 개선, 운영 최적화 방법을 연구합니다.
