@@ -3083,3 +3083,105 @@ body.page-wrapper h1.text-4xl.font-bold.tracking-tight.sm\:text-6xl {
     transform: none;
   }
 }
+
+/* Objective cleanup pass: reduce repetition, expose the hero image earlier, and quiet the chrome. */
+.page-body section#about {
+  min-height: auto;
+}
+
+.page-body section#about .hero-block-container .mx-auto.max-w-2xl {
+  padding-top: 48px;
+  padding-bottom: 22px;
+}
+
+.page-body section#about .hero-block-container .text-center > h1 {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+.page-body section#about .hero-block-container .text-center,
+.page-body section#about .hero-block-container .text-center > p {
+  align-items: start;
+}
+
+.page-body section#about .ecoai-hero-photo {
+  grid-row: 1 / span 6;
+  min-height: 500px;
+  box-shadow: 0 26px 72px rgba(15, 23, 42, 0.14);
+}
+
+.page-body section#about .ecoai-hero-photo img {
+  min-height: 500px;
+}
+
+.page-body section#about .ecoai-hero-photo::after {
+  background:
+    linear-gradient(180deg, transparent 56%, rgba(2, 6, 23, 0.28) 100%),
+    linear-gradient(90deg, rgba(8, 47, 73, 0.12), transparent 54%);
+}
+
+.page-body section#about .ecoai-hero-title {
+  margin-top: 14px;
+  font-size: 3.78rem;
+}
+
+.page-body section#about .ecoai-hero-proof {
+  margin-top: 24px;
+}
+
+.page-body section#about .ecoai-hero-pathways {
+  margin-top: 10px;
+}
+
+@media (max-width: 1100px) {
+  .page-body section#about .ecoai-hero-photo,
+  .page-body section#about .ecoai-hero-photo img {
+    min-height: 430px;
+  }
+}
+
+@media (max-width: 720px) {
+  .page-body section#about .hero-block-container .mx-auto.max-w-2xl {
+    padding-top: 30px;
+    padding-bottom: 20px;
+  }
+
+  .page-body section#about .ecoai-hero-kicker {
+    margin-bottom: 14px;
+  }
+
+  .page-body section#about .ecoai-hero-title {
+    font-size: 2rem;
+    line-height: 1.08;
+  }
+
+  .page-body section#about .ecoai-hero-photo {
+    order: 4;
+    min-height: 230px;
+    margin-top: 18px;
+  }
+
+  .page-body section#about .ecoai-hero-photo img {
+    min-height: 230px;
+  }
+
+  .page-body section#about .ecoai-hero-deck {
+    order: 5;
+  }
+
+  .page-body section#about .ecoai-hero-brief {
+    order: 6;
+  }
+
+  .page-body section#about .ecoai-hero-proof {
+    order: 7;
+  }
+
+  .page-body section#about .ecoai-hero-pathways {
+    order: 8;
+  }
+}

@@ -21,20 +21,8 @@ sections:
 
         <span class="ecoai-hero-kicker">Hanbat National University · Environmental Energy AI</span>
 
-        <div class="ecoai-hero-brand">
-          <span class="ecoai-hero-mark" role="img" aria-label="EcoAI Lab logo"></span>
-          <div>
-            <strong>EcoAI Lab</strong>
-            <span>Environmental Energy × AI</span>
-          </div>
-        </div>
-
         <figure class="ecoai-hero-photo">
           <img src="/media/lab/ecoai-gpt-hero.webp" alt="환경에너지 AI 연구 환경을 표현한 생성형 히어로 이미지" width="1586" height="992" loading="eager" decoding="async" fetchpriority="high" sizes="(max-width: 900px) calc(100vw - 32px), 520px">
-          <figcaption>
-            <span>Lab signal</span>
-            <strong>Data, sensing, security, and intelligent operation.</strong>
-          </figcaption>
         </figure>
 
         <span class="ecoai-hero-title">환경에너지 AI를 현장 운영의 언어로 만듭니다</span>
@@ -84,26 +72,6 @@ sections:
         text_color_light: false
       spacing:
         padding: ['32px', '0', '12px', '0']
-
-  - block: stats
-    id: highlights
-    content:
-      items:
-        - statistic: '61'
-          description: International journal/conference records
-        - statistic: '61'
-          description: Domestic journal/conference records
-        - statistic: '13'
-          description: Patent records
-        - statistic: '2026'
-          description: Latest archived activity year
-    design:
-      columns: '4'
-      background:
-        color: '#0f172a'
-      spacing:
-        padding: ['34px', '0', '34px', '0']
-
   - block: markdown
     id: agenda
     content:
@@ -240,35 +208,6 @@ sections:
       columns: '1'
       background:
         color: '#ffffff'
-
-  - block: features
-    id: technologies
-    content:
-      title: '핵심 기술'
-      subtitle: 'Core Technologies'
-      items:
-        - icon: atom
-          icon_pack: fas
-          name: 'Quantum AI'
-          description: '양자컴퓨팅을 활용한 차세대 AI 알고리즘 연구'
-        - icon: network-wired
-          icon_pack: fas
-          name: 'Smart Grid'
-          description: '지능형 전력망 최적화 및 에너지 효율화'
-        - icon: shield-alt
-          icon_pack: fas
-          name: 'Security'
-          description: 'AI 기반 사이버보안 및 위협 탐지'
-        - icon: robot
-          icon_pack: fas
-          name: 'Multi-Agent'
-          description: '분산 AI 시스템 및 자율 에이전트'
-    design:
-      columns: '4'
-      background:
-        gradient_start: '#f8fafc'
-        gradient_end: '#e2e8f0'
-
   - block: markdown
     id: flagships
     content:
