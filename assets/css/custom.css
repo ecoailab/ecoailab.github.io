@@ -2944,7 +2944,7 @@ body.page-wrapper h1.text-4xl.font-bold.tracking-tight.sm\:text-6xl {
   }
 }
 
-/* Top-tier polish: project cards should read as real research entries, not placeholders. */
+/* Cleaner project card layout. */
 .page-body section#projects .container.grid {
   width: min(100% - 32px, 1180px);
   max-width: 1180px !important;
@@ -2995,6 +2995,82 @@ body.page-wrapper h1.text-4xl.font-bold.tracking-tight.sm\:text-6xl {
 
   .page-body section#projects [role="article"] h3 {
     min-height: 0;
+  }
+}
+
+@media (max-width: 720px) {
+  .page-body section#about .hero-block-container .text-center > p {
+    display: flex !important;
+    flex-direction: column;
+  }
+
+  .page-body section#about .ecoai-hero-kicker {
+    order: 1;
+    align-self: flex-start;
+    margin: 0 0 18px;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    font-size: 0.72rem;
+  }
+
+  .page-body section#about .ecoai-hero-brand {
+    display: none;
+  }
+
+  .page-body section#about .ecoai-hero-title {
+    order: 2;
+    margin: 0 0 14px;
+    font-size: 2.08rem;
+    line-height: 1.1;
+  }
+
+  .page-body section#about .ecoai-hero-subtitle {
+    order: 3;
+    margin-top: 0;
+    font-size: 1rem;
+  }
+
+  .page-body section#about .ecoai-hero-deck {
+    order: 4;
+    margin-top: 16px;
+    font-size: 0.98rem;
+    line-height: 1.72;
+  }
+
+  .page-body section#about .ecoai-hero-brief {
+    order: 5;
+    margin-top: 18px;
+  }
+
+  .page-body section#about .ecoai-hero-photo {
+    order: 6;
+    margin: 24px 0 0;
+  }
+
+  .page-body section#about .ecoai-hero-proof {
+    order: 7;
+    gap: 8px;
+    margin-top: 18px;
+    overflow: visible;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .page-body section#about .ecoai-hero-proof span {
+    min-height: 0;
+    padding: 13px 15px;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.82);
+  }
+
+  .page-body section#about .ecoai-hero-pathways {
+    order: 8;
+    margin-top: 18px;
   }
 }
 

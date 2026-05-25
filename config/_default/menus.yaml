@@ -47,16 +47,8 @@ main:
     weight: 24
   - name: Alumni
     url: alumni/
+    parent: 구성원
     weight: 25
-  - name: Join Us
-    url: join-us/
-    weight: 30
   - name: 협업
     url: collaborate/
     weight: 31
-  - name: 운영정책
-    url: governance/
-    weight: 50
-  - name: 문의
-    url: /#contact
-    weight: 60
