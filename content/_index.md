@@ -55,8 +55,8 @@ sections:
           <a href="/join-us/"><strong>Students</strong><span>Join Us</span></a>
         </div>
       primary_action:
-        text: 연구 소개
-        url: '#research'
+        text: 연구 지도
+        url: '#agenda'
         icon: rocket-launch
       secondary_action:
         text: Join Us
@@ -75,7 +75,7 @@ sections:
   - block: markdown
     id: agenda
     content:
-      title: '연구 지도'
+      title: '연구 분야 지도'
       subtitle: 'Research Map'
       text: |
         <div class="ecoai-authority-strip">
@@ -152,62 +152,6 @@ sections:
         color: '#f8fafc'
       spacing:
         padding: ['70px', '0', '46px', '0']
-
-  - block: markdown
-    id: research
-    content:
-      title: '연구 분야'
-      subtitle: 'Research Areas'
-      text: |
-        <div class="ecoai-section-intro">
-        <span>Research map</span>
-        복잡한 에너지 운영 문제를 데이터, 보안, 최적화 관점에서 연구합니다.
-        </div>
-
-        <div class="ecoai-research-grid">
-        
-        <div class="ecoai-research-card ecoai-card-cyan">
-        <div class="ecoai-card-icon">01</div>
-        <h3>환경에너지</h3>
-        <ul>
-        <li>스마트팩토리 에너지 최적화</li>
-        <li>스마트홈 에너지 관리</li>
-        <li>재생에너지 예측 시스템</li>
-        </ul>
-        </div>
-        
-        <div class="ecoai-research-card ecoai-card-emerald">
-        <div class="ecoai-card-icon">02</div>
-        <h3>IoT & 보안</h3>
-        <ul>
-        <li>IoT 센서 네트워크</li>
-        <li>사이버보안 시스템</li>
-        <li>물리보안 솔루션</li>
-        </ul>
-        </div>
-        
-        <div class="ecoai-research-card ecoai-card-blue">
-        <div class="ecoai-card-icon">03</div>
-        <h3>AI 기술</h3>
-        <ul>
-        <li>양자컴퓨팅 & 머신러닝</li>
-        <li>강화학습 기반 최적화</li>
-        <li>멀티에이전트 시스템</li>
-        </ul>
-        </div>
-        
-        </div>
-
-        <div class="ecoai-research-cadence" aria-label="Research cadence">
-          <span>Lab cadence</span>
-          <strong>주간 보고 → 실험 리뷰 → 산출물 아카이브</strong>
-          <p>연구 주제를 넓게 벌리기보다, 매주 기록된 진행 상황을 바탕으로 실험·분석·문서화를 연결합니다. 학생 연구는 작은 검증 단위에서 시작해 프로젝트와 논문 기록으로 확장합니다.</p>
-        </div>
-
-    design:
-      columns: '1'
-      background:
-        color: '#ffffff'
   - block: markdown
     id: flagships
     content:

@@ -8,7 +8,7 @@ main:
     url: /
     weight: 10
   - name: 연구분야
-    url: /#research
+    url: /#agenda
     weight: 11
   - name: 논문
     url: publications/
