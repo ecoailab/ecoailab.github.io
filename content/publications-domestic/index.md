@@ -4,7 +4,7 @@ url: '/publications/domestic/'
 summary: EcoAI Lab domestic journal and conference records copied from the legacy Google Sites page.
 description: Domestic journal and conference publications from the EcoAI Lab Google Sites Publications page.
 date: 2026-05-15
-lastmod: 2026-05-15
+lastmod: 2026-07-05
 type: page
 ---
 
@@ -16,7 +16,8 @@ Source: [Google Sites · Domestic](https://sites.google.com/view/ecoai/publicati
 
 ## Domestic Journal
 
-1. Sangkeum Lee, Dongsoo Har, Luiz Felipe Vecchietti, Junhee Hong, Hoi-Jeong Lim. “Optimal Link Scheduling Based on Attributes of Nodes in 6TiSCH Wireless Networks”, The Journal of KIIT, 2020.
+1. Byounghoon Son, Minsung Jung, Sangkeum Lee, "Improving SQL Generation on Industrial Time-Series Data with Structured EXPLAIN Feedback using a 4B SLM", The Journal of KIIT, 2026.
+2. Sangkeum Lee, Dongsoo Har, Luiz Felipe Vecchietti, Junhee Hong, Hoi-Jeong Lim. “Optimal Link Scheduling Based on Attributes of Nodes in 6TiSCH Wireless Networks”, The Journal of KIIT, 2020.
 
 <span id="domestic-conferences" class="ecoai-anchor-target" aria-hidden="true"></span>
 
