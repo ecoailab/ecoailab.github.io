@@ -5,13 +5,16 @@ const memories = [
   { src: '/assets/gallery/gallery-1.jpg', alt: 'EcoAI Lab 연구 활동' },
   { src: '/assets/gallery/gallery-2.jpg', alt: 'EcoAI Lab 학회 참석' },
   { src: '/assets/gallery/gallery-3.jpg', alt: 'EcoAI Lab 팀' },
+  ...Array.from({ length: 13 }, (_, i) => ({
+    src: `/assets/gallery/memories-${i + 1}.jpg`,
+    alt: `EcoAI Lab Memories ${i + 1}`,
+  })),
 ];
 
-const awards = [
-  { src: '/assets/people/prof-lee-1.jpg', alt: '이상금 교수' },
-  { src: '/assets/people/prof-lee-2.jpg', alt: '이상금 교수 연구' },
-  { src: '/assets/people/prof-lee-3.jpg', alt: '이상금 교수 발표' },
-];
+const awards = Array.from({ length: 19 }, (_, i) => ({
+  src: `/assets/gallery/awards-${i + 1}.jpg`,
+  alt: `EcoAI Lab Awards ${i + 1}`,
+}));
 
 const all = [...memories, ...awards];
 ---
