@@ -41,17 +41,42 @@ float fbm(vec2 p) {
   return v;
 }
 
+float meteor(vec2 suv, float timeSec) {
+  float period = 9.0;
+  float cycle = floor(timeSec / period);
+  float local = fract(timeSec / period);
+  float rnd = hash(vec2(cycle, 7.31));
+  float active = step(0.45, rnd);
+  vec2 start = vec2(1.15 + 0.25 * fract(rnd * 13.7), 0.55 + 0.45 * fract(rnd * 5.3));
+  vec2 dir = normalize(vec2(-0.55, -0.4));
+  vec2 p = start + dir * local * 1.7;
+  float m = smoothstep(0.014, 0.0, length(suv - p));
+  for (int i = 1; i <= 8; i++) {
+    vec2 tp = p - dir * float(i) * 0.035;
+    m += smoothstep(0.009, 0.0, length(suv - tp)) * (1.0 - float(i) / 9.0) * 0.55;
+  }
+  float fade = smoothstep(0.0, 0.12, local) * smoothstep(1.0, 0.7, local);
+  return m * fade * active;
+}
+
 void main() {
-  vec2 uv = vUv * vec2(uRes.x / uRes.y, 1.0) * vec2(2.6, 2.6);
+  vec2 suv = vUv * vec2(uRes.x / uRes.y, 1.0);
+  vec2 uv = suv * vec2(2.6, 2.6);
   float t = uTime * 0.011;
   float c1 = fbm(uv + vec2(t * 1.3, t * 0.15));
   float c2 = fbm(uv * 2.1 + vec2(t * 2.1, 0.35) + 3.7);
-  float cloud = smoothstep(0.42, 0.9, c1 * 0.6 + c2 * 0.5);
+  float cloud = smoothstep(0.4, 0.9, c1 * 0.6 + c2 * 0.5);
   float horizon = smoothstep(0.0, 0.9, vUv.y);
-  vec3 deep = vec3(0.012, 0.045, 0.105);
-  vec3 lit = vec3(0.2, 0.4, 0.72);
+  vec3 deep = vec3(0.016, 0.06, 0.135);
+  vec3 lit = vec3(0.27, 0.5, 0.85);
   vec3 col = mix(deep, lit, cloud);
-  float alpha = cloud * (0.14 + 0.10 * horizon);
+  float alpha = cloud * (0.2 + 0.12 * horizon);
+
+  float band = smoothstep(0.15, 0.5, vUv.y) * smoothstep(1.0, 0.55, vUv.y);
+  float wave = 0.5 + 0.5 * sin(suv.x * 3.2 + uTime * 0.12 + fbm(uv * 1.4) * 2.4);
+  float aurora = band * wave;
+  col += vec3(0.18, 0.42, 0.85) * aurora * 0.1;
+  alpha = max(alpha, aurora * 0.07);
 
   vec2 grid = vUv * uRes / 2.5;
   vec2 cell = floor(grid);
@@ -63,6 +88,10 @@ void main() {
   float starGlow = star * starShape * twinkle;
   col += vec3(0.72, 0.86, 1.0) * starGlow * 0.95;
   alpha = max(alpha, starGlow * 0.85);
+
+  float shoot = meteor(suv, uTime);
+  col += vec3(0.8, 0.9, 1.0) * shoot * 0.9;
+  alpha = max(alpha, shoot * 0.8);
 
   gl_FragColor = vec4(col, alpha);
 }
