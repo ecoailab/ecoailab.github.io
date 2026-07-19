@@ -9,6 +9,7 @@ export interface Person {
   nameKr: string;
   note?: string;
   github?: string;
+  photo?: string;
 }
 
 export const professor = {
@@ -73,22 +74,22 @@ export const professor = {
 } as const;
 
 export const msStudents: Person[] = [
-  { name: 'Junyeon Kim', nameKr: '김준연', note: 'current: SK shieldus' },
-  { name: 'Minu Baek', nameKr: '백민우', github: 'https://github.com/dovi0129' },
-  { name: 'Gihun Gil', nameKr: '길기훈', github: 'https://github.com/mark4653' },
-  { name: 'Junseong Park', nameKr: '박준성', note: 'Int. B.S.–M.S.', github: 'https://github.com/junseong00' },
-  { name: 'Beomdo Park', nameKr: '박범도', note: 'Int. B.S.–M.S.', github: 'https://github.com/beomdo-park' },
-  { name: 'Hyeonseok Jang', nameKr: '장현석', note: 'Int. B.S.–M.S.', github: 'https://github.com/seokchu' },
-  { name: 'Yeojin Jang', nameKr: '장여진', github: 'https://github.com/jyeoj251' },
-  { name: 'Minsung Jung', nameKr: '정민성', note: 'Int. B.S.–M.S.', github: 'https://github.com/Polyestere' },
-  { name: 'Jenilyn Park', nameKr: '박제니린', github: 'https://github.com/jenipark' },
+  { name: 'Junyeon Kim', nameKr: '김준연', note: 'current: SK shieldus', photo: '/assets/people/junyeon-kim.jpg' },
+  { name: 'Minu Baek', nameKr: '백민우', github: 'https://github.com/dovi0129', photo: '/assets/people/minu-baek.jpg' },
+  { name: 'Gihun Gil', nameKr: '길기훈', github: 'https://github.com/mark4653', photo: '/assets/people/gihun-gil.jpg' },
+  { name: 'Junseong Park', nameKr: '박준성', note: 'Int. B.S.–M.S.', github: 'https://github.com/junseong00', photo: '/assets/people/junseong-park.jpg' },
+  { name: 'Beomdo Park', nameKr: '박범도', note: 'Int. B.S.–M.S.', github: 'https://github.com/beomdo-park', photo: '/assets/people/beomdo-park.jpg' },
+  { name: 'Hyeonseok Jang', nameKr: '장현석', note: 'Int. B.S.–M.S.', github: 'https://github.com/seokchu', photo: '/assets/people/hyeonseok-jang.jpg' },
+  { name: 'Yeojin Jang', nameKr: '장여진', github: 'https://github.com/jyeoj251', photo: '/assets/people/yeojin-jang.jpg' },
+  { name: 'Minsung Jung', nameKr: '정민성', note: 'Int. B.S.–M.S.', github: 'https://github.com/Polyestere', photo: '/assets/people/minsung-jung.jpg' },
+  { name: 'Jenilyn Park', nameKr: '박제니린', github: 'https://github.com/jenipark', photo: '/assets/people/jenilyn-park.jpg' },
 ];
 
 export const undergradStudents: Person[] = [
-  { name: 'Seoyoung Lee', nameKr: '이서영', github: 'https://github.com/2seoyoungg' },
-  { name: 'Jio Yoo', nameKr: '유지오', github: 'https://github.com/dbwldh12' },
-  { name: 'Juhui Kim', nameKr: '김주희', github: 'https://github.com/Kjh753' },
-  { name: 'Dowon Noh', nameKr: '노도원', github: 'https://github.com/20252710' },
+  { name: 'Seoyoung Lee', nameKr: '이서영', github: 'https://github.com/2seoyoungg', photo: '/assets/people/seoyoung-lee.jpg' },
+  { name: 'Jio Yoo', nameKr: '유지오', github: 'https://github.com/dbwldh12', photo: '/assets/people/jio-yoo.jpg' },
+  { name: 'Juhui Kim', nameKr: '김주희', github: 'https://github.com/Kjh753', photo: '/assets/people/juhui-kim.jpg' },
+  { name: 'Dowon Noh', nameKr: '노도원', github: 'https://github.com/20252710', photo: '/assets/people/dowon-noh.jpg' },
 ];
 
 export interface AlumniGroup {

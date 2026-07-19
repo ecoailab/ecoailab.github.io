@@ -158,13 +158,24 @@ const getInitials = (name: string): string => {
           const initials = getInitials(person.name);
           return (
             <div class="person-card card card-hover flex items-start gap-4 p-6">
-              <div
-                class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full font-display text-lg font-semibold text-frost"
-                style="background: linear-gradient(135deg, var(--color-brand), var(--color-azure))"
-                aria-hidden="true"
-              >
-                {initials}
-              </div>
+              {person.photo ? (
+                <img
+                  src={person.photo}
+                  alt={`${person.nameKr} (${person.name})`}
+                  width="56"
+                  height="56"
+                  loading="lazy"
+                  class="h-14 w-14 shrink-0 rounded-full border border-line object-cover"
+                />
+              ) : (
+                <div
+                  class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full font-display text-lg font-semibold text-frost"
+                  style="background: linear-gradient(135deg, var(--color-brand), var(--color-azure))"
+                  aria-hidden="true"
+                >
+                  {initials}
+                </div>
+              )}
               <div class="min-w-0 flex-1">
                 <p class="font-display text-base font-semibold text-frost">{person.name}</p>
                 <p class="text-sm text-mist">{person.nameKr}</p>
@@ -213,13 +224,24 @@ const getInitials = (name: string): string => {
           const initials = getInitials(person.name);
           return (
             <div class="person-card card card-hover flex items-start gap-4 p-6">
-              <div
-                class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full font-display text-lg font-semibold text-frost"
-                style="background: linear-gradient(135deg, var(--color-brand), var(--color-azure))"
-                aria-hidden="true"
-              >
-                {initials}
-              </div>
+              {person.photo ? (
+                <img
+                  src={person.photo}
+                  alt={`${person.nameKr} (${person.name})`}
+                  width="56"
+                  height="56"
+                  loading="lazy"
+                  class="h-14 w-14 shrink-0 rounded-full border border-line object-cover"
+                />
+              ) : (
+                <div
+                  class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full font-display text-lg font-semibold text-frost"
+                  style="background: linear-gradient(135deg, var(--color-brand), var(--color-azure))"
+                  aria-hidden="true"
+                >
+                  {initials}
+                </div>
+              )}
               <div class="min-w-0 flex-1">
                 <p class="font-display text-base font-semibold text-frost">{person.name}</p>
                 <p class="text-sm text-mist">{person.nameKr}</p>
