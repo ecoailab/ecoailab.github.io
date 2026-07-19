@@ -21,6 +21,13 @@ import { site } from '../data/site';
   </div>
 
   <div class="relative z-10 mx-auto max-w-6xl px-6 text-center">
+    <p class="hero-badge mb-7 inline-flex items-center gap-2.5 opacity-0" data-hero="badge">
+      <span class="relative flex h-2 w-2" aria-hidden="true">
+        <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-azure opacity-60"></span>
+        <span class="relative inline-flex h-2 w-2 rounded-full bg-azure"></span>
+      </span>
+      2026 · IJCAI &amp; AAAI Papers Accepted
+    </p>
     <p class="mono-label mb-6 !text-mist opacity-0" data-hero="label">
       Hanbat National University · Dept. of Computer Engineering
     </p>
@@ -79,7 +86,8 @@ import { site } from '../data/site';
   if (!prefersReducedMotion()) {
     gsap
       .timeline({ defaults: { ease: 'power3.out' } })
-      .to('[data-hero="label"]', { opacity: 1, duration: 0.8 }, 0.5)
+      .to('[data-hero="badge"]', { opacity: 1, duration: 0.8 }, 0.4)
+      .to('[data-hero="label"]', { opacity: 1, duration: 0.8 }, 0.55)
       .fromTo(
         '[data-hero="title"]',
         { opacity: 0, y: 34 },

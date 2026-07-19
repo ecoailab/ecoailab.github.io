@@ -38,6 +38,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://ecoailab.gi
     <ClientRouter />
   </head>
   <body>
+    <canvas id="sky-canvas" class="fixed inset-0 -z-10 h-full w-full" aria-hidden="true"></canvas>
     <a
       href="#main"
       class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-azure focus:px-4 focus:py-2 focus:text-sm focus:text-abyss"
@@ -52,9 +53,20 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://ecoailab.gi
     <script>
       import { getLenis } from '../lib/motion';
       import { initReveal } from '../lib/reveal';
+      import { initSky } from '../lib/sky';
 
       const lenis = getLenis();
       initReveal();
+
+      const skyCanvas = document.getElementById('sky-canvas') as HTMLCanvasElement | null;
+      if (skyCanvas) {
+        try {
+          initSky(skyCanvas);
+        } catch {
+          skyCanvas.style.display = 'none';
+        }
+      }
+
       document.addEventListener('astro:before-swap', () => {
         lenis?.scrollTo(0, { immediate: true });
       });

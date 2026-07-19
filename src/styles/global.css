@@ -164,6 +164,16 @@
     background-clip: text;
     color: transparent;
   }
+
+  .hero-badge {
+    @apply rounded-full px-4 py-1.5 font-mono text-xs font-medium;
+    letter-spacing: 0.06em;
+    color: var(--color-sky-glow);
+    background: color-mix(in oklab, var(--color-brand) 22%, transparent);
+    border: 1px solid color-mix(in oklab, var(--color-azure) 35%, transparent);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
 }
 
 @utility marquee-mask {
