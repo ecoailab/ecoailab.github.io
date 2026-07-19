@@ -22,16 +22,17 @@ import { coreTech } from '../data/site';
       coreTech.map((tech, i) => (
         <button
           type="button"
-          class="tech-slice group relative flex-1 overflow-hidden rounded-xl border border-line bg-panel text-left transition-[flex-grow] duration-500 ease-out focus-visible:flex-grow-[3] hover:flex-grow-[3] lg:min-h-0"
-          aria-expanded="false"
+          class:list={['tech-slice group relative overflow-hidden rounded-xl border border-line bg-panel text-left lg:min-h-0', i === 0 && 'tech-open']}
+          aria-expanded={i === 0 ? 'true' : 'false'}
           data-index={i}
         >
-          <span class="tech-collapsed absolute inset-0 flex items-end p-5 lg:items-start lg:justify-center" aria-hidden="true">
-            <span class="font-mono text-xs font-medium uppercase tracking-[0.14em] text-dim transition-colors duration-200 group-hover:text-azure lg:mt-2 lg:[writing-mode:vertical-rl]">
-              {String(i + 1).padStart(2, '0')} · {tech.title}
+          <span class="tech-collapsed pointer-events-none flex items-center gap-3 p-5 lg:absolute lg:inset-0 lg:flex-col lg:items-center lg:justify-start lg:p-5">
+            <span class="font-mono text-sm font-medium text-azure">{String(i + 1).padStart(2, '0')}</span>
+            <span class="font-mono text-xs font-medium uppercase tracking-[0.14em] text-mist lg:mt-3 lg:[writing-mode:vertical-rl]">
+              {tech.title}
             </span>
           </span>
-          <span class="tech-expanded flex h-full flex-col justify-end gap-3 p-6 opacity-0 transition-opacity duration-300 lg:justify-between lg:p-7">
+          <span class="tech-expanded pointer-events-none flex h-full flex-col gap-3 p-6 lg:justify-between lg:p-7">
             <span class="font-mono text-xs text-azure">{String(i + 1).padStart(2, '0')}</span>
             <span>
               <span class="block font-display text-xl font-semibold text-frost lg:text-2xl">{tech.title}</span>
@@ -45,51 +46,74 @@ import { coreTech } from '../data/site';
 </section>
 
 <style>
-  .tech-slice:hover .tech-collapsed,
-  .tech-slice:focus-visible .tech-collapsed {
+  .tech-slice {
+    flex: 1 1 0;
+    transition:
+      flex-grow 500ms cubic-bezier(0.16, 1, 0.3, 1),
+      border-color 250ms ease-out;
+  }
+  .tech-slice .tech-expanded {
     opacity: 0;
+    transition: opacity 300ms ease-out;
   }
-  .tech-slice:hover .tech-expanded,
-  .tech-slice:focus-visible .tech-expanded {
-    opacity: 1;
-    transition-delay: 150ms;
-  }
-  .tech-slice:hover,
-  .tech-slice:focus-visible {
+  .tech-slice.tech-open {
     border-color: var(--color-line-strong);
   }
-  @media (max-width: 1023px) {
-    .tech-slice .tech-collapsed {
-      position: static;
-      padding: 1.25rem;
+  .tech-slice.tech-open .tech-collapsed {
+    opacity: 0;
+  }
+  .tech-slice.tech-open .tech-expanded {
+    opacity: 1;
+    transition-delay: 120ms;
+  }
+
+  @media (min-width: 1024px) {
+    .tech-slice {
+      flex-grow: 1;
     }
+    .tech-slice.tech-open {
+      flex-grow: 3.4;
+    }
+    .tech-slice .tech-expanded {
+      opacity: 0;
+    }
+  }
+
+  @media (max-width: 1023px) {
     .tech-slice .tech-expanded {
       display: none;
     }
-    .tech-slice:hover .tech-expanded,
-    .tech-slice:focus-visible .tech-expanded {
+    .tech-slice.tech-open .tech-collapsed {
+      display: none;
+    }
+    .tech-slice.tech-open .tech-expanded {
       display: flex;
-      padding-top: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .tech-slice {
+      transition: none;
     }
   }
 </style>
 
 <script>
   const slices = Array.from(document.querySelectorAll<HTMLButtonElement>('.tech-slice'));
+  const accordion = document.querySelector('.tech-accordion');
 
-  const sync = () => {
-    const active = document.activeElement;
-    slices.forEach((slice) => {
-      const expanded =
-        slice === active || slice.matches(':hover') ? 'true' : 'false';
-      slice.setAttribute('aria-expanded', expanded);
+  const open = (index: number) => {
+    slices.forEach((slice, i) => {
+      const isOpen = i === index;
+      slice.classList.toggle('tech-open', isOpen);
+      slice.setAttribute('aria-expanded', String(isOpen));
     });
   };
 
   slices.forEach((slice, i) => {
-    slice.addEventListener('mouseenter', sync);
-    slice.addEventListener('focus', sync);
-    slice.addEventListener('blur', sync);
+    slice.addEventListener('mouseenter', () => open(i));
+    slice.addEventListener('focus', () => open(i));
+    slice.addEventListener('click', () => open(i));
     slice.addEventListener('keydown', (e) => {
       if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
         e.preventDefault();
@@ -101,4 +125,6 @@ import { coreTech } from '../data/site';
       }
     });
   });
+
+  accordion?.addEventListener('mouseleave', () => open(0));
 </script>
