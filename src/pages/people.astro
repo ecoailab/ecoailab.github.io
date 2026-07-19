@@ -44,13 +44,15 @@ const getInitials = (name: string): string => {
       <div class="grid gap-10 p-7 md:p-10 lg:grid-cols-[480px_1fr]">
         <!-- Left: Photo + Identity -->
         <div class="flex flex-col items-start gap-6">
-          <img
-            src={professor.photo}
-            alt={`${professor.nameKr} (${professor.name})`}
-            width="480"
-            height="600"
-            class="aspect-[4/5] w-full rounded-xl object-cover"
-          />
+          <div class="w-full overflow-hidden rounded-xl">
+            <img
+              src={professor.photo}
+              alt={`${professor.nameKr} (${professor.name})`}
+              width="480"
+              height="600"
+              class="kenburns aspect-[4/5] w-full object-cover"
+            />
+          </div>
           <div>
             <h3 class="font-display text-2xl font-semibold text-frost">
               {professor.name} <span class="text-mist">{professor.nameKr}</span>
@@ -86,10 +88,10 @@ const getInitials = (name: string): string => {
         <!-- Right: Career Timeline -->
         <div>
           <p class="mono-label mb-6">// CAREER</p>
-          <ul class="relative border-l border-line pl-6">
+          <ul class="career-rail relative border-l border-line pl-6">
             {
-              professor.career.map((step) => (
-                <li class="relative pb-6 last:pb-0">
+              professor.career.map((step, i) => (
+                <li class="career-step relative pb-6 last:pb-0" style={`transition-delay:${i * 90}ms`}>
                   <span
                     class="absolute -left-[25px] top-1.5 h-2 w-2 rounded-full bg-line-strong"
                     aria-hidden="true"
@@ -155,7 +157,7 @@ const getInitials = (name: string): string => {
         msStudents.map((person) => {
           const initials = getInitials(person.name);
           return (
-            <div class="card card-hover flex items-start gap-4 p-6">
+            <div class="person-card card card-hover flex items-start gap-4 p-6">
               <div
                 class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full font-display text-lg font-semibold text-frost"
                 style="background: linear-gradient(135deg, var(--color-brand), var(--color-azure))"
@@ -210,7 +212,7 @@ const getInitials = (name: string): string => {
         undergradStudents.map((person) => {
           const initials = getInitials(person.name);
           return (
-            <div class="card card-hover flex items-start gap-4 p-6">
+            <div class="person-card card card-hover flex items-start gap-4 p-6">
               <div
                 class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full font-display text-lg font-semibold text-frost"
                 style="background: linear-gradient(135deg, var(--color-brand), var(--color-azure))"
@@ -263,8 +265,8 @@ const getInitials = (name: string): string => {
     <ul class="divide-y divide-line">
       {
         alumni.map((group) => (
-          <li class="grid gap-2 py-5 md:grid-cols-[80px_1fr_auto] md:gap-6">
-            <span class="font-mono text-sm text-azure">{group.year}</span>
+          <li class="alumni-row grid gap-2 py-5 transition-colors duration-200 md:grid-cols-[80px_1fr_auto] md:gap-6">
+            <span class="font-mono text-sm text-azure transition-transform duration-200">{group.year}</span>
             <span class="text-sm leading-relaxed text-mist">{group.members}</span>
             <span class="text-xs text-dim">{group.note}</span>
           </li>
@@ -273,3 +275,95 @@ const getInitials = (name: string): string => {
     </ul>
   </section>
 </Layout>
+
+<style>
+  .kenburns {
+    animation: kb-zoom 22s ease-in-out infinite alternate;
+    will-change: transform;
+  }
+  @keyframes kb-zoom {
+    from {
+      transform: scale(1) translate(0, 0);
+    }
+    to {
+      transform: scale(1.05) translate(-1%, 1%);
+    }
+  }
+
+  .career-step {
+    opacity: 0;
+    transform: translateX(-10px);
+    transition:
+      opacity 600ms ease-out,
+      transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .career-rail.rail-on .career-step {
+    opacity: 1;
+    transform: none;
+  }
+
+  .person-card {
+    transition:
+      transform 220ms ease-out,
+      border-color 200ms ease-out,
+      background-color 200ms ease-out;
+    will-change: transform;
+  }
+
+  .alumni-row:hover {
+    background: color-mix(in oklab, var(--color-ink) 55%, transparent);
+  }
+  .alumni-row:hover .font-mono {
+    transform: translateX(4px);
+    display: inline-block;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .kenburns {
+      animation: none;
+    }
+    .career-step {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  import { prefersReducedMotion } from '../lib/motion';
+
+  const rail = document.querySelector('.career-rail');
+  if (rail) {
+    if (prefersReducedMotion() || !('IntersectionObserver' in window)) {
+      rail.classList.add('rail-on');
+    } else {
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              rail.classList.add('rail-on');
+              io.disconnect();
+            }
+          });
+        },
+        { threshold: 0.25 },
+      );
+      io.observe(rail);
+    }
+  }
+
+  if (!prefersReducedMotion()) {
+    document.querySelectorAll<HTMLElement>('.person-card').forEach((card) => {
+      card.addEventListener('pointermove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const dx = (e.clientX - rect.left) / rect.width - 0.5;
+        const dy = (e.clientY - rect.top) / rect.height - 0.5;
+        card.style.transform = `translate(${dx * 6}px, ${dy * 6 - 2}px)`;
+      });
+      card.addEventListener('pointerleave', () => {
+        card.style.transform = '';
+      });
+    });
+  }
+</script>

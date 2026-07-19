@@ -111,6 +111,8 @@ const validInitial = categories.some((c) => c.id === initialCat) ? initialCat : 
 </Layout>
 
 <script>
+  import { staggerIn, tweenNumber, visibleItems } from '../lib/list-dynamics';
+
   const rows = Array.from(document.querySelectorAll<HTMLElement>('.pub-row'));
   const chips = Array.from(document.querySelectorAll<HTMLButtonElement>('.pub-cat'));
   const search = document.getElementById('pub-search') as HTMLInputElement | null;
@@ -129,7 +131,7 @@ const validInitial = categories.some((c) => c.id === initialCat) ? initialCat : 
     });
   };
 
-  const apply = () => {
+  const apply = (animate = true) => {
     let visible = 0;
     rows.forEach((row) => {
       const catOk = activeCat === 'all' || row.dataset.cat === activeCat;
@@ -138,8 +140,12 @@ const validInitial = categories.some((c) => c.id === initialCat) ? initialCat : 
       row.classList.toggle('hidden', !show);
       if (show) visible += 1;
     });
-    if (countEl) countEl.textContent = String(visible);
+    if (countEl) tweenNumber(countEl, visible);
     emptyEl?.classList.toggle('hidden', visible !== 0);
+
+    if (animate) {
+      staggerIn(visibleItems(rows), { max: 14, step: 24, y: 10 });
+    }
 
     const url = new URL(window.location.href);
     if (activeCat === 'all') {
@@ -168,5 +174,21 @@ const validInitial = categories.some((c) => c.id === initialCat) ? initialCat : 
   });
 
   syncChips();
-  apply();
+  apply(false);
 </script>
+
+<style>
+  .pub-row h2 {
+    transition:
+      transform 200ms ease-out,
+      color 150ms ease-out;
+  }
+  .pub-row:hover h2 {
+    transform: translateX(4px);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .pub-row:hover h2 {
+      transform: none;
+    }
+  }
+</style>

@@ -33,13 +33,15 @@ const allTags: ProjectTag[] = ['energy', 'quantum', 'llm', 'rl', 'anomaly', 'com
     aria-label="Research banner"
     data-reveal
   >
-    <img
-      src="/assets/hero/sky-hero.jpg"
-      alt="EcoAI Lab research banner"
-      width="1920"
-      height="822"
-      class="aspect-[21/9] w-full rounded-xl border border-line object-cover"
-    />
+    <div class="overflow-hidden rounded-xl border border-line">
+      <img
+        src="/assets/hero/sky-hero.jpg"
+        alt="EcoAI Lab research banner"
+        width="1920"
+        height="822"
+        class="kenburns aspect-[21/9] w-full object-cover"
+      />
+    </div>
   </section>
 
   <!-- Project Explorer -->
@@ -110,7 +112,7 @@ const allTags: ProjectTag[] = ['energy', 'quantum', 'llm', 'rl', 'anomaly', 'com
       {
         projects.map((project) => (
           <article
-            class="project-card card p-7"
+            class="project-card card card-hover p-7"
             data-status={project.status}
             data-tags={project.tags.join(',')}
           >
@@ -153,18 +155,20 @@ const allTags: ProjectTag[] = ['energy', 'quantum', 'llm', 'rl', 'anomaly', 'com
 </Layout>
 
 <script>
+  import { staggerIn, visibleItems } from '../lib/list-dynamics';
+
   type StatusFilter = 'all' | 'ongoing' | 'completed';
 
   const statusChips = document.querySelectorAll<HTMLButtonElement>('[data-filter-status]');
   const tagChips = document.querySelectorAll<HTMLButtonElement>('[data-filter-tag]');
-  const cards = document.querySelectorAll<HTMLElement>('.project-card');
+  const cards = Array.from(document.querySelectorAll<HTMLElement>('.project-card'));
   const countEl = document.getElementById('project-count');
   const emptyEl = document.getElementById('empty-state');
 
   let activeStatus: StatusFilter = 'all';
   const activeTags = new Set<string>();
 
-  const applyFilters = (): void => {
+  const applyFilters = (animate: boolean): void => {
     let visible = 0;
 
     cards.forEach((card) => {
@@ -189,6 +193,10 @@ const allTags: ProjectTag[] = ['energy', 'quantum', 'llm', 'rl', 'anomaly', 'com
     if (emptyEl) {
       emptyEl.classList.toggle('hidden', visible > 0);
     }
+
+    if (animate) {
+      staggerIn(visibleItems(cards), { max: 12, step: 40, y: 18 });
+    }
   };
 
   const setActiveChipStyle = (chip: HTMLButtonElement, active: boolean): void => {
@@ -212,7 +220,7 @@ const allTags: ProjectTag[] = ['energy', 'quantum', 'llm', 'rl', 'anomaly', 'com
         setActiveChipStyle(c, isActive);
       });
 
-      applyFilters();
+      applyFilters(true);
     });
   });
 
@@ -229,7 +237,7 @@ const allTags: ProjectTag[] = ['energy', 'quantum', 'llm', 'rl', 'anomaly', 'com
         setActiveChipStyle(chip, true);
       }
 
-      applyFilters();
+      applyFilters(true);
     });
   });
 
@@ -240,3 +248,23 @@ const allTags: ProjectTag[] = ['energy', 'quantum', 'llm', 'rl', 'anomaly', 'com
     }
   });
 </script>
+
+<style>
+  .kenburns {
+    animation: kb-pan 26s ease-in-out infinite alternate;
+    will-change: transform;
+  }
+  @keyframes kb-pan {
+    from {
+      transform: scale(1.02) translate(0, 0);
+    }
+    to {
+      transform: scale(1.12) translate(2%, -2%);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .kenburns {
+      animation: none;
+    }
+  }
+</style>
