@@ -1,0 +1,96 @@
+---
+import { site } from '../data/site';
+import '../styles/global.css';
+---
+
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>EcoAI Lab</title>
+    <meta name="robots" content="noindex" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
+    />
+    <style>
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+        background: var(--color-abyss);
+      }
+    </style>
+  </head>
+  <body>
+    <section class="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden px-6 text-center">
+      <canvas id="hero-canvas" class="absolute inset-0 h-full w-full" aria-hidden="true"></canvas>
+
+      <div
+        id="hero-fallback"
+        class="absolute inset-0 hidden items-center justify-center"
+        aria-hidden="true"
+      >
+        <img src={site.logo} alt="" class="w-40 opacity-90 md:w-56" width="224" height="224" />
+      </div>
+
+      <div
+        class="pointer-events-none absolute inset-0"
+        style="background: radial-gradient(ellipse 70% 50% at 50% 78%, rgba(4,7,12,0.72) 0%, transparent 100%)"
+        aria-hidden="true"
+      >
+      </div>
+
+      <div class="relative z-10 flex flex-col items-center">
+        <p class="mono-label mb-4 !text-mist">Hanbat National University · Computer Engineering</p>
+        <h1
+          class="font-display font-semibold leading-[1.05] tracking-[-0.02em] text-frost"
+          style="font-size: clamp(2rem, 6vw, 3.75rem)"
+        >
+          EcoAI <span class="text-gradient-azure">Lab</span>
+        </h1>
+        <p class="mt-4 max-w-md text-base leading-relaxed text-mist md:text-lg">
+          {site.tagline}
+        </p>
+        <a
+          href="https://ecoailab.github.io/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-primary mt-8"
+        >
+          전체 사이트 보기
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <path d="M5 12h14m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <script>
+      import { initHeroParticles } from '../lib/hero-particles';
+
+      const canvas = document.getElementById('hero-canvas') as HTMLCanvasElement | null;
+      const fallback = document.getElementById('hero-fallback');
+
+      const showFallback = () => {
+        if (canvas) canvas.style.display = 'none';
+        fallback?.classList.remove('hidden');
+        fallback?.classList.add('flex');
+      };
+
+      if (canvas) {
+        try {
+          await initHeroParticles(canvas, '/assets/brand/ecoai-logo.png');
+        } catch {
+          showFallback();
+        }
+        if (!canvas.getContext('webgl2') && !canvas.getContext('webgl')) {
+          showFallback();
+        }
+      }
+    </script>
+  </body>
+</html>
