@@ -1,0 +1,191 @@
+@import 'tailwindcss';
+@import '@fontsource/outfit/400.css';
+@import '@fontsource/outfit/500.css';
+@import '@fontsource/outfit/600.css';
+@import '@fontsource/jetbrains-mono/400.css';
+@import '@fontsource/jetbrains-mono/500.css';
+
+@theme {
+  --color-abyss: #04070c;
+  --color-ink: #0a0f16;
+  --color-panel: #0d141d;
+  --color-line: #16202e;
+  --color-line-strong: #223146;
+  --color-brand: #004193;
+  --color-azure: #3e8ede;
+  --color-sky-glow: #9ec9ff;
+  --color-frost: #eaf2fc;
+  --color-mist: #8fa3bc;
+  --color-dim: #55677e;
+  --color-success: #2fbf8f;
+  --color-warn: #d9a441;
+
+  --font-display: 'Outfit', 'Pretendard', ui-sans-serif, system-ui, sans-serif;
+  --font-body: 'Pretendard', 'Outfit', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+@layer base {
+  html {
+    scrollbar-color: var(--color-line-strong) var(--color-abyss);
+  }
+
+  body {
+    @apply bg-abyss text-mist font-body antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display text-frost;
+    text-wrap: balance;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--color-azure) 32%, transparent);
+    color: var(--color-frost);
+  }
+
+  :focus-visible {
+    outline: none;
+    box-shadow:
+      0 0 0 2px var(--color-abyss),
+      0 0 0 4px var(--color-azure);
+    border-radius: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(26px);
+    transition:
+      opacity 700ms ease-out,
+      transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  [data-reveal].is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-reveal] {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+
+  .mono-label {
+    @apply font-mono text-xs font-medium uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-dim);
+  }
+
+  .hairline-b {
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  .glass-pill {
+    background: color-mix(in oklab, var(--color-ink) 78%, transparent);
+    backdrop-filter: blur(14px) saturate(1.4);
+    -webkit-backdrop-filter: blur(14px) saturate(1.4);
+    border: 1px solid var(--color-line);
+  }
+
+  .card {
+    background: var(--color-panel);
+    border: 1px solid var(--color-line);
+    border-radius: 12px;
+    transition:
+      transform 200ms ease-out,
+      border-color 200ms ease-out,
+      background-color 200ms ease-out;
+  }
+
+  .card-hover:hover {
+    border-color: var(--color-line-strong);
+    transform: translateY(-2px);
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-8 py-3 text-sm font-medium;
+    background: var(--color-azure);
+    color: var(--color-abyss);
+    transition:
+      background-color 150ms ease-out,
+      transform 150ms ease-out;
+  }
+
+  .btn-primary:hover {
+    background: var(--color-sky-glow);
+    transform: translateY(-1px);
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-8 py-3 text-sm font-medium;
+    border: 1px solid var(--color-line-strong);
+    color: var(--color-frost);
+    transition:
+      border-color 150ms ease-out,
+      color 150ms ease-out,
+      transform 150ms ease-out;
+  }
+
+  .btn-ghost:hover {
+    border-color: var(--color-azure);
+    color: var(--color-sky-glow);
+    transform: translateY(-1px);
+  }
+
+  .chip {
+    @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-medium;
+    border: 1px solid var(--color-line);
+    color: var(--color-mist);
+  }
+
+  .text-gradient-azure {
+    background: linear-gradient(120deg, var(--color-frost) 0%, var(--color-sky-glow) 55%, var(--color-azure) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+@utility marquee-mask {
+  mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+}
+
+@keyframes marquee-x {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@utility animate-marquee {
+  animation: marquee-x 36s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
+}
