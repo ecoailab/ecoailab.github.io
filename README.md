@@ -1,193 +1,71 @@
 # EcoAI Lab Website
 
-**EcoAI Lab** 공식 웹사이트 - 한밭대학교 컴퓨터공학과
+한밭대학교 컴퓨터공학과 **EcoAI Lab** 공식 홈페이지.
 
-🔗 **Live Site**: https://ecoailab.github.io/  
-🔗 **GitHub**: https://github.com/ECOAIlab/ecoailab.github.io
+**Live**: https://ecoailab.github.io/
 
----
+Astro 5 정적 사이트 + Three.js WebGL 파티클 히어로 + GSAP/Lenis 스크롤 모션. 디자인 계약은 [`DESIGN.md`](./DESIGN.md) 참고.
 
-## 🚀 빠른 시작 (배포 방법)
+## Stack
 
-### 1단계: GitHub 저장소 생성
+- **Astro 5** (static output, View Transitions)
+- **Tailwind CSS 4** (`@tailwindcss/vite`)
+- **Three.js** — 로고 알파 마스크를 샘플링한 GPU 파티클 히어로 (`src/lib/hero-particles.ts`)
+- **GSAP + ScrollTrigger, Lenis** — 스크럽 텍스트 리빌, 핀 섹션, 스무스 스크롤 (`src/lib/motion.ts`)
+- TypeScript strict
 
-1. https://github.com/ECOAIlab 접속
-2. **New Repository** 클릭
-3. Repository name: **`ecoailab.github.io`** (반드시 이 이름!)
-4. Public 설정 → **Create repository**
-
-### 2단계: 파일 업로드
-
-이 폴더의 모든 파일을 GitHub에 업로드:
-
-```powershell
-# 저장소 클론
-git clone https://github.com/ECOAIlab/ecoailab.github.io.git
-cd ecoailab.github.io
-
-# 파일 복사 (PowerShell)
-Copy-Item -Path "..\EcoAI-Lab-Website\*" -Destination "." -Recurse -Force
-
-# 커밋 및 푸시
-git add .
-git commit -m "Initial EcoAI Lab website"
-git push origin main
-```
-
-### 3단계: GitHub Pages 활성화
-
-1. 저장소 **Settings** → **Pages**
-2. Source: **GitHub Actions** 선택
-3. 자동 배포 완료 대기 (1-2분)
-
-### 4단계: 확인
-
-🎉 https://ecoailab.github.io/ 에서 확인!
-
----
-
-## 📁 폴더 구조
-
-```
-EcoAI-Lab-Website/
-├── 📂 config/_default/          # 설정 파일
-│   ├── hugo.yaml               # Hugo 기본 설정
-│   └── params.yaml             # 사이트 설정 (이름, 색상 등)
-│
-├── 📂 content/                  # 웹사이트 내용
-│   ├── _index.md               # 홈페이지
-│   ├── authors/admin/          # 교수님 프로필
-│   ├── publications/           # 논문 목록
-│   ├── projects/               # 연구 프로젝트
-│   └── blog/                   # 뉴스/소식
-│
-├── 📂 static/uploads/           # 정적 파일 (이미지, PDF 등)
-│
-├── 📂 .github/workflows/        # 자동 배포 설정
-│   └── hugo.yml                # GitHub Actions
-│
-├── 📄 README.md                # 이 파일
-└── 📄 DEPLOY_GUIDE.md          # 상세 배포 가이드
-```
-
----
-
-## ✏️ 내용 수정 방법
-
-### 홈페이지 수정
-`content/_index.md` 파일을 텍스트 에디터로 열어 수정
-
-### 교수님 정보 수정
-`content/authors/admin/_index.md` 파일 편집
-
-### 논문 추가
-1. `content/publications/` 폴더에 새 폴더 생성
-2. `index.md` + `cite.bib` 파일 작성
-3. 커밋 → 자동 배포
-
-### 프로젝트 추가
-1. `content/projects/` 폴더에 새 폴더 생성
-2. `index.md` 작성
-3. 이미지: `featured.jpg` 또는 `featured.png`
-
----
-
-## 🎨 디자인 변경
-
-`config/_default/params.yaml` 파일에서 수정:
-
-```yaml
-# 사이트 이름
-identity:
-  name: "EcoAI Lab"
-  tagline: "환경에너지와 인공지능으로 지속가능한 미래를 연구합니다"
-
-# 테마 색상
-theme:
-  colors:
-    primary: "teal"      # 주 색상
-    secondary: "emerald" # 보조 색상
-```
-
----
-
-## 📚 참고 자료
-
-- **HugoBlox 문서**: https://docs.hugoblox.com/
-- **템플릿 소스**: https://github.com/HugoBlox/hugo-theme-academic-cv
-- **GitHub Pages**: https://docs.github.com/en/pages
-
----
-
-## 🆘 문제 해결
-
-### 빌드 실패 시
-1. Actions 탭에서 빨간색 ❌ 클릭 → 로그 확인
-2. YAML 문법 오류 체크
-3. 이미지 경로 대소문자 확인
-
-### 로컬 미리보기 (선택)
-Hugo 설치 후:
-```bash
-hugo server -D
-# http://localhost:1313
-```
-
----
-
-## 품질 검사와 CMS
-
-### 자동 품질 검사
-
-`.github/workflows/site-quality.yml`는 사이트를 빌드한 뒤 Lighthouse CI와 링크 검사를 실행합니다.
-
-- Lighthouse CI 설정: `lighthouserc.json`
-- 링크 검사 설정: `lychee.toml`
-- 검사 대상: Hugo가 생성한 `public/` 폴더
-
-로컬에서 확인하려면 다음 순서로 실행합니다.
+## Develop
 
 ```bash
-pnpm install --frozen-lockfile
-hugo --gc --minify --baseURL "https://ecoailab.github.io/"
-pnpm run pagefind
-pnpm run quality:lighthouse
+npm install
+npm run dev      # http://localhost:4321
+npm run build    # dist/ 생성
+npm run preview  # 빌드 결과 로컬 확인
 ```
 
-링크 검사는 GitHub Actions에서 `lycheeverse/lychee-action`으로 실행합니다. 로컬에서 같은 검사를 하려면 lychee를 설치한 뒤 아래 명령을 실행합니다.
+> **Google Drive 동기화 폴터에서 작업하는 경우**: `npm install`이 EBADF로 실패할 수 있습니다.
+> 로컬 NTFS 경로에 `npm install --prefix <로컬경로>`로 설치 후 소스만 동기화하거나,
+> 로컬 경로에서 개발하세요. CI(GitHub Actions)에서는 문제없습니다.
 
-```bash
-lychee --config lychee.toml --cache --no-progress --root-dir . --base-url https://ecoailab.github.io/ "public/**/*.html"
+## Content editing (코드 없이 데이터만 수정)
+
+모든 콘텐츠는 `src/data/`의 타입스크립트 데이터 파일로 관리됩니다.
+
+| 파일 | 내용 |
+|---|---|
+| `src/data/people.ts` | 교수 프로필, 석사/학부 연구원, 졸업생 |
+| `src/data/projects.ts` | 연구 프로젝트 25건 (status: ongoing/completed) |
+| `src/data/publications.ts` | 국제저널/학회, 국내저널/학회, 특허 163건 |
+| `src/data/news.ts` | 수상/발표/인턴십/언론 99건 |
+| `src/data/site.ts` | 연구 도메인, 핵심 기술, 연락처, 통계 |
+
+논문/뉴스 추가 시 해당 파일에 같은 형식으로 항목을 추가하면 빌드 시 자동 반영됩니다.
+
+## Images
+
+`public/assets/` 하위에 위치:
+
+- `brand/ecoai-logo.png` — 공식 로고 (시안3, 투명 배경)
+- `people/` — 교수 사진 (연구원 사진 추가 시 `public/assets/people/`에 넣고 `people.ts`에 경로 추가)
+- `gallery/` — 갤러리 사진 (추가 시 `src/pages/gallery.astro`의 배열에 등록)
+- `hero/` — 히어로/배너 이미지
+
+## Deploy
+
+GitHub Pages (Actions). `main` 브랜치에 push하면 `.github/workflows/deploy.yml`이 자동 빌드/배포합니다.
+저장소 Settings → Pages → Source: **GitHub Actions** 선택이 필요합니다.
+
+## Structure
+
+```
+src/
+  components/   # Nav, Footer, Hero, DomainBento, TechAccordion, ...
+  data/         # 사이트 전체 콘텐츠 (타입 안전)
+  layouts/      # Layout.astro (head, 폰트, Lenis, reveal)
+  lib/          # motion.ts (Lenis+GSAP), hero-particles.ts (Three.js), reveal.ts
+  pages/        # index, people, research, publications, news, gallery, 404
+  styles/       # global.css (Tailwind 4 @theme 토큰)
+public/assets/  # 이미지/파일
 ```
 
-### Decap CMS 관리 화면
-
-관리 화면은 `/admin/` 경로에 생성됩니다.
-
-- CMS 화면: `static/admin/index.html`
-- CMS 설정: `static/admin/config.yml`
-- 관리 대상: 홈페이지 일부, Join Us, 협업 안내, 연구실 소식, 연구 프로젝트
-
-GitHub Pages는 정적 호스팅만 제공하므로 CMS 화면은 표시할 수 있지만 GitHub 로그인 인증은 별도 OAuth/proxy 설정이 필요합니다. 실제 편집 기능을 쓰려면 GitHub OAuth 앱, 외부 인증 프록시, 또는 Decap CMS가 지원하는 별도 인증 구성을 연결해야 합니다.
-
----
-
-## 📧 연락처
-
-**EcoAI Lab**  
-한밭대학교 컴퓨터공학과  
-📍 N4-416  
-📧 sangkeum@hanbat.ac.kr  
-📞 +82 42 821 1205
-
----
-
-## 📝 라이선스
-
-- 템플릿: [HugoBlox Academic CV](https://github.com/HugoBlox/hugo-theme-academic-cv) (MIT License)
-- 내용: © 2024 EcoAI Lab, Hanbat National University
-
----
-
-**최종 업데이트**: 2026년 5월
-**버전**: 1.1
+© EcoAI Lab, Hanbat National University

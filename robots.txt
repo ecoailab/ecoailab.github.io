@@ -1,3 +1,0 @@
-User-agent: *
-
-Sitemap: https://ecoailab.github.io/sitemap.xml
