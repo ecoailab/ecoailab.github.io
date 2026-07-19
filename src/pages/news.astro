@@ -1,0 +1,181 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { news, type NewsType } from '../data/news';
+
+const typeOrder: NewsType[] = [
+  'Award',
+  'Speaker',
+  'Newsletter',
+  'Internship',
+  'Committee',
+  'Program',
+  'Session Chair',
+  'Thesis Committee',
+  'Technology Transfer',
+  'Other',
+];
+
+const counts = new Map<NewsType, number>();
+for (const item of news) {
+  counts.set(item.type, (counts.get(item.type) ?? 0) + 1);
+}
+
+const chipStyle: Record<NewsType, string> = {
+  Award: '!border-warn/40 !text-warn',
+  Speaker: '!border-azure/40 !text-azure',
+  Newsletter: '!border-sky-glow/40 !text-sky-glow',
+  Internship: '!border-success/40 !text-success',
+  Committee: '',
+  Program: '',
+  'Session Chair': '',
+  'Thesis Committee': '',
+  'Technology Transfer': '',
+  Other: '',
+};
+---
+
+<Layout title="News">
+  <div class="mx-auto w-full max-w-6xl px-6 pb-24 pt-32 md:px-10 md:pt-40">
+    <header class="mb-12 md:mb-16" data-reveal>
+      <p class="mono-label mb-4 !text-azure">// NEWS</p>
+      <h1
+        class="font-display font-semibold tracking-[-0.015em]"
+        style="font-size: clamp(2.25rem, 4.5vw, 3.5rem)"
+      >
+        연구실 소식
+      </h1>
+      <p class="mt-5 max-w-2xl text-lg leading-relaxed text-mist">
+        수상, 초청 발표, 인턴십, 언론 볏도까지 — EcoAI Lab의 발자취입니다.
+      </p>
+      <div class="relative mt-8 h-px w-full bg-line" aria-hidden="true">
+        <span class="absolute -top-px left-0 h-[3px] w-12 bg-azure"></span>
+      </div>
+    </header>
+
+    <div class="sticky top-20 z-30 -mx-2 mb-8 rounded-2xl bg-abyss/85 px-2 py-3 backdrop-blur-lg" data-reveal>
+      <div class="flex flex-wrap items-center gap-2" role="group" aria-label="Type filter">
+        <button type="button" class="news-type chip transition-colors duration-150" data-type="all" aria-pressed="true">
+          All <span class="ml-1.5 font-mono text-[10px] text-dim">{news.length}</span>
+        </button>
+        {
+          typeOrder
+            .filter((type) => (counts.get(type) ?? 0) > 0)
+            .map((type) => (
+              <button
+                type="button"
+                class="news-type chip transition-colors duration-150"
+                data-type={type}
+                aria-pressed="false"
+              >
+                {type}
+                <span class="ml-1.5 font-mono text-[10px] text-dim">{counts.get(type)}</span>
+              </button>
+            ))
+        }
+        <div class="relative ml-auto min-w-[180px] flex-1 md:max-w-xs md:flex-none">
+          <input
+            id="news-search"
+            type="search"
+            placeholder="Search news…"
+            aria-label="Search news"
+            class="w-full rounded-full border border-line bg-panel px-4 py-1.5 text-sm text-frost placeholder:text-dim focus:border-azure focus:outline-none"
+          />
+        </div>
+      </div>
+    </div>
+
+    <p class="mono-label mb-4" aria-live="polite">
+      <span id="news-count">{news.length}</span> entries
+    </p>
+
+    <div class="border-t border-line">
+      {
+        news.map((item) => (
+          <article
+            class="news-row group grid gap-2 border-b border-line py-5 transition-colors duration-150 hover:bg-ink/50 md:grid-cols-[9.5rem_minmax(0,1fr)_4rem] md:gap-6 md:px-2"
+            data-type={item.type}
+            data-search={item.text.toLowerCase()}
+          >
+            <span class:list={['chip self-start !text-[10px]', chipStyle[item.type]]}>
+              {item.type}
+            </span>
+            <p class="text-sm leading-relaxed text-mist transition-colors duration-150 group-hover:text-frost">
+              {item.text}
+              {item.link && (
+                <a
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="ml-2 inline-flex align-middle text-azure transition-colors hover:text-sky-glow"
+                  aria-label="Related link"
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                    <path d="M7 17 17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </a>
+              )}
+            </p>
+            <span class="font-mono text-xs leading-6 text-dim md:text-right">{item.year}</span>
+          </article>
+        ))
+      }
+    </div>
+
+    <div id="news-empty" class="hidden py-20 text-center text-dim">
+      해당 조건의 소식이 없습니다.
+    </div>
+  </div>
+</Layout>
+
+<script>
+  const rows = Array.from(document.querySelectorAll<HTMLElement>('.news-row'));
+  const chips = Array.from(document.querySelectorAll<HTMLButtonElement>('.news-type'));
+  const search = document.getElementById('news-search') as HTMLInputElement | null;
+  const countEl = document.getElementById('news-count');
+  const emptyEl = document.getElementById('news-empty');
+
+  let activeType = 'all';
+  let query = '';
+
+  const syncChips = () => {
+    chips.forEach((chip) => {
+      const active = chip.dataset.type === activeType;
+      chip.setAttribute('aria-pressed', String(active));
+      chip.style.borderColor = active ? 'var(--color-brand)' : '';
+      chip.style.color = active ? 'var(--color-azure)' : '';
+    });
+  };
+
+  const apply = () => {
+    let visible = 0;
+    rows.forEach((row) => {
+      const typeOk = activeType === 'all' || row.dataset.type === activeType;
+      const qOk = query === '' || (row.dataset.search ?? '').includes(query);
+      const show = typeOk && qOk;
+      row.classList.toggle('hidden', !show);
+      if (show) visible += 1;
+    });
+    if (countEl) countEl.textContent = String(visible);
+    emptyEl?.classList.toggle('hidden', visible !== 0);
+  };
+
+  chips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      activeType = chip.dataset.type ?? 'all';
+      syncChips();
+      apply();
+    });
+  });
+
+  let timer = 0;
+  search?.addEventListener('input', () => {
+    window.clearTimeout(timer);
+    timer = window.setTimeout(() => {
+      query = (search.value ?? '').trim().toLowerCase();
+      apply();
+    }, 120);
+  });
+
+  syncChips();
+  apply();
+</script>

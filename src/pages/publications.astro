@@ -1,0 +1,172 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { publications, type PublicationCategory } from '../data/publications';
+
+interface CategoryChip {
+  id: PublicationCategory | 'all';
+  label: string;
+}
+
+const categories: CategoryChip[] = [
+  { id: 'all', label: 'All' },
+  { id: 'international-journal', label: 'Int. Journals' },
+  { id: 'international-conference', label: 'Int. Conferences' },
+  { id: 'domestic-journal', label: 'Domestic Journals' },
+  { id: 'domestic-conference', label: 'Domestic Conferences' },
+  { id: 'patent', label: 'Patents' },
+];
+
+const counts = new Map<string, number>();
+for (const pub of publications) {
+  counts.set(pub.category, (counts.get(pub.category) ?? 0) + 1);
+}
+const countFor = (id: string) => (id === 'all' ? publications.length : (counts.get(id) ?? 0));
+
+const initialCat = Astro.url.searchParams.get('cat') ?? 'all';
+const validInitial = categories.some((c) => c.id === initialCat) ? initialCat : 'all';
+---
+
+<Layout title="Publications">
+  <div class="mx-auto w-full max-w-6xl px-6 pb-24 pt-32 md:px-10 md:pt-40">
+    <header class="mb-12 md:mb-16" data-reveal>
+      <p class="mono-label mb-4 !text-azure">// PUBLICATIONS</p>
+      <h1
+        class="font-display font-semibold tracking-[-0.015em]"
+        style="font-size: clamp(2.25rem, 4.5vw, 3.5rem)"
+      >
+        연구의 기록
+      </h1>
+      <p class="mt-5 max-w-2xl text-lg leading-relaxed text-mist">
+        국제 저널 · 학회부터 국내 학회, 특허까지 — EcoAI Lab의 전체 발표 목록입니다.
+      </p>
+      <div class="relative mt-8 h-px w-full bg-line" aria-hidden="true">
+        <span class="absolute -top-px left-0 h-[3px] w-12 bg-azure"></span>
+      </div>
+    </header>
+
+    <div class="sticky top-20 z-30 -mx-2 mb-8 rounded-2xl bg-abyss/85 px-2 py-3 backdrop-blur-lg" data-reveal>
+      <div class="flex flex-wrap items-center gap-2" role="group" aria-label="Category filter">
+        {
+          categories.map((cat) => (
+            <button
+              type="button"
+              class="pub-cat chip transition-colors duration-150"
+              data-cat={cat.id}
+              aria-pressed={cat.id === validInitial ? 'true' : 'false'}
+            >
+              {cat.label}
+              <span class="ml-1.5 font-mono text-[10px] text-dim">{countFor(cat.id)}</span>
+            </button>
+          ))
+        }
+        <div class="relative ml-auto min-w-[180px] flex-1 md:max-w-xs md:flex-none">
+          <input
+            id="pub-search"
+            type="search"
+            placeholder="Search title, author, venue…"
+            aria-label="Search publications"
+            class="w-full rounded-full border border-line bg-panel px-4 py-1.5 text-sm text-frost placeholder:text-dim focus:border-azure focus:outline-none"
+          />
+        </div>
+      </div>
+    </div>
+
+    <p class="mono-label mb-4" aria-live="polite">
+      <span id="pub-count">{validInitial === 'all' ? publications.length : countFor(validInitial)}</span> entries
+    </p>
+
+    <div id="pub-list" class="border-t border-line">
+      {
+        publications.map((pub) => (
+          <article
+            class="pub-row group grid gap-2 border-b border-line py-5 transition-colors duration-150 hover:bg-ink/50 md:grid-cols-[3rem_minmax(0,1fr)_auto] md:gap-6 md:px-2"
+            data-cat={pub.category}
+            data-search={`${pub.title} ${pub.authors} ${pub.venue}`.toLowerCase()}
+          >
+            <span class="font-mono text-xs leading-6 text-dim">{String(pub.id).padStart(3, '0')}</span>
+            <div>
+              <h2 class="text-[15px] font-medium leading-snug text-frost transition-colors duration-150 group-hover:text-sky-glow">
+                {pub.title}
+                {pub.cs && <span class="chip ml-2 !border-brand/60 !py-0 !text-[10px] !text-azure">CS</span>}
+              </h2>
+              <p class="mt-1.5 text-sm leading-relaxed text-mist">{pub.authors}</p>
+              <p class="mt-1 font-mono text-xs text-azure">
+                {pub.venue}
+                {pub.venue && ' · '}
+                <span class="text-dim">{pub.year > 0 ? pub.year : 'n.d.'}</span>
+              </p>
+            </div>
+            {pub.note && (
+              <span class="chip self-start !text-[10px] md:self-center">{pub.note}</span>
+            )}
+          </article>
+        ))
+      }
+    </div>
+
+    <div id="pub-empty" class="hidden py-20 text-center text-dim">
+      해당 조건의 항목이 없습니다.
+    </div>
+  </div>
+</Layout>
+
+<script>
+  const rows = Array.from(document.querySelectorAll<HTMLElement>('.pub-row'));
+  const chips = Array.from(document.querySelectorAll<HTMLButtonElement>('.pub-cat'));
+  const search = document.getElementById('pub-search') as HTMLInputElement | null;
+  const countEl = document.getElementById('pub-count');
+  const emptyEl = document.getElementById('pub-empty');
+
+  let activeCat = chips.find((c) => c.getAttribute('aria-pressed') === 'true')?.dataset.cat ?? 'all';
+  let query = '';
+
+  const syncChips = () => {
+    chips.forEach((chip) => {
+      const active = chip.dataset.cat === activeCat;
+      chip.setAttribute('aria-pressed', String(active));
+      chip.style.borderColor = active ? 'var(--color-brand)' : '';
+      chip.style.color = active ? 'var(--color-azure)' : '';
+    });
+  };
+
+  const apply = () => {
+    let visible = 0;
+    rows.forEach((row) => {
+      const catOk = activeCat === 'all' || row.dataset.cat === activeCat;
+      const qOk = query === '' || (row.dataset.search ?? '').includes(query);
+      const show = catOk && qOk;
+      row.classList.toggle('hidden', !show);
+      if (show) visible += 1;
+    });
+    if (countEl) countEl.textContent = String(visible);
+    emptyEl?.classList.toggle('hidden', visible !== 0);
+
+    const url = new URL(window.location.href);
+    if (activeCat === 'all') {
+      url.searchParams.delete('cat');
+    } else {
+      url.searchParams.set('cat', activeCat);
+    }
+    window.history.replaceState(null, '', url);
+  };
+
+  chips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      activeCat = chip.dataset.cat ?? 'all';
+      syncChips();
+      apply();
+    });
+  });
+
+  let timer = 0;
+  search?.addEventListener('input', () => {
+    window.clearTimeout(timer);
+    timer = window.setTimeout(() => {
+      query = (search.value ?? '').trim().toLowerCase();
+      apply();
+    }, 120);
+  });
+
+  syncChips();
+  apply();
+</script>

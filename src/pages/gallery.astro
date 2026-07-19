@@ -1,0 +1,116 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const memories = [
+  { src: '/assets/gallery/gallery-1.jpg', alt: 'EcoAI Lab 연구 활동' },
+  { src: '/assets/gallery/gallery-2.jpg', alt: 'EcoAI Lab 학회 참석' },
+  { src: '/assets/gallery/gallery-3.jpg', alt: 'EcoAI Lab 팀' },
+];
+
+const awards = [
+  { src: '/assets/people/prof-lee-1.jpg', alt: '이상금 교수' },
+  { src: '/assets/people/prof-lee-2.jpg', alt: '이상금 교수 연구' },
+  { src: '/assets/people/prof-lee-3.jpg', alt: '이상금 교수 발표' },
+];
+---
+
+<Layout title="Gallery">
+  <section
+    class="mx-auto w-full max-w-6xl px-6 pt-32 pb-8 md:px-10 md:pt-40"
+    aria-labelledby="gallery-heading"
+    data-reveal
+  >
+    <p class="mono-label mb-4 !text-azure">// GALLERY</p>
+    <h1
+      id="gallery-heading"
+      class="font-display font-semibold tracking-[-0.015em]"
+      style="font-size: clamp(2.25rem, 4.5vw, 3.5rem)"
+    >
+      연구실의 순간들
+    </h1>
+    <div class="relative mt-8 h-px w-full bg-line" aria-hidden="true">
+      <span class="absolute -top-px left-0 h-[3px] w-12 bg-azure"></span>
+    </div>
+  </section>
+
+  <!-- Memories -->
+  <section
+    class="mx-auto w-full max-w-6xl px-6 py-16 md:px-10 md:py-24"
+    aria-labelledby="memories-heading"
+    data-reveal
+  >
+    <p class="mono-label mb-4 !text-azure">// MEMORIES</p>
+    <h2
+      id="memories-heading"
+      class="font-display font-semibold tracking-[-0.01em]"
+      style="font-size: clamp(1.75rem, 3vw, 2.5rem)"
+    >
+      Memories
+    </h2>
+    <div class="relative mt-6 mb-10 h-px w-full bg-line" aria-hidden="true">
+      <span class="absolute -top-px left-0 h-[3px] w-12 bg-azure"></span>
+    </div>
+    <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+      {
+        memories.map((img) => (
+          <div class="group overflow-hidden rounded-xl border border-line">
+            <img
+              src={img.src}
+              alt={img.alt}
+              width="640"
+              height="480"
+              loading="lazy"
+              class="aspect-[4/3] w-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- Awards -->
+  <section
+    class="mx-auto w-full max-w-6xl px-6 py-16 md:px-10 md:py-24"
+    aria-labelledby="awards-heading"
+    data-reveal
+  >
+    <p class="mono-label mb-4 !text-azure">// AWARDS</p>
+    <h2
+      id="awards-heading"
+      class="font-display font-semibold tracking-[-0.01em]"
+      style="font-size: clamp(1.75rem, 3vw, 2.5rem)"
+    >
+      Awards
+    </h2>
+    <div class="relative mt-6 mb-10 h-px w-full bg-line" aria-hidden="true">
+      <span class="absolute -top-px left-0 h-[3px] w-12 bg-azure"></span>
+    </div>
+    <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+      {
+        awards.map((img) => (
+          <div class="group overflow-hidden rounded-xl border border-line">
+            <img
+              src={img.src}
+              alt={img.alt}
+              width="640"
+              height="480"
+              loading="lazy"
+              class="aspect-[4/3] w-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- Note -->
+  <section
+    class="mx-auto w-full max-w-6xl px-6 pb-24 md:px-10 md:pb-36"
+    aria-label="Gallery note"
+    data-reveal
+  >
+    <div class="card p-6">
+      <p class="text-sm text-dim">더 많은 사진은 계속 업데이트됩니다.</p>
+    </div>
+  </section>
+</Layout>

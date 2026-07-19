@@ -1,0 +1,96 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Manifesto from '../components/Manifesto.astro';
+import DomainBento from '../components/DomainBento.astro';
+import TechAccordion from '../components/TechAccordion.astro';
+import StatsBand from '../components/StatsBand.astro';
+import PinnedResearch from '../components/PinnedResearch.astro';
+import VenueMarquee from '../components/VenueMarquee.astro';
+import GalleryStrip from '../components/GalleryStrip.astro';
+import CTASection from '../components/CTASection.astro';
+import { publications } from '../data/publications';
+import { news } from '../data/news';
+
+const latestPubs = publications.slice(0, 4);
+const latestNews = news.slice(0, 5);
+---
+
+<Layout>
+  <Hero />
+  <Manifesto />
+  <DomainBento />
+  <TechAccordion />
+  <StatsBand />
+  <PinnedResearch />
+  <VenueMarquee />
+
+  <section class="mx-auto w-full max-w-6xl px-6 py-24 md:px-10 md:py-36" aria-labelledby="latest-pubs-heading">
+    <div class="mb-14 flex flex-wrap items-end justify-between gap-6 md:mb-16" data-reveal>
+      <div>
+        <p class="mono-label mb-4 !text-azure">// LATEST_PUBLICATIONS</p>
+        <h2
+          id="latest-pubs-heading"
+          class="font-display font-semibold tracking-[-0.01em]"
+          style="font-size: clamp(1.75rem, 3vw, 2.5rem)"
+        >
+          최신 논문
+        </h2>
+      </div>
+      <a href="/publications" class="btn-ghost">All Publications</a>
+    </div>
+
+    <div class="border-t border-line" data-reveal>
+      {
+        latestPubs.map((pub) => (
+          <article class="group grid gap-2 border-b border-line py-6 transition-colors duration-150 hover:bg-ink/50 md:grid-cols-[minmax(0,1fr)_auto] md:gap-8 md:px-2">
+            <div>
+              <h3 class="font-display text-lg font-medium leading-snug text-frost transition-colors duration-150 group-hover:text-sky-glow">
+                {pub.title}
+              </h3>
+              <p class="mt-2 text-sm text-mist">{pub.authors}</p>
+            </div>
+            <p class="font-mono text-xs leading-7 text-azure md:text-right">
+              {pub.venue}
+              <br />
+              <span class="text-dim">{pub.year}</span>
+            </p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="mx-auto w-full max-w-6xl px-6 pb-24 md:px-10 md:pb-36" aria-labelledby="latest-news-heading">
+    <div class="mb-14 flex flex-wrap items-end justify-between gap-6 md:mb-16" data-reveal>
+      <div>
+        <p class="mono-label mb-4 !text-azure">// NEWS</p>
+        <h2
+          id="latest-news-heading"
+          class="font-display font-semibold tracking-[-0.01em]"
+          style="font-size: clamp(1.75rem, 3vw, 2.5rem)"
+        >
+          연구실 소식
+        </h2>
+      </div>
+      <a href="/news" class="btn-ghost">All News</a>
+    </div>
+
+    <div class="border-t border-line" data-reveal>
+      {
+        latestNews.map((item) => (
+          <article class="group grid gap-2 border-b border-line py-5 transition-colors duration-150 hover:bg-ink/50 md:grid-cols-[7.5rem_minmax(0,1fr)_4rem] md:gap-6 md:px-2">
+            <span class="font-mono text-xs uppercase leading-6 tracking-[0.1em] text-azure">{item.type}</span>
+            <p class="text-sm leading-relaxed text-mist transition-colors duration-150 group-hover:text-frost">
+              {item.text}
+            </p>
+            <span class="font-mono text-xs leading-6 text-dim md:text-right">{item.year}</span>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <GalleryStrip />
+  <CTASection />
+</Layout>

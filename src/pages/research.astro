@@ -1,0 +1,242 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { projects, type ProjectTag } from '../data/projects';
+
+const allTags: ProjectTag[] = ['energy', 'quantum', 'llm', 'rl', 'anomaly', 'comms', 'robotics'];
+---
+
+<Layout title="Research">
+  <section
+    class="mx-auto w-full max-w-6xl px-6 pt-32 pb-8 md:px-10 md:pt-40"
+    aria-labelledby="research-heading"
+    data-reveal
+  >
+    <p class="mono-label mb-4 !text-azure">// RESEARCH</p>
+    <h1
+      id="research-heading"
+      class="font-display font-semibold tracking-[-0.015em]"
+      style="font-size: clamp(2.25rem, 4.5vw, 3.5rem)"
+    >
+      연구의 지도
+    </h1>
+    <p class="mt-5 max-w-3xl text-lg leading-relaxed text-mist">
+      AI-driven optimization for energy systems and smart industries — spanning deep reinforcement learning, quantum computing, LLM-based diagnostics, and anomaly detection for carbon-neutral operations.
+    </p>
+    <div class="relative mt-8 h-px w-full bg-line" aria-hidden="true">
+      <span class="absolute -top-px left-0 h-[3px] w-12 bg-azure"></span>
+    </div>
+  </section>
+
+  <!-- Sky Hero Banner -->
+  <section
+    class="mx-auto w-full max-w-6xl px-6 pb-8 md:px-10"
+    aria-label="Research banner"
+    data-reveal
+  >
+    <img
+      src="/assets/hero/sky-hero.jpg"
+      alt="EcoAI Lab research banner"
+      width="1920"
+      height="822"
+      class="aspect-[21/9] w-full rounded-xl border border-line object-cover"
+    />
+  </section>
+
+  <!-- Project Explorer -->
+  <section
+    class="mx-auto w-full max-w-6xl px-6 py-16 md:px-10 md:py-24"
+    aria-labelledby="projects-heading"
+    data-reveal
+  >
+    <h2
+      id="projects-heading"
+      class="sr-only"
+    >
+      Project Explorer
+    </h2>
+
+    <!-- Filter Bar -->
+    <div class="mb-8 flex flex-wrap items-center gap-3" role="group" aria-label="Filter projects">
+      <!-- Status chips -->
+      <button
+        type="button"
+        class="filter-chip chip"
+        data-filter-status="all"
+        aria-pressed="true"
+      >
+        All
+      </button>
+      <button
+        type="button"
+        class="filter-chip chip"
+        data-filter-status="ongoing"
+        aria-pressed="false"
+      >
+        Ongoing
+      </button>
+      <button
+        type="button"
+        class="filter-chip chip"
+        data-filter-status="completed"
+        aria-pressed="false"
+      >
+        Completed
+      </button>
+
+      <span class="mx-1 h-5 w-px bg-line" aria-hidden="true"></span>
+
+      <!-- Tag chips -->
+      {
+        allTags.map((tag) => (
+          <button
+            type="button"
+            class="filter-tag chip"
+            data-filter-tag={tag}
+            aria-pressed="false"
+          >
+            {tag}
+          </button>
+        ))
+      }
+    </div>
+
+    <!-- Project count -->
+    <p class="mono-label mb-6" id="project-count">
+      {projects.length} PROJECTS
+    </p>
+
+    <!-- Project Cards -->
+    <div id="project-list" class="flex flex-col gap-4">
+      {
+        projects.map((project) => (
+          <article
+            class="project-card card p-7"
+            data-status={project.status}
+            data-tags={project.tags.join(',')}
+          >
+            <div class="flex flex-wrap items-center gap-3">
+              <span
+                class:list={[
+                  'chip',
+                  project.status === 'ongoing'
+                    ? '!border-success/40 !text-success'
+                    : '!text-dim',
+                ]}
+              >
+                {project.status === 'ongoing' ? 'Ongoing' : 'Completed'}
+              </span>
+              <span class="font-mono text-xs text-dim">{project.period}</span>
+              <span class="font-mono text-xs text-dim">&middot;</span>
+              <span class="font-mono text-xs text-mist">{project.org}</span>
+            </div>
+            <h3 class="mt-4 font-display text-lg font-semibold leading-snug text-frost">
+              {project.title}
+            </h3>
+            <p class="mt-3 text-sm leading-relaxed text-mist">{project.summary}</p>
+            <div class="mt-4 flex flex-wrap gap-2">
+              {
+                project.tags.map((tag) => (
+                  <span class="font-mono text-xs text-dim">{tag}</span>
+                ))
+              }
+            </div>
+          </article>
+        ))
+      }
+    </div>
+
+    <!-- Empty state -->
+    <div id="empty-state" class="hidden py-16 text-center">
+      <p class="text-lg text-mist">해당 조건의 프로젝트가 없습니다</p>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  type StatusFilter = 'all' | 'ongoing' | 'completed';
+
+  const statusChips = document.querySelectorAll<HTMLButtonElement>('[data-filter-status]');
+  const tagChips = document.querySelectorAll<HTMLButtonElement>('[data-filter-tag]');
+  const cards = document.querySelectorAll<HTMLElement>('.project-card');
+  const countEl = document.getElementById('project-count');
+  const emptyEl = document.getElementById('empty-state');
+
+  let activeStatus: StatusFilter = 'all';
+  const activeTags = new Set<string>();
+
+  const applyFilters = (): void => {
+    let visible = 0;
+
+    cards.forEach((card) => {
+      const cardStatus = card.dataset.status ?? '';
+      const cardTags = (card.dataset.tags ?? '').split(',').filter(Boolean);
+
+      const statusMatch = activeStatus === 'all' || cardStatus === activeStatus;
+      const tagMatch = activeTags.size === 0 || cardTags.some((t) => activeTags.has(t));
+
+      if (statusMatch && tagMatch) {
+        card.classList.remove('hidden');
+        visible++;
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+
+    if (countEl) {
+      countEl.textContent = `${visible} PROJECT${visible !== 1 ? 'S' : ''}`;
+    }
+
+    if (emptyEl) {
+      emptyEl.classList.toggle('hidden', visible > 0);
+    }
+  };
+
+  const setActiveChipStyle = (chip: HTMLButtonElement, active: boolean): void => {
+    if (active) {
+      chip.style.borderColor = 'var(--color-brand)';
+      chip.style.color = 'var(--color-azure)';
+    } else {
+      chip.style.borderColor = '';
+      chip.style.color = '';
+    }
+  };
+
+  statusChips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      const value = chip.dataset.filterStatus as StatusFilter;
+      activeStatus = value;
+
+      statusChips.forEach((c) => {
+        const isActive = c.dataset.filterStatus === value;
+        c.setAttribute('aria-pressed', String(isActive));
+        setActiveChipStyle(c, isActive);
+      });
+
+      applyFilters();
+    });
+  });
+
+  tagChips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      const tag = chip.dataset.filterTag ?? '';
+      if (activeTags.has(tag)) {
+        activeTags.delete(tag);
+        chip.setAttribute('aria-pressed', 'false');
+        setActiveChipStyle(chip, false);
+      } else {
+        activeTags.add(tag);
+        chip.setAttribute('aria-pressed', 'true');
+        setActiveChipStyle(chip, true);
+      }
+
+      applyFilters();
+    });
+  });
+
+  // Initialize "All" as active
+  statusChips.forEach((chip) => {
+    if (chip.dataset.filterStatus === 'all') {
+      setActiveChipStyle(chip, true);
+    }
+  });
+</script>

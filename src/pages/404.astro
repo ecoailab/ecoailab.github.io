@@ -1,0 +1,24 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="404">
+  <section
+    class="mx-auto flex w-full max-w-6xl flex-col items-center justify-center px-6 text-center md:px-10"
+    style="min-height: 70dvh"
+    aria-labelledby="error-heading"
+  >
+    <p class="mono-label mb-4 !text-azure">// 404</p>
+    <h1
+      id="error-heading"
+      class="font-display font-semibold tracking-[-0.015em]"
+      style="font-size: clamp(2.25rem, 4.5vw, 3.5rem)"
+    >
+      Page not found
+    </h1>
+    <p class="mt-5 max-w-md text-lg leading-relaxed text-mist">
+      요청하신 페이지가 없거나 이동되었습니다.
+    </p>
+    <a href="/" class="btn-primary mt-10">Back to Home</a>
+  </section>
+</Layout>

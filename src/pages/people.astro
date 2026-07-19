@@ -1,0 +1,275 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { professor, msStudents, undergradStudents, alumni } from '../data/people';
+
+const getInitials = (name: string): string => {
+  const parts = name.split(' ');
+  if (parts.length >= 2) {
+    return `${parts[0][0]}${parts[parts.length - 1][0]}`.toUpperCase();
+  }
+  return name.slice(0, 2).toUpperCase();
+};
+---
+
+<Layout title="People">
+  <section
+    class="mx-auto w-full max-w-6xl px-6 pt-32 pb-8 md:px-10 md:pt-40"
+    aria-labelledby="people-heading"
+    data-reveal
+  >
+    <p class="mono-label mb-4 !text-azure">// PEOPLE</p>
+    <h1
+      id="people-heading"
+      class="font-display font-semibold tracking-[-0.015em]"
+      style="font-size: clamp(2.25rem, 4.5vw, 3.5rem)"
+    >
+      함께하는 사람들
+    </h1>
+    <p class="mt-5 max-w-2xl text-lg leading-relaxed text-mist">
+      지도교수와 연구원, 그리고 함께 성장한 졸업생들입니다.
+    </p>
+    <div class="relative mt-8 h-px w-full bg-line" aria-hidden="true">
+      <span class="absolute -top-px left-0 h-[3px] w-12 bg-azure"></span>
+    </div>
+  </section>
+
+  <!-- Professor -->
+  <section
+    class="mx-auto w-full max-w-6xl px-6 py-16 md:px-10 md:py-24"
+    aria-labelledby="professor-heading"
+    data-reveal
+  >
+    <h2 id="professor-heading" class="sr-only">Professor</h2>
+    <div class="card overflow-hidden">
+      <div class="grid gap-10 p-7 md:p-10 lg:grid-cols-[480px_1fr]">
+        <!-- Left: Photo + Identity -->
+        <div class="flex flex-col items-start gap-6">
+          <img
+            src={professor.photo}
+            alt={`${professor.nameKr} (${professor.name})`}
+            width="480"
+            height="600"
+            class="aspect-[4/5] w-full rounded-xl object-cover"
+          />
+          <div>
+            <h3 class="font-display text-2xl font-semibold text-frost">
+              {professor.name} <span class="text-mist">{professor.nameKr}</span>
+            </h3>
+            <span class="chip mt-3">{professor.title}</span>
+            <div class="mt-4 flex items-center gap-4">
+              <a
+                href={professor.scholar}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Google Scholar"
+                class="text-mist transition-colors duration-150 hover:text-azure"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12 24a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Zm0-2a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11ZM1.5 10 12 1l10.5 9H18v5h-2v-7h-8v7H6v-5H1.5Z" />
+                </svg>
+              </a>
+              <a
+                href={professor.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+                class="text-mist transition-colors duration-150 hover:text-azure"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55v-2.17c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.75 2.69 1.25 3.34.95.1-.74.4-1.25.72-1.53-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.76.11 3.05.73.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.38-5.25 5.67.41.35.77 1.04.77 2.1v3.11c0 .3.21.67.8.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Career Timeline -->
+        <div>
+          <p class="mono-label mb-6">// CAREER</p>
+          <ul class="relative border-l border-line pl-6">
+            {
+              professor.career.map((step) => (
+                <li class="relative pb-6 last:pb-0">
+                  <span
+                    class="absolute -left-[25px] top-1.5 h-2 w-2 rounded-full bg-line-strong"
+                    aria-hidden="true"
+                  ></span>
+                  <p class="font-mono text-xs text-azure">{step.period}</p>
+                  <p class="mt-1 text-sm font-medium text-frost">{step.role}</p>
+                  <p class="mt-0.5 text-sm text-mist">{step.org}</p>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lectures -->
+    <div class="mt-12" data-reveal>
+      <p class="mono-label mb-6">// LECTURES</p>
+      <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          professor.lectures.map((lec) => (
+            <div class="card p-4">
+              <p class="text-sm font-medium text-frost">{lec.name}</p>
+              <p class="mt-1 font-mono text-xs text-dim">{lec.terms}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <!-- Service -->
+    <div class="mt-12" data-reveal>
+      <p class="mono-label mb-6">// SERVICE</p>
+      <ul class="divide-y divide-line">
+        {
+          professor.service.map((item) => (
+            <li class="py-3 text-sm leading-relaxed text-mist">{item}</li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <!-- M.S. Students -->
+  <section
+    class="mx-auto w-full max-w-6xl px-6 py-16 md:px-10 md:py-24"
+    aria-labelledby="ms-heading"
+    data-reveal
+  >
+    <p class="mono-label mb-4 !text-azure">// MS_STUDENTS</p>
+    <h2
+      id="ms-heading"
+      class="font-display font-semibold tracking-[-0.01em]"
+      style="font-size: clamp(1.75rem, 3vw, 2.5rem)"
+    >
+      M.S. Students
+    </h2>
+    <div class="relative mt-6 mb-10 h-px w-full bg-line" aria-hidden="true">
+      <span class="absolute -top-px left-0 h-[3px] w-12 bg-azure"></span>
+    </div>
+    <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+      {
+        msStudents.map((person) => {
+          const initials = getInitials(person.name);
+          return (
+            <div class="card card-hover flex items-start gap-4 p-6">
+              <div
+                class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full font-display text-lg font-semibold text-frost"
+                style="background: linear-gradient(135deg, var(--color-brand), var(--color-azure))"
+                aria-hidden="true"
+              >
+                {initials}
+              </div>
+              <div class="min-w-0 flex-1">
+                <p class="font-display text-base font-semibold text-frost">{person.name}</p>
+                <p class="text-sm text-mist">{person.nameKr}</p>
+                {person.note && <span class="chip mt-2">{person.note}</span>}
+                {person.github && (
+                  <a
+                    href={person.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${person.name} GitHub`}
+                    class="mt-2 inline-flex text-mist transition-colors duration-150 hover:text-azure"
+                  >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55v-2.17c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.75 2.69 1.25 3.34.95.1-.74.4-1.25.72-1.53-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.76.11 3.05.73.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.38-5.25 5.67.41.35.77 1.04.77 2.1v3.11c0 .3.21.67.8.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z" />
+                    </svg>
+                  </a>
+                )}
+              </div>
+            </div>
+          );
+        })
+      }
+    </div>
+  </section>
+
+  <!-- Undergraduate Students -->
+  <section
+    class="mx-auto w-full max-w-6xl px-6 py-16 md:px-10 md:py-24"
+    aria-labelledby="ug-heading"
+    data-reveal
+  >
+    <p class="mono-label mb-4 !text-azure">// UNDERGRADUATE</p>
+    <h2
+      id="ug-heading"
+      class="font-display font-semibold tracking-[-0.01em]"
+      style="font-size: clamp(1.75rem, 3vw, 2.5rem)"
+    >
+      Undergraduate
+    </h2>
+    <div class="relative mt-6 mb-10 h-px w-full bg-line" aria-hidden="true">
+      <span class="absolute -top-px left-0 h-[3px] w-12 bg-azure"></span>
+    </div>
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        undergradStudents.map((person) => {
+          const initials = getInitials(person.name);
+          return (
+            <div class="card card-hover flex items-start gap-4 p-6">
+              <div
+                class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full font-display text-lg font-semibold text-frost"
+                style="background: linear-gradient(135deg, var(--color-brand), var(--color-azure))"
+                aria-hidden="true"
+              >
+                {initials}
+              </div>
+              <div class="min-w-0 flex-1">
+                <p class="font-display text-base font-semibold text-frost">{person.name}</p>
+                <p class="text-sm text-mist">{person.nameKr}</p>
+                {person.note && <span class="chip mt-2">{person.note}</span>}
+                {person.github && (
+                  <a
+                    href={person.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${person.name} GitHub`}
+                    class="mt-2 inline-flex text-mist transition-colors duration-150 hover:text-azure"
+                  >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55v-2.17c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.75 2.69 1.25 3.34.95.1-.74.4-1.25.72-1.53-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.76.11 3.05.73.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.38-5.25 5.67.41.35.77 1.04.77 2.1v3.11c0 .3.21.67.8.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z" />
+                    </svg>
+                  </a>
+                )}
+              </div>
+            </div>
+          );
+        })
+      }
+    </div>
+  </section>
+
+  <!-- Alumni -->
+  <section
+    class="mx-auto w-full max-w-6xl px-6 py-16 md:px-10 md:py-24"
+    aria-labelledby="alumni-heading"
+    data-reveal
+  >
+    <p class="mono-label mb-4 !text-azure">// ALUMNI</p>
+    <h2
+      id="alumni-heading"
+      class="font-display font-semibold tracking-[-0.01em]"
+      style="font-size: clamp(1.75rem, 3vw, 2.5rem)"
+    >
+      Alumni
+    </h2>
+    <div class="relative mt-6 mb-10 h-px w-full bg-line" aria-hidden="true">
+      <span class="absolute -top-px left-0 h-[3px] w-12 bg-azure"></span>
+    </div>
+    <ul class="divide-y divide-line">
+      {
+        alumni.map((group) => (
+          <li class="grid gap-2 py-5 md:grid-cols-[80px_1fr_auto] md:gap-6">
+            <span class="font-mono text-sm text-azure">{group.year}</span>
+            <span class="text-sm leading-relaxed text-mist">{group.members}</span>
+            <span class="text-xs text-dim">{group.note}</span>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</Layout>
