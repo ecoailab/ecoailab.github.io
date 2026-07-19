@@ -52,6 +52,18 @@ void main() {
   vec3 lit = vec3(0.2, 0.4, 0.72);
   vec3 col = mix(deep, lit, cloud);
   float alpha = cloud * (0.14 + 0.10 * horizon);
+
+  vec2 grid = vUv * uRes / 2.5;
+  vec2 cell = floor(grid);
+  vec2 f = fract(grid) - 0.5;
+  float starSeed = hash(cell + 91.7);
+  float star = step(0.9965, starSeed);
+  float twinkle = 0.35 + 0.65 * abs(sin(uTime * (0.6 + starSeed * 1.8) + starSeed * 41.0));
+  float starShape = smoothstep(0.32, 0.02, length(f));
+  float starGlow = star * starShape * twinkle;
+  col += vec3(0.72, 0.86, 1.0) * starGlow * 0.95;
+  alpha = max(alpha, starGlow * 0.85);
+
   gl_FragColor = vec4(col, alpha);
 }
 `;

@@ -337,7 +337,10 @@ export async function initHeroParticles(canvas: HTMLCanvasElement, logoUrl: stri
     const halfH = Math.tan(THREE.MathUtils.degToRad(camera.fov / 2)) * camera.position.z;
     const visibleW = halfH * 2 * camera.aspect;
     const markWorldW = 2 * aspect;
-    const scale = (visibleW * 0.44) / markWorldW;
+    const widthScale = (visibleW * 0.44) / markWorldW;
+    const heightCap = halfH * 0.42;
+    const scale = Math.min(widthScale, heightCap);
+    points.position.y = halfH * 0.72 - scale;
     points.scale.set(scale, scale, 1);
     uPointScale.value = Math.min(1.15, Math.max(0.55, scale * 0.55));
   };
