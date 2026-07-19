@@ -31,7 +31,7 @@ const ongoing = projects.filter((p) => p.status === 'ongoing').slice(0, 5);
     <div class="flex flex-col gap-5">
       {
         ongoing.map((project) => (
-          <article class="card card-hover p-7" data-pin-card>
+          <article class="card card-hover p-7" data-pin-card data-spotlight>
             <div class="flex flex-wrap items-center gap-3">
               <span class="chip !border-success/40 !text-success">Ongoing</span>
               <span class="font-mono text-xs text-dim">{project.period}</span>

@@ -42,6 +42,8 @@ const icons: Record<string, string> = {
             i === 1 && 'md:col-span-2',
           ]}
           data-reveal
+          data-spotlight
+          {...i !== 0 ? { 'data-tilt': true } : {}}
         >
           {i === 0 && (
             <div class="absolute inset-0" aria-hidden="true">
@@ -75,11 +77,12 @@ const icons: Record<string, string> = {
       href="/research"
       class="card card-hover group relative flex flex-col justify-between gap-6 overflow-hidden p-7 md:col-span-2"
       data-reveal
+      data-spotlight
     >
       <p class="mono-label">6 Domains · 5 Core Technologies · 25 Projects</p>
       <div class="flex items-end justify-between gap-4">
         <p class="font-display text-2xl font-semibold leading-tight text-frost">
-          전체 연구 프로젝트<br />살펴기
+          전체 연구 프로젝트<br />살펴보기
         </p>
         <span
           class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-line-strong text-azure transition-all duration-200 group-hover:border-azure group-hover:bg-azure group-hover:text-abyss"
