@@ -1,0 +1,66 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { site } from '../data/site';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description = site.description } = Astro.props;
+const pageTitle = title ? `${title} — ${site.name}` : `${site.name} — ${site.tagline}`;
+const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://ecoailab.github.io').href;
+---
+
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/assets/brand/ecoai-logo.jpg" />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
+    />
+    <ClientRouter />
+  </head>
+  <body>
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-azure focus:px-4 focus:py-2 focus:text-sm focus:text-abyss"
+    >
+      Skip to content
+    </a>
+    <Nav />
+    <main id="main" class="w-full max-w-full overflow-x-clip">
+      <slot />
+    </main>
+    <Footer />
+    <script>
+      import { getLenis } from '../lib/motion';
+      import { initReveal } from '../lib/reveal';
+
+      const lenis = getLenis();
+      initReveal();
+      document.addEventListener('astro:before-swap', () => {
+        lenis?.scrollTo(0, { immediate: true });
+      });
+      document.addEventListener('astro:page-load', () => {
+        initReveal();
+      });
+    </script>
+  </body>
+</html>

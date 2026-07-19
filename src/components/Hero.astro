@@ -1,0 +1,97 @@
+---
+import { site } from '../data/site';
+---
+
+<section class="relative flex min-h-[100dvh] items-end justify-center overflow-hidden pb-[11dvh]">
+  <canvas id="hero-canvas" class="absolute inset-0 h-full w-full" aria-hidden="true"></canvas>
+
+  <div
+    id="hero-fallback"
+    class="absolute inset-0 hidden items-center justify-center"
+    aria-hidden="true"
+  >
+    <img src={site.logo} alt="" class="w-64 opacity-90 md:w-96" width="384" height="384" />
+  </div>
+
+  <div
+    class="pointer-events-none absolute inset-0"
+    style="background: radial-gradient(ellipse 66% 44% at 50% 82%, rgba(4,7,12,0.78) 0%, rgba(4,7,12,0.3) 60%, transparent 100%)"
+    aria-hidden="true"
+  >
+  </div>
+
+  <div class="relative z-10 mx-auto max-w-6xl px-6 text-center">
+    <p class="mono-label mb-6 !text-mist opacity-0" data-hero="label">
+      Hanbat National University · Dept. of Computer Engineering
+    </p>
+    <h1
+      class="font-display font-semibold leading-[1.05] tracking-[-0.02em] text-frost opacity-0"
+      style="font-size: clamp(2.75rem, 6.5vw, 5.5rem)"
+      data-hero="title"
+    >
+      Eyes on the Sky:<br />
+      <span class="text-gradient-azure">Innovate for the Future</span>
+    </h1>
+    <p class="mx-auto mt-7 max-w-2xl text-lg leading-relaxed text-mist opacity-0" data-hero="sub">
+      양자AI · 심층강화학습 · LLM 에이전트로<br class="md:hidden" />
+      탄소중립 에너지의 미래를 설계하는 EcoAI Lab
+    </p>
+    <div class="mt-10 flex flex-wrap items-center justify-center gap-4 opacity-0" data-hero="cta">
+      <a href="/research" class="btn-primary">Explore Research</a>
+      <a href="/people" class="btn-ghost">Meet the Lab</a>
+    </div>
+  </div>
+
+  <div
+    class="absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-3 opacity-0"
+    data-hero="scroll"
+    aria-hidden="true"
+  >
+    <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-dim">Scroll</span>
+    <span class="block h-10 w-px bg-gradient-to-b from-azure to-transparent"></span>
+  </div>
+</section>
+
+<script>
+  import { initHeroParticles } from '../lib/hero-particles';
+  import { gsap, prefersReducedMotion } from '../lib/motion';
+
+  const canvas = document.getElementById('hero-canvas') as HTMLCanvasElement | null;
+  const fallback = document.getElementById('hero-fallback');
+
+  const showFallback = () => {
+    if (canvas) canvas.style.display = 'none';
+    fallback?.classList.remove('hidden');
+    fallback?.classList.add('flex');
+  };
+
+  if (canvas) {
+    try {
+      await initHeroParticles(canvas, '/assets/brand/ecoai-logo.png');
+    } catch {
+      showFallback();
+    }
+    if (!canvas.getContext('webgl2') && !canvas.getContext('webgl')) {
+      showFallback();
+    }
+  }
+
+  if (!prefersReducedMotion()) {
+    gsap
+      .timeline({ defaults: { ease: 'power3.out' } })
+      .to('[data-hero="label"]', { opacity: 1, duration: 0.8 }, 0.5)
+      .fromTo(
+        '[data-hero="title"]',
+        { opacity: 0, y: 34 },
+        { opacity: 1, y: 0, duration: 1.1 },
+        0.7,
+      )
+      .to('[data-hero="sub"]', { opacity: 1, duration: 0.9 }, 1.15)
+      .to('[data-hero="cta"]', { opacity: 1, duration: 0.9 }, 1.35)
+      .to('[data-hero="scroll"]', { opacity: 1, duration: 0.8 }, 1.7);
+  } else {
+    document.querySelectorAll('[data-hero]').forEach((el) => {
+      (el as HTMLElement).style.opacity = '1';
+    });
+  }
+</script>

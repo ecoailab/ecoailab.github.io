@@ -1,0 +1,104 @@
+---
+import { coreTech } from '../data/site';
+---
+
+<section class="mx-auto w-full max-w-6xl px-6 py-24 md:px-10 md:py-36" aria-labelledby="tech-heading">
+  <div class="mb-14 md:mb-20" data-reveal>
+    <p class="mono-label mb-4 !text-azure">// CORE_TECHNOLOGIES</p>
+    <h2
+      id="tech-heading"
+      class="font-display font-semibold tracking-[-0.01em]"
+      style="font-size: clamp(1.75rem, 3vw, 2.5rem)"
+    >
+      다섯 가지 핵심 기술
+    </h2>
+    <div class="relative mt-8 h-px w-full bg-line" aria-hidden="true">
+      <span class="absolute -top-px left-0 h-[3px] w-12 bg-azure"></span>
+    </div>
+  </div>
+
+  <div class="tech-accordion flex flex-col gap-3 lg:h-[360px] lg:flex-row" data-reveal>
+    {
+      coreTech.map((tech, i) => (
+        <button
+          type="button"
+          class="tech-slice group relative flex-1 overflow-hidden rounded-xl border border-line bg-panel text-left transition-[flex-grow] duration-500 ease-out focus-visible:flex-grow-[3] hover:flex-grow-[3] lg:min-h-0"
+          aria-expanded="false"
+          data-index={i}
+        >
+          <span class="tech-collapsed absolute inset-0 flex items-end p-5 lg:items-start lg:justify-center" aria-hidden="true">
+            <span class="font-mono text-xs font-medium uppercase tracking-[0.14em] text-dim transition-colors duration-200 group-hover:text-azure lg:mt-2 lg:[writing-mode:vertical-rl]">
+              {String(i + 1).padStart(2, '0')} · {tech.title}
+            </span>
+          </span>
+          <span class="tech-expanded flex h-full flex-col justify-end gap-3 p-6 opacity-0 transition-opacity duration-300 lg:justify-between lg:p-7">
+            <span class="font-mono text-xs text-azure">{String(i + 1).padStart(2, '0')}</span>
+            <span>
+              <span class="block font-display text-xl font-semibold text-frost lg:text-2xl">{tech.title}</span>
+              <span class="mt-3 block text-sm leading-relaxed text-mist">{tech.description}</span>
+            </span>
+          </span>
+        </button>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .tech-slice:hover .tech-collapsed,
+  .tech-slice:focus-visible .tech-collapsed {
+    opacity: 0;
+  }
+  .tech-slice:hover .tech-expanded,
+  .tech-slice:focus-visible .tech-expanded {
+    opacity: 1;
+    transition-delay: 150ms;
+  }
+  .tech-slice:hover,
+  .tech-slice:focus-visible {
+    border-color: var(--color-line-strong);
+  }
+  @media (max-width: 1023px) {
+    .tech-slice .tech-collapsed {
+      position: static;
+      padding: 1.25rem;
+    }
+    .tech-slice .tech-expanded {
+      display: none;
+    }
+    .tech-slice:hover .tech-expanded,
+    .tech-slice:focus-visible .tech-expanded {
+      display: flex;
+      padding-top: 0;
+    }
+  }
+</style>
+
+<script>
+  const slices = Array.from(document.querySelectorAll<HTMLButtonElement>('.tech-slice'));
+
+  const sync = () => {
+    const active = document.activeElement;
+    slices.forEach((slice) => {
+      const expanded =
+        slice === active || slice.matches(':hover') ? 'true' : 'false';
+      slice.setAttribute('aria-expanded', expanded);
+    });
+  };
+
+  slices.forEach((slice, i) => {
+    slice.addEventListener('mouseenter', sync);
+    slice.addEventListener('focus', sync);
+    slice.addEventListener('blur', sync);
+    slice.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+        e.preventDefault();
+        slices[(i + 1) % slices.length]?.focus();
+      }
+      if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        slices[(i - 1 + slices.length) % slices.length]?.focus();
+      }
+    });
+  });
+</script>

@@ -1,0 +1,44 @@
+---
+const images = [
+  { src: '/assets/gallery/gallery-1.jpg', alt: 'EcoAI Lab 연구 활동' },
+  { src: '/assets/gallery/gallery-2.jpg', alt: 'EcoAI Lab 학회 참석' },
+  { src: '/assets/gallery/gallery-3.jpg', alt: 'EcoAI Lab 팀' },
+];
+---
+
+<section class="mx-auto w-full max-w-6xl px-6 py-24 md:px-10 md:py-36" aria-labelledby="gallery-heading">
+  <div class="mb-14 flex flex-wrap items-end justify-between gap-6 md:mb-20" data-reveal>
+    <div>
+      <p class="mono-label mb-4 !text-azure">// GALLERY</p>
+      <h2
+        id="gallery-heading"
+        class="font-display font-semibold tracking-[-0.01em]"
+        style="font-size: clamp(1.75rem, 3vw, 2.5rem)"
+      >
+        연구실의 순간들
+      </h2>
+    </div>
+    <a href="/gallery" class="btn-ghost">View Gallery</a>
+  </div>
+
+  <div class="grid gap-5 md:grid-cols-3">
+    {
+      images.map((image, i) => (
+        <figure
+          class="group overflow-hidden rounded-xl border border-line"
+          data-reveal
+          style={`transition-delay:${i * 80}ms`}
+        >
+          <img
+            src={image.src}
+            alt={image.alt}
+            loading="lazy"
+            width="640"
+            height="480"
+            class="aspect-[4/3] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+          />
+        </figure>
+      ))
+    }
+  </div>
+</section>

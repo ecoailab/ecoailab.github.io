@@ -1,0 +1,70 @@
+---
+import { site } from '../data/site';
+---
+
+<section class="border-t border-line" aria-labelledby="join-heading">
+  <div
+    class="relative mx-auto w-full max-w-6xl overflow-hidden px-6 py-28 text-center md:px-10 md:py-40"
+  >
+    <div
+      class="pointer-events-none absolute inset-0 cta-mist"
+      style="background: radial-gradient(ellipse 55% 60% at 50% 110%, rgba(0,65,147,0.35) 0%, transparent 70%)"
+      aria-hidden="true"
+    >
+    </div>
+    <div
+      class="pointer-events-none absolute inset-0 cta-mist-late"
+      style="background: radial-gradient(ellipse 40% 45% at 20% 115%, rgba(62,142,222,0.16) 0%, transparent 70%)"
+      aria-hidden="true"
+    >
+    </div>
+    <div class="relative" data-reveal>
+      <p class="mono-label mb-6 !text-azure">// JOIN_US</p>
+      <h2
+        id="join-heading"
+        class="mx-auto max-w-3xl font-display font-semibold leading-[1.12] tracking-[-0.015em] text-frost"
+        style="font-size: clamp(2rem, 4.5vw, 3.5rem)"
+      >
+        에너지와 AI의 경계에서<br />함께 연구할 학생을 찾습니다
+      </h2>
+      <p class="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-mist">
+        학부 연구생 · 석사 과정 · 산학 인턴십. 궁금한 점은 언제든 편하게 문의해 주세요.
+      </p>
+      <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+        <a href={`mailto:${site.email}`} class="btn-primary">{site.email}</a>
+        <a href={site.github} target="_blank" rel="noopener noreferrer" class="btn-ghost">GitHub</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta-mist {
+    animation: cta-drift 14s ease-in-out infinite alternate;
+  }
+  .cta-mist-late {
+    animation: cta-drift-late 19s ease-in-out infinite alternate;
+  }
+  @keyframes cta-drift {
+    from {
+      transform: translateX(-6%);
+    }
+    to {
+      transform: translateX(6%);
+    }
+  }
+  @keyframes cta-drift-late {
+    from {
+      transform: translateX(8%);
+    }
+    to {
+      transform: translateX(-8%);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .cta-mist,
+    .cta-mist-late {
+      animation: none;
+    }
+  }
+</style>

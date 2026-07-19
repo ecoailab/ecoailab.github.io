@@ -1,0 +1,20 @@
+---
+interface Props {
+  label: string;
+  title: string;
+  lead?: string;
+}
+
+const { label, title, lead } = Astro.props;
+---
+
+<div class="mb-14 md:mb-20" data-reveal>
+  <p class="mono-label mb-4 !text-azure">// {label}</p>
+  <h2 class="font-display font-semibold tracking-[-0.01em]" style="font-size: clamp(1.75rem, 3vw, 2.5rem)">
+    {title}
+  </h2>
+  {lead && <p class="mt-5 max-w-2xl text-lg leading-relaxed text-mist">{lead}</p>}
+  <div class="relative mt-8 h-px w-full bg-line" aria-hidden="true">
+    <span class="absolute -top-px left-0 h-[3px] w-12 bg-azure"></span>
+  </div>
+</div>

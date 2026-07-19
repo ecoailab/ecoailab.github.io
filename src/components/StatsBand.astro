@@ -1,0 +1,54 @@
+---
+import { stats } from '../data/site';
+---
+
+<section class="border-y border-line bg-ink/60" aria-label="Lab at a glance">
+  <div class="mx-auto grid w-full max-w-6xl grid-cols-2 px-6 md:grid-cols-4 md:px-10">
+    {
+      stats.map((stat) => (
+        <div class="border-line py-10 text-center md:py-14 [&:nth-child(odd)]:border-r md:[&:not(:last-child)]:border-r" data-reveal>
+          <p class="font-display text-4xl font-semibold text-frost md:text-5xl">
+            <span class="stat-value" data-value={stat.value}>0</span>
+            <span class="text-azure">{stat.suffix}</span>
+          </p>
+          <p class="mono-label mt-3">{stat.label}</p>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<script>
+  import { prefersReducedMotion } from '../lib/motion';
+
+  const values = document.querySelectorAll<HTMLElement>('.stat-value');
+  const setFinal = (el: HTMLElement) => {
+    el.textContent = el.dataset.value ?? '0';
+  };
+
+  if (prefersReducedMotion() || !('IntersectionObserver' in window)) {
+    values.forEach(setFinal);
+  } else {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const el = entry.target as HTMLElement;
+          const target = Number(el.dataset.value ?? '0');
+          const duration = 1400;
+          const start = performance.now();
+          const tick = (now: number) => {
+            const p = Math.min(1, (now - start) / duration);
+            const eased = 1 - Math.pow(1 - p, 3);
+            el.textContent = String(Math.round(target * eased));
+            if (p < 1) requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+          io.unobserve(el);
+        });
+      },
+      { threshold: 0.4 },
+    );
+    values.forEach((el) => io.observe(el));
+  }
+</script>

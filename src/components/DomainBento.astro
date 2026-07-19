@@ -1,0 +1,95 @@
+---
+import { domains } from '../data/site';
+
+const icons: Record<string, string> = {
+  factory:
+    '<path d="M3 21V9l6 4V9l6 4V5c0-1.1.9-2 2-2h2c1.1 0 2 .9 2 2v16H3Z"/><path d="M7 17h2M12 17h2M17 17h2"/>',
+  home:
+    '<path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v10h13V10"/><path d="M10 20v-5h4v5"/>',
+  harbor:
+    '<path d="M4 20h16"/><path d="M6 20V9h5V4h2v5h5v11"/><path d="M3 24c1.5-1.2 3-1.2 4.5 0s3 1.2 4.5 0 3-1.2 4.5 0 3 1.2 4.5 0" transform="translate(0 -3)"/>',
+  quantum:
+    '<circle cx="12" cy="12" r="2.2"/><ellipse cx="12" cy="12" rx="9" ry="3.6"/><ellipse cx="12" cy="12" rx="9" ry="3.6" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="3.6" transform="rotate(120 12 12)"/>',
+  battery:
+    '<rect x="3" y="8" width="15" height="9" rx="1.5"/><path d="M21 11v3"/><path d="m11.5 9.5-2.5 3h3l-2.5 3" stroke-linejoin="round"/>',
+  satellite:
+    '<path d="m13 7 4-4 4 4-4 4z"/><path d="m9 11-5.5 5.5L9 22l5.5-5.5"/><path d="m14.5 9.5-5 5"/><path d="M16 16c2.5 2 2.5 4.5 0 6" stroke-linecap="round"/>',
+};
+---
+
+<section class="mx-auto w-full max-w-6xl px-6 py-24 md:px-10 md:py-36" aria-labelledby="domains-heading">
+  <div class="mb-14 md:mb-20" data-reveal>
+    <p class="mono-label mb-4 !text-azure">// RESEARCH_DOMAINS</p>
+    <h2
+      id="domains-heading"
+      class="font-display font-semibold tracking-[-0.01em]"
+      style="font-size: clamp(1.75rem, 3vw, 2.5rem)"
+    >
+      에너지와 AI가 만나는 지점
+    </h2>
+    <div class="relative mt-8 h-px w-full bg-line" aria-hidden="true">
+      <span class="absolute -top-px left-0 h-[3px] w-12 bg-azure"></span>
+    </div>
+  </div>
+
+  <div class="grid grid-flow-dense grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
+    {
+      domains.map((domain, i) => (
+        <article
+          class:list={[
+            'card card-hover group relative overflow-hidden p-7',
+            i === 0 && 'md:col-span-2 md:row-span-2 min-h-[320px]',
+            i === 1 && 'md:col-span-2',
+          ]}
+          data-reveal
+        >
+          {i === 0 && (
+            <div class="absolute inset-0" aria-hidden="true">
+              <img
+                src="/assets/hero/sky-hero.jpg"
+                alt=""
+                class="h-full w-full object-cover opacity-40 transition-transform duration-700 ease-out group-hover:scale-105"
+                loading="lazy"
+                width="960"
+                height="640"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-abyss via-abyss/55 to-abyss/20" />
+            </div>
+          )}
+          <div class="relative flex h-full flex-col">
+            <span
+              class="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-lg border border-line bg-ink/70 text-azure transition-colors duration-200 group-hover:text-sky-glow"
+              aria-hidden="true"
+            >
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" set:html={icons[domain.icon] ?? ''} />
+            </span>
+            <h3 class="font-display text-xl font-semibold text-frost">{domain.title}</h3>
+            <p class="mt-1 font-mono text-xs text-dim">{domain.titleKr}</p>
+            <p class="mt-4 text-sm leading-relaxed text-mist">{domain.description}</p>
+          </div>
+        </article>
+      ))
+    }
+
+    <a
+      href="/research"
+      class="card card-hover group relative flex flex-col justify-between gap-6 overflow-hidden p-7 md:col-span-2"
+      data-reveal
+    >
+      <p class="mono-label">6 Domains · 5 Core Technologies · 25 Projects</p>
+      <div class="flex items-end justify-between gap-4">
+        <p class="font-display text-2xl font-semibold leading-tight text-frost">
+          전체 연구 프로젝트<br />살펴기
+        </p>
+        <span
+          class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-line-strong text-azure transition-all duration-200 group-hover:border-azure group-hover:bg-azure group-hover:text-abyss"
+          aria-hidden="true"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M5 12h14m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </span>
+      </div>
+    </a>
+  </div>
+</section>

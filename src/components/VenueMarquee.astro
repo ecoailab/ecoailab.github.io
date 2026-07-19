@@ -1,0 +1,21 @@
+---
+import { venues } from '../data/site';
+---
+
+<section class="overflow-hidden border-y border-line py-10" aria-label="Publication venues">
+  <p class="mono-label mb-8 text-center">Published in</p>
+  <div class="marquee-mask">
+    <div class="animate-marquee flex w-max items-center gap-14 pr-14 hover:[animation-play-state:paused]">
+      {
+        [...venues, ...venues].map((venue, i) => (
+          <span
+            class="whitespace-nowrap font-display text-2xl font-medium tracking-tight text-dim transition-colors hover:text-mist md:text-3xl"
+            aria-hidden={i >= venues.length}
+          >
+            {venue}
+          </span>
+        ))
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,43 @@
+---
+const text =
+  'EcoAI Lab은 심층강화학습, 양자컴퓨팅, LLM 에이전트, 이상탐지 기술로 스마트팩토리 · 스마트홈 · 항만의 에너지를 최적화하고, 탄소중립 산업의 자율 운전을 실현합니다.';
+const words = text.split(' ');
+---
+
+<section class="mx-auto w-full max-w-6xl px-6 py-24 md:px-10 md:py-36" aria-label="Mission">
+  <p class="max-w-5xl font-display text-2xl font-medium leading-snug text-frost md:text-4xl md:leading-snug">
+    {
+      words.map((word) => (
+        <span class="mword inline-block" style="opacity: 0.12">
+          {word}&nbsp;
+        </span>
+      ))
+    }
+  </p>
+</section>
+
+<script>
+  import { gsap, prefersReducedMotion } from '../lib/motion';
+
+  if (!prefersReducedMotion()) {
+    gsap.fromTo(
+      '.mword',
+      { opacity: 0.12 },
+      {
+        opacity: 1,
+        stagger: 0.06,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '.mword',
+          start: 'top 82%',
+          end: 'bottom 40%',
+          scrub: 0.6,
+        },
+      },
+    );
+  } else {
+    document.querySelectorAll('.mword').forEach((el) => {
+      (el as HTMLElement).style.opacity = '1';
+    });
+  }
+</script>
