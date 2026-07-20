@@ -13,7 +13,12 @@ precision mediump float;
 
 uniform float uTime;
 uniform vec2 uRes;
+uniform vec2 uPointer;
 varying vec2 vUv;
+
+const vec3 BRAND = vec3(0.0, 0.255, 0.576);
+const vec3 AZURE = vec3(0.243, 0.557, 0.871);
+const vec3 SKY_GLOW = vec3(0.62, 0.788, 1.0);
 
 float hash(vec2 p) {
   return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453123);
@@ -59,35 +64,60 @@ float meteor(vec2 suv, float timeSec) {
   return m * fade * active;
 }
 
+vec2 starLayer(vec2 uv, vec2 ptr, vec2 scale, float factor, float threshold,
+               float size, float speed, float bright) {
+  vec2 ouv = uv - ptr * factor;
+  vec2 grid = ouv * scale;
+  vec2 cell = floor(grid);
+  vec2 f = fract(grid) - 0.5;
+  float s = hash(cell + 91.7);
+  float star = step(threshold, s);
+  float tw = 0.35 + 0.65 * abs(sin(uTime * (speed + s * 1.8) + s * 41.0));
+  float shape = smoothstep(size, 0.02, length(f));
+  float glow = star * shape * tw * bright;
+  return vec2(glow, max(glow * 0.85, 0.0));
+}
+
 void main() {
   vec2 suv = vUv * vec2(uRes.x / uRes.y, 1.0);
   vec2 uv = suv * vec2(2.6, 2.6);
+  vec2 ptr = -uPointer;
   float t = uTime * 0.011;
-  float c1 = fbm(uv + vec2(t * 1.3, t * 0.15));
-  float c2 = fbm(uv * 2.1 + vec2(t * 2.1, 0.35) + 3.7);
+
+  vec2 cloudParallax = uPointer * 0.004;
+  float c1 = fbm(uv + vec2(t * 1.3, t * 0.15) + cloudParallax);
+  float c2 = fbm(uv * 2.1 + vec2(t * 2.1, 0.35) + 3.7 + cloudParallax);
   float cloud = smoothstep(0.4, 0.9, c1 * 0.6 + c2 * 0.5);
   float horizon = smoothstep(0.0, 0.9, vUv.y);
-  vec3 deep = vec3(0.016, 0.06, 0.135);
+  vec3 deep = mix(vec3(0.016, 0.06, 0.135), vec3(0.012, 0.04, 0.1), vUv.y);
   vec3 lit = vec3(0.27, 0.5, 0.85);
   vec3 col = mix(deep, lit, cloud);
   float alpha = cloud * (0.2 + 0.12 * horizon);
 
   float band = smoothstep(0.15, 0.5, vUv.y) * smoothstep(1.0, 0.55, vUv.y);
-  float wave = 0.5 + 0.5 * sin(suv.x * 3.2 + uTime * 0.12 + fbm(uv * 1.4) * 2.4);
+  float wave = 0.5 + 0.5 * sin((suv.x + ptr.x * 0.002) * 3.2 + uTime * 0.12 + fbm(uv * 1.4 + ptr * 0.002) * 2.4);
   float aurora = band * wave;
   col += vec3(0.18, 0.42, 0.85) * aurora * 0.1;
   alpha = max(alpha, aurora * 0.07);
 
-  vec2 grid = vUv * uRes / 2.5;
-  vec2 cell = floor(grid);
-  vec2 f = fract(grid) - 0.5;
-  float starSeed = hash(cell + 91.7);
-  float star = step(0.9965, starSeed);
-  float twinkle = 0.35 + 0.65 * abs(sin(uTime * (0.6 + starSeed * 1.8) + starSeed * 41.0));
-  float starShape = smoothstep(0.32, 0.02, length(f));
-  float starGlow = star * starShape * twinkle;
-  col += vec3(0.72, 0.86, 1.0) * starGlow * 0.95;
-  alpha = max(alpha, starGlow * 0.85);
+  vec2 dustUv = (suv + ptr * 0.004 - 0.5) * vec2(1.0, 1.3) + 0.5;
+  float dustBand = smoothstep(0.1, 0.5, vUv.y) * smoothstep(0.95, 0.5, vUv.y);
+  float dustNoise = fbm(dustUv * 2.2 + vec2(t * 0.5, t * 0.25));
+  float dust = dustBand * smoothstep(0.35, 0.65, dustNoise);
+  vec3 dustCol = mix(BRAND, AZURE, dustNoise);
+  dustCol = mix(dustCol, SKY_GLOW, dustNoise * dustNoise);
+  float dustAlpha = dust * 0.06;
+  col += dustCol * dustAlpha;
+  alpha = max(alpha, dustAlpha);
+
+  vec2 far = starLayer(vUv, ptr, uRes / 2.5, 0.006, 0.9965, 0.32, 0.6, 0.45);
+  vec2 mid = starLayer(vUv, ptr, uRes / 4.0, 0.014, 0.993, 0.26, 1.0, 0.7);
+  vec2 near = starLayer(vUv, ptr, uRes / 7.0, 0.028, 0.988, 0.18, 1.8, 1.0);
+  vec3 starCol = vec3(0.62, 0.788, 1.0) * far.x
+               + vec3(0.72, 0.86, 1.0) * mid.x
+               + vec3(0.85, 0.93, 1.0) * near.x;
+  col += starCol;
+  alpha = max(alpha, max(far.y, max(mid.y, near.y)));
 
   float shoot = meteor(suv, uTime);
   col += vec3(0.8, 0.9, 1.0) * shoot * 0.9;
@@ -111,6 +141,7 @@ function compileShader(gl: WebGLRenderingContext, type: number, source: string):
 
 export function initSky(canvas: HTMLCanvasElement): void {
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const finePointer = window.matchMedia('(pointer: fine) and (hover: hover)').matches;
   const gl = canvas.getContext('webgl', {
     alpha: true,
     antialias: false,
@@ -142,6 +173,7 @@ export function initSky(canvas: HTMLCanvasElement): void {
 
   const uTime = gl.getUniformLocation(program, 'uTime');
   const uRes = gl.getUniformLocation(program, 'uRes');
+  const uPointer = gl.getUniformLocation(program, 'uPointer');
 
   gl.clearColor(0, 0, 0, 0);
   gl.enable(gl.BLEND);
@@ -161,20 +193,52 @@ export function initSky(canvas: HTMLCanvasElement): void {
   resize();
   window.addEventListener('resize', resize);
 
+  const target: [number, number] = [0, 0];
+  const current: [number, number] = [0, 0];
+
+  const onPointer = (e: PointerEvent) => {
+    if (e.pointerType !== 'mouse') return;
+    target[0] = (e.clientX / window.innerWidth) * 2 - 1;
+    target[1] = (e.clientY / window.innerHeight) * 2 - 1;
+  };
+  if (finePointer && !reduced) {
+    window.addEventListener('pointermove', onPointer, { passive: true });
+  }
+
+  let driftTime = 0;
+  const autonomousDrift = (dt: number) => {
+    driftTime += dt;
+    current[0] = Math.sin(driftTime * 0.13) * 0.35;
+    current[1] = Math.cos(driftTime * 0.09) * 0.2;
+  };
+
+  const drawFrame = (time: number) => {
+    gl.clear(gl.COLOR_BUFFER_BIT);
+    gl.uniform1f(uTime, time);
+    gl.uniform2f(uPointer, current[0], current[1]);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+  };
+
   let raf = 0;
   const start = performance.now();
+  let prev = start;
   const frame = () => {
-    const t = (performance.now() - start) / 1000;
-    gl.clear(gl.COLOR_BUFFER_BIT);
-    gl.uniform1f(uTime, t);
-    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    const now = performance.now();
+    const dt = (now - prev) / 1000;
+    prev = now;
+    if (finePointer) {
+      current[0] += (target[0] - current[0]) * 0.08;
+      current[1] += (target[1] - current[1]) * 0.08;
+    } else {
+      autonomousDrift(dt);
+    }
+    drawFrame((now - start) / 1000);
     raf = requestAnimationFrame(frame);
   };
 
   if (reduced) {
-    gl.clear(gl.COLOR_BUFFER_BIT);
-    gl.uniform1f(uTime, 50);
-    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    gl.uniform2f(uPointer, 0, 0);
+    drawFrame(50);
   } else {
     frame();
   }
@@ -182,5 +246,6 @@ export function initSky(canvas: HTMLCanvasElement): void {
   document.addEventListener('astro:before-swap', () => {
     cancelAnimationFrame(raf);
     window.removeEventListener('resize', resize);
+    window.removeEventListener('pointermove', onPointer);
   }, { once: true });
 }
