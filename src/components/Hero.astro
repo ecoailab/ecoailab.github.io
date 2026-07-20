@@ -20,6 +20,14 @@ import { site } from '../data/site';
   >
   </div>
 
+  <p
+    class="pointer-events-none absolute left-1/2 top-[31.5%] z-10 -translate-x-1/2 whitespace-nowrap font-display font-semibold tracking-[-0.01em] text-frost opacity-0"
+    style="font-size: clamp(1.75rem, 3.4vw, 2.75rem)"
+    data-hero="wordmark"
+  >
+    EcoAI <span class="text-gradient-azure">Lab</span>
+  </p>
+
   <div class="relative z-10 mx-auto max-w-6xl px-6 text-center">
     <p class="hero-badge mb-7 inline-flex items-center gap-2.5 opacity-0" data-hero="badge">
       <span class="relative flex h-2 w-2" aria-hidden="true">
@@ -41,7 +49,7 @@ import { site } from '../data/site';
     </h1>
     <p class="mx-auto mt-7 max-w-2xl text-lg leading-relaxed text-mist opacity-0" data-hero="sub">
       양자AI · 심층강화학습 · LLM 에이전트로<br class="md:hidden" />
-      탄소중립 에너지의 미래를 설계하는 EcoAI Lab
+      탄소중립 에너지의 미래를 설계하는 <span class="whitespace-nowrap">EcoAI Lab</span>
     </p>
     <div class="mt-10 flex flex-wrap items-center justify-center gap-4 opacity-0" data-hero="cta">
       <a href="/research" class="btn-primary">Explore Research</a>
@@ -96,7 +104,8 @@ import { site } from '../data/site';
       )
       .to('[data-hero="sub"]', { opacity: 1, duration: 0.9 }, 1.15)
       .to('[data-hero="cta"]', { opacity: 1, duration: 0.9 }, 1.35)
-      .to('[data-hero="scroll"]', { opacity: 1, duration: 0.8 }, 1.7);
+      .to('[data-hero="scroll"]', { opacity: 1, duration: 0.8 }, 1.7)
+      .to('[data-hero="wordmark"]', { opacity: 1, duration: 1.2 }, 1.9);
   } else {
     document.querySelectorAll('[data-hero]').forEach((el) => {
       (el as HTMLElement).style.opacity = '1';
