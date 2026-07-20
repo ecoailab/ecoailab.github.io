@@ -11,9 +11,9 @@
 
 ## 1. Atmosphere & Identity
 
-A night observatory for energy intelligence. Deep near-black blue canvas, hairline ruled grids, and one living signature: **a particle field that assembles into the lab's wing mark and dissolves back into an energy stream** ("Eyes on the sky" made literal). The cobalt of the logo (#004193) is identity; its lit azure ramp (#3E8EDE → #9EC9FF) is energy in motion. Everything else is near-monochrome blue-gray. The site feels like a research instrument — precise, quiet, alive — not a SaaS landing page.
+A night observatory for energy intelligence. Deep near-black blue canvas, hairline ruled grids, and two living signatures: **a particle field that assembles into the lab's wing mark and dissolves back into an energy stream** ("Eyes on the sky" made literal), and **a full-page cosmic sky** that sits behind the entire page as a quiet, deep-space atmosphere. The cobalt of the logo (#004193) is identity; its lit azure ramp (#3E8EDE → #9EC9FF) is energy in motion. Everything else is near-monochrome blue-gray. The site feels like a research instrument — precise, quiet, alive — not a SaaS landing page.
 
-Signature moment: the WebGL hero where ~14,000 GPU particles gather from noise into the wing-"E" logo, react to the pointer, then scatter as the page scrolls — the mark literally made of energy.
+Signature moments: the WebGL hero where ~14,000 GPU particles gather from noise into the wing-"E" logo, react to the pointer, then scatter as the page scrolls — the mark literally made of energy; and the layered cosmic sky that drifts with the pointer, giving the whole page a single, shared depth without competing with the content above it.
 
 ## 2. Color
 
@@ -133,6 +133,18 @@ Base unit 4px. Section rhythm is cinematic: `py-24 md:py-36` between major secti
 2. **Scrubbing manifesto**: research mission paragraph, word opacity 0.12 → 1.0 sequentially on scroll.
 3. **Pinned research map**: section title pins left while project cards scroll right; each card fades/scales 0.94 → 1.0 on entry.
 4. **View Transitions** (Astro ClientRouter): cross-page fade+rise, shared element on nav pill.
+
+### Cosmic sky backdrop
+A single, full-page WebGL sky sits behind the entire page as the lab's signature atmosphere. It is depth-mapped into three star layers and one slow cloud/aurora band. The sky is **not** the hero particle logo; it is a separate, persistent backdrop that covers the whole route.
+
+- **Star depth layers:** far, mid, near. Each layer moves opposite to the pointer with fixed parallax factors: far `0.006`, mid `0.014`, near `0.028`.
+- **Cloud/aurora band:** subtle cobalt-to-azure cosmic dust and nebula drifting across the upper/middle band. Parallax capped at no more than `0.004` for the cloud layer and no more than `0.002` for the aurora layer so it never overwhelms the text above.
+- **Colors:** locked to the existing palette. Stars and dust use `--color-brand`, `--color-azure`, `--color-sky-glow`, and `--color-abyss` only. No new tokens are added.
+- **Readability guard:** nebula alpha contribution is capped at `0.06` maximum so the backdrop never reduces text contrast.
+- **Motion response:** mouse-driven parallax is smoothed with frame damping around `0.08` (lerp per frame). On coarse-pointer or `hover: none` devices, the sky switches to automatic low-amplitude drift; no touch tracking or pointer listener is registered.
+- **Reduced motion:** when `prefers-reduced-motion` matches, the sky renders one static frame and stops. No pointer listener, no `requestAnimationFrame`, no drift.
+- **Lifecycle:** the pointer listener and `requestAnimationFrame` loop are created when the page becomes active and torn down on `astro:before-swap` only to prevent leaks and duplicate loops.
+
 - Lenis smooth scroll globally, disabled with `prefers-reduced-motion`.
 - Only `transform`/`opacity`/`filter` animate. `will-change` only during active tweens.
 
